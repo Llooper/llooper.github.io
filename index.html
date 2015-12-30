@@ -32,7 +32,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D200/sign=7b53e31a0bf3d7ca13f63876c21fbe3c/a2cc7cd98d1001e9da70b02bbf0e7bec54e79742.jpg" class="js-avatar">
+			<img lazy-src="/resources/blog_avatar.jpg" class="js-avatar">
 			
 		</a>
 
@@ -96,15 +96,9 @@
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="https://github.com/llooper" title="github">github</a>
+								<a class="github" target="_blank" href="https://github.com/llooper/" title="github">github</a>
 					        
-								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
-					        
-								<a class="mail" target="_blank" href="/renhongli.flint@gmail.com" title="mail">mail</a>
-					        
-								<a class="google" target="_blank" href="http://www.google.com.hk" title="google">google</a>
+								<a class="google" target="_blank" href="http://www.google.com.hk/" title="google">google</a>
 					        
 						</div>
 					</nav>
@@ -143,7 +137,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 			
-				<img lazy-src="https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D200/sign=7b53e31a0bf3d7ca13f63876c21fbe3c/a2cc7cd98d1001e9da70b02bbf0e7bec54e79742.jpg" class="js-avatar">
+				<img lazy-src="/resources/blog_avatar.jpg" class="js-avatar">
 			
 			</div>
 			<hgroup>
@@ -167,15 +161,9 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/llooper" title="github">github</a>
+						<a class="github" target="_blank" href="https://github.com/llooper/" title="github">github</a>
 			        
-						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
-			        
-						<a class="mail" target="_blank" href="/renhongli.flint@gmail.com" title="mail">mail</a>
-			        
-						<a class="google" target="_blank" href="http://www.google.com.hk" title="google">google</a>
+						<a class="google" target="_blank" href="http://www.google.com.hk/" title="google">google</a>
 			        
 				</div>
 			</nav>
@@ -218,8 +206,8 @@
 <p>SoundPool —— 适合短促且对反应速度比较高的情况（游戏音效或按键声等）。</p>
 <p>MediaPlayer —— 适合比较长且对时间要求不高的情况。   </p>
 </blockquote>
-<pre><code>方案：针对SoundPool与MediaPlayer进行比较，由于旋钮操作较为短促，本次开发采用SoundPool进行。
-</code></pre><p>车载盒子AOSP中封装了输入事件，代码位置:</p>
+<p>方案：针对SoundPool与MediaPlayer进行比较，由于旋钮操作较为短促，本次开发采用SoundPool进行。</p>
+<p>车载盒子AOSP中封装了输入事件，代码位置:</p>
 <p><code>/framework/base/services/java/com/android/server/CarInputHub.java</code></p>
 <p>注意：需在CarInputHub初始化时便对SoundPool进行load，不然play声音时会报 no ready错误并且没有声音。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">CarInputHub</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(context.getMainLooper());</span><br><span class="line">    mContext = context;</span><br><span class="line"></span><br><span class="line">	mSoundPool = <span class="keyword">new</span> SoundPool(NUM_SOUNDPOOL_CHANNELS, AudioManager.STREAM_MUSIC, <span class="number">0</span>);</span><br><span class="line">	String filePath = <span class="string">"/system/media/audio/ui/suibian.ogg"</span>;</span><br><span class="line">	sampleId = mSoundPool.load(filePath, <span class="number">1</span>);</span><br><span class="line">	Log.i(TAG, <span class="string">"SoundPool init"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
