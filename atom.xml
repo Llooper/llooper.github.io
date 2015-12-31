@@ -3,9 +3,9 @@
   <title><![CDATA[Llooper's Blog]]></title>
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
+  <link href="llooper.space/"/>
   <updated>2015-12-31T17:11:23.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>llooper.space/</id>
   
   <author>
     <name><![CDATA[Llooper]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[2016]]></title>
-    <link href="http://yoursite.com/2016/01/01/2016/"/>
-    <id>http://yoursite.com/2016/01/01/2016/</id>
+    <link href="llooper.space/2016/01/01/2016/"/>
+    <id>llooper.space/2016/01/01/2016/</id>
     <published>2015-12-31T16:55:11.000Z</published>
     <updated>2015-12-31T17:11:23.000Z</updated>
     <content type="html"><![CDATA[<p>2016的第一篇blog。</p>
@@ -31,16 +31,16 @@
     
     </summary>
     
-      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="llooper.space/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="llooper.space/categories/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[《带上她的眼睛》]]></title>
-    <link href="http://yoursite.com/2015/12/31/%E5%B8%A6%E4%B8%8A%E5%A5%B9%E7%9A%84%E7%9C%BC%E7%9D%9B/"/>
-    <id>http://yoursite.com/2015/12/31/带上她的眼睛/</id>
+    <link href="llooper.space/2015/12/31/%E5%B8%A6%E4%B8%8A%E5%A5%B9%E7%9A%84%E7%9C%BC%E7%9D%9B/"/>
+    <id>llooper.space/2015/12/31/带上她的眼睛/</id>
     <published>2015-12-31T09:11:09.000Z</published>
     <updated>2015-12-31T09:30:16.000Z</updated>
     <content type="html"><![CDATA[<p>一直对大刘怀有崇高的敬意，从三体开始。近来闲着没事，便索引其相关文章，对《带上她的眼睛》尤为喜欢,便敲下来留个念想。</p>
@@ -62,16 +62,16 @@
     
     </summary>
     
-      <category term="book" scheme="http://yoursite.com/tags/book/"/>
+      <category term="book" scheme="llooper.space/tags/book/"/>
     
-      <category term="杂书" scheme="http://yoursite.com/categories/%E6%9D%82%E4%B9%A6/"/>
+      <category term="杂书" scheme="llooper.space/categories/%E6%9D%82%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Ubuntu亮度设置]]></title>
-    <link href="http://yoursite.com/2015/12/31/ubuntu-brightness-control/"/>
-    <id>http://yoursite.com/2015/12/31/ubuntu-brightness-control/</id>
+    <link href="llooper.space/2015/12/31/ubuntu-brightness-control/"/>
+    <id>llooper.space/2015/12/31/ubuntu-brightness-control/</id>
     <published>2015-12-31T08:55:56.000Z</published>
     <updated>2015-12-31T09:31:27.000Z</updated>
     <content type="html"><![CDATA[<p>pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。</p>
@@ -87,18 +87,18 @@
     
     </summary>
     
-      <category term="brightness" scheme="http://yoursite.com/tags/brightness/"/>
+      <category term="brightness" scheme="llooper.space/tags/brightness/"/>
     
-      <category term="ubuntu" scheme="http://yoursite.com/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="llooper.space/tags/ubuntu/"/>
     
-      <category term="Ubuntu" scheme="http://yoursite.com/categories/Ubuntu/"/>
+      <category term="Ubuntu" scheme="llooper.space/categories/Ubuntu/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android系统源码集成第三方APP并编译到system.img中]]></title>
-    <link href="http://yoursite.com/2015/12/31/Android-frameworks-add-default-apps/"/>
-    <id>http://yoursite.com/2015/12/31/Android-frameworks-add-default-apps/</id>
+    <link href="llooper.space/2015/12/31/Android-frameworks-add-default-apps/"/>
+    <id>llooper.space/2015/12/31/Android-frameworks-add-default-apps/</id>
     <published>2015-12-31T06:13:55.000Z</published>
     <updated>2015-12-31T08:56:43.000Z</updated>
     <content type="html"><![CDATA[<p>预制APP到Android系统，成为系统默认APPS。<br><a id="more"></a></p>
@@ -154,20 +154,20 @@
     
     </summary>
     
-      <category term="AOSP" scheme="http://yoursite.com/tags/AOSP/"/>
+      <category term="AOSP" scheme="llooper.space/tags/AOSP/"/>
     
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+      <category term="Android" scheme="llooper.space/tags/Android/"/>
     
-      <category term="frameworks" scheme="http://yoursite.com/tags/frameworks/"/>
+      <category term="frameworks" scheme="llooper.space/tags/frameworks/"/>
     
-      <category term="AOSP" scheme="http://yoursite.com/categories/AOSP/"/>
+      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[为Android物理按键添加类似touch sound一样的声音]]></title>
-    <link href="http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/"/>
-    <id>http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/</id>
+    <link href="llooper.space/2015/12/31/Android-frameworks-SoundPool/"/>
+    <id>llooper.space/2015/12/31/Android-frameworks-SoundPool/</id>
     <published>2015-12-31T02:17:46.000Z</published>
     <updated>2015-12-31T08:57:09.000Z</updated>
     <content type="html"><![CDATA[<p>给Android物理按键添加操作声音 </p>
@@ -191,20 +191,20 @@
     
     </summary>
     
-      <category term="AOSP" scheme="http://yoursite.com/tags/AOSP/"/>
+      <category term="AOSP" scheme="llooper.space/tags/AOSP/"/>
     
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+      <category term="Android" scheme="llooper.space/tags/Android/"/>
     
-      <category term="frameworks" scheme="http://yoursite.com/tags/frameworks/"/>
+      <category term="frameworks" scheme="llooper.space/tags/frameworks/"/>
     
-      <category term="AOSP" scheme="http://yoursite.com/categories/AOSP/"/>
+      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[通过修改Android frameworks层源码设置默认字体]]></title>
-    <link href="http://yoursite.com/2015/12/31/Android-frameworks-fonts/"/>
-    <id>http://yoursite.com/2015/12/31/Android-frameworks-fonts/</id>
+    <link href="llooper.space/2015/12/31/Android-frameworks-fonts/"/>
+    <id>llooper.space/2015/12/31/Android-frameworks-fonts/</id>
     <published>2015-12-31T02:13:42.000Z</published>
     <updated>2015-12-31T08:56:54.000Z</updated>
     <content type="html"><![CDATA[<p>修改Android源码添加并定制字体为默认字体。</p>
@@ -237,20 +237,20 @@
     
     </summary>
     
-      <category term="AOSP" scheme="http://yoursite.com/tags/AOSP/"/>
+      <category term="AOSP" scheme="llooper.space/tags/AOSP/"/>
     
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+      <category term="Android" scheme="llooper.space/tags/Android/"/>
     
-      <category term="frameworks" scheme="http://yoursite.com/tags/frameworks/"/>
+      <category term="frameworks" scheme="llooper.space/tags/frameworks/"/>
     
-      <category term="AOSP" scheme="http://yoursite.com/categories/AOSP/"/>
+      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Hello World]]></title>
-    <link href="http://yoursite.com/2015/12/30/hello-world/"/>
-    <id>http://yoursite.com/2015/12/30/hello-world/</id>
+    <link href="llooper.space/2015/12/30/hello-world/"/>
+    <id>llooper.space/2015/12/30/hello-world/</id>
     <published>2015-12-30T02:13:42.000Z</published>
     <updated>2015-12-31T05:46:19.000Z</updated>
     <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>

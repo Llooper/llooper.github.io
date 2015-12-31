@@ -2,49 +2,49 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://yoursite.com/tags/Android/</loc>
+        <loc>llooper.space/tags/Android/</loc>
         <lastmod>2015-12-31T08:57:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/AOSP/</loc>
+        <loc>llooper.space/tags/AOSP/</loc>
         <lastmod>2015-12-31T08:57:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/frameworks/</loc>
+        <loc>llooper.space/tags/frameworks/</loc>
         <lastmod>2015-12-31T08:57:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/book/</loc>
+        <loc>llooper.space/tags/book/</loc>
         <lastmod>2015-12-31T09:30:16.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/ubuntu/</loc>
+        <loc>llooper.space/tags/ubuntu/</loc>
         <lastmod>2015-12-31T09:31:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/brightness/</loc>
+        <loc>llooper.space/tags/brightness/</loc>
         <lastmod>2015-12-31T09:31:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/</loc>
+        <loc>llooper.space/tags/%E9%9A%8F%E7%AC%94/</loc>
         <lastmod>2015-12-31T17:11:23.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
