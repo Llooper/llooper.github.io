@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>为Android物理按键添加类似touch sound一样的声音 | Llooper&#39;s Blog</title>
+  <title>ubuntu亮度设置 | Llooper&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="给Android物理按键添加操作声音">
+  <meta name="description" content="pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="为Android物理按键添加类似touch sound一样的声音">
-<meta property="og:url" content="http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/index.html">
+<meta property="og:title" content="ubuntu亮度设置">
+<meta property="og:url" content="http://yoursite.com/2015/12/31/ubuntu-brightness-control/index.html">
 <meta property="og:site_name" content="Llooper's Blog">
-<meta property="og:description" content="给Android物理按键添加操作声音">
-<meta property="og:updated_time" content="2015-12-31T08:57:09.000Z">
+<meta property="og:description" content="pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。">
+<meta property="og:updated_time" content="2015-12-31T09:03:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="为Android物理按键添加类似touch sound一样的声音">
-<meta name="twitter:description" content="给Android物理按键添加操作声音">
+<meta name="twitter:title" content="ubuntu亮度设置">
+<meta name="twitter:description" content="pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。">
   
     <link rel="alternative" href="/atom.xml" title="Llooper&#39;s Blog" type="application/atom+xml">
   
@@ -144,11 +144,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Android-frameworks-SoundPool" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ubuntu-brightness-control" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/31/Android-frameworks-SoundPool/" class="article-date">
-      <time datetime="2015-12-31T02:17:46.000Z" itemprop="datePublished">2015-12-31</time>
+      <a href="/2015/12/31/ubuntu-brightness-control/" class="article-date">
+      <time datetime="2015-12-31T08:55:56.000Z" itemprop="datePublished">2015-12-31</time>
 </a>
     </div>
   
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      为Android物理按键添加类似touch sound一样的声音
+      ubuntu亮度设置
     </h1>
   
 
@@ -170,13 +170,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/AOSP/">AOSP</a>
+    <a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOSP/">AOSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frameworks/">frameworks</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/brightness/">brightness</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -186,21 +186,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>给Android物理按键添加操作声音 </p>
-<a id="more"></a>   
-<p>目标：通过修改系统源码给物理旋钮添加操作提示音<br>实现：参照View的touch声音，在最底层的InputFilter接收输入事件，播放声音</p>
-<blockquote>
-<p>Android声音播放有俩种方式<code>MediaPlayer</code>跟<code>SoundPool</code>。</p>
-<p>SoundPool —— 适合短促且对反应速度比较高的情况（游戏音效或按键声等）。</p>
-<p>MediaPlayer —— 适合比较长且对时间要求不高的情况。   </p>
-</blockquote>
-<p>方案：针对SoundPool与MediaPlayer进行比较，由于旋钮操作较为短促，本次开发采用SoundPool进行。</p>
-<p>车载盒子AOSP中封装了输入事件，代码位置:</p>
-<p><code>/framework/base/services/java/com/android/server/CarInputHub.java</code></p>
-<p>注意：需在CarInputHub初始化时便对SoundPool进行load，不然play声音时会报 no ready错误并且没有声音。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">CarInputHub</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(context.getMainLooper());</span><br><span class="line">    mContext = context;</span><br><span class="line"></span><br><span class="line">	mSoundPool = <span class="keyword">new</span> SoundPool(NUM_SOUNDPOOL_CHANNELS, AudioManager.STREAM_MUSIC, <span class="number">0</span>);</span><br><span class="line">	String filePath = <span class="string">"/system/media/audio/ui/suibian.ogg"</span>;</span><br><span class="line">	sampleId = mSoundPool.load(filePath, <span class="number">1</span>);</span><br><span class="line">	Log.i(TAG, <span class="string">"SoundPool init"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后在点击处理点击事件的函数中进行play即可   </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInputEvent</span><span class="params">(InputEvent inputEvent, <span class="keyword">int</span> policyFlags)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(inputEvent <span class="keyword">instanceof</span> KeyEvent)&#123;</span><br><span class="line">		KeyEvent event = (KeyEvent) inputEvent;</span><br><span class="line">		<span class="keyword">if</span>(event.getAction()==KeyEvent.ACTION_UP)&#123;</span><br><span class="line">			    playClickSound();</span><br><span class="line">		&#125;</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">playClickSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mSoundPool.play(sampleId, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1.0f</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。</p>
+<a id="more"></a>
+<h3 id="Ubuntu_u4EAE_u5EA6_u8C03_u8282"><a href="#Ubuntu_u4EAE_u5EA6_u8C03_u8282" class="headerlink" title="Ubuntu亮度调节"></a>Ubuntu亮度调节</h3><h4 id="u4EAE_u5EA6_u65E0_u6CD5_u8C03_u8282_u7684_u539F_u56E0"><a href="#u4EAE_u5EA6_u65E0_u6CD5_u8C03_u8282_u7684_u539F_u56E0" class="headerlink" title="亮度无法调节的原因"></a>亮度无法调节的原因</h4><p> 每次重装ubuntu时都因为显示比较亮，很刺眼的问题纠结。去查找了一下相关资料，发现：<br><code>NVIDIA GEFORCE</code>独立显卡没有为Linux系统开发显卡驱动，导致无法使用Fn或者直接在图形界面中调节亮度。<br>Linux大神还曾经因为这个吐槽过NVIDIA公司的，想要八卦的自行去看吧。</p>
+<h4 id="u8C03_u8282_u65B9_u6CD5"><a href="#u8C03_u8282_u65B9_u6CD5" class="headerlink" title="调节方法"></a>调节方法</h4><p> 修改亮度存储文件<code>brightness</code>的亮度参数。网上说里边的参数是百分比，亲测实际不是，一打开时显示900多的。<br>brightness文件位置如下：<code>/sys/class/backlight/intel_backlight</code> 中，cd到该目录下ls一下就可以看到brightness文件了。<br>直接<code>sudo vim brightness</code>然后将参数修改为个人比较习惯的亮度就ok，本人比较习惯100-150的。</p>
+<h4 id="u4FEE_u6539_u914D_u7F6E_u6587_u4EF6"><a href="#u4FEE_u6539_u914D_u7F6E_u6587_u4EF6" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p> 上面所说的修改只能保证当前使用时的状态，重启后又会变回很刺眼的情况，即birghtness中的数据又恢复为初始值。<br>要使得不用每次都很麻烦的去修改之中的数据，想到了修改系统启动配置文件<code>rc.local</code>。<br><code>rc.local</code>为系统启动之后会执行的文件，初始化一些脚本，我们只需往其中添加我们需要开机启动的执行脚本就可以了。<br>操作如下： <code>sudo vim /etc/rc.local</code><br>打开<code>rc.loca</code>l后，在<code>exit 0</code>之前添加一句脚本，将亮度数据写入birghtness文件即可，如下：<br><code>echo 150 &gt; /sys/class/backlight/intel_backlight/brightness</code></p>
+<p>配置自己想要的ubuntu亮度操作基本完成了。</p>
+<h4 id="u5199_u5728_u6700_u540E"><a href="#u5199_u5728_u6700_u540E" class="headerlink" title="写在最后"></a>写在最后</h4><p>以上方法在开机时候就直接写入了亮度值，值已固定，是无法通过键盘去进行调节。（并没有解决驱动方面的问题）</p>
 
       
     </div>
@@ -209,13 +201,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/12/31/Android-frameworks-SoundPool/">为Android物理按键添加类似touch sound一样的声音</a></p>
+        <p><span>本文标题:</span><a href="/2015/12/31/ubuntu-brightness-control/">ubuntu亮度设置</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Llooper 的个人博客">Llooper</a></p>
-        <p><span>发布时间:</span>2015年12月31日 - 10时17分</p>
-        <p><span>最后更新:</span>2015年12月31日 - 16时57分</p>
+        <p><span>发布时间:</span>2015年12月31日 - 16时55分</p>
+        <p><span>最后更新:</span>2015年12月31日 - 17时03分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/12/31/Android-frameworks-SoundPool/" title="为Android物理按键添加类似touch sound一样的声音">http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/　　作者: Llooper" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/12/31/ubuntu-brightness-control/" title="ubuntu亮度设置">http://yoursite.com/2015/12/31/ubuntu-brightness-control/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/12/31/ubuntu-brightness-control/　　作者: Llooper" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -229,15 +221,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/12/31/Android-frameworks-add-default-apps/">
-                    Android系统源码集成第三方APP并编译到system.img中
+                <a href="/2015/12/31/带上她的眼睛/">
+                    带上她的眼睛
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/12/31/Android-frameworks-fonts/">
-                    通过修改Android frameworks层源码设置默认字体
+                <a href="/2015/12/31/Android-frameworks-add-default-apps/">
+                    Android系统源码集成第三方APP并编译到system.img中
                 </a>
             </div>
         
@@ -248,7 +240,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu_u4EAE_u5EA6_u8C03_u8282"><span class="toc-number">1.</span> <span class="toc-text">Ubuntu亮度调节</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u4EAE_u5EA6_u65E0_u6CD5_u8C03_u8282_u7684_u539F_u56E0"><span class="toc-number">1.1.</span> <span class="toc-text">亮度无法调节的原因</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u8C03_u8282_u65B9_u6CD5"><span class="toc-number">1.2.</span> <span class="toc-text">调节方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u4FEE_u6539_u914D_u7F6E_u6587_u4EF6"><span class="toc-number">1.3.</span> <span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5199_u5728_u6700_u540E"><span class="toc-number">1.4.</span> <span class="toc-text">写在最后</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -295,7 +287,7 @@
 
     <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/12/31/Android-frameworks-SoundPool/" data-title="为Android物理按键添加类似touch sound一样的声音" data-url="http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/"></div>
+    <div class="ds-thread" data-thread-key="2015/12/31/ubuntu-brightness-control/" data-title="ubuntu亮度设置" data-url="http://yoursite.com/2015/12/31/ubuntu-brightness-control/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -320,7 +312,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/12/31/Android-frameworks-add-default-apps/" title="上一篇: Android系统源码集成第三方APP并编译到system.img中">
+            <a href="/2015/12/31/带上她的眼睛/" title="上一篇: 带上她的眼睛">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -328,7 +320,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/12/31/Android-frameworks-fonts/" title="下一篇: 通过修改Android frameworks层源码设置默认字体">
+            <a href="/2015/12/31/Android-frameworks-add-default-apps/" title="下一篇: Android系统源码集成第三方APP并编译到system.img中">
                 <i class="fa fa-angle-right"></i>
             </a>
         

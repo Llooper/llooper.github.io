@@ -4,8 +4,74 @@
 
     
   <url>
+    <loc>http://yoursite.com/2015/12/31/%E5%B8%A6%E4%B8%8A%E5%A5%B9%E7%9A%84%E7%9C%BC%E7%9D%9B/</loc>
+    <lastmod>2015-12-31T09:13:38.000Z</lastmod>
+    <data>
+        <display>
+        <title>带上她的眼睛</title>
+        <pubTime>2015-12-31T09:11:09.000Z</pubTime>
+        
+        <tag>book</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂书" url="http://yoursite.com/categories/%E6%9D%82%E4%B9%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2015/12/31/ubuntu-brightness-control/</loc>
+    <lastmod>2015-12-31T09:03:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>ubuntu亮度设置</title>
+        <pubTime>2015-12-31T08:55:56.000Z</pubTime>
+        
+        <tag>brightness</tag>
+         
+        <tag>ubuntu</tag>
+         
+         
+           
+             
+              <breadCrumb title="Ubuntu" url="http://yoursite.com/categories/Ubuntu/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/</loc>
+    <lastmod>2015-12-31T08:57:09.000Z</lastmod>
+    <data>
+        <display>
+        <title>为Android物理按键添加类似touch sound一样的声音</title>
+        <pubTime>2015-12-31T02:17:46.000Z</pubTime>
+        
+        <tag>AOSP</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>frameworks</tag>
+         
+         
+           
+             
+              <breadCrumb title="AOSP" url="http://yoursite.com/categories/AOSP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2015/12/31/Android-frameworks-fonts/</loc>
-    <lastmod>2015-12-31T08:43:34.000Z</lastmod>
+    <lastmod>2015-12-31T08:56:54.000Z</lastmod>
     <data>
         <display>
         <title>通过修改Android frameworks层源码设置默认字体</title>
@@ -29,35 +95,11 @@
     
   <url>
     <loc>http://yoursite.com/2015/12/31/Android-frameworks-add-default-apps/</loc>
-    <lastmod>2015-12-31T08:39:18.000Z</lastmod>
+    <lastmod>2015-12-31T08:56:43.000Z</lastmod>
     <data>
         <display>
         <title>Android系统源码集成第三方APP并编译到system.img中</title>
         <pubTime>2015-12-31T06:13:55.000Z</pubTime>
-        
-        <tag>AOSP</tag>
-         
-        <tag>Android</tag>
-         
-        <tag>frameworks</tag>
-         
-         
-           
-             
-              <breadCrumb title="AOSP" url="http://yoursite.com/categories/AOSP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/</loc>
-    <lastmod>2015-12-31T08:36:31.000Z</lastmod>
-    <data>
-        <display>
-        <title>为Android物理按键添加类似touch sound一样的声音</title>
-        <pubTime>2015-12-31T02:17:46.000Z</pubTime>
         
         <tag>AOSP</tag>
          
