@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-12-31T02:50:47.000Z</updated>
+  <updated>2015-12-31T08:39:18.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,12 +15,82 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Android-frameworks-SoundPool]]></title>
+    <title><![CDATA[Android系统源码集成第三方APP并编译到system.img中]]></title>
+    <link href="http://yoursite.com/2015/12/31/Android-frameworks-add-default-apps/"/>
+    <id>http://yoursite.com/2015/12/31/Android-frameworks-add-default-apps/</id>
+    <published>2015-12-31T06:13:55.000Z</published>
+    <updated>2015-12-31T08:39:18.000Z</updated>
+    <content type="html"><![CDATA[<p>预制APP到Android系统，成为系统默认APPS。<br><a id="more"></a></p>
+<h3 id="u6982_u8BBA"><a href="#u6982_u8BBA" class="headerlink" title="概论"></a>概论</h3><p>将第三方厂商定制的APP编译进系统源码，随着system.img的烧录进设备。定制的APP分为以下几种形式添加到系统中：   </p>
+<ul>
+<li>带源码</li>
+<li>apk文件</li>
+<li>apk文件依赖so库</li>
+</ul>
+<h3 id="u5E26_u6E90_u7801_u7684APP_u7F16_u8BD1_u5230_u7CFB_u7EDF"><a href="#u5E26_u6E90_u7801_u7684APP_u7F16_u8BD1_u5230_u7CFB_u7EDF" class="headerlink" title="带源码的APP编译到系统"></a>带源码的APP编译到系统</h3><p>1) 在packages/apps/ 下创建一个新的项目，以HelloWorld为例；<br>2）参照apps下的其他项目目录结构，创建src、res以及编写Android.mk文件；<br>3）将你的资源文件以及源码copy到对应位置；<br>4）编写Android.mk文件；   </p>
+<blockquote>
+<p>Android.mk是Android提供的一种makefile文件，用来指定诸如编译生成so库名、引用的头文件目录、需要编译的.c/.cpp文件和.a静态库文件等。之后会有另外篇章对Android.mk进行详解，在此就不多做解释。</p>
+</blockquote>
+<p>给出一个简单的Android.mk示例，参照自行修改成适合项目的。</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">LOCAL_PATH</span>:= <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"><span class="constant">LOCAL_MODULE_TAGS</span> := optional</span><br><span class="line"><span class="constant">LOCAL_SRC_FILES</span> := <span class="variable">$(call all-java-files-under, src)</span> \</span><br><span class="line"><span class="constant">LOCAL_PACKAGE_NAME</span> := HelloWorld</span><br><span class="line"><span class="constant">LOCAL_JAVA_LIBRARIES</span> := telephony-common</span><br><span class="line">include $(BUILD_PACKAGE)</span><br></pre></td></tr></table></figure>
+<h3 id="u65E0_u6E90_u7801_u7684APK_u6587_u4EF6_u7F16_u8BD1_u5230_u7CFB_u7EDF"><a href="#u65E0_u6E90_u7801_u7684APK_u6587_u4EF6_u7F16_u8BD1_u5230_u7CFB_u7EDF" class="headerlink" title="无源码的APK文件编译到系统"></a>无源码的APK文件编译到系统</h3><p>1) 在packages/apps/ 下创建一个新的项目，以HelloWorld为例；<br>2） 将apk文件copy到新建目录下，并创建android.mk文件；<br>3） 编写Android.mk文件。<br>示例如下：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">LOCAL_PATH</span> := <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"><span class="comment"># Module name should match apk name to be installed</span></span><br><span class="line"><span class="constant">LOCAL_MODULE</span> := HelloWorld</span><br><span class="line"><span class="constant">LOCAL_MODULE_TAGS</span> := optional</span><br><span class="line"><span class="constant">LOCAL_SRC_FILES</span> := <span class="variable">$(LOCAL_MODULE)</span>.apk</span><br><span class="line"><span class="constant">LOCAL_MODULE_CLASS</span> := APPS</span><br><span class="line"><span class="constant">LOCAL_MODULE_SUFFIX</span> := <span class="variable">$(COMMON_ANDROID_PACKAGE_SUFFIX)</span></span><br><span class="line"><span class="constant">LOCAL_CERTIFICATE</span> := PRESIGNED</span><br><span class="line">include $(BUILD_PREBUILT)</span><br></pre></td></tr></table></figure>
+<p><strong>这里有一点需要注意的，<code>LOCAL_MODULE</code>的值必须与apk的名字一致。</strong></p>
+<h3 id="app_u9700_u8981_u4F9D_u8D56_u7B2C_u4E09_u65B9so_u5E93"><a href="#app_u9700_u8981_u4F9D_u8D56_u7B2C_u4E09_u65B9so_u5E93" class="headerlink" title="app需要依赖第三方so库"></a>app需要依赖第三方so库</h3><p>有一种情况是定制的app需要依赖于第三方jar包文件或者so库进行开发，这次主要介绍so库的使用，jar包另行查找。</p>
+<ul>
+<li>app有源码编译   </li>
+</ul>
+<blockquote>
+<p>新建libs目录，将so库copy到该目录，下面主要工作是更新android.mk文件，将so库包含进去,以libBMapApiEngine_v1_3_1.so为例。</p>
+</blockquote>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">LOCAL_PATH</span>:= <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"><span class="constant">LOCAL_MODULE_TAGS</span> := optional</span><br><span class="line"><span class="constant">LOCAL_SRC_FILES</span> := <span class="variable">$(call all-java-files-under, src)</span> \</span><br><span class="line"><span class="constant">LOCAL_PACKAGE_NAME</span> := HelloWorld</span><br><span class="line"><span class="constant">LOCAL_JAVA_LIBRARIES</span> := telephony-common</span><br><span class="line">include $(BUILD_PACKAGE)  </span><br><span class="line"><span class="comment">##################################################  </span></span><br><span class="line">include $(CLEAR_VARS)    </span><br><span class="line"><span class="constant">LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES</span> :=libbaidumapapi:libs/baidumapapi.jar  </span><br><span class="line"><span class="constant">LOCAL_PREBUILT_LIBS</span> :=libBMapApiEngine_v1_3_1:libs/armeabi/libBMapApiEngine_v1_3_1.so  </span><br><span class="line"><span class="constant">LOCAL_MODULE_TAGS</span> := optional  </span><br><span class="line">include $(BUILD_MULTI_PREBUILT)  </span><br><span class="line">   </span><br><span class="line"><span class="comment"># Use the following include to make our testapk.  </span></span><br><span class="line">include $(callall-makefiles-under,$(LOCAL_PATH))</span><br></pre></td></tr></table></figure>
+<p>以上方案为网上<a href="http://zwz94.blog.163.com/blog/static/3206039520131111101412959/" target="_blank" rel="external">http://zwz94.blog.163.com/blog/static/3206039520131111101412959/</a>查找资料总结的，还没经过实际测试，可行性不能100%保证。</p>
+<ul>
+<li>纯apk文件</li>
+</ul>
+<p>因apk依赖于so库运行，编译过程没问题，但运行app会由于系统本身缺少对应so库而奔溃。</p>
+<blockquote>
+<p>主要步骤同上，关键需要将so库文件复制到系统的/system/lib目录下，使之能被app索引到。示例如下：</p>
+</blockquote>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">LOCAL_PATH</span> := <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"><span class="comment"># Module name should match apk name to be installed</span></span><br><span class="line"><span class="constant">LOCAL_MODULE</span> := HelloWorld</span><br><span class="line"><span class="constant">LOCAL_MODULE_TAGS</span> := optional</span><br><span class="line"><span class="constant">LOCAL_SRC_FILES</span> := <span class="variable">$(LOCAL_MODULE)</span>.apk</span><br><span class="line"><span class="constant">LOCAL_MODULE_CLASS</span> := APPS</span><br><span class="line"><span class="constant">LOCAL_MODULE_SUFFIX</span> := <span class="variable">$(COMMON_ANDROID_PACKAGE_SUFFIX)</span></span><br><span class="line"><span class="constant">LOCAL_CERTIFICATE</span> := PRESIGNED</span><br><span class="line">include $(BUILD_PREBUILT)</span><br><span class="line"><span class="comment">##########</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"><span class="constant">LOCAL_MODULE</span> := libgdamapv4sdk751.so</span><br><span class="line"><span class="constant">LOCAL_MODULE_CLASS</span> := SHARED_LIBRARIES</span><br><span class="line"><span class="constant">LOCAL_MODULE_PATH</span> := <span class="variable">$(TARGET_OUT_SHARED_LIBRARIES)</span></span><br><span class="line"><span class="constant">LOCAL_SRC_FILES</span> := lib/armeabi/<span class="variable">$(LOCAL_MODULE)</span></span><br><span class="line"><span class="constant">OVERRIDE_BUILD_MODULE_PATH</span> := <span class="variable">$(TARGET_OUT_INTERMEDIATE_LIBRARIES)</span></span><br><span class="line">include $(BUILD_PREBUILT)</span><br></pre></td></tr></table></figure>
+<p><strong>纯apk文件编译进系统，且依赖so库。复制so库到/system/lib目录的方案经过本人实际编译测试可行。</strong></p>
+<h3 id="u53E6_u5916_u518D_u8BF4_u51E0_u53E5"><a href="#u53E6_u5916_u518D_u8BF4_u51E0_u53E5" class="headerlink" title="另外再说几句"></a>另外再说几句</h3><ul>
+<li>有些客户对定制app在系统中的位置有要求，比如需要放置到/system/priv-app/中，此时你只需在android.mk中添加一句：<code>LOCAL_PRIVILEGED_MODULE := true</code>即可将app编译进priv-app目录。</li>
+<li>还有要求预制app替代Android系统默认的app，也很简单，同样是编辑Android.mk文件，以SystemUI为例,添加一句：<code>LOCAL_OVERRIDES_PACKAGES:= SystemUI</code>。</li>
+</ul>
+<h3 id="u5199_u5728_u6700_u540E"><a href="#u5199_u5728_u6700_u540E" class="headerlink" title="写在最后"></a>写在最后</h3><p>将定制APP加入Android源码的build系统中，使之能跟随着其他app一起编译。</p>
+<blockquote>
+<p>修改build/target/product/generic_no_telephony.mk<br>新建项<br><em><code>PRODUCT_PACKAGES := HelloWorld</code></em></p>
+</blockquote>
+<p><strong>注意：<code>PRODUCT_PACKAGES</code>中填写的必须跟项目中Android.mk文件中定义的<code>LOCAL_PACKAGE_NAME</code>或者<code>LOCAL_MODULE</code>一致。</strong></p>
+<p>以上全部完成后就可以对系统进行编译了。</p>
+<blockquote>
+<p>make clean<br>make -j$(nproc)</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>预制APP到Android系统，成为系统默认APPS。<br>]]>
+    
+    </summary>
+    
+      <category term="AOSP" scheme="http://yoursite.com/tags/AOSP/"/>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="frameworks" scheme="http://yoursite.com/tags/frameworks/"/>
+    
+      <category term="AOSP" scheme="http://yoursite.com/categories/AOSP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[为Android物理按键添加类似touch sound一样的声音]]></title>
     <link href="http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/"/>
     <id>http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/</id>
     <published>2015-12-31T02:17:46.000Z</published>
-    <updated>2015-12-31T02:50:47.000Z</updated>
-    <content type="html"><![CDATA[<p>###给Android物理按键添加操作声音</p>
+    <updated>2015-12-31T08:36:31.000Z</updated>
+    <content type="html"><![CDATA[<p>给Android物理按键添加操作声音 </p>
+<a id="more"></a>   
 <p>目标：通过修改系统源码给物理旋钮添加操作提示音<br>实现：参照View的touch声音，在最底层的InputFilter接收输入事件，播放声音</p>
 <blockquote>
 <p>Android声音播放有俩种方式<code>MediaPlayer</code>跟<code>SoundPool</code>。</p>
@@ -36,10 +106,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInputEvent</span><span class="params">(InputEvent inputEvent, <span class="keyword">int</span> policyFlags)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(inputEvent <span class="keyword">instanceof</span> KeyEvent)&#123;</span><br><span class="line">		KeyEvent event = (KeyEvent) inputEvent;</span><br><span class="line">		<span class="keyword">if</span>(event.getAction()==KeyEvent.ACTION_UP)&#123;</span><br><span class="line">			    playClickSound();</span><br><span class="line">		&#125;</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">playClickSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mSoundPool.play(sampleId, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1.0f</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>###给Android物理按键添加操作声音</p>
-<p>目标：通过修改系统源码给物理旋钮添加操作提示音<br>实现：参照View的touch声音，在最底层的InputFilter接收输入事件，播放声音</p>
-<blockquote>
-<p>Android声音播放有俩种方]]>
+    <![CDATA[<p>给Android物理按键添加操作声音 </p>]]>
+    
     </summary>
     
       <category term="AOSP" scheme="http://yoursite.com/tags/AOSP/"/>
@@ -53,20 +121,21 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Android-framesworks-fonts]]></title>
+    <title><![CDATA[通过修改Android frameworks层源码设置默认字体]]></title>
     <link href="http://yoursite.com/2015/12/31/Android-frameworks-fonts/"/>
     <id>http://yoursite.com/2015/12/31/Android-frameworks-fonts/</id>
     <published>2015-12-31T02:13:42.000Z</published>
-    <updated>2015-12-31T02:50:36.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="u4E00_u3001_u6982_u8FF0"><a href="#u4E00_u3001_u6982_u8FF0" class="headerlink" title="一、概述"></a>一、概述</h3><p>近期在对Android系统源码进行一些个性化的修改，主要集中在<code>frameworks</code>层。本篇旨在将自添加或者已存在的字体包设置为系统默认的字体，满足产品的需求。<br>这次定制的系统版本为Android4.4，主要为4.4添加宋体验证修改效果，不喜宋体的略过。网络查找的资料提及4.X与5.X版本的系统在设置默认字体方面有一些区别，望想定制5.X及以上系统的朋友自行补充。</p>
+    <updated>2015-12-31T08:43:34.000Z</updated>
+    <content type="html"><![CDATA[<p>修改Android源码添加并定制字体为默认字体。</p>
 <a id="more"></a>
-<h3 id="u4E8C_u3001_u5B9E_u73B0"><a href="#u4E8C_u3001_u5B9E_u73B0" class="headerlink" title="二、实现"></a>二、实现</h3><h4 id="1-_u5206_u6790"><a href="#1-_u5206_u6790" class="headerlink" title="1.分析"></a>1.分析</h4><p>Android4.4版本系统字体配置文件主要有三个：</p>
+<h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><p>近期在对Android系统源码进行一些个性化的修改，主要集中在<code>frameworks</code>层。本篇旨在将自添加或者已存在的字体包设置为系统默认的字体，满足产品的需求。<br>这次定制的系统版本为Android4.4，主要为4.4添加宋体验证修改效果，不喜宋体的略过。网络查找的资料提及4.X与5.X版本的系统在设置默认字体方面有一些区别，望想定制5.X及以上系统的朋友自行补充。</p>
+<h3 id="u5B9E_u73B0"><a href="#u5B9E_u73B0" class="headerlink" title="实现"></a>实现</h3><h4 id="u5206_u6790"><a href="#u5206_u6790" class="headerlink" title="分析"></a>分析</h4><p>Android4.4版本系统字体配置文件主要有三个：</p>
 <blockquote>
 <p>/system/etc/system_fonts.xml</p><br><p>/system/etc/fallback_fonts.xml</p><br><p>/vendor/etc/fallback_fonts.xml</p>   
 
 </blockquote>
 <p>第一个文件用于定义系统默认字体，文本中的第一个字体系列就是系统默认的英文字体，后面的字体是某些语言或者某些应用下是使用。<br>第二个文件是用来定义系统默认字体找不到的字符的扩展字体库，按照从上到下的顺序进行索引。<br>最后到了一个比较大的文件，DroidSansFallback.ttf，来寻找中日韩以及其他特殊字符。<br>第三个文件为第三方定制产商添加字体的配置文件，Google为我们良好定制预留了接口。</p>
-<h4 id="2-_u5B9E_u6218"><a href="#2-_u5B9E_u6218" class="headerlink" title="2.实战"></a>2.实战</h4><p>Android源码字体目录：<br><b><code>/frameworks/base/data/fonts/</code></b><br>针对上述分析，得出将自定义字体设置为Android系统默认的可修改方案：</p>
+<h4 id="u5B9E_u6218"><a href="#u5B9E_u6218" class="headerlink" title="实战"></a>实战</h4><p>Android源码字体目录：<br><b><code>/frameworks/base/data/fonts/</code></b><br>针对上述分析，得出将自定义字体设置为Android系统默认的可修改方案：</p>
 <p>1)暴力方式：将添加字体名字修改为DroidSansFallback.ttf，放置到系统源码<code>fonts</code>目录，替换掉原生DroidSansFallback.ttf。这种方式比较暴力，不建议采用，因为有可能导致某些字显示不正常或者不出现。   </p>
 <p>2）修改<code>fonts</code>目录下的 <code>system_fonts.xml</code>文件。既然在4.x版本下，system_fonts.xml是系统默认字体的配置文件，且字体调用顺序从上到下，将自添加的字体包添加到该文件的第一的位置即为第一默认调用。 </p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">family</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="title">fileset</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="title">file</span>&gt;</span>MyFont.ttf<span class="tag">&lt;/<span class="title">file</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="title">fileset</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="title">family</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -78,12 +147,12 @@
 <p>其中family order=”0”表示vendor字体插入<code>system_fonts.xml</code>的第一个位置。<br><code>fonts.mk</code>添加的代码段：</p>
 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">PRODUCT_COPY_FILES</span> := \  </span><br><span class="line">	...</span><br><span class="line">	frameworks/base/data/fonts/vendor_fonts.xml:<span class="variable">$(TARGET_COPY_OUT_VENDOR)</span>/etc/fallback_fonts.xml \</span><br><span class="line">	frameworks/base/data/fonts/MyFont.ttf:system/fonts/MyFont.ttf</span><br></pre></td></tr></table></figure>
 <hr>
-<p>####补充<br><code>system_fonts.xml</code>配置了系统的内置字体，第一个family节点为系统默认字体。nameset节点的各个name子节点定义可用的字体名称，fileset节点的file子节点分别对应normal、bold、italic、bold-italic四种字体样式，如果file节点个数少于四个，相应字体样式会对应已有兄弟file节点的字体文件。<br><code>fallback_fonts.xml</code>配置了系统备用字体，只有在系统内置字体中找不到相应字符时，才会到备用字体中去寻找，family节点的顺序对应搜索顺序，搜索匹配规则采用BCP47的定义。<br><code>vendor/etc/fallback_fonts.xml</code>是为了规范厂商定制默认字体，加载备用字体配置时，会将此文件中定义的各个family插入到<code>system/etc/fallback_fonts.xml</code>中，插入位置由family节点order属性指定，如果没有order属性，默认会插入到最后。<br><em>SourceHanSansCN 思源字体已经加入系统，默认是Regular，如果设计要求使用 Medium或者Light的，直接调用下面的API就可以了<br><code>Typeface.createFromFile(&quot;/system/fonts/xxx.ttf&quot;);</code></em></p>
-<p>####效果展示<br>修改前：<br><img src="http://7xp9uy.com1.z0.glb.clouddn.com/FC2DE68F-9822-428F-84C2-658CE675F0B5.jpg" alt="P image"></p>
+<h4 id="u8865_u5145"><a href="#u8865_u5145" class="headerlink" title="补充"></a>补充</h4><p><code>system_fonts.xml</code>配置了系统的内置字体，第一个family节点为系统默认字体。nameset节点的各个name子节点定义可用的字体名称，fileset节点的file子节点分别对应normal、bold、italic、bold-italic四种字体样式，如果file节点个数少于四个，相应字体样式会对应已有兄弟file节点的字体文件。<br><code>fallback_fonts.xml</code>配置了系统备用字体，只有在系统内置字体中找不到相应字符时，才会到备用字体中去寻找，family节点的顺序对应搜索顺序，搜索匹配规则采用BCP47的定义。<br><code>vendor/etc/fallback_fonts.xml</code>是为了规范厂商定制默认字体，加载备用字体配置时，会将此文件中定义的各个family插入到<code>system/etc/fallback_fonts.xml</code>中，插入位置由family节点order属性指定，如果没有order属性，默认会插入到最后。<br><em>SourceHanSansCN 思源字体已经加入系统，默认是Regular，如果设计要求使用 Medium或者Light的，直接调用下面的API就可以了<br><code>Typeface.createFromFile(&quot;/system/fonts/xxx.ttf&quot;);</code></em></p>
+<h4 id="u6548_u679C_u5C55_u793A"><a href="#u6548_u679C_u5C55_u793A" class="headerlink" title="效果展示"></a>效果展示</h4><p>修改前：<br><img src="http://7xp9uy.com1.z0.glb.clouddn.com/FC2DE68F-9822-428F-84C2-658CE675F0B5.jpg" alt="P image"></p>
 <p>修改后：<br><img src="http://7xp9uy.com1.z0.glb.clouddn.com/6B9083EB-EBA9-4328-BD42-7F66E1ADDAFC.png" alt="L image"></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h3 id="u4E00_u3001_u6982_u8FF0"><a href="#u4E00_u3001_u6982_u8FF0" class="headerlink" title="一、概述"></a>一、概述</h3><p>近期在对Android系统源码进行一些个性化的修改，主要集中在<code>frameworks</code>层。本篇旨在将自添加或者已存在的字体包设置为系统默认的字体，满足产品的需求。<br>这次定制的系统版本为Android4.4，主要为4.4添加宋体验证修改效果，不喜宋体的略过。网络查找的资料提及4.X与5.X版本的系统在设置默认字体方面有一些区别，望想定制5.X及以上系统的朋友自行补充。</p>]]>
+    <![CDATA[<p>修改Android源码添加并定制字体为默认字体。</p>]]>
     
     </summary>
     

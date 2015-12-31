@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android-framesworks-fonts | Llooper&#39;s Blog</title>
+  <title>通过修改Android frameworks层源码设置默认字体 | Llooper&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、概述近期在对Android系统源码进行一些个性化的修改，主要集中在frameworks层。本篇旨在将自添加或者已存在的字体包设置为系统默认的字体，满足产品的需求。这次定制的系统版本为Android4.4，主要为4.4添加宋体验证修改效果，不喜宋体的略过。网络查找的资料提及4.X与5.X版本的系统在设置默认字体方面有一些区别，望想定制5.X及以上系统的朋友自行补充。">
+  <meta name="description" content="修改Android源码添加并定制字体为默认字体。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android-framesworks-fonts">
+<meta property="og:title" content="通过修改Android frameworks层源码设置默认字体">
 <meta property="og:url" content="http://yoursite.com/2015/12/31/Android-frameworks-fonts/index.html">
 <meta property="og:site_name" content="Llooper's Blog">
-<meta property="og:description" content="一、概述近期在对Android系统源码进行一些个性化的修改，主要集中在frameworks层。本篇旨在将自添加或者已存在的字体包设置为系统默认的字体，满足产品的需求。这次定制的系统版本为Android4.4，主要为4.4添加宋体验证修改效果，不喜宋体的略过。网络查找的资料提及4.X与5.X版本的系统在设置默认字体方面有一些区别，望想定制5.X及以上系统的朋友自行补充。">
+<meta property="og:description" content="修改Android源码添加并定制字体为默认字体。">
 <meta property="og:image" content="http://7xp9uy.com1.z0.glb.clouddn.com/FC2DE68F-9822-428F-84C2-658CE675F0B5.jpg">
 <meta property="og:image" content="http://7xp9uy.com1.z0.glb.clouddn.com/6B9083EB-EBA9-4328-BD42-7F66E1ADDAFC.png">
-<meta property="og:updated_time" content="2015-12-31T02:50:36.000Z">
+<meta property="og:updated_time" content="2015-12-31T08:43:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android-framesworks-fonts">
-<meta name="twitter:description" content="一、概述近期在对Android系统源码进行一些个性化的修改，主要集中在frameworks层。本篇旨在将自添加或者已存在的字体包设置为系统默认的字体，满足产品的需求。这次定制的系统版本为Android4.4，主要为4.4添加宋体验证修改效果，不喜宋体的略过。网络查找的资料提及4.X与5.X版本的系统在设置默认字体方面有一些区别，望想定制5.X及以上系统的朋友自行补充。">
+<meta name="twitter:title" content="通过修改Android frameworks层源码设置默认字体">
+<meta name="twitter:description" content="修改Android源码添加并定制字体为默认字体。">
   
     <link rel="alternative" href="/atom.xml" title="Llooper&#39;s Blog" type="application/atom+xml">
   
@@ -163,7 +163,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android-framesworks-fonts
+      通过修改Android frameworks层源码设置默认字体
     </h1>
   
 
@@ -188,15 +188,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="u4E00_u3001_u6982_u8FF0"><a href="#u4E00_u3001_u6982_u8FF0" class="headerlink" title="一、概述"></a>一、概述</h3><p>近期在对Android系统源码进行一些个性化的修改，主要集中在<code>frameworks</code>层。本篇旨在将自添加或者已存在的字体包设置为系统默认的字体，满足产品的需求。<br>这次定制的系统版本为Android4.4，主要为4.4添加宋体验证修改效果，不喜宋体的略过。网络查找的资料提及4.X与5.X版本的系统在设置默认字体方面有一些区别，望想定制5.X及以上系统的朋友自行补充。</p>
+        <p>修改Android源码添加并定制字体为默认字体。</p>
 <a id="more"></a>
-<h3 id="u4E8C_u3001_u5B9E_u73B0"><a href="#u4E8C_u3001_u5B9E_u73B0" class="headerlink" title="二、实现"></a>二、实现</h3><h4 id="1-_u5206_u6790"><a href="#1-_u5206_u6790" class="headerlink" title="1.分析"></a>1.分析</h4><p>Android4.4版本系统字体配置文件主要有三个：</p>
+<h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><p>近期在对Android系统源码进行一些个性化的修改，主要集中在<code>frameworks</code>层。本篇旨在将自添加或者已存在的字体包设置为系统默认的字体，满足产品的需求。<br>这次定制的系统版本为Android4.4，主要为4.4添加宋体验证修改效果，不喜宋体的略过。网络查找的资料提及4.X与5.X版本的系统在设置默认字体方面有一些区别，望想定制5.X及以上系统的朋友自行补充。</p>
+<h3 id="u5B9E_u73B0"><a href="#u5B9E_u73B0" class="headerlink" title="实现"></a>实现</h3><h4 id="u5206_u6790"><a href="#u5206_u6790" class="headerlink" title="分析"></a>分析</h4><p>Android4.4版本系统字体配置文件主要有三个：</p>
 <blockquote>
 <p>/system/etc/system_fonts.xml</p><br><p>/system/etc/fallback_fonts.xml</p><br><p>/vendor/etc/fallback_fonts.xml</p>   
 
 </blockquote>
 <p>第一个文件用于定义系统默认字体，文本中的第一个字体系列就是系统默认的英文字体，后面的字体是某些语言或者某些应用下是使用。<br>第二个文件是用来定义系统默认字体找不到的字符的扩展字体库，按照从上到下的顺序进行索引。<br>最后到了一个比较大的文件，DroidSansFallback.ttf，来寻找中日韩以及其他特殊字符。<br>第三个文件为第三方定制产商添加字体的配置文件，Google为我们良好定制预留了接口。</p>
-<h4 id="2-_u5B9E_u6218"><a href="#2-_u5B9E_u6218" class="headerlink" title="2.实战"></a>2.实战</h4><p>Android源码字体目录：<br><b><code>/frameworks/base/data/fonts/</code></b><br>针对上述分析，得出将自定义字体设置为Android系统默认的可修改方案：</p>
+<h4 id="u5B9E_u6218"><a href="#u5B9E_u6218" class="headerlink" title="实战"></a>实战</h4><p>Android源码字体目录：<br><b><code>/frameworks/base/data/fonts/</code></b><br>针对上述分析，得出将自定义字体设置为Android系统默认的可修改方案：</p>
 <p>1)暴力方式：将添加字体名字修改为DroidSansFallback.ttf，放置到系统源码<code>fonts</code>目录，替换掉原生DroidSansFallback.ttf。这种方式比较暴力，不建议采用，因为有可能导致某些字显示不正常或者不出现。   </p>
 <p>2）修改<code>fonts</code>目录下的 <code>system_fonts.xml</code>文件。既然在4.x版本下，system_fonts.xml是系统默认字体的配置文件，且字体调用顺序从上到下，将自添加的字体包添加到该文件的第一的位置即为第一默认调用。 </p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">family</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="title">fileset</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="title">file</span>&gt;</span>MyFont.ttf<span class="tag">&lt;/<span class="title">file</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="title">fileset</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="title">family</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -208,8 +209,8 @@
 <p>其中family order=”0”表示vendor字体插入<code>system_fonts.xml</code>的第一个位置。<br><code>fonts.mk</code>添加的代码段：</p>
 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">PRODUCT_COPY_FILES</span> := \  </span><br><span class="line">	...</span><br><span class="line">	frameworks/base/data/fonts/vendor_fonts.xml:<span class="variable">$(TARGET_COPY_OUT_VENDOR)</span>/etc/fallback_fonts.xml \</span><br><span class="line">	frameworks/base/data/fonts/MyFont.ttf:system/fonts/MyFont.ttf</span><br></pre></td></tr></table></figure>
 <hr>
-<p>####补充<br><code>system_fonts.xml</code>配置了系统的内置字体，第一个family节点为系统默认字体。nameset节点的各个name子节点定义可用的字体名称，fileset节点的file子节点分别对应normal、bold、italic、bold-italic四种字体样式，如果file节点个数少于四个，相应字体样式会对应已有兄弟file节点的字体文件。<br><code>fallback_fonts.xml</code>配置了系统备用字体，只有在系统内置字体中找不到相应字符时，才会到备用字体中去寻找，family节点的顺序对应搜索顺序，搜索匹配规则采用BCP47的定义。<br><code>vendor/etc/fallback_fonts.xml</code>是为了规范厂商定制默认字体，加载备用字体配置时，会将此文件中定义的各个family插入到<code>system/etc/fallback_fonts.xml</code>中，插入位置由family节点order属性指定，如果没有order属性，默认会插入到最后。<br><em>SourceHanSansCN 思源字体已经加入系统，默认是Regular，如果设计要求使用 Medium或者Light的，直接调用下面的API就可以了<br><code>Typeface.createFromFile(&quot;/system/fonts/xxx.ttf&quot;);</code></em></p>
-<p>####效果展示<br>修改前：<br><img src="http://7xp9uy.com1.z0.glb.clouddn.com/FC2DE68F-9822-428F-84C2-658CE675F0B5.jpg" alt="P image"></p>
+<h4 id="u8865_u5145"><a href="#u8865_u5145" class="headerlink" title="补充"></a>补充</h4><p><code>system_fonts.xml</code>配置了系统的内置字体，第一个family节点为系统默认字体。nameset节点的各个name子节点定义可用的字体名称，fileset节点的file子节点分别对应normal、bold、italic、bold-italic四种字体样式，如果file节点个数少于四个，相应字体样式会对应已有兄弟file节点的字体文件。<br><code>fallback_fonts.xml</code>配置了系统备用字体，只有在系统内置字体中找不到相应字符时，才会到备用字体中去寻找，family节点的顺序对应搜索顺序，搜索匹配规则采用BCP47的定义。<br><code>vendor/etc/fallback_fonts.xml</code>是为了规范厂商定制默认字体，加载备用字体配置时，会将此文件中定义的各个family插入到<code>system/etc/fallback_fonts.xml</code>中，插入位置由family节点order属性指定，如果没有order属性，默认会插入到最后。<br><em>SourceHanSansCN 思源字体已经加入系统，默认是Regular，如果设计要求使用 Medium或者Light的，直接调用下面的API就可以了<br><code>Typeface.createFromFile(&quot;/system/fonts/xxx.ttf&quot;);</code></em></p>
+<h4 id="u6548_u679C_u5C55_u793A"><a href="#u6548_u679C_u5C55_u793A" class="headerlink" title="效果展示"></a>效果展示</h4><p>修改前：<br><img src="http://7xp9uy.com1.z0.glb.clouddn.com/FC2DE68F-9822-428F-84C2-658CE675F0B5.jpg" alt="P image"></p>
 <p>修改后：<br><img src="http://7xp9uy.com1.z0.glb.clouddn.com/6B9083EB-EBA9-4328-BD42-7F66E1ADDAFC.png" alt="L image"></p>
 
       
@@ -224,7 +225,7 @@
         
             <div id="article-nav-newer" class="article-nav-title">
                 <a href="/2015/12/31/Android-frameworks-SoundPool/">
-                    Android-frameworks-SoundPool
+                    为Android物理按键添加类似touch sound一样的声音
                 </a>
             </div>
         
@@ -242,7 +243,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E00_u3001_u6982_u8FF0"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E8C_u3001_u5B9E_u73B0"><span class="toc-number">2.</span> <span class="toc-text">二、实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-_u5206_u6790"><span class="toc-number">2.1.</span> <span class="toc-text">1.分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-_u5B9E_u6218"><span class="toc-number">2.2.</span> <span class="toc-text">2.实战</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6982_u8FF0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u73B0"><span class="toc-number">2.</span> <span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u5206_u6790"><span class="toc-number">2.1.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5B9E_u6218"><span class="toc-number">2.2.</span> <span class="toc-text">实战</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u8865_u5145"><span class="toc-number">2.3.</span> <span class="toc-text">补充</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u6548_u679C_u5C55_u793A"><span class="toc-number">2.4.</span> <span class="toc-text">效果展示</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -289,7 +290,7 @@
 
     <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/12/31/Android-frameworks-fonts/" data-title="Android-framesworks-fonts" data-url="http://yoursite.com/2015/12/31/Android-frameworks-fonts/"></div>
+    <div class="ds-thread" data-thread-key="2015/12/31/Android-frameworks-fonts/" data-title="通过修改Android frameworks层源码设置默认字体" data-url="http://yoursite.com/2015/12/31/Android-frameworks-fonts/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -314,7 +315,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/12/31/Android-frameworks-SoundPool/" title="上一篇: Android-frameworks-SoundPool">
+            <a href="/2015/12/31/Android-frameworks-SoundPool/" title="上一篇: 为Android物理按键添加类似touch sound一样的声音">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -328,7 +329,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-SoundPool/">Android-frameworks-SoundPool</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-fonts/">Android-framesworks-fonts</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-add-default-apps/">Android系统源码集成第三方APP并编译到system.img中</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-SoundPool/">为Android物理按键添加类似touch sound一样的声音</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-fonts/">通过修改Android frameworks层源码设置默认字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/hello-world/">Hello World</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
@@ -405,7 +406,7 @@
                 $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
             }
             else {
-                var backgroundnum = 10;
+                var backgroundnum = 5;
                 var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
                 $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
             }

@@ -3,17 +3,49 @@
 
 
     
-    
   <url>
-    <loc>http://yoursite.com/2015/12/30/hello-world/</loc>
-    <lastmod>2015-12-31T05:46:19.000Z</lastmod>
+    <loc>http://yoursite.com/2015/12/31/Android-frameworks-fonts/</loc>
+    <lastmod>2015-12-31T08:43:34.000Z</lastmod>
     <data>
         <display>
-        <title>Hello World</title>
-        <pubTime>2015-12-30T02:13:42.000Z</pubTime>
+        <title>通过修改Android frameworks层源码设置默认字体</title>
+        <pubTime>2015-12-31T02:13:42.000Z</pubTime>
         
+        <tag>AOSP</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>frameworks</tag>
+         
          
            
+             
+              <breadCrumb title="AOSP" url="http://yoursite.com/categories/AOSP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2015/12/31/Android-frameworks-add-default-apps/</loc>
+    <lastmod>2015-12-31T08:39:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android系统源码集成第三方APP并编译到system.img中</title>
+        <pubTime>2015-12-31T06:13:55.000Z</pubTime>
+        
+        <tag>AOSP</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>frameworks</tag>
+         
+         
+           
+             
+              <breadCrumb title="AOSP" url="http://yoursite.com/categories/AOSP/"/>
+          
         </display>
     </data>
     </url>
@@ -21,10 +53,10 @@
     
   <url>
     <loc>http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/</loc>
-    <lastmod>2015-12-31T02:50:47.000Z</lastmod>
+    <lastmod>2015-12-31T08:36:31.000Z</lastmod>
     <data>
         <display>
-        <title>Android-frameworks-SoundPool</title>
+        <title>为Android物理按键添加类似touch sound一样的声音</title>
         <pubTime>2015-12-31T02:17:46.000Z</pubTime>
         
         <tag>AOSP</tag>
@@ -43,25 +75,17 @@
     </url>
 
     
+    
   <url>
-    <loc>http://yoursite.com/2015/12/31/Android-frameworks-fonts/</loc>
-    <lastmod>2015-12-31T02:50:36.000Z</lastmod>
+    <loc>http://yoursite.com/2015/12/30/hello-world/</loc>
+    <lastmod>2015-12-31T05:46:19.000Z</lastmod>
     <data>
         <display>
-        <title>Android-framesworks-fonts</title>
-        <pubTime>2015-12-31T02:13:42.000Z</pubTime>
+        <title>Hello World</title>
+        <pubTime>2015-12-30T02:13:42.000Z</pubTime>
         
-        <tag>AOSP</tag>
-         
-        <tag>Android</tag>
-         
-        <tag>frameworks</tag>
-         
          
            
-             
-              <breadCrumb title="AOSP" url="http://yoursite.com/categories/AOSP/"/>
-          
         </display>
     </data>
     </url>

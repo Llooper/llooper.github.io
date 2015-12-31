@@ -148,6 +148,91 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Android-frameworks-add-default-apps" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/31/Android-frameworks-add-default-apps/" class="article-date">
+      <time datetime="2015-12-31T06:13:55.000Z" itemprop="datePublished">2015-12-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/31/Android-frameworks-add-default-apps/">Android系统源码集成第三方APP并编译到system.img中</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>预制APP到Android系统，成为系统默认APPS。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/AOSP/">AOSP</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOSP/">AOSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frameworks/">frameworks</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/31/Android-frameworks-add-default-apps/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+            var yiliaConfig = {
+            fancybox: true,
+            mathjax: true,
+            animate: true,
+            isHome: true,
+            isPost: false,
+            isArchive: false,
+            isTag: false,
+            isCategory: false,
+            open_in_new: false
+            }
+        </script>
+        
+
+
+  
     <article id="post-Android-frameworks-SoundPool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -165,7 +250,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/31/Android-frameworks-SoundPool/">Android-frameworks-SoundPool</a>
+      <a class="article-title" href="/2015/12/31/Android-frameworks-SoundPool/">为Android物理按键添加类似touch sound一样的声音</a>
     </h1>
   
 
@@ -175,21 +260,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>###给Android物理按键添加操作声音</p>
-<p>目标：通过修改系统源码给物理旋钮添加操作提示音<br>实现：参照View的touch声音，在最底层的InputFilter接收输入事件，播放声音</p>
-<blockquote>
-<p>Android声音播放有俩种方式<code>MediaPlayer</code>跟<code>SoundPool</code>。</p>
-<p>SoundPool —— 适合短促且对反应速度比较高的情况（游戏音效或按键声等）。</p>
-<p>MediaPlayer —— 适合比较长且对时间要求不高的情况。   </p>
-</blockquote>
-<p>方案：针对SoundPool与MediaPlayer进行比较，由于旋钮操作较为短促，本次开发采用SoundPool进行。</p>
-<p>车载盒子AOSP中封装了输入事件，代码位置:</p>
-<p><code>/framework/base/services/java/com/android/server/CarInputHub.java</code></p>
-<p>注意：需在CarInputHub初始化时便对SoundPool进行load，不然play声音时会报 no ready错误并且没有声音。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">CarInputHub</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(context.getMainLooper());</span><br><span class="line">    mContext = context;</span><br><span class="line"></span><br><span class="line">	mSoundPool = <span class="keyword">new</span> SoundPool(NUM_SOUNDPOOL_CHANNELS, AudioManager.STREAM_MUSIC, <span class="number">0</span>);</span><br><span class="line">	String filePath = <span class="string">"/system/media/audio/ui/suibian.ogg"</span>;</span><br><span class="line">	sampleId = mSoundPool.load(filePath, <span class="number">1</span>);</span><br><span class="line">	Log.i(TAG, <span class="string">"SoundPool init"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后在点击处理点击事件的函数中进行play即可   </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInputEvent</span><span class="params">(InputEvent inputEvent, <span class="keyword">int</span> policyFlags)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(inputEvent <span class="keyword">instanceof</span> KeyEvent)&#123;</span><br><span class="line">		KeyEvent event = (KeyEvent) inputEvent;</span><br><span class="line">		<span class="keyword">if</span>(event.getAction()==KeyEvent.ACTION_UP)&#123;</span><br><span class="line">			    playClickSound();</span><br><span class="line">		&#125;</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">playClickSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mSoundPool.play(sampleId, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1.0f</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+              <p>给Android物理按键添加操作声音 </p>
+          
       
     </div>
     
@@ -206,6 +278,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOSP/">AOSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frameworks/">frameworks</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/31/Android-frameworks-SoundPool/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -259,7 +335,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/31/Android-frameworks-fonts/">Android-framesworks-fonts</a>
+      <a class="article-title" href="/2015/12/31/Android-frameworks-fonts/">通过修改Android frameworks层源码设置默认字体</a>
     </h1>
   
 
@@ -269,7 +345,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="u4E00_u3001_u6982_u8FF0"><a href="#u4E00_u3001_u6982_u8FF0" class="headerlink" title="一、概述"></a>一、概述</h3><p>近期在对Android系统源码进行一些个性化的修改，主要集中在<code>frameworks</code>层。本篇旨在将自添加或者已存在的字体包设置为系统默认的字体，满足产品的需求。<br>这次定制的系统版本为Android4.4，主要为4.4添加宋体验证修改效果，不喜宋体的略过。网络查找的资料提及4.X与5.X版本的系统在设置默认字体方面有一些区别，望想定制5.X及以上系统的朋友自行补充。</p>
+              <p>修改Android源码添加并定制字体为默认字体。</p>
           
       
     </div>
@@ -459,7 +535,7 @@
                 $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
             }
             else {
-                var backgroundnum = 10;
+                var backgroundnum = 5;
                 var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
                 $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
             }

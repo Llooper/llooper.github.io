@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android系统源码集成第三方APP并编译到system.img中 | Llooper&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="预制APP到Android系统，成为系统默认APPS。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android系统源码集成第三方APP并编译到system.img中">
+<meta property="og:url" content="http://yoursite.com/2015/12/31/Android-frameworks-add-default-apps/index.html">
+<meta property="og:site_name" content="Llooper's Blog">
+<meta property="og:description" content="预制APP到Android系统，成为系统默认APPS。">
+<meta property="og:updated_time" content="2015-12-31T08:39:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android系统源码集成第三方APP并编译到system.img中">
+<meta name="twitter:description" content="预制APP到Android系统，成为系统默认APPS。">
+  
+    <link rel="alternative" href="/atom.xml" title="Llooper&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/resources/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/resources/blog_avatar.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Llooper</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Walk steps step by step</p>
+        
+                
+
+
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">HOME</a></li>
+                        
+                            <li><a href="/archives/">PAPER</a></li>
+                        
+                            <li><a href="/tags/">TAG</a></li>
+                        
+                            <li><a href="/about/">ABOUT</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:renhongli.flint@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/llooper/" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                                <li id="Google"><a class="Google" target="_blank" href="http://www.google.com.hk/" title="Google"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">Android developer. Reading the fucking source code.</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Llooper</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img lazy-src="/resources/blog_avatar.jpg" class="js-avatar">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Llooper</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Walk steps step by step</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">HOME</a></li>
+                
+                    <li><a href="/archives/">PAPER</a></li>
+                
+                    <li><a href="/tags/">TAG</a></li>
+                
+                    <li><a href="/about/">ABOUT</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:renhongli.flint@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/llooper/" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                                <li id="Google"><a class="Google" target="_blank" href="http://www.google.com.hk/" title="Google"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Android-frameworks-add-default-apps" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/31/Android-frameworks-add-default-apps/" class="article-date">
+      <time datetime="2015-12-31T06:13:55.000Z" itemprop="datePublished">2015-12-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android系统源码集成第三方APP并编译到system.img中
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/AOSP/">AOSP</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOSP/">AOSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frameworks/">frameworks</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>预制APP到Android系统，成为系统默认APPS。<br><a id="more"></a></p>
+<h3 id="u6982_u8BBA"><a href="#u6982_u8BBA" class="headerlink" title="概论"></a>概论</h3><p>将第三方厂商定制的APP编译进系统源码，随着system.img的烧录进设备。定制的APP分为以下几种形式添加到系统中：   </p>
+<ul>
+<li>带源码</li>
+<li>apk文件</li>
+<li>apk文件依赖so库</li>
+</ul>
+<h3 id="u5E26_u6E90_u7801_u7684APP_u7F16_u8BD1_u5230_u7CFB_u7EDF"><a href="#u5E26_u6E90_u7801_u7684APP_u7F16_u8BD1_u5230_u7CFB_u7EDF" class="headerlink" title="带源码的APP编译到系统"></a>带源码的APP编译到系统</h3><p>1) 在packages/apps/ 下创建一个新的项目，以HelloWorld为例；<br>2）参照apps下的其他项目目录结构，创建src、res以及编写Android.mk文件；<br>3）将你的资源文件以及源码copy到对应位置；<br>4）编写Android.mk文件；   </p>
+<blockquote>
+<p>Android.mk是Android提供的一种makefile文件，用来指定诸如编译生成so库名、引用的头文件目录、需要编译的.c/.cpp文件和.a静态库文件等。之后会有另外篇章对Android.mk进行详解，在此就不多做解释。</p>
+</blockquote>
+<p>给出一个简单的Android.mk示例，参照自行修改成适合项目的。</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">LOCAL_PATH</span>:= <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"><span class="constant">LOCAL_MODULE_TAGS</span> := optional</span><br><span class="line"><span class="constant">LOCAL_SRC_FILES</span> := <span class="variable">$(call all-java-files-under, src)</span> \</span><br><span class="line"><span class="constant">LOCAL_PACKAGE_NAME</span> := HelloWorld</span><br><span class="line"><span class="constant">LOCAL_JAVA_LIBRARIES</span> := telephony-common</span><br><span class="line">include $(BUILD_PACKAGE)</span><br></pre></td></tr></table></figure>
+<h3 id="u65E0_u6E90_u7801_u7684APK_u6587_u4EF6_u7F16_u8BD1_u5230_u7CFB_u7EDF"><a href="#u65E0_u6E90_u7801_u7684APK_u6587_u4EF6_u7F16_u8BD1_u5230_u7CFB_u7EDF" class="headerlink" title="无源码的APK文件编译到系统"></a>无源码的APK文件编译到系统</h3><p>1) 在packages/apps/ 下创建一个新的项目，以HelloWorld为例；<br>2） 将apk文件copy到新建目录下，并创建android.mk文件；<br>3） 编写Android.mk文件。<br>示例如下：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">LOCAL_PATH</span> := <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"><span class="comment"># Module name should match apk name to be installed</span></span><br><span class="line"><span class="constant">LOCAL_MODULE</span> := HelloWorld</span><br><span class="line"><span class="constant">LOCAL_MODULE_TAGS</span> := optional</span><br><span class="line"><span class="constant">LOCAL_SRC_FILES</span> := <span class="variable">$(LOCAL_MODULE)</span>.apk</span><br><span class="line"><span class="constant">LOCAL_MODULE_CLASS</span> := APPS</span><br><span class="line"><span class="constant">LOCAL_MODULE_SUFFIX</span> := <span class="variable">$(COMMON_ANDROID_PACKAGE_SUFFIX)</span></span><br><span class="line"><span class="constant">LOCAL_CERTIFICATE</span> := PRESIGNED</span><br><span class="line">include $(BUILD_PREBUILT)</span><br></pre></td></tr></table></figure>
+<p><strong>这里有一点需要注意的，<code>LOCAL_MODULE</code>的值必须与apk的名字一致。</strong></p>
+<h3 id="app_u9700_u8981_u4F9D_u8D56_u7B2C_u4E09_u65B9so_u5E93"><a href="#app_u9700_u8981_u4F9D_u8D56_u7B2C_u4E09_u65B9so_u5E93" class="headerlink" title="app需要依赖第三方so库"></a>app需要依赖第三方so库</h3><p>有一种情况是定制的app需要依赖于第三方jar包文件或者so库进行开发，这次主要介绍so库的使用，jar包另行查找。</p>
+<ul>
+<li>app有源码编译   </li>
+</ul>
+<blockquote>
+<p>新建libs目录，将so库copy到该目录，下面主要工作是更新android.mk文件，将so库包含进去,以libBMapApiEngine_v1_3_1.so为例。</p>
+</blockquote>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">LOCAL_PATH</span>:= <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"><span class="constant">LOCAL_MODULE_TAGS</span> := optional</span><br><span class="line"><span class="constant">LOCAL_SRC_FILES</span> := <span class="variable">$(call all-java-files-under, src)</span> \</span><br><span class="line"><span class="constant">LOCAL_PACKAGE_NAME</span> := HelloWorld</span><br><span class="line"><span class="constant">LOCAL_JAVA_LIBRARIES</span> := telephony-common</span><br><span class="line">include $(BUILD_PACKAGE)  </span><br><span class="line"><span class="comment">##################################################  </span></span><br><span class="line">include $(CLEAR_VARS)    </span><br><span class="line"><span class="constant">LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES</span> :=libbaidumapapi:libs/baidumapapi.jar  </span><br><span class="line"><span class="constant">LOCAL_PREBUILT_LIBS</span> :=libBMapApiEngine_v1_3_1:libs/armeabi/libBMapApiEngine_v1_3_1.so  </span><br><span class="line"><span class="constant">LOCAL_MODULE_TAGS</span> := optional  </span><br><span class="line">include $(BUILD_MULTI_PREBUILT)  </span><br><span class="line">   </span><br><span class="line"><span class="comment"># Use the following include to make our testapk.  </span></span><br><span class="line">include $(callall-makefiles-under,$(LOCAL_PATH))</span><br></pre></td></tr></table></figure>
+<p>以上方案为网上<a href="http://zwz94.blog.163.com/blog/static/3206039520131111101412959/" target="_blank" rel="external">http://zwz94.blog.163.com/blog/static/3206039520131111101412959/</a>查找资料总结的，还没经过实际测试，可行性不能100%保证。</p>
+<ul>
+<li>纯apk文件</li>
+</ul>
+<p>因apk依赖于so库运行，编译过程没问题，但运行app会由于系统本身缺少对应so库而奔溃。</p>
+<blockquote>
+<p>主要步骤同上，关键需要将so库文件复制到系统的/system/lib目录下，使之能被app索引到。示例如下：</p>
+</blockquote>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">LOCAL_PATH</span> := <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"><span class="comment"># Module name should match apk name to be installed</span></span><br><span class="line"><span class="constant">LOCAL_MODULE</span> := HelloWorld</span><br><span class="line"><span class="constant">LOCAL_MODULE_TAGS</span> := optional</span><br><span class="line"><span class="constant">LOCAL_SRC_FILES</span> := <span class="variable">$(LOCAL_MODULE)</span>.apk</span><br><span class="line"><span class="constant">LOCAL_MODULE_CLASS</span> := APPS</span><br><span class="line"><span class="constant">LOCAL_MODULE_SUFFIX</span> := <span class="variable">$(COMMON_ANDROID_PACKAGE_SUFFIX)</span></span><br><span class="line"><span class="constant">LOCAL_CERTIFICATE</span> := PRESIGNED</span><br><span class="line">include $(BUILD_PREBUILT)</span><br><span class="line"><span class="comment">##########</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"><span class="constant">LOCAL_MODULE</span> := libgdamapv4sdk751.so</span><br><span class="line"><span class="constant">LOCAL_MODULE_CLASS</span> := SHARED_LIBRARIES</span><br><span class="line"><span class="constant">LOCAL_MODULE_PATH</span> := <span class="variable">$(TARGET_OUT_SHARED_LIBRARIES)</span></span><br><span class="line"><span class="constant">LOCAL_SRC_FILES</span> := lib/armeabi/<span class="variable">$(LOCAL_MODULE)</span></span><br><span class="line"><span class="constant">OVERRIDE_BUILD_MODULE_PATH</span> := <span class="variable">$(TARGET_OUT_INTERMEDIATE_LIBRARIES)</span></span><br><span class="line">include $(BUILD_PREBUILT)</span><br></pre></td></tr></table></figure>
+<p><strong>纯apk文件编译进系统，且依赖so库。复制so库到/system/lib目录的方案经过本人实际编译测试可行。</strong></p>
+<h3 id="u53E6_u5916_u518D_u8BF4_u51E0_u53E5"><a href="#u53E6_u5916_u518D_u8BF4_u51E0_u53E5" class="headerlink" title="另外再说几句"></a>另外再说几句</h3><ul>
+<li>有些客户对定制app在系统中的位置有要求，比如需要放置到/system/priv-app/中，此时你只需在android.mk中添加一句：<code>LOCAL_PRIVILEGED_MODULE := true</code>即可将app编译进priv-app目录。</li>
+<li>还有要求预制app替代Android系统默认的app，也很简单，同样是编辑Android.mk文件，以SystemUI为例,添加一句：<code>LOCAL_OVERRIDES_PACKAGES:= SystemUI</code>。</li>
+</ul>
+<h3 id="u5199_u5728_u6700_u540E"><a href="#u5199_u5728_u6700_u540E" class="headerlink" title="写在最后"></a>写在最后</h3><p>将定制APP加入Android源码的build系统中，使之能跟随着其他app一起编译。</p>
+<blockquote>
+<p>修改build/target/product/generic_no_telephony.mk<br>新建项<br><em><code>PRODUCT_PACKAGES := HelloWorld</code></em></p>
+</blockquote>
+<p><strong>注意：<code>PRODUCT_PACKAGES</code>中填写的必须跟项目中Android.mk文件中定义的<code>LOCAL_PACKAGE_NAME</code>或者<code>LOCAL_MODULE</code>一致。</strong></p>
+<p>以上全部完成后就可以对系统进行编译了。</p>
+<blockquote>
+<p>make clean<br>make -j$(nproc)</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2015/12/31/Android-frameworks-SoundPool/">
+                    为Android物理按键添加类似touch sound一样的声音
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6982_u8BBA"><span class="toc-number">1.</span> <span class="toc-text">概论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E26_u6E90_u7801_u7684APP_u7F16_u8BD1_u5230_u7CFB_u7EDF"><span class="toc-number">2.</span> <span class="toc-text">带源码的APP编译到系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u65E0_u6E90_u7801_u7684APK_u6587_u4EF6_u7F16_u8BD1_u5230_u7CFB_u7EDF"><span class="toc-number">3.</span> <span class="toc-text">无源码的APK文件编译到系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app_u9700_u8981_u4F9D_u8D56_u7B2C_u4E09_u65B9so_u5E93"><span class="toc-number">4.</span> <span class="toc-text">app需要依赖第三方so库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53E6_u5916_u518D_u8BF4_u51E0_u53E5"><span class="toc-number">5.</span> <span class="toc-text">另外再说几句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5199_u5728_u6700_u540E"><span class="toc-number">6.</span> <span class="toc-text">写在最后</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var toc_button = document.getElementById("tocButton");
+    var toc_div = document.getElementById("toc");
+    toc_button.onclick=function() {
+        if (toc_div.style.display == "none") {
+            toc_div.style.display = "block";
+            toc_button.value = "隐藏目录";
+            document.getElementById("switch-btn").style.display = "none";
+            document.getElementById("switch-area").style.display = "none";
+        }
+        else {
+            toc_div.style.display = "none";
+            toc_button.value = "显示目录";
+            document.getElementById("switch-btn").style.display = "block";
+            document.getElementById("switch-area").style.display = "block";
+        }
+    }
+
+    if ($(".toc").length < 1) {
+        $("#toc").css("display","none");
+        $("#tocButton").css("display","none");
+        $(".switch-btn").css("display","block");
+        $(".switch-area").css("display","block");
+    }
+</script>
+
+
+
+
+
+
+    <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2015/12/31/Android-frameworks-add-default-apps/" data-title="Android系统源码集成第三方APP并编译到system.img中" data-url="http://yoursite.com/2015/12/31/Android-frameworks-add-default-apps/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"llooper"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2015/12/31/Android-frameworks-SoundPool/" title="下一篇: 为Android物理按键添加类似touch sound一样的声音">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-add-default-apps/">Android系统源码集成第三方APP并编译到system.img中</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-SoundPool/">为Android物理按键添加类似touch sound一样的声音</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-fonts/">通过修改Android frameworks层源码设置默认字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/hello-world/">Hello World</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200);
+            }
+            else {
+                $(".switch-btn, .switch-area").toggle(200);
+            }
+        })
+    </script>
+
+
+
+
+    
+        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+        <script>
+            var yiliaConfig = {
+            fancybox: true,
+            mathjax: true,
+            animate: true,
+            isHome: false,
+            isPost: true,
+            isArchive: false,
+            isTag: false,
+            isCategory: false,
+            open_in_new: false
+            }
+        </script>
+        
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2015 Llooper
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <span id="site-visit" >本站到访数: 
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv" style='display:none'>
+                <span id="page-visit">, 本页阅读量: 
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+</footer>
+    </div>
+    
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
