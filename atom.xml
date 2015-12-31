@@ -46,11 +46,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[ubuntu亮度设置]]></title>
+    <title><![CDATA[Ubuntu亮度设置]]></title>
     <link href="http://yoursite.com/2015/12/31/ubuntu-brightness-control/"/>
     <id>http://yoursite.com/2015/12/31/ubuntu-brightness-control/</id>
     <published>2015-12-31T08:55:56.000Z</published>
-    <updated>2015-12-31T09:03:55.000Z</updated>
+    <updated>2015-12-31T09:31:27.000Z</updated>
     <content type="html"><![CDATA[<p>pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。</p>
 <a id="more"></a>
 <h3 id="Ubuntu_u4EAE_u5EA6_u8C03_u8282"><a href="#Ubuntu_u4EAE_u5EA6_u8C03_u8282" class="headerlink" title="Ubuntu亮度调节"></a>Ubuntu亮度调节</h3><h4 id="u4EAE_u5EA6_u65E0_u6CD5_u8C03_u8282_u7684_u539F_u56E0"><a href="#u4EAE_u5EA6_u65E0_u6CD5_u8C03_u8282_u7684_u539F_u56E0" class="headerlink" title="亮度无法调节的原因"></a>亮度无法调节的原因</h4><p> 每次重装ubuntu时都因为显示比较亮，很刺眼的问题纠结。去查找了一下相关资料，发现：<br><code>NVIDIA GEFORCE</code>独立显卡没有为Linux系统开发显卡驱动，导致无法使用Fn或者直接在图形界面中调节亮度。<br>Linux大神还曾经因为这个吐槽过NVIDIA公司的，想要八卦的自行去看吧。</p>
