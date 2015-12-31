@@ -3,18 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Llooper&#39;s Blog</title>
+  <title>Android-frameworks-SoundPool | Llooper&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;lt;!DOCTYPE HTML&amp;gt;">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Llooper's Blog">
-<meta property="og:url" content="http://yoursite.com/404/404.html">
+  <meta name="description" content="###给Android物理按键添加操作声音
+目标：通过修改系统源码给物理旋钮添加操作提示音实现：参照View的touch声音，在最底层的InputFilter接收输入事件，播放声音
+
+Android声音播放有俩种方式MediaPlayer跟SoundPool。
+SoundPool —— 适合短促且对反应速度比较高的情况（游戏音效或按键声等）。
+MediaPlayer —— 适合比较长且对时间要求不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android-frameworks-SoundPool">
+<meta property="og:url" content="http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/index.html">
 <meta property="og:site_name" content="Llooper's Blog">
-<meta property="og:description" content="&amp;lt;!DOCTYPE HTML&amp;gt;">
-<meta property="og:updated_time" content="2015-12-31T01:39:05.000Z">
+<meta property="og:description" content="###给Android物理按键添加操作声音
+目标：通过修改系统源码给物理旋钮添加操作提示音实现：参照View的touch声音，在最底层的InputFilter接收输入事件，播放声音
+
+Android声音播放有俩种方式MediaPlayer跟SoundPool。
+SoundPool —— 适合短促且对反应速度比较高的情况（游戏音效或按键声等）。
+MediaPlayer —— 适合比较长且对时间要求不">
+<meta property="og:updated_time" content="2015-12-31T02:10:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Llooper's Blog">
-<meta name="twitter:description" content="&amp;lt;!DOCTYPE HTML&amp;gt;">
+<meta name="twitter:title" content="Android-frameworks-SoundPool">
+<meta name="twitter:description" content="###给Android物理按键添加操作声音
+目标：通过修改系统源码给物理旋钮添加操作提示音实现：参照View的touch声音，在最底层的InputFilter接收输入事件，播放声音
+
+Android声音播放有俩种方式MediaPlayer跟SoundPool。
+SoundPool —— 适合短促且对反应速度比较高的情况（游戏音效或按键声等）。
+MediaPlayer —— 适合比较长且对时间要求不">
   
     <link rel="alternative" href="/atom.xml" title="Llooper&#39;s Blog" type="application/atom+xml">
   
@@ -200,11 +215,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android-frameworks-SoundPool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/404/404.html" class="article-date">
-      <time datetime="2015-12-31T01:39:05.000Z" itemprop="datePublished">2015-12-31</time>
+      <a href="/2015/12/31/Android-frameworks-SoundPool/" class="article-date">
+      <time datetime="2015-12-31T02:57:46.000Z" itemprop="datePublished">2015-12-31</time>
 </a>
     </div>
   
@@ -213,77 +228,139 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android-frameworks-SoundPool
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/AOSP/">AOSP</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOSP/">AOSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frameworks/">frameworks</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta {
-        display: none;
-    }
-    #container .article .article-title {
-        padding-right: 0;
-    }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover {
-        border-left: none;
-    }
-    .article-title {
-        font-size: 1.6em
-    }
-    .article-meta {
-        display: none;
-    }
-    .article-entry hr {
-        margin: 0;
-    }
-    #container .article-info-post.article-info {
-      display: none;
-      }
-    #container .article .article-title {
-    padding: 0;
-    }
-</style>
-
-
           
-         <!DOCTYPE HTML>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8;">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="robots" content="all">
-  <meta name="robots" content="index,follow">
-</head>
-<body>
+        <p>###给Android物理按键添加操作声音</p>
+<p>目标：通过修改系统源码给物理旋钮添加操作提示音<br>实现：参照View的touch声音，在最底层的InputFilter接收输入事件，播放声音</p>
+<blockquote>
+<p>Android声音播放有俩种方式<code>MediaPlayer</code>跟<code>SoundPool</code>。</p>
+<p>SoundPool —— 适合短促且对反应速度比较高的情况（游戏音效或按键声等）。</p>
+<p>MediaPlayer —— 适合比较长且对时间要求不高的情况。   </p>
+</blockquote>
+<p>方案：针对SoundPool与MediaPlayer进行比较，由于旋钮操作较为短促，本次开发采用SoundPool进行。</p>
+<p>车载盒子AOSP中封装了输入事件，代码位置:</p>
+<p><code>/framework/base/services/java/com/android/server/CarInputHub.java</code></p>
+<p>注意：需在CarInputHub初始化时便对SoundPool进行load，不然play声音时会报 no ready错误并且没有声音。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">CarInputHub</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(context.getMainLooper());</span><br><span class="line">    mContext = context;</span><br><span class="line"></span><br><span class="line">	mSoundPool = <span class="keyword">new</span> SoundPool(NUM_SOUNDPOOL_CHANNELS, AudioManager.STREAM_MUSIC, <span class="number">0</span>);</span><br><span class="line">	String filePath = <span class="string">"/system/media/audio/ui/suibian.ogg"</span>;</span><br><span class="line">	sampleId = mSoundPool.load(filePath, <span class="number">1</span>);</span><br><span class="line">	Log.i(TAG, <span class="string">"SoundPool init"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在点击处理点击事件的函数中进行play即可   </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInputEvent</span><span class="params">(InputEvent inputEvent, <span class="keyword">int</span> policyFlags)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(inputEvent <span class="keyword">instanceof</span> KeyEvent)&#123;</span><br><span class="line">		KeyEvent event = (KeyEvent) inputEvent;</span><br><span class="line">		<span class="keyword">if</span>(event.getAction()==KeyEvent.ACTION_UP)&#123;</span><br><span class="line">			    playClickSound();</span><br><span class="line">		&#125;</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">playClickSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mSoundPool.play(sampleId, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1.0f</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="http://llooper.github.io/" homepagename="回到我的主页"></script>
-
-</body>
-</html>
-
-        
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2015/12/31/Android-frameworks-SoundPool/">Android-frameworks-SoundPool</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Llooper 的个人博客">Llooper</a></p>
+        <p><span>发布时间:</span>2015年12月31日 - 10时57分</p>
+        <p><span>最后更新:</span>2015年12月31日 - 10时10分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2015/12/31/Android-frameworks-SoundPool/" title="Android-frameworks-SoundPool">http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/　　作者: Llooper" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2015/12/31/Android-frameworks-fonts/">
+                    Android-framesworks-fonts
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var toc_button = document.getElementById("tocButton");
+    var toc_div = document.getElementById("toc");
+    toc_button.onclick=function() {
+        if (toc_div.style.display == "none") {
+            toc_div.style.display = "block";
+            toc_button.value = "隐藏目录";
+            document.getElementById("switch-btn").style.display = "none";
+            document.getElementById("switch-area").style.display = "none";
+        }
+        else {
+            toc_div.style.display = "none";
+            toc_button.value = "显示目录";
+            document.getElementById("switch-btn").style.display = "block";
+            document.getElementById("switch-area").style.display = "block";
+        }
+    }
+
+    if ($(".toc").length < 1) {
+        $("#toc").css("display","none");
+        $("#tocButton").css("display","none");
+        $(".switch-btn").css("display","block");
+        $(".switch-area").css("display","block");
+    }
+</script>
+
+
 
 
 
 
     <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="404/404.html" data-title="" data-url="http://yoursite.com/404/404.html"></div>
+    <div class="ds-thread" data-thread-key="2015/12/31/Android-frameworks-SoundPool/" data-title="Android-frameworks-SoundPool" data-url="http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -306,6 +383,39 @@
 
 
 
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2015/12/31/Android-frameworks-fonts/" title="下一篇: Android-framesworks-fonts">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-SoundPool/">Android-frameworks-SoundPool</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-fonts/">Android-framesworks-fonts</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/hello-world/">Hello World</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200);
+            }
+            else {
+                $(".switch-btn, .switch-area").toggle(200);
+            }
+        })
+    </script>
+
+
+
 
     
         <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
@@ -315,7 +425,7 @@
             mathjax: true,
             animate: true,
             isHome: false,
-            isPost: false,
+            isPost: true,
             isArchive: false,
             isTag: false,
             isCategory: false,

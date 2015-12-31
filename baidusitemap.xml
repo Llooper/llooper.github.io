@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://yoursite.com/2015/12/31/Android-frameworks-SoundPool/</loc>
+    <lastmod>2015-12-31T02:10:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android-frameworks-SoundPool</title>
+        <pubTime>2015-12-31T02:57:46.000Z</pubTime>
+        
+        <tag>AOSP</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>frameworks</tag>
+         
+         
+           
+             
+              <breadCrumb title="AOSP" url="http://yoursite.com/categories/AOSP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2015/12/31/Android-frameworks-fonts/</loc>
+    <lastmod>2015-12-31T02:10:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android-framesworks-fonts</title>
+        <pubTime>2015-12-31T02:33:42.000Z</pubTime>
+        
+        <tag>AOSP</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>frameworks</tag>
+         
+         
+           
+             
+              <breadCrumb title="AOSP" url="http://yoursite.com/categories/AOSP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2015/12/31/hello-world/</loc>
+    <lastmod>2015-12-31T01:50:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2015-12-31T01:50:41.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+</urlset>

@@ -207,8 +207,8 @@
     <article id="post-Android-frameworks-SoundPool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/30/Android-frameworks-SoundPool/" class="article-date">
-      <time datetime="2015-12-30T11:57:46.000Z" itemprop="datePublished">2015-12-30</time>
+      <a href="/2015/12/31/Android-frameworks-SoundPool/" class="article-date">
+      <time datetime="2015-12-31T02:57:46.000Z" itemprop="datePublished">2015-12-31</time>
 </a>
     </div>
   
@@ -221,7 +221,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/30/Android-frameworks-SoundPool/">Android-frameworks-SoundPool</a>
+      <a class="article-title" href="/2015/12/31/Android-frameworks-SoundPool/">Android-frameworks-SoundPool</a>
     </h1>
   
 
@@ -230,6 +230,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+          
           
         <p>###给Android物理按键添加操作声音</p>
 <p>目标：通过修改系统源码给物理旋钮添加操作提示音<br>实现：参照View的touch声音，在最底层的InputFilter接收输入事件，播放声音</p>
@@ -246,13 +247,16 @@
 <p>然后在点击处理点击事件的函数中进行play即可   </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInputEvent</span><span class="params">(InputEvent inputEvent, <span class="keyword">int</span> policyFlags)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(inputEvent <span class="keyword">instanceof</span> KeyEvent)&#123;</span><br><span class="line">		KeyEvent event = (KeyEvent) inputEvent;</span><br><span class="line">		<span class="keyword">if</span>(event.getAction()==KeyEvent.ACTION_UP)&#123;</span><br><span class="line">			    playClickSound();</span><br><span class="line">		&#125;</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">playClickSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mSoundPool.play(sampleId, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1.0f</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/AOSP/">AOSP</a>
+    </div>
+
 
       
     <div class="article-tag tagcloud">
@@ -295,11 +299,11 @@
 
 
   
-    <article id="post-Android-framesworks-fonts" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Android-frameworks-fonts" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/30/Android-framesworks-fonts/" class="article-date">
-      <time datetime="2015-12-30T11:33:42.000Z" itemprop="datePublished">2015-12-30</time>
+      <a href="/2015/12/31/Android-frameworks-fonts/" class="article-date">
+      <time datetime="2015-12-31T02:33:42.000Z" itemprop="datePublished">2015-12-31</time>
 </a>
     </div>
   
@@ -312,7 +316,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/30/Android-framesworks-fonts/">Android-framesworks-fonts</a>
+      <a class="article-title" href="/2015/12/31/Android-frameworks-fonts/">Android-framesworks-fonts</a>
     </h1>
   
 
@@ -330,6 +334,10 @@
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/AOSP/">AOSP</a>
+    </div>
+
 
       
     <div class="article-tag tagcloud">
@@ -338,7 +346,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015/12/30/Android-framesworks-fonts/#more">more >></a>
+          <a  href="/2015/12/31/Android-frameworks-fonts/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -379,8 +387,8 @@
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/30/hello-world/" class="article-date">
-      <time datetime="2015-12-30T07:41:57.000Z" itemprop="datePublished">2015-12-30</time>
+      <a href="/2015/12/31/hello-world/" class="article-date">
+      <time datetime="2015-12-31T01:50:41.000Z" itemprop="datePublished">2015-12-31</time>
 </a>
     </div>
   
@@ -393,7 +401,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/30/hello-world/">Hello World</a>
+      <a class="article-title" href="/2015/12/31/hello-world/">Hello World</a>
     </h1>
   
 
@@ -415,7 +423,7 @@
       
       
         <p class="article-more-link">
-          <a  href="/2015/12/30/hello-world/#more">more >></a>
+          <a  href="/2015/12/31/hello-world/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
