@@ -4,6 +4,33 @@
 
     
   <url>
+    <loc>llooper.space/2016/01/05/Android-system-services/</loc>
+    <lastmod>2016-01-05T01:57:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android系统服务汇总列表</title>
+        <pubTime>2016-01-05T01:50:46.000Z</pubTime>
+        
+        <tag>AOSP</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>frameworks</tag>
+         
+         
+           
+             
+              <breadCrumb title="AOSP" url="llooper.space/categories/AOSP/"/>
+          
+             
+              <breadCrumb title="Android" url="llooper.space/categories/AOSP/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>llooper.space/2016/01/01/2016/</loc>
     <lastmod>2016-01-01T12:03:00.000Z</lastmod>
     <data>

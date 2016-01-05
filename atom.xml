@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="llooper.space/"/>
-  <updated>2016-01-01T12:03:00.000Z</updated>
+  <updated>2016-01-05T01:57:20.000Z</updated>
   <id>llooper.space/</id>
   
   <author>
@@ -13,6 +13,217 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Android系统服务汇总列表]]></title>
+    <link href="llooper.space/2016/01/05/Android-system-services/"/>
+    <id>llooper.space/2016/01/05/Android-system-services/</id>
+    <published>2016-01-05T01:50:46.000Z</published>
+    <updated>2016-01-05T01:57:20.000Z</updated>
+    <content type="html"><![CDATA[<p>业务对Android系统开机时间提出了需求，为了使得开机时间剪短，需要对系统service进行一些优化，去掉某部分使用不到的功能。现将<code>SystemServer</code>初始化阶段添加到<code>ServiceManager</code>中的服务进行一个汇总以及分析，给优化提供参照。</p>
+<a id="more"></a>
+<h2 id="Android__u7CFB_u7EDFservice_u5217_u8868"><a href="#Android__u7CFB_u7EDFservice_u5217_u8868" class="headerlink" title="Android 系统service列表"></a>Android 系统service列表</h2><h4 id="1-PowerManagerService"><a href="#1-PowerManagerService" class="headerlink" title="1.PowerManagerService"></a>1.PowerManagerService</h4><blockquote>
+<p>主要是计算系统中和Power相关的计算，然后决策系统应该如何反应。同时协调Power如何与系统其它模块的交互，比如在待机的时候关掉不用的设备，待机时屏幕和键盘背光的关闭，用户操作的时候该打开多少设备等等。   </p>
+</blockquote>
+<h4 id="2-ActivityManagerService"><a href="#2-ActivityManagerService" class="headerlink" title="2.ActivityManagerService"></a>2.ActivityManagerService</h4><blockquote>
+<p>这个是整个Android framework框架中最为核心的一个服务，管理整个框架中任务、进程管理, Intent解析等的核心实现。虽然名为Activity的Manager Service，但它管辖的范围，不只是Activity，还有其他三大组件，和它们所在的进程。也就是说用户应用程序的生命管理，都是由他负责的。</p>
+</blockquote>
+<h4 id="3-DisplayManagerService"><a href="#3-DisplayManagerService" class="headerlink" title="3.DisplayManagerService"></a>3.DisplayManagerService</h4><blockquote>
+<p>用于管理全局显示生命周期，决定在已连接的物理设备如何配置逻辑显示，并且通知系统和应用状态的改变。ANDROID从版本4.2开始提供了一个显示管理服务 DisplayManagerService,支持多种显示类型的多个显示器的镜像显示，包括内建的显示类型（本地）、HDMI显示类型以及支持WIFI Display 协议( MIRACAST)，实现本地设备在远程显示器上的镜像显示。</p>
+</blockquote>
+<h4 id="4-TelephonyRegistry"><a href="#4-TelephonyRegistry" class="headerlink" title="4.TelephonyRegistry"></a>4.TelephonyRegistry</h4><blockquote>
+<p>提供电话注册、管理服务，可以获取电话的链接状态、信号强度等等。</p>
+</blockquote>
+<h4 id="5-SchedulingPolicyService"><a href="#5-SchedulingPolicyService" class="headerlink" title="5.SchedulingPolicyService"></a>5.SchedulingPolicyService</h4><blockquote>
+<p>调度策略。</p>
+</blockquote>
+<h4 id="6-PackageManagerService"><a href="#6-PackageManagerService" class="headerlink" title="6.PackageManagerService"></a>6.PackageManagerService</h4><blockquote>
+<p>Android framework框架核心服务，用于APK的解析、权限验证、安装等。</p>
+</blockquote>
+<h4 id="7-EntropyMixer"><a href="#7-EntropyMixer" class="headerlink" title="7.EntropyMixer"></a>7.EntropyMixer</h4><blockquote>
+<p>熵服务，周期性的加载和保存随机信息。主要是linux开机后，/dev/random的状态可能是可预知的，这样一些需要随机信息的应用程序就可能会有问题。这个无需提供应用程序接口。</p>
+</blockquote>
+<h4 id="8-UserManagerService"><a href="#8-UserManagerService" class="headerlink" title="8.UserManagerService"></a>8.UserManagerService</h4><blockquote>
+<p>USB Host和device管理服务。</p>
+</blockquote>
+<h4 id="9-AccountManagerService"><a href="#9-AccountManagerService" class="headerlink" title="9.AccountManagerService"></a>9.AccountManagerService</h4><blockquote>
+<p>Android账户服务，提供了对账户、密码、授权的集中管理。</p>
+</blockquote>
+<h4 id="10-ContentService"><a href="#10-ContentService" class="headerlink" title="10.ContentService"></a>10.ContentService</h4><blockquote>
+<p>内容服务，主要是数据库等提供解决方法的服务。</p>
+</blockquote>
+<h4 id="11-LightsService"><a href="#11-LightsService" class="headerlink" title="11.LightsService"></a>11.LightsService</h4><blockquote>
+<p>光感应传感器服务。</p>
+</blockquote>
+<h4 id="12-BatteryService"><a href="#12-BatteryService" class="headerlink" title="12.BatteryService"></a>12.BatteryService</h4><blockquote>
+<p>负责监控电池的充电状态、电池电量、电压、温度等信息，当电池信息发生变化时，发生广播通知其他关系电池信息的进程和服务。</p>
+</blockquote>
+<h4 id="13-VibratorService"><a href="#13-VibratorService" class="headerlink" title="13.VibratorService"></a>13.VibratorService</h4><blockquote>
+<p>振动器服务。</p>
+</blockquote>
+<h4 id="14-ConsumerIrService"><a href="#14-ConsumerIrService" class="headerlink" title="14.ConsumerIrService"></a>14.ConsumerIrService</h4><blockquote>
+<p>远程控制，通过红外等控制周围的设备（例如电视等）</p>
+</blockquote>
+<h4 id="15-AlarmManagerService"><a href="#15-AlarmManagerService" class="headerlink" title="15.AlarmManagerService"></a>15.AlarmManagerService</h4><blockquote>
+<p>提供闹铃和定时器等功能。</p>
+</blockquote>
+<h4 id="16-Init_Watchdog"><a href="#16-Init_Watchdog" class="headerlink" title="16.Init Watchdog"></a>16.Init Watchdog</h4><blockquote>
+<p>1).接收系统内部reboot请求,重启系统。2).监护SystemServer进程,防止系统死锁。</p>
+</blockquote>
+<h4 id="17-WindowManagerService"><a href="#17-WindowManagerService" class="headerlink" title="17.WindowManagerService"></a>17.WindowManagerService</h4><blockquote>
+<p>Android framework框架核心服务，窗口管理服务。这里最核心的就是输入事件的分发和管理。</p>
+</blockquote>
+<h4 id="18-BluetoothManagerService"><a href="#18-BluetoothManagerService" class="headerlink" title="18.BluetoothManagerService"></a>18.BluetoothManagerService</h4><blockquote>
+<p>负责蓝牙后台管理和服务。</p>
+</blockquote>
+<h4 id="19-InputManagerService"><a href="#19-InputManagerService" class="headerlink" title="19.InputManagerService"></a>19.InputManagerService</h4><blockquote>
+<p>以前在WindowManagerService中，现在独立了出来，用户处理事件分发。</p>
+</blockquote>
+<h4 id="20-AccessibilityManagerService"><a href="#20-AccessibilityManagerService" class="headerlink" title="20.AccessibilityManagerService"></a>20.AccessibilityManagerService</h4><blockquote>
+<p>辅助管理程序截获所有的用户输入，并根据这些输入给用户一些额外的反馈，起到辅助的效果，View的点击、焦点等事件分发管理服。</p>
+</blockquote>
+<h4 id="21-MountService"><a href="#21-MountService" class="headerlink" title="21.MountService"></a>21.MountService</h4><blockquote>
+<p>磁盘加载服务程序，一般要和一个linux daemon程序如vold/mountd等合作起作用，主要负责监听并广播device的mount/unmount/badremoval等等事件。</p>
+</blockquote>
+<h4 id="22-LockSettingsService"><a href="#22-LockSettingsService" class="headerlink" title="22.LockSettingsService"></a>22.LockSettingsService</h4><blockquote>
+<p>和锁屏界面中的输入密码，手势等安全功能有关。可以保存每个user的相关<br>锁屏信息。</p>
+</blockquote>
+<h4 id="23-DevicePolicyManagerService"><a href="#23-DevicePolicyManagerService" class="headerlink" title="23.DevicePolicyManagerService"></a>23.DevicePolicyManagerService</h4><blockquote>
+<p>提供一些系统级别的设置及属性，比如锁屏、恢复出厂设置、设置密码、强制清除密码，修改密码、设置屏幕灯光渐暗时间间隔等操作。</p>
+</blockquote>
+<h4 id="24-StatusBarManagerService"><a href="#24-StatusBarManagerService" class="headerlink" title="24.StatusBarManagerService"></a>24.StatusBarManagerService</h4><blockquote>
+<p>状态栏，与systemui交互。</p>
+</blockquote>
+<h4 id="25-ClipboardService"><a href="#25-ClipboardService" class="headerlink" title="25.ClipboardService"></a>25.ClipboardService</h4><blockquote>
+<p>剪贴板服务。</p>
+</blockquote>
+<h4 id="26-NetworkManagementService"><a href="#26-NetworkManagementService" class="headerlink" title="26.NetworkManagementService"></a>26.NetworkManagementService</h4><blockquote>
+<p>网络管理服务。ANDROID 系统网络连接和管理服务由四个系统服务ConnectivityService、NetworkPolicyManagerService、NetworkManagementService、NetworkStatsService共同配合完成网络连接和管理功能。ConnectivityService、NetworkPolicyManagerService、NetworkStatsService三个服务都通过INetworkManagementService接口跨进程访问NetworkManagementService服务，实现与网络接口的交互及信息读取。</p>
+</blockquote>
+<h4 id="27-TextServicesManagerService"><a href="#27-TextServicesManagerService" class="headerlink" title="27.TextServicesManagerService"></a>27.TextServicesManagerService</h4><blockquote>
+<p>文本服务，例如文本检查等。</p>
+</blockquote>
+<h4 id="28-NetworkStatsService"><a href="#28-NetworkStatsService" class="headerlink" title="28.NetworkStatsService"></a>28.NetworkStatsService</h4><blockquote>
+<p>网络统计相关。</p>
+</blockquote>
+<h4 id="29-NetworkPolicyManagerService"><a href="#29-NetworkPolicyManagerService" class="headerlink" title="29.NetworkPolicyManagerService"></a>29.NetworkPolicyManagerService</h4><blockquote>
+<p>维护网络使用策略。</p>
+</blockquote>
+<h4 id="30-WifiP2pService"><a href="#30-WifiP2pService" class="headerlink" title="30.WifiP2pService"></a>30.WifiP2pService</h4><blockquote>
+<p>Wifi Direct服务。</p>
+</blockquote>
+<h4 id="31-WifiService"><a href="#31-WifiService" class="headerlink" title="31.WifiService"></a>31.WifiService</h4><blockquote>
+<p>Wifi服务。</p>
+</blockquote>
+<h4 id="32-ConnectivityService"><a href="#32-ConnectivityService" class="headerlink" title="32.ConnectivityService"></a>32.ConnectivityService</h4><blockquote>
+<p>网络连接状态服务。</p>
+</blockquote>
+<h4 id="33-EthernetService"><a href="#33-EthernetService" class="headerlink" title="33.EthernetService"></a>33.EthernetService</h4><blockquote>
+<p>以太网服务。</p>
+</blockquote>
+<h4 id="34-NsdService"><a href="#34-NsdService" class="headerlink" title="34.NsdService"></a>34.NsdService</h4><blockquote>
+<p>网络服务搜索。</p>
+</blockquote>
+<h4 id="35-UpdateLockService"><a href="#35-UpdateLockService" class="headerlink" title="35.UpdateLockService"></a>35.UpdateLockService</h4><blockquote>
+<p>4.1新增，提供升级锁，Advisory wakelock-like mechanism by which processes that should not be interrupted for OTA/update purposes can so advise the OS.</p>
+</blockquote>
+<h4 id="36-NotificationManagerService"><a href="#36-NotificationManagerService" class="headerlink" title="36.NotificationManagerService"></a>36.NotificationManagerService</h4><blockquote>
+<p>通知栏管理服务</p>
+</blockquote>
+<h4 id="37-DeviceStorageMonitorService"><a href="#37-DeviceStorageMonitorService" class="headerlink" title="37.DeviceStorageMonitorService"></a>37.DeviceStorageMonitorService</h4><blockquote>
+<p>磁盘空间状态检测服务 </p>
+</blockquote>
+<h4 id="38-LocationManagerService"><a href="#38-LocationManagerService" class="headerlink" title="38.LocationManagerService"></a>38.LocationManagerService</h4><blockquote>
+<p>磁盘空间状态检测服务 </p>
+</blockquote>
+<h4 id="39-CountryDetectorService"><a href="#39-CountryDetectorService" class="headerlink" title="39.CountryDetectorService"></a>39.CountryDetectorService</h4><blockquote>
+<p>检查当前用户所在的国家</p>
+</blockquote>
+<h4 id="40-SearchManagerService"><a href="#40-SearchManagerService" class="headerlink" title="40.SearchManagerService"></a>40.SearchManagerService</h4><blockquote>
+<p>搜索管理服务</p>
+</blockquote>
+<h4 id="41-DropBoxManagerService"><a href="#41-DropBoxManagerService" class="headerlink" title="41.DropBoxManagerService"></a>41.DropBoxManagerService</h4><blockquote>
+<p>系统日志文件管理服务，通过该服务访问Linux层面的Dropbox程序</p>
+</blockquote>
+<h4 id="42-WallpaperManagerService"><a href="#42-WallpaperManagerService" class="headerlink" title="42.WallpaperManagerService"></a>42.WallpaperManagerService</h4><blockquote>
+<p>壁纸管理服务</p>
+</blockquote>
+<h4 id="43-AudioService"><a href="#43-AudioService" class="headerlink" title="43.AudioService"></a>43.AudioService</h4><blockquote>
+<p>音频管理服务</p>
+</blockquote>
+<h4 id="44-UsbService"><a href="#44-UsbService" class="headerlink" title="44.UsbService"></a>44.UsbService</h4><blockquote>
+<p>USB服务</p>
+</blockquote>
+<h4 id="45-SerialService"><a href="#45-SerialService" class="headerlink" title="45.SerialService"></a>45.SerialService</h4><blockquote>
+<p>串口服务，可支持对串口的设备进行操作</p>
+</blockquote>
+<h4 id="46-TwilightService"><a href="#46-TwilightService" class="headerlink" title="46.TwilightService"></a>46.TwilightService</h4><blockquote>
+<p>指出用户当前所在位置是否为晚上，被UiModeManager等用来调整夜间模式。</p>
+</blockquote>
+<h4 id="47-UiModeManagerService"><a href="#47-UiModeManagerService" class="headerlink" title="47.UiModeManagerService"></a>47.UiModeManagerService</h4><blockquote>
+<p>管理当前Android设备的夜间模式和行车模式</p>
+</blockquote>
+<h4 id="48-BackupManagerService"><a href="#48-BackupManagerService" class="headerlink" title="48.BackupManagerService"></a>48.BackupManagerService</h4><blockquote>
+<p>系统备份服务</p>
+</blockquote>
+<h4 id="49-AppWidgetService"><a href="#49-AppWidgetService" class="headerlink" title="49.AppWidgetService"></a>49.AppWidgetService</h4><blockquote>
+<p>Android可以让用户写的程序以widget的方式放在桌面上，这就是这套管理和服务的接口</p>
+</blockquote>
+<h4 id="50-RecognitionManagerService"><a href="#50-RecognitionManagerService" class="headerlink" title="50.RecognitionManagerService"></a>50.RecognitionManagerService</h4><blockquote>
+<p>身份识别服务</p>
+</blockquote>
+<h4 id="51-DiskStatsService"><a href="#51-DiskStatsService" class="headerlink" title="51.DiskStatsService"></a>51.DiskStatsService</h4><blockquote>
+<p>磁盘统计服务</p>
+</blockquote>
+<h4 id="52-SamplingProfilerService"><a href="#52-SamplingProfilerService" class="headerlink" title="52.SamplingProfilerService"></a>52.SamplingProfilerService</h4><blockquote>
+<p>用于耗时统计等。</p>
+</blockquote>
+<h4 id="53-NetworkTimeUpdateService"><a href="#53-NetworkTimeUpdateService" class="headerlink" title="53.NetworkTimeUpdateService"></a>53.NetworkTimeUpdateService</h4><blockquote>
+<p>监视网络时间，当网络时间变化时更新本地时间。</p>
+</blockquote>
+<h4 id="54-CommonTimeManagementService"><a href="#54-CommonTimeManagementService" class="headerlink" title="54.CommonTimeManagementService"></a>54.CommonTimeManagementService</h4><blockquote>
+<p>管理本地常见的时间服务的配置，在网络配置变化时重新配置本地服务。</p>
+</blockquote>
+<h4 id="55-DreamManagerService"><a href="#55-DreamManagerService" class="headerlink" title="55.DreamManagerService"></a>55.DreamManagerService</h4><blockquote>
+<p>屏幕保护。</p>
+</blockquote>
+<h4 id="56-AssetAtlasService"><a href="#56-AssetAtlasService" class="headerlink" title="56.AssetAtlasService"></a>56.AssetAtlasService</h4><blockquote>
+<p>负责将预加载的bitmap组装成纹理贴图，生成的纹理贴图可以被用来跨进程使用，以减少内存。</p>
+</blockquote>
+<h4 id="57-PrintManagerService"><a href="#57-PrintManagerService" class="headerlink" title="57.PrintManagerService"></a>57.PrintManagerService</h4><blockquote>
+<p>打印服务。</p>
+</blockquote>
+<h4 id="58-MediaRouterService"><a href="#58-MediaRouterService" class="headerlink" title="58.MediaRouterService"></a>58.MediaRouterService</h4><blockquote>
+<p>MediaRouterService用于管理各个应用程序的多媒体播放的行为。</p>
+</blockquote>
+<h4 id="59-WiredAccessoryManager"><a href="#59-WiredAccessoryManager" class="headerlink" title="59.WiredAccessoryManager"></a>59.WiredAccessoryManager</h4><blockquote>
+<p>监视手机和底座上的耳机。</p>
+</blockquote>
+<h4 id="60-KeyguardService"><a href="#60-KeyguardService" class="headerlink" title="60.KeyguardService"></a>60.KeyguardService</h4><blockquote>
+<p>锁屏。</p>
+</blockquote>
+<hr>
+<h4 id="JNI_u5C42_u52A0_u8F7D_u7684_u670D_u52A1"><a href="#JNI_u5C42_u52A0_u8F7D_u7684_u670D_u52A1" class="headerlink" title="JNI层加载的服务"></a>JNI层加载的服务</h4><blockquote>
+<p>服务类名称    – 作用描述<br>SurfaceFlinger    – Framebuffer的合成和管理服务<br>SensorService – 传感器服务<br>MediaPlayerService    – 提供媒体播放服务，对应的java端接口在mediaplayer.java<br>AudioFlinger – 声音的录播放服务，包括混音等<br>CameraService – 提供camera的录制、preview等功能的服务<br>AudioPolicyService – 主要功能有检查输入输出设备的连接状态及系统的音频策略的切换等<br>DrmManagerService – DRM，英文全称Digital Rights Management, 可以翻译为：数字版权管理。指的是出版者用来控制被保护对象的使用权的一些技术，这些技术保护的有数字化内容（例如：软件、音乐、电影）以及硬件，处理数字化产品的某个实例的使用限制</p>
+</blockquote>
+<hr>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>业务对Android系统开机时间提出了需求，为了使得开机时间剪短，需要对系统service进行一些优化，去掉某部分使用不到的功能。现将<code>SystemServer</code>初始化阶段添加到<code>ServiceManager</code>中的服务进行一个汇总以及分析，给优化提供参照。</p>]]>
+    
+    </summary>
+    
+      <category term="AOSP" scheme="llooper.space/tags/AOSP/"/>
+    
+      <category term="Android" scheme="llooper.space/tags/Android/"/>
+    
+      <category term="frameworks" scheme="llooper.space/tags/frameworks/"/>
+    
+      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
+    
+      <category term="Android" scheme="llooper.space/categories/AOSP/Android/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[2016]]></title>
