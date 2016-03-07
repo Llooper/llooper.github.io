@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>2016 | Llooper&#39;s Blog</title>
+  <title>adb shell monkey 基本命令整合 | Llooper&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2016的第一篇blog。">
+  <meta name="description" content="主要整个Android测试工具monkey测试的基本命令以及用法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2016">
-<meta property="og:url" content="llooper.space/2016/01/01/2016/index.html">
+<meta property="og:title" content="adb shell monkey 基本命令整合">
+<meta property="og:url" content="llooper.space/2016/03/07/adb-shell-monkey/index.html">
 <meta property="og:site_name" content="Llooper's Blog">
-<meta property="og:description" content="2016的第一篇blog。">
-<meta property="og:updated_time" content="2016-01-01T12:03:00.000Z">
+<meta property="og:description" content="主要整个Android测试工具monkey测试的基本命令以及用法。">
+<meta property="og:updated_time" content="2016-03-07T13:12:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2016">
-<meta name="twitter:description" content="2016的第一篇blog。">
+<meta name="twitter:title" content="adb shell monkey 基本命令整合">
+<meta name="twitter:description" content="主要整个Android测试工具monkey测试的基本命令以及用法。">
   
     <link rel="alternative" href="/atom.xml" title="Llooper&#39;s Blog" type="application/atom+xml">
   
@@ -144,11 +144,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-2016" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-adb-shell-monkey" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/01/2016/" class="article-date">
-      <time datetime="2015-12-31T16:55:11.000Z" itemprop="datePublished">2016-01-01</time>
+      <a href="/2016/03/07/adb-shell-monkey/" class="article-date">
+      <time datetime="2016-03-07T13:02:26.000Z" itemprop="datePublished">2016-03-07</time>
 </a>
     </div>
   
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      2016
+      adb shell monkey 基本命令整合
     </h1>
   
 
@@ -170,13 +170,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/随笔/">随笔</a>
+    <a class="article-category-link" href="/categories/monkey/">monkey</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -186,12 +186,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>2016的第一篇blog。</p>
+        <p>主要整个Android测试工具monkey测试的基本命令以及用法。   </p>
 <a id="more"></a>
-<p>2016的第一篇blog，聊聊2015，聊聊未来，聊聊不知道说什么。。。</p>
-<p>跨年跨年，不知道从什么时候开始流行起了跨年这么个说法，跨着跨着一年就过去了，真的好快。<br>今年倒是有着这么一个说法，腿短的不叫跨年，叫蹦，单身狗也不叫跨年，叫熬夜。蹦着熬夜，这么一说我倒还真是适合-_-|||<br>2015-2016也算是改变比较重大的一年了，从学生跨入社会，正式脱离学校生活。7月份毕业至今，仍是一事无成，没有积蓄，挥霍无度。<br>人倒是变得世故了很多，不再那么单纯，那么纠结。<br>在学校是技术渣，出来后还是技术渣，还是无心学习没有搞技术的心思，还是安逸度日。<br>打球的习惯还保持着，就是不知道能持续到何年何日，或许终老吧。骑车呢，好像放弃了一样，虽然还是有着不贴现实的梦想，但感觉已经老了，没有再去破风的念头。<br>工作后从Android的开发者转换到了底层源码中去，研究地蛋都碎了一地。也不知道后续能有什么发展。<br>买了iPhone，换了mac pro，开发条件真的是不可同日而语，有了搞搞ios的心思，也不知道能不能持续下去。还想着搞搞Python的，哎，就是爱瞎折腾。</p>
-<p>好像也没有太多好聊的，之后再继续更新吧。</p>
-<p>2016的第一天，宅了一天。大半夜买了域名，配了半夜没配好，早上早早爬起来搞了一个上午。中午时分差不多ok，甚为欣慰。<br>下午继续宅，看直播看视频，在平平淡淡中元旦步入夜晚···<br>晚饭呢，感谢某人的盛情款待，东西还挺好吃的，虽然今天确实没有什么食欲，但问题的关键是可以让好心情继续保持呀。<br>一些朋友虽然碰头的机会很少，院长远在帝都，几个在深圳，广州的也都忙着。但总感觉距离不远，一块到处串的情景还特别清晰。有空是该去深圳坑坑正扬了。<br>新的一年的，也有些小小的憧憬吧，希望能继续好好的发展下去，有一点点好感，祝福。。。<br>个性比较浪，问我喜不喜欢，心动了，你说能不喜欢么。<br>还没萌芽的就断了，还好，确实是我太心急了点，让人误解也没办法，全都怪我。   </p>
+<h3 id="u53C2_u6570_u8BF4_u660E"><a href="#u53C2_u6570_u8BF4_u660E" class="headerlink" title="参数说明"></a>参数说明</h3><p>配置好adb环境后，接入设备，在terminal中输入 <code>adb shell monkey</code>就可以看到monkey的列出的各个参数，现对各个参数进行说明。</p>
+<p>monkey是通过package name去识别应该执行哪些apk。全部package name可通过adb shell进入设备terminal模式，cd 到 /data/data/查看。</p>
+<p><code>–-pkg-blacklist-file</code> 黑名单列表，顾名思义，自然就是黑名单，monkey不执行的列表。使用方法，编写列表文件,列表中添加的是 package name，然后通过adb push 到设备中，例如 ： <code>monkey –-pkg-blacklist-file /data/blacklist.txt</code><br><code>–pkg-whitelist-file</code> 同上，此为白名单列表，即只执行列表中的package name的apk文件。</p>
 
       
     </div>
@@ -199,36 +198,14 @@
   </div>
   
     
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/01/2016/">2016</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 Llooper 的个人博客">Llooper</a></p>
-        <p><span>发布时间:</span>2016年01月01日 - 00时55分</p>
-        <p><span>最后更新:</span>2016年01月01日 - 20时03分</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/01/2016/" title="2016">llooper.space/2016/01/01/2016/</a>
-            <span class="copy-path" data-clipboard-text="原文: llooper.space/2016/01/01/2016/　　作者: Llooper" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
 
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/05/Android-system-services/">
-                    Android系统服务汇总列表
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/12/31/带上她的眼睛/">
-                    《带上她的眼睛》
+                <a href="/2016/03/07/Android-adb-keyevent-input-keycode/">
+                    Android adb input keyevent  &quot;keycode&quot;
                 </a>
             </div>
         
@@ -239,7 +216,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u6570_u8BF4_u660E"><span class="toc-number">1.</span> <span class="toc-text">参数说明</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -286,7 +263,7 @@
 
     <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/01/2016/" data-title="2016" data-url="llooper.space/2016/01/01/2016/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/07/adb-shell-monkey/" data-title="adb shell monkey 基本命令整合" data-url="llooper.space/2016/03/07/adb-shell-monkey/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -311,15 +288,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/05/Android-system-services/" title="上一篇: Android系统服务汇总列表">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/12/31/带上她的眼睛/" title="下一篇: 《带上她的眼睛》">
+            <a href="/2016/03/07/Android-adb-keyevent-input-keycode/" title="下一篇: Android adb input keyevent  &quot;keycode&quot;">
                 <i class="fa fa-angle-right"></i>
             </a>
         

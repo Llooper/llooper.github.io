@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="llooper.space/"/>
-  <updated>2016-01-05T01:57:20.000Z</updated>
+  <updated>2016-03-07T13:12:33.000Z</updated>
   <id>llooper.space/</id>
   
   <author>
@@ -13,6 +13,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[adb shell monkey 基本命令整合]]></title>
+    <link href="llooper.space/2016/03/07/adb-shell-monkey/"/>
+    <id>llooper.space/2016/03/07/adb-shell-monkey/</id>
+    <published>2016-03-07T13:02:26.000Z</published>
+    <updated>2016-03-07T13:12:33.000Z</updated>
+    <content type="html"><![CDATA[<p>主要整个Android测试工具monkey测试的基本命令以及用法。   </p>
+<a id="more"></a>
+<h3 id="u53C2_u6570_u8BF4_u660E"><a href="#u53C2_u6570_u8BF4_u660E" class="headerlink" title="参数说明"></a>参数说明</h3><p>配置好adb环境后，接入设备，在terminal中输入 <code>adb shell monkey</code>就可以看到monkey的列出的各个参数，现对各个参数进行说明。</p>
+<p>monkey是通过package name去识别应该执行哪些apk。全部package name可通过adb shell进入设备terminal模式，cd 到 /data/data/查看。</p>
+<p><code>–-pkg-blacklist-file</code> 黑名单列表，顾名思义，自然就是黑名单，monkey不执行的列表。使用方法，编写列表文件,列表中添加的是 package name，然后通过adb push 到设备中，例如 ： <code>monkey –-pkg-blacklist-file /data/blacklist.txt</code><br><code>–pkg-whitelist-file</code> 同上，此为白名单列表，即只执行列表中的package name的apk文件。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>主要整个Android测试工具monkey测试的基本命令以及用法。   </p>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="llooper.space/tags/Android/"/>
+    
+      <category term="monkey" scheme="llooper.space/categories/monkey/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android adb input keyevent  "keycode"]]></title>
+    <link href="llooper.space/2016/03/07/Android-adb-keyevent-input-keycode/"/>
+    <id>llooper.space/2016/03/07/Android-adb-keyevent-input-keycode/</id>
+    <published>2016-03-07T12:54:03.000Z</published>
+    <updated>2016-03-07T13:00:01.000Z</updated>
+    <content type="html"><![CDATA[<p>Andorid adb input keyevent “keycode”整理，方便terminal输入Androidkeyevent事件。</p>
+<a id="more"></a>
+<h4 id="adb__u8F93_u5165keyevent_u4E8B_u4EF6_u4F8B_u5B50_uFF1A"><a href="#adb__u8F93_u5165keyevent_u4E8B_u4EF6_u4F8B_u5B50_uFF1A" class="headerlink" title="adb 输入keyevent事件例子："></a>adb 输入keyevent事件例子：</h4><p>adb input keyevent 66<br>adb input keyevent KEYCODE_ENTER<br>主要有以上俩种形式，当然，数字比较多记起来繁琐，整理网络上的一些汇总成为此篇page。   </p>
+<h4 id="KeyCode_u6574_u7406"><a href="#KeyCode_u6574_u7406" class="headerlink" title="KeyCode整理"></a>KeyCode整理</h4><p>7 –&gt;  “KEYCODE_0”<br>8 –&gt;  “KEYCODE_1”<br>9 –&gt;  “KEYCODE_2”<br>10 –&gt;  “KEYCODE_3”<br>11 –&gt;  “KEYCODE_4”<br>12 –&gt;  “KEYCODE_5”<br>13 –&gt;  “KEYCODE_6”<br>14 –&gt;  “KEYCODE_7”<br>15 –&gt;  “KEYCODE_8”<br>16 –&gt;  “KEYCODE_9”<br>17 –&gt;  “KEYCODE_STAR”         *<br>18 –&gt;  “KEYCODE_POUND”        #<br>19 –&gt;  “KEYCODE_DPAD_UP”      上<br>20 –&gt;  “KEYCODE_DPAD_DOWN”    下<br>21 –&gt;  “KEYCODE_DPAD_LEFT”   58 21左<br>22 –&gt;  “KEYCODE_DPAD_RIGHT”  57 22右<br>23 –&gt;  “KEYCODE_DPAD_CENTER”<br>24 –&gt;  “KEYCODE_VOLUME_UP”<br>25 –&gt;  “KEYCODE_VOLUME_DOWN”<br>26 –&gt;  “KEYCODE_POWER”<br>29 –&gt;  “KEYCODE_A”<br>30 –&gt;  “KEYCODE_B”<br>31 –&gt;  “KEYCODE_C”<br>32 –&gt;  “KEYCODE_D”<br>33 –&gt;  “KEYCODE_E”<br>34 –&gt;  “KEYCODE_F”<br>35 –&gt;  “KEYCODE_G”<br>36 –&gt;  “KEYCODE_H”<br>37 –&gt;  “KEYCODE_I”<br>38 –&gt;  “KEYCODE_J”<br>39 –&gt;  “KEYCODE_K”<br>40 –&gt;  “KEYCODE_L”<br>41 –&gt;  “KEYCODE_M”<br>42 –&gt;  “KEYCODE_N”<br>43 –&gt;  “KEYCODE_O”<br>44 –&gt;  “KEYCODE_P”<br>45 –&gt;  “KEYCODE_Q”<br>46 –&gt;  “KEYCODE_R”<br>47 –&gt;  “KEYCODE_S”<br>48 –&gt;  “KEYCODE_T”<br>49 –&gt;  “KEYCODE_U”<br>50 –&gt;  “KEYCODE_V”<br>51 –&gt;  “KEYCODE_W”<br>52 –&gt;  “KEYCODE_X”<br>53 –&gt;  “KEYCODE_Y”<br>54 –&gt;  “KEYCODE_Z”<br>55 –&gt;  “KEYCODE_COMMA”       ，<br>56 –&gt;  “KEYCODE_PERIOD”      。<br>57 –&gt;  “KEYCODE_ALT_LEFT”<br>58 –&gt;  “KEYCODE_ALT_RIGHT”<br>59 –&gt;  “KEYCODE_SHIFT_LEFT”<br>60 –&gt;  “KEYCODE_SHIFT_RIGHT”<br>61 –&gt;  “KEYCODE_TAB”<br>62 –&gt;  “KEYCODE_SPACE”<br>63 –&gt;  “KEYCODE_SYM”<br>64 –&gt;  “KEYCODE_EXPLORER”<br>65 –&gt;  “KEYCODE_ENVELOPE”<br>66 –&gt;  “KEYCODE_ENTER”<br>67 –&gt;  “KEYCODE_DEL”<br>68 –&gt;  “KEYCODE_GRAVE”<br>69 –&gt;  “KEYCODE_MINUS”<br>70 –&gt;  “KEYCODE_EQUALS”         =<br>71 –&gt;  “KEYCODE_LEFT_BRACKET”   []<br>72 –&gt;  “KEYCODE_RIGHT_BRACKET”  []<br>73 –&gt;  “KEYCODE_BACKSLASH”<br>74 –&gt;  “KEYCODE_SEMICOLON”       ;<br>75 –&gt;  “KEYCODE_APOSTROPHE”<br>76 –&gt;  “KEYCODE_SLASH”           /<br>77 –&gt;  “KEYCODE_AT”              @<br>78 –&gt;  “KEYCODE_NUM”<br>79 –&gt;  “KEYCODE_HEADSETHOOK”<br>80 –&gt;  “KEYCODE_FOCUS”<br>81 –&gt;  “KEYCODE_PLUS”<br>82 –&gt;  “KEYCODE_MENU”            menu<br>83 –&gt;  “KEYCODE_NOTIFICATION”     notification bar<br>84 –&gt;  “KEYCODE_SEARCH”<br>85 –&gt;  “TAG_LAST_KEYCODE”</p>
+<blockquote>
+<p>ps: 以上仅仅列出了部分常用的</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Andorid adb input keyevent “keycode”整理，方便terminal输入Androidkeyevent事件。</p>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="llooper.space/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Android系统服务汇总列表]]></title>
@@ -312,7 +358,7 @@
     <link href="llooper.space/2015/12/31/Android-frameworks-add-default-apps/"/>
     <id>llooper.space/2015/12/31/Android-frameworks-add-default-apps/</id>
     <published>2015-12-31T06:13:55.000Z</published>
-    <updated>2015-12-31T08:56:43.000Z</updated>
+    <updated>2016-01-05T02:06:48.000Z</updated>
     <content type="html"><![CDATA[<p>预制APP到Android系统，成为系统默认APPS。<br><a id="more"></a></p>
 <h3 id="u6982_u8BBA"><a href="#u6982_u8BBA" class="headerlink" title="概论"></a>概论</h3><p>将第三方厂商定制的APP编译进系统源码，随着system.img的烧录进设备。定制的APP分为以下几种形式添加到系统中：   </p>
 <ul>

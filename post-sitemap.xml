@@ -7,6 +7,30 @@
     </url>
 
     <url>
+        <loc>llooper.space/2016/03/07/adb-shell-monkey/</loc>
+        <lastmod>2016-03-07T13:12:33.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>llooper.space/2016/03/07/Android-adb-keyevent-input-keycode/</loc>
+        <lastmod>2016-03-07T13:00:01.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>llooper.space/2015/12/31/Android-frameworks-add-default-apps/</loc>
+        <lastmod>2016-01-05T02:06:48.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>llooper.space/2016/01/05/Android-system-services/</loc>
         <lastmod>2016-01-05T01:57:20.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -49,14 +73,6 @@
     <url>
         <loc>llooper.space/2015/12/31/Android-frameworks-fonts/</loc>
         <lastmod>2015-12-31T08:56:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>llooper.space/2015/12/31/Android-frameworks-add-default-apps/</loc>
-        <lastmod>2015-12-31T08:56:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -4,6 +4,67 @@
 
     
   <url>
+    <loc>llooper.space/2016/03/07/adb-shell-monkey/</loc>
+    <lastmod>2016-03-07T13:12:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>adb shell monkey 基本命令整合</title>
+        <pubTime>2016-03-07T13:02:26.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="monkey" url="llooper.space/categories/monkey/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>llooper.space/2016/03/07/Android-adb-keyevent-input-keycode/</loc>
+    <lastmod>2016-03-07T13:00:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android adb input keyevent  "keycode"</title>
+        <pubTime>2016-03-07T12:54:03.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>llooper.space/2015/12/31/Android-frameworks-add-default-apps/</loc>
+    <lastmod>2016-01-05T02:06:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android系统源码集成第三方APP并编译到system.img中</title>
+        <pubTime>2015-12-31T06:13:55.000Z</pubTime>
+        
+        <tag>AOSP</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>frameworks</tag>
+         
+         
+           
+             
+              <breadCrumb title="AOSP" url="llooper.space/categories/AOSP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>llooper.space/2016/01/05/Android-system-services/</loc>
     <lastmod>2016-01-05T01:57:20.000Z</lastmod>
     <data>
@@ -124,30 +185,6 @@
         <display>
         <title>通过修改Android frameworks层源码设置默认字体</title>
         <pubTime>2015-12-31T02:13:42.000Z</pubTime>
-        
-        <tag>AOSP</tag>
-         
-        <tag>Android</tag>
-         
-        <tag>frameworks</tag>
-         
-         
-           
-             
-              <breadCrumb title="AOSP" url="llooper.space/categories/AOSP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>llooper.space/2015/12/31/Android-frameworks-add-default-apps/</loc>
-    <lastmod>2015-12-31T08:56:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android系统源码集成第三方APP并编译到system.img中</title>
-        <pubTime>2015-12-31T06:13:55.000Z</pubTime>
         
         <tag>AOSP</tag>
          
