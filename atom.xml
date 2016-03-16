@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="llooper.space/"/>
-  <updated>2016-03-07T13:12:33.000Z</updated>
+  <updated>2016-03-16T14:33:27.000Z</updated>
   <id>llooper.space/</id>
   
   <author>
@@ -13,6 +13,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解]]></title>
+    <link href="llooper.space/2016/03/16/ARGB_8888%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <id>llooper.space/2016/03/16/ARGB_8888等的理解/</id>
+    <published>2016-03-16T14:31:19.000Z</published>
+    <updated>2016-03-16T14:33:27.000Z</updated>
+    <content type="html"><![CDATA[<p>A：透明度</p>
+<p>R：红色</p>
+<p>G：绿</p>
+<p>B：蓝</p>
+<p><code>Bitmap.Config ARGB_4444</code>：每个像素占四位，即A=4，R=4，G=4，B=4，那么一个像素点占4+4+4+4=16位 </p>
+<p><code>Bitmap.Config ARGB_8888</code>：每个像素占四位，即A=8，R=8，G=8，B=8，那么一个像素点占8+8+8+8=32位</p>
+<p><code>Bitmap.Config RGB_565</code>：每个像素占四位，即R=5，G=6，B=5，没有透明度，那么一个像素点占5+6+5=16位</p>
+<p><code>Bitmap.Config ALPHA_8</code>：每个像素占四位，只有透明度，没有颜色。</p>
+<p>一般情况下我们都是使用的<code>ARGB_8888</code>，由此可知它是最占内存的，因为一个像素占32位，8位=1字节，所以一个像素占4字节的内存。假设有一张480x800的图片，如果格式为<code>ARGB_8888</code>，那么将会占用1500KB的内存。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>A：透明度</p>
+<p>R：红色</p>
+<p>G：绿</p>
+<p>B：蓝</p>
+<p><code>Bitmap.Config ARGB_4444</code>：每个像素占四位，即A=4，R=4，G=4，B=4，那么一个像素点占4+4+4+4=16位 </p>
+<p>]]>
+    </summary>
+    
+      <category term="ARGB_8888" scheme="llooper.space/tags/ARGB-8888/"/>
+    
+      <category term="Android" scheme="llooper.space/tags/Android/"/>
+    
+      <category term="Android" scheme="llooper.space/categories/Android/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[adb shell monkey 基本命令整合]]></title>
