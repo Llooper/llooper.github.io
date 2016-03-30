@@ -44,13 +44,6 @@
     </url>
 
     <url>
-        <loc>llooper.space/tags/Android/</loc>
-        <lastmod>2016-03-16T14:33:27.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>llooper.space/tags/ARGB-8888/</loc>
         <lastmod>2016-03-16T14:33:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -74,6 +67,13 @@
     <url>
         <loc>llooper.space/tags/systemui/</loc>
         <lastmod>2016-03-16T14:38:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>llooper.space/tags/Android/</loc>
+        <lastmod>2016-03-30T02:27:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
