@@ -114,7 +114,7 @@
     <link href="llooper.space/2016/03/07/Android-adb-keyevent-input-keycode/"/>
     <id>llooper.space/2016/03/07/Android-adb-keyevent-input-keycode/</id>
     <published>2016-03-07T12:54:03.000Z</published>
-    <updated>2016-03-30T02:27:27.000Z</updated>
+    <updated>2016-03-30T02:31:06.000Z</updated>
     <content type="html"><![CDATA[<p>Andorid adb input keyevent “keycode”整理，方便terminal输入Androidkeyevent事件。</p>
 <a id="more"></a>
 <h4 id="adb__u8F93_u5165keyevent_u4E8B_u4EF6_u4F8B_u5B50_uFF1A"><a href="#adb__u8F93_u5165keyevent_u4E8B_u4EF6_u4F8B_u5B50_uFF1A" class="headerlink" title="adb 输入keyevent事件例子："></a>adb 输入keyevent事件例子：</h4><p>adb input keyevent 66<br>adb input keyevent KEYCODE_ENTER<br>主要有以上俩种形式，当然，数字比较多记起来繁琐，整理网络上的一些汇总成为此篇page。   </p>
