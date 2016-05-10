@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[Llooper's Blog]]></title>
+  <title><![CDATA[FLINT LI's Blog]]></title>
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="llooper.space/"/>
@@ -8,7 +8,7 @@
   <id>llooper.space/</id>
   
   <author>
-    <name><![CDATA[Llooper]]></name>
+    <name><![CDATA[FLINT LI]]></name>
     
   </author>
   
