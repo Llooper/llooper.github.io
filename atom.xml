@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="llooper.space/"/>
-  <updated>2016-03-16T14:38:42.000Z</updated>
+  <updated>2016-05-10T13:01:36.000Z</updated>
   <id>llooper.space/</id>
   
   <author>
@@ -13,6 +13,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[ *.jar odex has stale dependencies]]></title>
+    <link href="llooper.space/2016/05/10/jar-odex-has-stale-dependencies/"/>
+    <id>llooper.space/2016/05/10/jar-odex-has-stale-dependencies/</id>
+    <published>2016-05-10T12:55:02.000Z</published>
+    <updated>2016-05-10T13:01:36.000Z</updated>
+    <content type="html"><![CDATA[<p>修改Android系统签名过程遇到的问题以及解决方法，主要是签名修改之后，编译烧录之后的img报了 <code>*.jar odex has stale dependencies</code>的错误。</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">I/dalvikvm(  <span class="number">621</span>): DexOpt: Some deps went away</span><br><span class="line">E/dalvikvm(  <span class="number">621</span>): /system/framework/android.policy.jar odex has stale dependencies</span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): Zip is good, but no classes.dex inside, and no valid .odex file in the same directory</span><br><span class="line">D/dalvikvm(  <span class="number">621</span>): Unable to process classpath element <span class="string">'/system/framework/android.policy.jar'</span></span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): DexOpt: Some deps went away</span><br><span class="line">E/dalvikvm(  <span class="number">621</span>): /system/framework/services.jar odex has stale dependencies</span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): Zip is good, but no classes.dex inside, and no valid .odex file in the same directory</span><br><span class="line">D/dalvikvm(  <span class="number">621</span>): Unable to process classpath element <span class="string">'/system/framework/services.jar'</span></span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): DexOpt: Some deps went away</span><br><span class="line">E/dalvikvm(  <span class="number">621</span>): /system/framework/apache-xml.jar odex has stale dependencies</span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): Zip is good, but no classes.dex inside, and no valid .odex file in the same directory</span><br><span class="line">D/dalvikvm(  <span class="number">621</span>): Unable to process classpath element <span class="string">'/system/framework/apache-xml.jar'</span></span><br></pre></td></tr></table></figure>
+<p>主要错误情况如上所示，表现为 jar包 odex has stale dependencies。经过网上查找资料以及分析之后得出结论。<br>原因是<code>build/core/dex_preopt.mk</code>里面的宏<code>DEXPREOPT_BOOT_JARS</code>和<code>init.rc</code>里面的宏BOOTCLASSPATH所赋值的包的位置不一样，把它们对应起来就解决了。</p>
+<p>上面<code>DEXPREOPT_BOOT_JARS</code>不一定定义在<code>dex_preopt.mk</code>文件中，需要根据你当前的系统进行分析。主要找准了 <code>DEXPREOPT_BOOT_JARS</code>定义的位置，以及 <code>init.rc</code>中的位置，<code>init.rc</code>中的<code>DEXPREOPT_BOOT_JARS</code>也有可能在<code>init.environment.rc</code>中。将俩边的jar包的顺序以及文件名称对应上就可以。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>修改Android系统签名过程遇到的问题以及解决方法，主要是签名修改之后，编译烧录之后的img报了 <code>*.jar odex has stale dependencies</code>的错误。</p>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="llooper.space/tags/Android/"/>
+    
+      <category term="Android" scheme="llooper.space/categories/Android/"/>
+    
+      <category term="AOSP" scheme="llooper.space/categories/Android/AOSP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android ActivityManager MOVE_TASK_WITH_HOME]]></title>
+    <link href="llooper.space/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/"/>
+    <id>llooper.space/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/</id>
+    <published>2016-05-10T12:43:06.000Z</published>
+    <updated>2016-05-10T12:53:02.000Z</updated>
+    <content type="html"><![CDATA[<p>ActivityManager的flag MOVE_TASK_WITH_HOME分析</p>
+<a id="more"></a>
+<p><code>MOVE_TASK_WITH_HOME</code>作为一个flag定义于ActivityManager中。主要是做为<code>moveTaskToFront()</code>的一个参数。</p>
+<p>/**   </p>
+<ul>
+<li>Flag for {@link #moveTaskToFront(int, int)}: also move the “home”   </li>
+<li>activity along with the task, so it is positioned immediately behind   </li>
+<li><p>the task.<br>*/</p>
+<p>   public static final int MOVE_TASK_WITH_HOME = 0x00000001;</p>
+</li>
+</ul>
+<p>从命名跟代码中的注释就可以了解到，设置了这个flag，那么在将这个task移到栈的顶部时，home的task也要相应的往上移动，移到顶部task的下面。</p>
+<p>那么当设置了这个flag的task移到栈的顶部后，栈中task的顺序应该如下：</p>
+<table>
+<thead>
+<tr>
+<th>task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>home</td>
+</tr>
+<tr>
+<td>task1</td>
+</tr>
+<tr>
+<td>…….</td>
+</tr>
+</tbody>
+</table>
+<p>task has flag <code>MOVE_TASK_WITH_HOME</code></p>
+<p>那么在按back键时，task退出，home在task之下，应该resume home。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>ActivityManager的flag MOVE_TASK_WITH_HOME分析</p>]]>
+    
+    </summary>
+    
+      <category term="ActivityManager" scheme="llooper.space/tags/ActivityManager/"/>
+    
+      <category term="Android" scheme="llooper.space/categories/Android/"/>
+    
+      <category term="ActivityManager" scheme="llooper.space/categories/Android/ActivityManager/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[SystemUI之RecentsApp篇（一）]]></title>

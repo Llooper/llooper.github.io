@@ -42,15 +42,29 @@
     </url>
 
     <url>
-        <loc>llooper.space/categories/Android/</loc>
-        <lastmod>2016-03-16T14:33:27.000Z</lastmod>
+        <loc>llooper.space/categories/AOSP/</loc>
+        <lastmod>2016-03-16T14:38:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>llooper.space/categories/AOSP/</loc>
-        <lastmod>2016-03-16T14:38:42.000Z</lastmod>
+        <loc>llooper.space/categories/Android/ActivityManager/</loc>
+        <lastmod>2016-05-10T12:53:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>llooper.space/categories/Android/</loc>
+        <lastmod>2016-05-10T13:01:36.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>llooper.space/categories/Android/AOSP/</loc>
+        <lastmod>2016-05-10T13:01:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

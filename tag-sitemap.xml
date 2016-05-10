@@ -72,8 +72,15 @@
     </url>
 
     <url>
+        <loc>llooper.space/tags/ActivityManager/</loc>
+        <lastmod>2016-05-10T12:53:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>llooper.space/tags/Android/</loc>
-        <lastmod>2016-03-30T02:31:06.000Z</lastmod>
+        <lastmod>2016-05-10T13:01:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>llooper.space/2016/05/10/jar-odex-has-stale-dependencies/</loc>
+        <lastmod>2016-05-10T13:01:36.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>llooper.space/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/</loc>
+        <lastmod>2016-05-10T12:53:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>llooper.space/2016/03/07/Android-adb-keyevent-input-keycode/</loc>
         <lastmod>2016-03-30T02:31:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
