@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="llooper.space/"/>
-  <updated>2016-05-10T13:01:36.000Z</updated>
+  <updated>2016-05-11T08:31:44.000Z</updated>
   <id>llooper.space/</id>
   
   <author>
@@ -13,6 +13,78 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Android ADB 状态开关]]></title>
+    <link href="llooper.space/2016/05/11/Android-ADB%E7%8A%B6%E6%80%81%E5%BC%80%E5%85%B3/"/>
+    <id>llooper.space/2016/05/11/Android-ADB状态开关/</id>
+    <published>2016-05-11T06:52:10.000Z</published>
+    <updated>2016-05-11T08:31:44.000Z</updated>
+    <content type="html"><![CDATA[<p>Android设备adb root权限控制以及 adb shell的开关控制。</p>
+<a id="more"></a>
+<h3 id="adb_root_u6743_u9650"><a href="#adb_root_u6743_u9650" class="headerlink" title="adb root权限"></a>adb root权限</h3><p>adb 的root权限是在system/core/adb/adb.c中控制。主要根据<code>ro.secure</code>以及 <code>ro.debuggable</code>等<code>system property</code> 来控制。默认即档ro.secure 为0 时，即开启root 权限，为1时再根据ro.debuggable等选项来确认是否可以用开启root 权限。</p>
+<h3 id="user_eng__u7528_u6237_u7248_u672C_u5DEE_u5F02"><a href="#user_eng__u7528_u6237_u7248_u672C_u5DEE_u5F02" class="headerlink" title="user eng 用户版本差异"></a>user eng 用户版本差异</h3><p><code>ro.secure</code>以及<code>ro.debuggable</code>的值设置跟用户编译版本有关，一下是Google官方的描述。</p>
+<p>When building for a particular product, it’s often useful to have minor variations on what is ultimately the final release build. These are the currently-defined “flavors” or “types” (we need to settle on a real name for these).</p>
+<h4 id="eng"><a href="#eng" class="headerlink" title="eng"></a>eng</h4><p>This is the default flavor. A plain “make” is the same as “make eng”. droid is an alias for eng.</p>
+<ul>
+<li>Installs modules tagged with: eng, debug, shell_$(TARGET_SHELL), user, and/or development.</li>
+<li>Installs non-APK modules that have no tags specified.<br>Installs APKs according to the product definition files, in addition to tagged APKs.</li>
+<li>ro.secure=0</li>
+<li>ro.debuggable=1</li>
+<li>ro.kernel.android.checkjni=1</li>
+<li>adb is enabled by default.</li>
+</ul>
+<h4 id="user"><a href="#user" class="headerlink" title="user"></a>user</h4><p><code>make user</code></p>
+<p>This is the flavor intended to be the final release bits.</p>
+<ul>
+<li>Installs modules tagged with shell_$(TARGET_SHELL) and user.</li>
+<li>Installs non-APK modules that have no tags specified.</li>
+<li>Installs APKs according to the product definition files; tags are ignored for APK modules.</li>
+<li>ro.secure=1</li>
+<li>ro.debuggable=0</li>
+<li>adb is disabled by default.</li>
+</ul>
+<h4 id="userdebug"><a href="#userdebug" class="headerlink" title="userdebug"></a>userdebug</h4><p><code>make userdebug</code><br>The same as user, except:</p>
+<ul>
+<li>Also installs modules tagged with debug.</li>
+<li>ro.debuggable=1</li>
+<li>adb is enabled by default.</li>
+</ul>
+<h3 id="adb_shell"><a href="#adb_shell" class="headerlink" title="adb shell"></a>adb shell</h3><p>以上是adb root权限相关的介绍。下面介绍怎么禁用设备的adb，也即是使得 adb shell失效，无法进入。</p>
+<h4 id="u521D_u6B65_u65B9_u6848_u5B9E_u73B0"><a href="#u521D_u6B65_u65B9_u6848_u5B9E_u73B0" class="headerlink" title="初步方案实现"></a>初步方案实现</h4><blockquote>
+<p>经过一段时间资料查找，adb shell的开关状态跟usb端口有关。可以通过<code>getprop</code>获取系统相关参数查看usb以及adb的状态。</p>
+</blockquote>
+<p><code>adb shell getprop &gt; prop.txt</code>将系统property的读取并写入prop.txt。usb控制adb的相应参数如下：</p>
+<blockquote>
+<pre><code>`[sys.usb.config]: [mass_storage,adb]`
+`[persist.sys.usb.config]: [mass_storage,adb]`
+</code></pre></blockquote>
+<p><code>sys.usb.config</code>为不可修改的，如果需要改动，只能去写<code>persist.sys.usb.config</code>的值。<br><code>adb shell setprop persist.sys.usb.config mass_storage,adb</code>的形式可以为<code>persist.sys.usb.config</code>赋值，需要关闭adb只需将 <code>mass_storage,adb</code>改为<code>mass_storage,none</code>即可。</p>
+<p><strong>ps: 注意adb关闭（none）后需要重启才能生效。</strong></p>
+<h5 id="u5F00_u542Fadb_uFF1A"><a href="#u5F00_u542Fadb_uFF1A" class="headerlink" title="开启adb："></a>开启adb：</h5><blockquote>
+<p>adb shell setprop persist.sys.usb.config mass_storage,adb</p>
+</blockquote>
+<h5 id="u5173_u95EDadb_uFF1A"><a href="#u5173_u95EDadb_uFF1A" class="headerlink" title="关闭adb："></a>关闭adb：</h5><blockquote>
+<p>adb shell setprop persist.sys.usb.config mass_storage,none<br>adb reboot</p>
+</blockquote>
+<p>上面给出的方法可以有效的对adb进行开启关闭，但有一个不足的，adb一但关闭就不可再开启。因为adb关闭之后就无法再进入<code>adb shell</code>对设备进行adb命令操作，需要谨慎操作。</p>
+<h4 id="u4F18_u5316_u65B9_u6848"><a href="#u4F18_u5316_u65B9_u6848" class="headerlink" title="优化方案"></a>优化方案</h4><p>由于上面所述方式存在很大的不足，现针对方案进行优化。通过代码的方式，对adb进行开关控制。<br>写一个demo app，设置一个开关，对adb进行开关控制。</p>
+<h5 id="u4EE3_u7801_u5F00_u542Fadb_uFF1A"><a href="#u4EE3_u7801_u5F00_u542Fadb_uFF1A" class="headerlink" title="代码开启adb："></a>代码开启adb：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SystemProperties.set(<span class="string">"persist.sys.usb.config"</span>, <span class="string">"mass_storage,adb"</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="u4EE3_u7801_u5173_u95EDadb_uFF1A"><a href="#u4EE3_u7801_u5173_u95EDadb_uFF1A" class="headerlink" title="代码关闭adb："></a>代码关闭adb：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SystemProperties.set(<span class="string">"persist.sys.usb.config"</span>, <span class="string">"mass_storage,none"</span>);</span><br></pre></td></tr></table></figure>
+<p><code>SystemProperties</code>类不对外开放，是Android的隐藏类，该app需要将源码放到aosp中去编译生成镜像再烧录。还需要注意的是，该app需要取得系统核心权限，AndroidManifest.xml中添加<br><code>android:sharedUserId=&quot;android.uid.system&quot;</code>，Android.mk申请<code>platform</code>权限，<code>LOCAL_CERTIFICATE := platform</code>。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Android设备adb root权限控制以及 adb shell的开关控制。</p>]]>
+    
+    </summary>
+    
+      <category term="ADB" scheme="llooper.space/tags/ADB/"/>
+    
+      <category term="Android" scheme="llooper.space/tags/Android/"/>
+    
+      <category term="Android" scheme="llooper.space/categories/Android/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[ *.jar odex has stale dependencies]]></title>

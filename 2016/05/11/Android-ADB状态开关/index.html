@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | FLINT LI&#39;s Blog</title>
+  <title>Android ADB 状态开关 | FLINT LI&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="Android设备adb root权限控制以及 adb shell的开关控制。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="llooper.space/2015/12/30/hello-world/index.html">
+<meta property="og:title" content="Android ADB 状态开关">
+<meta property="og:url" content="llooper.space/2016/05/11/Android-ADB状态开关/index.html">
 <meta property="og:site_name" content="FLINT LI's Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="og:updated_time" content="2015-12-31T05:46:19.000Z">
+<meta property="og:description" content="Android设备adb root权限控制以及 adb shell的开关控制。">
+<meta property="og:updated_time" content="2016-05-11T08:31:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="Android ADB 状态开关">
+<meta name="twitter:description" content="Android设备adb root权限控制以及 adb shell的开关控制。">
   
     <link rel="alternative" href="/atom.xml" title="FLINT LI&#39;s Blog" type="application/atom+xml">
   
@@ -144,11 +144,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android-ADB状态开关" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/30/hello-world/" class="article-date">
-      <time datetime="2015-12-30T02:13:42.000Z" itemprop="datePublished">2015-12-30</time>
+      <a href="/2016/05/11/Android-ADB状态开关/" class="article-date">
+      <time datetime="2016-05-11T06:52:10.000Z" itemprop="datePublished">2016-05-11</time>
 </a>
     </div>
   
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Android ADB 状态开关
     </h1>
   
 
@@ -169,8 +169,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ADB/">ADB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -178,15 +186,58 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<a id="more"></a>d<br><br>## Quick Start<br><br>### Create a new post<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>Android设备adb root权限控制以及 adb shell的开关控制。</p>
+<a id="more"></a>
+<h3 id="adb_root_u6743_u9650"><a href="#adb_root_u6743_u9650" class="headerlink" title="adb root权限"></a>adb root权限</h3><p>adb 的root权限是在system/core/adb/adb.c中控制。主要根据<code>ro.secure</code>以及 <code>ro.debuggable</code>等<code>system property</code> 来控制。默认即档ro.secure 为0 时，即开启root 权限，为1时再根据ro.debuggable等选项来确认是否可以用开启root 权限。</p>
+<h3 id="user_eng__u7528_u6237_u7248_u672C_u5DEE_u5F02"><a href="#user_eng__u7528_u6237_u7248_u672C_u5DEE_u5F02" class="headerlink" title="user eng 用户版本差异"></a>user eng 用户版本差异</h3><p><code>ro.secure</code>以及<code>ro.debuggable</code>的值设置跟用户编译版本有关，一下是Google官方的描述。</p>
+<p>When building for a particular product, it’s often useful to have minor variations on what is ultimately the final release build. These are the currently-defined “flavors” or “types” (we need to settle on a real name for these).</p>
+<h4 id="eng"><a href="#eng" class="headerlink" title="eng"></a>eng</h4><p>This is the default flavor. A plain “make” is the same as “make eng”. droid is an alias for eng.</p>
+<ul>
+<li>Installs modules tagged with: eng, debug, shell_$(TARGET_SHELL), user, and/or development.</li>
+<li>Installs non-APK modules that have no tags specified.<br>Installs APKs according to the product definition files, in addition to tagged APKs.</li>
+<li>ro.secure=0</li>
+<li>ro.debuggable=1</li>
+<li>ro.kernel.android.checkjni=1</li>
+<li>adb is enabled by default.</li>
+</ul>
+<h4 id="user"><a href="#user" class="headerlink" title="user"></a>user</h4><p><code>make user</code></p>
+<p>This is the flavor intended to be the final release bits.</p>
+<ul>
+<li>Installs modules tagged with shell_$(TARGET_SHELL) and user.</li>
+<li>Installs non-APK modules that have no tags specified.</li>
+<li>Installs APKs according to the product definition files; tags are ignored for APK modules.</li>
+<li>ro.secure=1</li>
+<li>ro.debuggable=0</li>
+<li>adb is disabled by default.</li>
+</ul>
+<h4 id="userdebug"><a href="#userdebug" class="headerlink" title="userdebug"></a>userdebug</h4><p><code>make userdebug</code><br>The same as user, except:</p>
+<ul>
+<li>Also installs modules tagged with debug.</li>
+<li>ro.debuggable=1</li>
+<li>adb is enabled by default.</li>
+</ul>
+<h3 id="adb_shell"><a href="#adb_shell" class="headerlink" title="adb shell"></a>adb shell</h3><p>以上是adb root权限相关的介绍。下面介绍怎么禁用设备的adb，也即是使得 adb shell失效，无法进入。</p>
+<h4 id="u521D_u6B65_u65B9_u6848_u5B9E_u73B0"><a href="#u521D_u6B65_u65B9_u6848_u5B9E_u73B0" class="headerlink" title="初步方案实现"></a>初步方案实现</h4><blockquote>
+<p>经过一段时间资料查找，adb shell的开关状态跟usb端口有关。可以通过<code>getprop</code>获取系统相关参数查看usb以及adb的状态。</p>
+</blockquote>
+<p><code>adb shell getprop &gt; prop.txt</code>将系统property的读取并写入prop.txt。usb控制adb的相应参数如下：</p>
+<blockquote>
+<pre><code>`[sys.usb.config]: [mass_storage,adb]`
+`[persist.sys.usb.config]: [mass_storage,adb]`
+</code></pre></blockquote>
+<p><code>sys.usb.config</code>为不可修改的，如果需要改动，只能去写<code>persist.sys.usb.config</code>的值。<br><code>adb shell setprop persist.sys.usb.config mass_storage,adb</code>的形式可以为<code>persist.sys.usb.config</code>赋值，需要关闭adb只需将 <code>mass_storage,adb</code>改为<code>mass_storage,none</code>即可。</p>
+<p><strong>ps: 注意adb关闭（none）后需要重启才能生效。</strong></p>
+<h5 id="u5F00_u542Fadb_uFF1A"><a href="#u5F00_u542Fadb_uFF1A" class="headerlink" title="开启adb："></a>开启adb：</h5><blockquote>
+<p>adb shell setprop persist.sys.usb.config mass_storage,adb</p>
+</blockquote>
+<h5 id="u5173_u95EDadb_uFF1A"><a href="#u5173_u95EDadb_uFF1A" class="headerlink" title="关闭adb："></a>关闭adb：</h5><blockquote>
+<p>adb shell setprop persist.sys.usb.config mass_storage,none<br>adb reboot</p>
+</blockquote>
+<p>上面给出的方法可以有效的对adb进行开启关闭，但有一个不足的，adb一但关闭就不可再开启。因为adb关闭之后就无法再进入<code>adb shell</code>对设备进行adb命令操作，需要谨慎操作。</p>
+<h4 id="u4F18_u5316_u65B9_u6848"><a href="#u4F18_u5316_u65B9_u6848" class="headerlink" title="优化方案"></a>优化方案</h4><p>由于上面所述方式存在很大的不足，现针对方案进行优化。通过代码的方式，对adb进行开关控制。<br>写一个demo app，设置一个开关，对adb进行开关控制。</p>
+<h5 id="u4EE3_u7801_u5F00_u542Fadb_uFF1A"><a href="#u4EE3_u7801_u5F00_u542Fadb_uFF1A" class="headerlink" title="代码开启adb："></a>代码开启adb：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SystemProperties.set(<span class="string">"persist.sys.usb.config"</span>, <span class="string">"mass_storage,adb"</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="u4EE3_u7801_u5173_u95EDadb_uFF1A"><a href="#u4EE3_u7801_u5173_u95EDadb_uFF1A" class="headerlink" title="代码关闭adb："></a>代码关闭adb：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SystemProperties.set(<span class="string">"persist.sys.usb.config"</span>, <span class="string">"mass_storage,none"</span>);</span><br></pre></td></tr></table></figure>
+<p><code>SystemProperties</code>类不对外开放，是Android的隐藏类，该app需要将源码放到aosp中去编译生成镜像再烧录。还需要注意的是，该app需要取得系统核心权限，AndroidManifest.xml中添加<br><code>android:sharedUserId=&quot;android.uid.system&quot;</code>，Android.mk申请<code>platform</code>权限，<code>LOCAL_CERTIFICATE := platform</code>。</p>
 
       
     </div>
@@ -198,12 +249,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/12/31/Android-frameworks-fonts/">
-                    通过修改Android frameworks层源码设置默认字体
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/05/10/jar-odex-has-stale-dependencies/">
+                     *.jar odex has stale dependencies
                 </a>
             </div>
-        
         
     </nav>
 
@@ -212,7 +263,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">2.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">3.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#adb_root_u6743_u9650"><span class="toc-number">1.</span> <span class="toc-text">adb root权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user_eng__u7528_u6237_u7248_u672C_u5DEE_u5F02"><span class="toc-number">2.</span> <span class="toc-text">user eng 用户版本差异</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#eng"><span class="toc-number">2.1.</span> <span class="toc-text">eng</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#user"><span class="toc-number">2.2.</span> <span class="toc-text">user</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#userdebug"><span class="toc-number">2.3.</span> <span class="toc-text">userdebug</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#adb_shell"><span class="toc-number">3.</span> <span class="toc-text">adb shell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u521D_u6B65_u65B9_u6848_u5B9E_u73B0"><span class="toc-number">3.1.</span> <span class="toc-text">初步方案实现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#u5F00_u542Fadb_uFF1A"><span class="toc-number">3.1.1.</span> <span class="toc-text">开启adb：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#u5173_u95EDadb_uFF1A"><span class="toc-number">3.1.2.</span> <span class="toc-text">关闭adb：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u4F18_u5316_u65B9_u6848"><span class="toc-number">3.2.</span> <span class="toc-text">优化方案</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#u4EE3_u7801_u5F00_u542Fadb_uFF1A"><span class="toc-number">3.2.1.</span> <span class="toc-text">代码开启adb：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#u4EE3_u7801_u5173_u95EDadb_uFF1A"><span class="toc-number">3.2.2.</span> <span class="toc-text">代码关闭adb：</span></a></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -257,6 +308,26 @@
 
 
 
+    <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/05/11/Android-ADB状态开关/" data-title="Android ADB 状态开关" data-url="llooper.space/2016/05/11/Android-ADB状态开关/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"llooper"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+
 
 
 
@@ -264,15 +335,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/12/31/Android-frameworks-fonts/" title="上一篇: 通过修改Android frameworks层源码设置默认字体">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/05/10/jar-odex-has-stale-dependencies/" title="下一篇:  *.jar odex has stale dependencies">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
