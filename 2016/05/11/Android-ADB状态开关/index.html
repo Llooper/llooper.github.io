@@ -11,7 +11,7 @@
 <meta property="og:url" content="llooper.space/2016/05/11/Android-ADB状态开关/index.html">
 <meta property="og:site_name" content="FLINT LI's Blog">
 <meta property="og:description" content="Android设备adb root权限控制以及 adb shell的开关控制。">
-<meta property="og:updated_time" content="2016-05-11T08:31:44.000Z">
+<meta property="og:updated_time" content="2016-05-11T08:37:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android ADB 状态开关">
 <meta name="twitter:description" content="Android设备adb root权限控制以及 adb shell的开关控制。">
@@ -237,6 +237,8 @@
 <h4 id="u4F18_u5316_u65B9_u6848"><a href="#u4F18_u5316_u65B9_u6848" class="headerlink" title="优化方案"></a>优化方案</h4><p>由于上面所述方式存在很大的不足，现针对方案进行优化。通过代码的方式，对adb进行开关控制。<br>写一个demo app，设置一个开关，对adb进行开关控制。</p>
 <h5 id="u4EE3_u7801_u5F00_u542Fadb_uFF1A"><a href="#u4EE3_u7801_u5F00_u542Fadb_uFF1A" class="headerlink" title="代码开启adb："></a>代码开启adb：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SystemProperties.set(<span class="string">"persist.sys.usb.config"</span>, <span class="string">"mass_storage,adb"</span>);</span><br></pre></td></tr></table></figure>
 <h5 id="u4EE3_u7801_u5173_u95EDadb_uFF1A"><a href="#u4EE3_u7801_u5173_u95EDadb_uFF1A" class="headerlink" title="代码关闭adb："></a>代码关闭adb：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SystemProperties.set(<span class="string">"persist.sys.usb.config"</span>, <span class="string">"mass_storage,none"</span>);</span><br></pre></td></tr></table></figure>
+<p>代码关闭adb之后仍需重启系统才能生效，附带上重启系统的代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rebootSystem</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"rebootSystem"</span>);</span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_REBOOT);</span><br><span class="line">        intent.putExtra(<span class="string">"nowait"</span>, <span class="number">1</span>);</span><br><span class="line">        intent.putExtra(<span class="string">"interval"</span>, <span class="number">1</span>);</span><br><span class="line">        intent.putExtra(<span class="string">"window"</span>, <span class="number">0</span>);</span><br><span class="line">        mContext.sendBroadcast(intent);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p><code>SystemProperties</code>类不对外开放，是Android的隐藏类，该app需要将源码放到aosp中去编译生成镜像再烧录。还需要注意的是，该app需要取得系统核心权限，AndroidManifest.xml中添加<br><code>android:sharedUserId=&quot;android.uid.system&quot;</code>，Android.mk申请<code>platform</code>权限，<code>LOCAL_CERTIFICATE := platform</code>。</p>
 
       
