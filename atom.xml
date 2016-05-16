@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="llooper.space/"/>
-  <updated>2016-05-11T08:37:27.000Z</updated>
+  <updated>2016-05-16T12:46:58.000Z</updated>
   <id>llooper.space/</id>
   
   <author>
@@ -13,6 +13,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Android user版本编译]]></title>
+    <link href="llooper.space/2016/05/16/Android-user%E7%89%88%E6%9C%AC%E7%BC%96%E8%AF%91/"/>
+    <id>llooper.space/2016/05/16/Android-user版本编译/</id>
+    <published>2016-05-16T12:16:02.000Z</published>
+    <updated>2016-05-16T12:46:58.000Z</updated>
+    <content type="html"><![CDATA[<p>怎么编译user版本的Android系统。</p>
+<a id="more"></a>
+<p>Android编译选项分别有3个，user，eng，userDebug。这3个选项分别对应的版本如下：</p>
+<blockquote>
+<p>eng：debug 版本<br>user: release 版本<br>userDebug版本：部分debug版本</p>
+</blockquote>
+<p>详细的介绍以及每个选项对应的功能权限在<a href="http://llooper.space/2016/05/11/Android-ADB%E7%8A%B6%E6%80%81%E5%BC%80%E5%85%B3/">上一篇</a> 已经介绍过。</p>
+<p>本篇主要介绍如何编译user版本（其他版本同理），以下全部代码都以rockchip作为示例。</p>
+<ul>
+<li><strong>修改脚本：</strong>user等编译选项主要由<code>device/rockchip/rkpx2/vendorsetup.sh</code>脚本进行控制。打开脚本找到<code>add_lunch_combo rkpx2-eng</code>项，将eng改为user。也即是<code>add_lunch_combo rkpx2-user</code>。</li>
+<li><strong>加载脚本：</strong>脚本修改完成之后保存，要使其生效必须回到aosp根目录，执行如下<code>source build/envsetup.sh</code>使其加载进入makefile系统。</li>
+<li><strong>选择user版本：</strong>加载完毕之后，还需选择user版本进行编译。使用<code>lunch</code>命令进行选择，在aosp根没目录执行<code>lunch</code>，然后选择<code>rkpx2-user</code>。</li>
+<li><strong>make</strong></li>
+</ul>
+<p>执行make之后，可以看到输出日志，<code>TARGET_BUILD_VARIANT</code>对应的即是编译选项，<code>TARGET_BUILD_VARIANT=user</code>表明编译的是user版本。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>怎么编译user版本的Android系统。</p>]]>
+    
+    </summary>
+    
+      <category term="android" scheme="llooper.space/tags/android/"/>
+    
+      <category term="user" scheme="llooper.space/tags/user/"/>
+    
+      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Android ADB 状态开关]]></title>
