@@ -11,7 +11,7 @@
 <meta property="og:url" content="llooper.space/2016/05/18/Android-replace-the-key-int-the-aosp/index.html">
 <meta property="og:site_name" content="FLINT LI's Blog">
 <meta property="og:description" content="本篇主要介绍aosp的key类型，以及如何替换AOSP原有签名key，生成自定义的key并对系统签名。">
-<meta property="og:updated_time" content="2016-05-18T08:57:21.000Z">
+<meta property="og:updated_time" content="2016-05-18T09:00:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to replace the android default testkey in AOSP">
 <meta name="twitter:description" content="本篇主要介绍aosp的key类型，以及如何替换AOSP原有签名key，生成自定义的key并对系统签名。">
@@ -223,6 +223,7 @@
 <p>TO </p>
 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">DEFAULT_SYSTEM_DEV_CERTIFICATE</span> := build/target/product/security/releasekey</span><br></pre></td></tr></table></figure>
 <p>生成<code>testkey</code>的时候，原先<code>testkey</code>的名字换成<code>releasekey</code>，步骤都一样。</p>
+<p><strong>PS：可以不用修改testkey的名字，这个不是很关键。</strong></p>
 
       
     </div>

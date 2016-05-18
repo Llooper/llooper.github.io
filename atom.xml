@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="llooper.space/"/>
-  <updated>2016-05-18T08:57:21.000Z</updated>
+  <updated>2016-05-18T09:00:51.000Z</updated>
   <id>llooper.space/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="llooper.space/2016/05/18/Android-replace-the-key-int-the-aosp/"/>
     <id>llooper.space/2016/05/18/Android-replace-the-key-int-the-aosp/</id>
     <published>2016-05-18T07:53:08.000Z</published>
-    <updated>2016-05-18T08:57:21.000Z</updated>
+    <updated>2016-05-18T09:00:51.000Z</updated>
     <content type="html"><![CDATA[<p>本篇主要介绍aosp的key类型，以及如何替换AOSP原有签名key，生成自定义的key并对系统签名。</p>
 <a id="more"></a>
 <h3 id="u7B7E_u540D_u7C7B_u578B"><a href="#u7B7E_u540D_u7C7B_u578B" class="headerlink" title="签名类型"></a>签名类型</h3><p>Android的标准签名key文件位于<code>/build/target/product/security</code>目录下，主要有4个key，分别为：</p>
@@ -57,6 +57,7 @@
 <p>TO </p>
 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">DEFAULT_SYSTEM_DEV_CERTIFICATE</span> := build/target/product/security/releasekey</span><br></pre></td></tr></table></figure>
 <p>生成<code>testkey</code>的时候，原先<code>testkey</code>的名字换成<code>releasekey</code>，步骤都一样。</p>
+<p><strong>PS：可以不用修改testkey的名字，这个不是很关键。</strong></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>本篇主要介绍aosp的key类型，以及如何替换AOSP原有签名key，生成自定义的key并对系统签名。</p>]]>
