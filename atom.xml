@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="llooper.space/"/>
-  <updated>2016-05-16T12:46:58.000Z</updated>
+  <updated>2016-05-18T08:57:21.000Z</updated>
   <id>llooper.space/</id>
   
   <author>
@@ -13,6 +13,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[How to replace the android default testkey in AOSP]]></title>
+    <link href="llooper.space/2016/05/18/Android-replace-the-key-int-the-aosp/"/>
+    <id>llooper.space/2016/05/18/Android-replace-the-key-int-the-aosp/</id>
+    <published>2016-05-18T07:53:08.000Z</published>
+    <updated>2016-05-18T08:57:21.000Z</updated>
+    <content type="html"><![CDATA[<p>本篇主要介绍aosp的key类型，以及如何替换AOSP原有签名key，生成自定义的key并对系统签名。</p>
+<a id="more"></a>
+<h3 id="u7B7E_u540D_u7C7B_u578B"><a href="#u7B7E_u540D_u7C7B_u578B" class="headerlink" title="签名类型"></a>签名类型</h3><p>Android的标准签名key文件位于<code>/build/target/product/security</code>目录下，主要有4个key，分别为：</p>
+<ul>
+<li><strong><code>testkey</code></strong>：普通签名APK，默认情况下使用。</li>
+<li><strong><code>platform</code></strong>：该签名APK完成一些系统的核心。</li>
+<li><strong><code>shared</code></strong>：该签名APK需要和home/contacts进程共享数据。</li>
+<li><strong><code>media</code></strong>：使用android.media作为共享UID的APK签名。</li>
+</ul>
+<p>其中 <code>*.pk8</code>代表私钥，<code>*.x509.pem</code>公钥，一定是成对出现的。<br>testkey是作为android编译的时候默认的签名key，如果系统中的apk的Android.mk中没有设置<strong><code>LOCAL_CERTIFICATE</code></strong>的值，就默认使用<strong><code>testkey</code></strong>。    </p>
+<p>而如果设置成：<br><strong><code>LOCAL_CERTIFICATE := platform</code></strong><br>就代表使用platform来签名，这样的话这个apk就拥有了和system相同的签名，因为系统级别的签名也是使用的platform来签名，此时使用<code>android:sharedUserId=&quot;android.uid.system&quot;</code>才有用！</p>
+<h3 id="u81EA_u5B9A_u4E49_u7B7E_u540Dkey"><a href="#u81EA_u5B9A_u4E49_u7B7E_u540Dkey" class="headerlink" title="自定义签名key"></a>自定义签名key</h3><h4 id="key_u751F_u6210_u4ECB_u7ECD"><a href="#key_u751F_u6210_u4ECB_u7ECD" class="headerlink" title="key生成介绍"></a>key生成介绍</h4><p>在<code>/build/target/product/security</code>目录下有个README，里面说明了怎么制作这些key以及使用问题（android4.4）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">The following commands were used to generate the test key pairs:</span><br><span class="line"></span><br><span class="line">  development/tools/make_key testkey  <span class="string">'/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'</span></span><br><span class="line">  development/tools/make_key platform <span class="string">'/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'</span></span><br><span class="line">  development/tools/make_key shared   <span class="string">'/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'</span></span><br><span class="line">  development/tools/make_key media    <span class="string">'/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'</span></span><br><span class="line"></span><br><span class="line">The following standard test keys are currently included:</span><br><span class="line"></span><br><span class="line">testkey -- a generic key <span class="keyword">for</span> packages that do not otherwise specify a key.</span><br><span class="line">platform -- a test key <span class="keyword">for</span> packages that are part of the core platform.</span><br><span class="line">shared -- a test key <span class="keyword">for</span> things that are shared in the home/contacts process.</span><br><span class="line">media -- a test key <span class="keyword">for</span> packages that are part of the media/download system.</span><br><span class="line"></span><br><span class="line">These test keys are used strictly in development, and should never be assumed</span><br><span class="line">to convey any sort of validity.  When $BUILD_SECURE=<span class="keyword">true</span>, the code should not</span><br><span class="line">honor these keys in any context.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">signing using the openssl <span class="title">commandline</span> <span class="params">(<span class="keyword">for</span> boot/system images)</span></span><br><span class="line">--------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">1. convert pk8 format key to pem format</span><br><span class="line">   % openssl pkcs8 -inform DER -nocrypt -in testkey.pk8 -out testkey.pem</span><br><span class="line"></span><br><span class="line">2. create a signature using the pem format key</span><br><span class="line">   % openssl dgst -binary -sha1 -sign testkey.pem FILE &gt; FILE.sig</span><br><span class="line"></span><br><span class="line">extracting <span class="keyword">public</span> keys <span class="keyword">for</span> embedding</span><br><span class="line">------------------------------------</span><br><span class="line">it's a Java tool</span><br><span class="line">but it generates C code</span><br><span class="line">take a look at commands/recovery/Android.mk</span><br><span class="line">you'll see it running $<span class="params">(HOST_OUT_JAVA_LIBRARIES)</span>/dumpkey.jar</span></span><br></pre></td></tr></table></figure>
+<p>从README可知，key是通过<code>development/tools</code>目录下的<code>make_key</code>脚本生成的，脚本需要传入两个参数。其中第一个参数是key的名字，我们可以不修改，使用aosp默认的4个key的名字；第二个参数即是具体的一些属性，此为key真正的关键（我们需要修改的部分），下面对第二个参数的一些具体属性做出分析解释：</p>
+<blockquote>
+<p>C —&gt; Country Name (2 letter code)<br>ST —&gt; State or Province Name (full name)<br>L —&gt; Locality Name (eg, city)<br>O —&gt; Organization Name (eg, company)<br>OU —&gt; Organizational Unit Name (eg, section)<br>CN —&gt; Common Name (eg, your name or your server’s hostname)<br>emailAddress —&gt; Contact email address</p>
+</blockquote>
+<p>另外在是用<code>make_key</code>生成key的过程中会提示输入password，一般是不输入，直接enter的。</p>
+<h4 id="u5220_u9664_u5DF2_u5B58_u5728_u7684key"><a href="#u5220_u9664_u5DF2_u5B58_u5728_u7684key" class="headerlink" title="删除已存在的key"></a>删除已存在的key</h4><p>进入到<code>/build/target/product/security</code>目录执行如下命令：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm ./*.p*</span><br></pre></td></tr></table></figure>
+<p>删除全部已存在的key，然后重新生成新的key。</p>
+<h4 id="u751F_u6210key"><a href="#u751F_u6210key" class="headerlink" title="生成key"></a>生成key</h4><p>返回到AOSP的根目录，使用<code>make_key</code>脚本去生成4个签名key。</p>
+<h5 id="testkey"><a href="#testkey" class="headerlink" title="testkey"></a>testkey</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./development/tools/make_key build/target/product/security/testkey &#8216;/C=US/ST=Utah/L=Salt Lake City/O=Android/OU=Android/CN=Android/emailAddress=flint@gexne.com&#8217;</span><br></pre></td></tr></table></figure>
+<h5 id="media"><a href="#media" class="headerlink" title="media"></a>media</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./development/tools/make_key build/target/product/security/media &#8216;/C=US/ST=Utah/L=Salt Lake City/O=Android/OU=Android/CN=Android/emailAddress=flint@gexne.com&#8217;</span><br></pre></td></tr></table></figure>
+<h5 id="shared"><a href="#shared" class="headerlink" title="shared"></a>shared</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./development/tools/make_key build/target/product/security/shared &#8216;/C=US/ST=Utah/L=Salt Lake City/O=Android/OU=Android/CN=Android/emailAddress=flint@gexne.com&#8217;</span><br></pre></td></tr></table></figure>
+<h5 id="platform"><a href="#platform" class="headerlink" title="platform"></a>platform</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./development/tools/make_key build/target/product/security/platform &#8216;/C=US/ST=Utah/L=Salt Lake City/O=Android/OU=Android/CN=Android/emailAddress=flint@gexne.com&#8217;</span><br></pre></td></tr></table></figure>
+<h4 id="u9A8C_u8BC1key"><a href="#u9A8C_u8BC1key" class="headerlink" title="验证key"></a>验证key</h4><p>在生成4个key后，再使用<code>OpenSSL</code>的工具来验证一下生成的key是否正常。<br>进入到/build/target/product/security目录，执行如下命令：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -noout -subject -issuer -in media.x509.pem</span><br></pre></td></tr></table></figure>
+<p>输出:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subject= /C=US/ST=Utah/L=Salt Lake City/O=Android/OU=Android/CN=Android/emailAddress=flint@gexne.com&#10;issuer= /C=US/ST=Utah/L=Salt Lake City/O=Android/OU=Android/CN=Android/emailAddress=flint@gexne.com</span><br></pre></td></tr></table></figure>
+<p>另外3个key的验证类似media，就不再多做介绍。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -noout -subject -issuer -in shared.x509.pem&#10;openssl x509 -noout -subject -issuer -in platform.x509.pem&#10;openssl x509 -noout -subject -issuer -in testkey.x509.pem</span><br></pre></td></tr></table></figure>
+<h4 id="u4FEE_u6539_u7CFB_u7EDF_u9ED8_u8BA4_u7B7E_u540Dkey"><a href="#u4FEE_u6539_u7CFB_u7EDF_u9ED8_u8BA4_u7B7E_u540Dkey" class="headerlink" title="修改系统默认签名key"></a>修改系统默认签名key</h4><p>在上面提到如果apk中的编译选项<code>LOCAL_CERTIFICATE</code>没有设置的话，就会使用默认的<code>testkey</code>作为签名key，我们可以修改成自己想要的key，按照上面的步骤制作一个<code>releasekey</code>，修改android配置在<code>/build/core/config.mk</code>中定义变量：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">DEFAULT_SYSTEM_DEV_CERTIFICATE</span> := build/target/product/security/testkey</span><br></pre></td></tr></table></figure>
+<p>TO </p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">DEFAULT_SYSTEM_DEV_CERTIFICATE</span> := build/target/product/security/releasekey</span><br></pre></td></tr></table></figure>
+<p>生成<code>testkey</code>的时候，原先<code>testkey</code>的名字换成<code>releasekey</code>，步骤都一样。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>本篇主要介绍aosp的key类型，以及如何替换AOSP原有签名key，生成自定义的key并对系统签名。</p>]]>
+    
+    </summary>
+    
+      <category term="AOSP" scheme="llooper.space/tags/AOSP/"/>
+    
+      <category term="Android" scheme="llooper.space/tags/Android/"/>
+    
+      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Android user版本编译]]></title>
