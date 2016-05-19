@@ -5,16 +5,16 @@
   
   <title>Android 系统崩溃日志收集上传 | FLINT LI&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以上是摘要">
+  <meta name="description" content="Android系统日志收集与上传。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 系统崩溃日志收集上传">
 <meta property="og:url" content="llooper.space/2016/05/19/Android-系统崩溃日志收集上传/index.html">
 <meta property="og:site_name" content="FLINT LI's Blog">
-<meta property="og:description" content="以上是摘要">
-<meta property="og:updated_time" content="2016-05-19T03:53:29.000Z">
+<meta property="og:description" content="Android系统日志收集与上传。">
+<meta property="og:updated_time" content="2016-05-19T06:00:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 系统崩溃日志收集上传">
-<meta name="twitter:description" content="以上是摘要">
+<meta name="twitter:description" content="Android系统日志收集与上传。">
   
     <link rel="alternative" href="/atom.xml" title="FLINT LI&#39;s Blog" type="application/atom+xml">
   
@@ -171,6 +171,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOSP/">AOSP</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -178,7 +182,27 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>以上是摘要<br><a id="more"></a><br>以下是全文</p>
+        <p>Android系统日志收集与上传。</p>
+<a id="more"></a>
+<h2 id="Android_u7CFB_u7EDF_u65E5_u5FD7_u6536_u96C6_u4E0E_u4E0A_u4F20"><a href="#Android_u7CFB_u7EDF_u65E5_u5FD7_u6536_u96C6_u4E0E_u4E0A_u4F20" class="headerlink" title="Android系统日志收集与上传"></a>Android系统日志收集与上传</h2><blockquote>
+<p>需求： 收集系统crash、anr等日志，并上传到服务器。<br>实现： 利用DropBoxManager持续化存储系统数据的机制，取得dropbox的日志文件并上传。</p>
+</blockquote>
+<h3 id="DropBoxManager_u7B80_u4ECB"><a href="#DropBoxManager_u7B80_u4ECB" class="headerlink" title="DropBoxManager简介"></a>DropBoxManager简介</h3><p>对DropBoxManager进行简单的介绍。</p>
+<h4 id="u7CFB_u7EDF_u9519_u8BEF_u7C7B_u578BTAG"><a href="#u7CFB_u7EDF_u9519_u8BEF_u7C7B_u578BTAG" class="headerlink" title="系统错误类型TAG"></a>系统错误类型TAG</h4><ul>
+<li><code>crash</code></li>
+<li><code>anr</code></li>
+<li><code>wtf</code></li>
+<li><code>strict_mode</code></li>
+<li><code>lowmem</code></li>
+<li><code>watchdog</code></li>
+<li><code>netstats_error</code></li>
+<li><code>SYSTEM_TOMBSTONE</code></li>
+<li><code>BATTERY_DISCHARGE_INFO</code></li>
+</ul>
+<p>以上是分析源码得出的DropBoxManager系统错误类型。</p>
+<h4 id="u6587_u4EF6_u5B58_u50A8"><a href="#u6587_u4EF6_u5B58_u50A8" class="headerlink" title="文件存储"></a>文件存储</h4><p>DropBoxManager 使用的是文件存储, 所有的记录都存储在 /data/system/dropbox 目录中, 一条记录就是一个文件, 当文本文件的尺寸超过文件系统的最小区块尺寸后, DropBoxManager 还会自动压缩该文件, 通常文件名以调用 DropBoxManager 的 TAG 参数开头。</p>
+<h4 id="u4F7F_u7528DropBoxManager"><a href="#u4F7F_u7528DropBoxManager" class="headerlink" title="使用DropBoxManager"></a>使用DropBoxManager</h4><p>每当DropBoxManager生成新的记录, 就会广播一个 <code>DropBoxManager.ACTION_DROPBOX_ENTRY_ADDED</code> Intent，日志收集系统只需接收广播，然后去读取文件，上传到服务器即可。<br>下面给出具体的代码示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> BroadcastReceiver BugReportReveiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</span><br><span class="line">       <span class="annotation">@Override</span></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (DropBoxManager.ACTION_DROPBOX_ENTRY_ADDED.equals(intent.getAction())) &#123;</span><br><span class="line">               tag = intent.getExtras().getString(DropBoxManager.EXTRA_TAG);</span><br><span class="line">               time = intent.getExtras().getLong(DropBoxManager.EXTRA_TIME);</span><br><span class="line">               Log.d(TAG, <span class="string">"BugReportReveiver onReceive..."</span>);</span><br><span class="line">               Log.d(TAG, <span class="string">"tag :"</span> + tag + <span class="string">"----- time :"</span> + time);</span><br><span class="line"></span><br><span class="line">               file = selectFile(getTagtype(tag)); <span class="comment">//getFile</span></span><br><span class="line">               sendErrorFileToserver(); <span class="comment">//upload</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">private</span> File <span class="title">selectFile</span><span class="params">(<span class="keyword">int</span> type)</span> </span>&#123;</span><br><span class="line">       String fileName = <span class="keyword">null</span>;</span><br><span class="line">       String path = <span class="string">"data/system/dropbox/"</span>;</span><br><span class="line">       <span class="keyword">switch</span>(type) &#123;</span><br><span class="line">           <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">           <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">               fileName = path + tag + <span class="string">"@"</span> + time + <span class="string">".txt"</span>;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">               fileName = path + tag + <span class="string">"@"</span> + time + <span class="string">".txt.gz"</span>;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           <span class="keyword">default</span>:</span><br><span class="line">               <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       file = <span class="keyword">new</span> File(fileName);</span><br><span class="line">       <span class="keyword">return</span> file;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] arr_tag = &#123;<span class="string">"system_app_crash"</span>,</span><br><span class="line">           <span class="string">"system_server_wtf"</span>,<span class="string">"system_app_anr"</span>&#125;;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getTagtype</span><span class="params">(String tag)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> iter = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span> (; iter &lt; arr_tag.length; iter++) &#123;</span><br><span class="line">           <span class="keyword">if</span> (arr_tag[iter].equals(tag)) &#123;</span><br><span class="line">               <span class="keyword">return</span> iter;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -204,7 +228,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android_u7CFB_u7EDF_u65E5_u5FD7_u6536_u96C6_u4E0E_u4E0A_u4F20"><span class="toc-number">1.</span> <span class="toc-text">Android系统日志收集与上传</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DropBoxManager_u7B80_u4ECB"><span class="toc-number">1.1.</span> <span class="toc-text">DropBoxManager简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u7CFB_u7EDF_u9519_u8BEF_u7C7B_u578BTAG"><span class="toc-number">1.1.1.</span> <span class="toc-text">系统错误类型TAG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u6587_u4EF6_u5B58_u50A8"><span class="toc-number">1.1.2.</span> <span class="toc-text">文件存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u4F7F_u7528DropBoxManager"><span class="toc-number">1.1.3.</span> <span class="toc-text">使用DropBoxManager</span></a></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
