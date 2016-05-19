@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="llooper.space/"/>
-  <updated>2016-05-18T15:48:38.000Z</updated>
+  <updated>2016-05-19T03:53:29.000Z</updated>
   <id>llooper.space/</id>
   
   <author>
@@ -13,6 +13,21 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Android 系统崩溃日志收集上传]]></title>
+    <link href="llooper.space/2016/05/19/Android-%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86%E4%B8%8A%E4%BC%A0/"/>
+    <id>llooper.space/2016/05/19/Android-系统崩溃日志收集上传/</id>
+    <published>2016-05-19T03:53:29.000Z</published>
+    <updated>2016-05-19T03:53:29.000Z</updated>
+    <content type="html"><![CDATA[<p>以上是摘要<br><a id="more"></a><br>以下是全文</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>以上是摘要<br>]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[happy birthday]]></title>
