@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="llooper.space/"/>
-  <updated>2016-05-24T07:15:22.000Z</updated>
+  <updated>2016-05-24T07:17:13.000Z</updated>
   <id>llooper.space/</id>
   
   <author>
@@ -19,11 +19,11 @@
     <link href="llooper.space/2016/05/24/Android-system-and-framework-study/"/>
     <id>llooper.space/2016/05/24/Android-system-and-framework-study/</id>
     <published>2016-05-24T07:13:57.000Z</published>
-    <updated>2016-05-24T07:15:22.000Z</updated>
-    <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">http://blog.csdn.net/luoshengyang/article/details/6618363</a></p>
+    <updated>2016-05-24T07:17:13.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">老罗的Android学习之路</a><br>多去别人的blog逛逛，老罗很牛逼，要多学习。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">http://blog.csdn.net/luoshengyang/arti]]>
+    <![CDATA[<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">老罗的Android学习之路</a><br>多去别人的blog逛逛，老罗很牛]]>
     </summary>
     
       <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
