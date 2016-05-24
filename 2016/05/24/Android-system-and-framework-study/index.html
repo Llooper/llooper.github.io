@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>SystemUI之RecentsApp篇（一） | FLINT LI&#39;s Blog</title>
+  <title>Android 系统framework学习之路 | FLINT LI&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本篇主要介绍systemui的主要组成部分RecentsApp也就是最近任务列表的启动流程。">
+  <meta name="description" content="http://blog.csdn.net/luoshengyang/article/details/6618363">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SystemUI之RecentsApp篇（一）">
-<meta property="og:url" content="llooper.space/2016/03/16/recents/index.html">
+<meta property="og:title" content="Android 系统framework学习之路">
+<meta property="og:url" content="llooper.space/2016/05/24/Android-system-and-framework-study/index.html">
 <meta property="og:site_name" content="FLINT LI's Blog">
-<meta property="og:description" content="本篇主要介绍systemui的主要组成部分RecentsApp也就是最近任务列表的启动流程。">
-<meta property="og:updated_time" content="2016-03-16T14:38:42.000Z">
+<meta property="og:description" content="http://blog.csdn.net/luoshengyang/article/details/6618363">
+<meta property="og:updated_time" content="2016-05-24T07:15:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SystemUI之RecentsApp篇（一）">
-<meta name="twitter:description" content="本篇主要介绍systemui的主要组成部分RecentsApp也就是最近任务列表的启动流程。">
+<meta name="twitter:title" content="Android 系统framework学习之路">
+<meta name="twitter:description" content="http://blog.csdn.net/luoshengyang/article/details/6618363">
   
     <link rel="alternative" href="/atom.xml" title="FLINT LI&#39;s Blog" type="application/atom+xml">
   
@@ -144,11 +144,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-recents" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android-system-and-framework-study" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/16/recents/" class="article-date">
-      <time datetime="2016-03-16T14:35:19.000Z" itemprop="datePublished">2016-03-16</time>
+      <a href="/2016/05/24/Android-system-and-framework-study/" class="article-date">
+      <time datetime="2016-05-24T07:13:57.000Z" itemprop="datePublished">2016-05-24</time>
 </a>
     </div>
   
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      SystemUI之RecentsApp篇（一）
+      Android 系统framework学习之路
     </h1>
   
 
@@ -175,10 +175,6 @@
 
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/systemui/">systemui</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -186,22 +182,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <blockquote>
-<p>本篇主要介绍systemui的主要组成部分RecentsApp也就是最近任务列表的启动流程。</p>
-</blockquote>
-<a id="more"></a>
-<p>下面主要涉及到的文件的路径汇总：<br><code>framework/base/services/input/InputReader.cpp</code><br><code>framework/base/services/input/InputDispatcher.cpp</code><br><code>framework/base/services/java/com/android/server/input/InputManagerService.java</code><br><code>framework/base/services/java/com/android/server/am/ActivityManagerService.java</code><br><code>framework/base/policy/src/com/android/internal/policy/impl/PhoneWindowManager.java</code><br><code>framework/base/services/java/com/android/sever/StatusBarManagerService.java</code><br><code>framework/base/packages/SystemUI/src/com/android/systemui/statusbar/CommandQueue.java</code>    </p>
-<h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><p>本篇主要介绍RecentsApp的俩种启动方式，风别为：<br>1) <code>adb shell input keyevent KEYCODE_APP_SWITCH</code><br>2) <code>NavigationBar</code>   </p>
-<h3 id="adb_u542F_u52A8"><a href="#adb_u542F_u52A8" class="headerlink" title="adb启动"></a>adb启动</h3><h4 id="u8F93_u5165_u6D41_u7A0B"><a href="#u8F93_u5165_u6D41_u7A0B" class="headerlink" title="输入流程"></a>输入流程</h4><p>先从adb启动介绍开始。Android的keyevent的输入事件在此就不过多介绍，简要的过一下流程。先是发送某一个KeyEvent，<code>InputReader.cpp</code>读取输入事件，交给<code>InputDispatcher.cpp</code>，它负责事件的处理以及分发。然后转交给Java framework层的<code>IMS</code>，<code>IMS</code>处理过后转交给<code>AMS</code>，<code>AMS</code>继续往上层传递到<code>PhoneWindowManager</code>，这是一个Android framework层中一个极其重要的类，它管理着Android全部窗口策略，以及按键事件的分发处理。</p>
-<h4 id="PhoneWindowManager"><a href="#PhoneWindowManager" class="headerlink" title="PhoneWindowManager"></a>PhoneWindowManager</h4><p><code>PhoneWindowManager.java</code>接收到<code>KEYCODE_APP_SWITCH</code>事件后做了如下操作：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (keyCode == KeyEvent.KEYCODE_APP_SWITCH) &#123;</span><br><span class="line">	<span class="keyword">if</span> (!keyguardOn) &#123;</span><br><span class="line">    	<span class="keyword">if</span> (down &amp;&amp; repeatCount == <span class="number">0</span>) &#123;</span><br><span class="line">			preloadRecentApps();</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (!down) &#123;</span><br><span class="line">			toggleRecentApps();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>keyguardOn</code>是用来判断当前是否处于锁屏状态，从上边的if块中明显可以看出，<code>KEYCODE_APP_SWITCH</code> down的时候调用了<code>preloadRecentApps()</code>，up的时候调用了<code>toggleRecentApps()</code>，顺序显然是先preload再toggle。<br>转去分析这俩个函数，看看分别做了什么操作，它们的实现同样位于<code>PhoneWindowManager</code>中。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">preloadRecentApps</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       mPreloadedRecentApps = <span class="keyword">true</span>;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           IStatusBarService statusbar = getStatusBarService();</span><br><span class="line">           <span class="keyword">if</span> (statusbar != <span class="keyword">null</span>) &#123;</span><br><span class="line">               statusbar.preloadRecentApps();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">           Slog.e(TAG, <span class="string">"RemoteException when preloading recent apps"</span>, e);</span><br><span class="line">           <span class="comment">// re-acquire status bar service next time it is needed.</span></span><br><span class="line">           mStatusBarService = <span class="keyword">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">toggleRecentApps</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mPreloadedRecentApps = <span class="keyword">false</span>; <span class="comment">// preloading no longer needs to be canceled</span></span><br><span class="line">    sendCloseSystemWindows(SYSTEM_DIALOG_REASON_RECENT_APPS);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        IStatusBarService statusbar = getStatusBarService();</span><br><span class="line">        <span class="keyword">if</span> (statusbar != <span class="keyword">null</span>) &#123;</span><br><span class="line">            statusbar.toggleRecentApps();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">        Slog.e(TAG, <span class="string">"RemoteException when showing recent apps"</span>, e);</span><br><span class="line">        <span class="comment">// re-acquire status bar service next time it is needed.</span></span><br><span class="line">        mStatusBarService = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>俩个函数使用了同样的一个<code>IStatusBarService</code>，去看看import，找出了它的路径为：<br><code>import com.android.internal.statusbar.IStatusBarService;</code><br>而且<code>getStatusBarService()</code>的实现如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">IStatusBarService <span class="title">getStatusBarService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (mServiceAquireLock) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mStatusBarService == <span class="keyword">null</span>) &#123;</span><br><span class="line">            mStatusBarService = IStatusBarService.Stub.asInterface(</span><br><span class="line">                    ServiceManager.getService(<span class="string">"statusbar"</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mStatusBarService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由此可知<code>IStatusBarService</code>是一个<code>AIDL</code>，在<code>PhoneWindowManager</code>中获取到一个实例，与之跨进程进行通信。从名字顺藤摸瓜，找到services下的<code>StatusBarManagerService</code>，就是此AIDL的java实现。</p>
-<h4 id="StatusBarManagerService"><a href="#StatusBarManagerService" class="headerlink" title="StatusBarManagerService"></a>StatusBarManagerService</h4><h3 id="NavigationBar"><a href="#NavigationBar" class="headerlink" title="NavigationBar"></a>NavigationBar</h3>
+        <p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">http://blog.csdn.net/luoshengyang/article/details/6618363</a></p>
+
       
     </div>
     
@@ -212,16 +194,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/">
-                    Android ActivityManager MOVE_TASK_WITH_HOME
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/16/ARGB_8888等的理解/">
-                    关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解
+                <a href="/2016/05/19/Android-系统崩溃日志收集上传/">
+                    Android 系统崩溃日志收集上传
                 </a>
             </div>
         
@@ -232,7 +208,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6982_u8FF0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#adb_u542F_u52A8"><span class="toc-number">2.</span> <span class="toc-text">adb启动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u8F93_u5165_u6D41_u7A0B"><span class="toc-number">2.1.</span> <span class="toc-text">输入流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PhoneWindowManager"><span class="toc-number">2.2.</span> <span class="toc-text">PhoneWindowManager</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#StatusBarManagerService"><span class="toc-number">2.3.</span> <span class="toc-text">StatusBarManagerService</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NavigationBar"><span class="toc-number">3.</span> <span class="toc-text">NavigationBar</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -279,7 +255,7 @@
 
     <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/16/recents/" data-title="SystemUI之RecentsApp篇（一）" data-url="llooper.space/2016/03/16/recents/"></div>
+    <div class="ds-thread" data-thread-key="2016/05/24/Android-system-and-framework-study/" data-title="Android 系统framework学习之路" data-url="llooper.space/2016/05/24/Android-system-and-framework-study/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -304,15 +280,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/" title="上一篇: Android ActivityManager MOVE_TASK_WITH_HOME">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/16/ARGB_8888等的理解/" title="下一篇: 关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解">
+            <a href="/2016/05/19/Android-系统崩溃日志收集上传/" title="下一篇: Android 系统崩溃日志收集上传">
                 <i class="fa fa-angle-right"></i>
             </a>
         
