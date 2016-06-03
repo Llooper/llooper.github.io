@@ -2,99 +2,50 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>flintli.xyz/tags/book/</loc>
-        <lastmod>2015-12-31T09:30:16.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>flintli.xyz/tags/ubuntu/</loc>
-        <lastmod>2015-12-31T09:31:27.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>flintli.xyz/tags/brightness/</loc>
-        <lastmod>2015-12-31T09:31:27.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>flintli.xyz/tags/%E9%9A%8F%E7%AC%94/</loc>
-        <lastmod>2016-01-01T12:03:00.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>flintli.xyz/tags/frameworks/</loc>
-        <lastmod>2016-01-05T02:06:48.000Z</lastmod>
+        <loc>flintli.xyz/tags/monkey/</loc>
+        <lastmod>2016-06-03T06:15:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>flintli.xyz/tags/ARGB-8888/</loc>
-        <lastmod>2016-03-16T14:33:27.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>flintli.xyz/tags/framework/</loc>
-        <lastmod>2016-03-16T14:38:42.000Z</lastmod>
+        <lastmod>2016-06-03T06:15:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>flintli.xyz/tags/systemui/</loc>
-        <lastmod>2016-03-16T14:38:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>flintli.xyz/tags/ActivityManager/</loc>
-        <lastmod>2016-05-10T12:53:02.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>flintli.xyz/tags/ADB/</loc>
-        <lastmod>2016-05-11T08:37:27.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>flintli.xyz/tags/android/</loc>
-        <lastmod>2016-05-16T12:46:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>flintli.xyz/tags/user/</loc>
-        <lastmod>2016-05-16T12:46:58.000Z</lastmod>
+        <lastmod>2016-06-03T06:16:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>flintli.xyz/tags/Android/</loc>
-        <lastmod>2016-05-18T09:00:51.000Z</lastmod>
+        <lastmod>2016-06-03T06:17:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>flintli.xyz/tags/AOSP/</loc>
-        <lastmod>2016-05-19T06:00:28.000Z</lastmod>
+        <loc>flintli.xyz/tags/Hexo/</loc>
+        <lastmod>2016-06-03T06:17:53.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>flintli.xyz/tags/Ubuntu/</loc>
+        <lastmod>2016-06-03T06:18:11.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>flintli.xyz/tags/%E9%9A%8F%E7%AC%94/</loc>
+        <lastmod>2016-06-03T06:18:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

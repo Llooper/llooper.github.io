@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="flintli.xyz/"/>
-  <updated>2016-05-24T07:17:13.000Z</updated>
+  <updated>2016-06-03T06:13:33.000Z</updated>
   <id>flintli.xyz/</id>
   
   <author>
@@ -19,14 +19,14 @@
     <link href="flintli.xyz/2016/05/24/Android-system-and-framework-study/"/>
     <id>flintli.xyz/2016/05/24/Android-system-and-framework-study/</id>
     <published>2016-05-24T07:13:57.000Z</published>
-    <updated>2016-05-24T07:17:13.000Z</updated>
+    <updated>2016-06-03T06:13:33.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">老罗的Android学习之路</a><br>多去别人的blog逛逛，老罗很牛逼，要多学习。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">老罗的Android学习之路</a><br>多去别人的blog逛逛，老罗很牛]]>
     </summary>
     
-      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
   </entry>
   
@@ -35,7 +35,7 @@
     <link href="flintli.xyz/2016/05/19/Android-%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86%E4%B8%8A%E4%BC%A0/"/>
     <id>flintli.xyz/2016/05/19/Android-系统崩溃日志收集上传/</id>
     <published>2016-05-19T03:53:29.000Z</published>
-    <updated>2016-05-19T06:00:28.000Z</updated>
+    <updated>2016-06-03T06:13:54.000Z</updated>
     <content type="html"><![CDATA[<p>Android系统日志收集与上传。</p>
 <a id="more"></a>
 <h2 id="Android_u7CFB_u7EDF_u65E5_u5FD7_u6536_u96C6_u4E0E_u4E0A_u4F20"><a href="#Android_u7CFB_u7EDF_u65E5_u5FD7_u6536_u96C6_u4E0E_u4E0A_u4F20" class="headerlink" title="Android系统日志收集与上传"></a>Android系统日志收集与上传</h2><blockquote>
@@ -63,7 +63,7 @@
     
     </summary>
     
-      <category term="AOSP" scheme="flintli.xyz/tags/AOSP/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
   </entry>
   
@@ -72,13 +72,15 @@
     <link href="flintli.xyz/2016/05/19/happy-birthday/"/>
     <id>flintli.xyz/2016/05/19/happy-birthday/</id>
     <published>2016-05-18T16:00:00.000Z</published>
-    <updated>2016-05-18T15:48:38.000Z</updated>
+    <updated>2016-06-03T06:14:09.000Z</updated>
     <content type="html"><![CDATA[<p>又是一年，生日快乐！</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>又是一年，生日快乐！</p>
 ]]>
     </summary>
+    
+      <category term="随笔" scheme="flintli.xyz/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -87,7 +89,7 @@
     <link href="flintli.xyz/2016/05/18/Android-replace-the-key-int-the-aosp/"/>
     <id>flintli.xyz/2016/05/18/Android-replace-the-key-int-the-aosp/</id>
     <published>2016-05-18T07:53:08.000Z</published>
-    <updated>2016-05-18T09:00:51.000Z</updated>
+    <updated>2016-06-03T06:13:16.000Z</updated>
     <content type="html"><![CDATA[<p>本篇主要介绍aosp的key类型，以及如何替换AOSP原有签名key，生成自定义的key并对系统签名。</p>
 <a id="more"></a>
 <h3 id="u7B7E_u540D_u7C7B_u578B"><a href="#u7B7E_u540D_u7C7B_u578B" class="headerlink" title="签名类型"></a>签名类型</h3><p>Android的标准签名key文件位于<code>/build/target/product/security</code>目录下，主要有4个key，分别为：</p>
@@ -132,11 +134,7 @@
     
     </summary>
     
-      <category term="AOSP" scheme="flintli.xyz/tags/AOSP/"/>
-    
       <category term="Android" scheme="flintli.xyz/tags/Android/"/>
-    
-      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
   </entry>
   
@@ -145,7 +143,7 @@
     <link href="flintli.xyz/2016/05/16/Android-user%E7%89%88%E6%9C%AC%E7%BC%96%E8%AF%91/"/>
     <id>flintli.xyz/2016/05/16/Android-user版本编译/</id>
     <published>2016-05-16T12:16:02.000Z</published>
-    <updated>2016-05-16T12:46:58.000Z</updated>
+    <updated>2016-06-03T06:13:45.000Z</updated>
     <content type="html"><![CDATA[<p>怎么编译user版本的Android系统。</p>
 <a id="more"></a>
 <p>Android编译选项分别有3个，user，eng，userDebug。这3个选项分别对应的版本如下：</p>
@@ -167,11 +165,7 @@
     
     </summary>
     
-      <category term="android" scheme="flintli.xyz/tags/android/"/>
-    
-      <category term="user" scheme="flintli.xyz/tags/user/"/>
-    
-      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
   </entry>
   
@@ -180,7 +174,7 @@
     <link href="flintli.xyz/2016/05/11/Android-ADB%E7%8A%B6%E6%80%81%E5%BC%80%E5%85%B3/"/>
     <id>flintli.xyz/2016/05/11/Android-ADB状态开关/</id>
     <published>2016-05-11T06:52:10.000Z</published>
-    <updated>2016-05-11T08:37:27.000Z</updated>
+    <updated>2016-06-03T06:12:58.000Z</updated>
     <content type="html"><![CDATA[<p>Android设备adb root权限控制以及 adb shell的开关控制。</p>
 <a id="more"></a>
 <h3 id="adb_root_u6743_u9650"><a href="#adb_root_u6743_u9650" class="headerlink" title="adb root权限"></a>adb root权限</h3><p>adb 的root权限是在system/core/adb/adb.c中控制。主要根据<code>ro.secure</code>以及 <code>ro.debuggable</code>等<code>system property</code> 来控制。默认即档ro.secure 为0 时，即开启root 权限，为1时再根据ro.debuggable等选项来确认是否可以用开启root 权限。</p>
@@ -241,11 +235,7 @@
     
     </summary>
     
-      <category term="ADB" scheme="flintli.xyz/tags/ADB/"/>
-    
       <category term="Android" scheme="flintli.xyz/tags/Android/"/>
-    
-      <category term="Android" scheme="flintli.xyz/categories/Android/"/>
     
   </entry>
   
@@ -254,7 +244,7 @@
     <link href="flintli.xyz/2016/05/10/jar-odex-has-stale-dependencies/"/>
     <id>flintli.xyz/2016/05/10/jar-odex-has-stale-dependencies/</id>
     <published>2016-05-10T12:55:02.000Z</published>
-    <updated>2016-05-10T13:01:36.000Z</updated>
+    <updated>2016-06-03T06:14:19.000Z</updated>
     <content type="html"><![CDATA[<p>修改Android系统签名过程遇到的问题以及解决方法，主要是签名修改之后，编译烧录之后的img报了 <code>*.jar odex has stale dependencies</code>的错误。</p>
 <a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">I/dalvikvm(  <span class="number">621</span>): DexOpt: Some deps went away</span><br><span class="line">E/dalvikvm(  <span class="number">621</span>): /system/framework/android.policy.jar odex has stale dependencies</span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): Zip is good, but no classes.dex inside, and no valid .odex file in the same directory</span><br><span class="line">D/dalvikvm(  <span class="number">621</span>): Unable to process classpath element <span class="string">'/system/framework/android.policy.jar'</span></span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): DexOpt: Some deps went away</span><br><span class="line">E/dalvikvm(  <span class="number">621</span>): /system/framework/services.jar odex has stale dependencies</span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): Zip is good, but no classes.dex inside, and no valid .odex file in the same directory</span><br><span class="line">D/dalvikvm(  <span class="number">621</span>): Unable to process classpath element <span class="string">'/system/framework/services.jar'</span></span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): DexOpt: Some deps went away</span><br><span class="line">E/dalvikvm(  <span class="number">621</span>): /system/framework/apache-xml.jar odex has stale dependencies</span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): Zip is good, but no classes.dex inside, and no valid .odex file in the same directory</span><br><span class="line">D/dalvikvm(  <span class="number">621</span>): Unable to process classpath element <span class="string">'/system/framework/apache-xml.jar'</span></span><br></pre></td></tr></table></figure>
@@ -268,10 +258,6 @@
     
       <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
-      <category term="Android" scheme="flintli.xyz/categories/Android/"/>
-    
-      <category term="AOSP" scheme="flintli.xyz/categories/Android/AOSP/"/>
-    
   </entry>
   
   <entry>
@@ -279,7 +265,7 @@
     <link href="flintli.xyz/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/"/>
     <id>flintli.xyz/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/</id>
     <published>2016-05-10T12:43:06.000Z</published>
-    <updated>2016-05-10T12:53:02.000Z</updated>
+    <updated>2016-06-03T06:12:39.000Z</updated>
     <content type="html"><![CDATA[<p>ActivityManager的flag MOVE_TASK_WITH_HOME分析</p>
 <a id="more"></a>
 <p><code>MOVE_TASK_WITH_HOME</code>作为一个flag定义于ActivityManager中。主要是做为<code>moveTaskToFront()</code>的一个参数。</p>
@@ -319,11 +305,7 @@
     
     </summary>
     
-      <category term="ActivityManager" scheme="flintli.xyz/tags/ActivityManager/"/>
-    
-      <category term="Android" scheme="flintli.xyz/categories/Android/"/>
-    
-      <category term="ActivityManager" scheme="flintli.xyz/categories/Android/ActivityManager/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
   </entry>
   
@@ -332,7 +314,7 @@
     <link href="flintli.xyz/2016/03/16/recents/"/>
     <id>flintli.xyz/2016/03/16/recents/</id>
     <published>2016-03-16T14:35:19.000Z</published>
-    <updated>2016-03-16T14:38:42.000Z</updated>
+    <updated>2016-06-03T06:16:15.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>本篇主要介绍systemui的主要组成部分RecentsApp也就是最近任务列表的启动流程。</p>
 </blockquote>
@@ -356,13 +338,9 @@
     
     </summary>
     
-      <category term="android" scheme="flintli.xyz/tags/android/"/>
-    
-      <category term="framework" scheme="flintli.xyz/tags/framework/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
       <category term="systemui" scheme="flintli.xyz/tags/systemui/"/>
-    
-      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
   </entry>
   
@@ -371,7 +349,7 @@
     <link href="flintli.xyz/2016/03/16/ARGB_8888%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     <id>flintli.xyz/2016/03/16/ARGB_8888等的理解/</id>
     <published>2016-03-16T14:31:19.000Z</published>
-    <updated>2016-03-16T14:33:27.000Z</updated>
+    <updated>2016-06-03T06:15:34.000Z</updated>
     <content type="html"><![CDATA[<p>A：透明度</p>
 <p>R：红色</p>
 <p>G：绿</p>
@@ -395,8 +373,6 @@
     
       <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
-      <category term="Android" scheme="flintli.xyz/categories/Android/"/>
-    
   </entry>
   
   <entry>
@@ -404,7 +380,7 @@
     <link href="flintli.xyz/2016/03/07/adb-shell-monkey/"/>
     <id>flintli.xyz/2016/03/07/adb-shell-monkey/</id>
     <published>2016-03-07T13:02:26.000Z</published>
-    <updated>2016-03-07T13:12:33.000Z</updated>
+    <updated>2016-06-03T06:15:15.000Z</updated>
     <content type="html"><![CDATA[<p>主要整个Android测试工具monkey测试的基本命令以及用法。   </p>
 <a id="more"></a>
 <h3 id="u53C2_u6570_u8BF4_u660E"><a href="#u53C2_u6570_u8BF4_u660E" class="headerlink" title="参数说明"></a>参数说明</h3><p>配置好adb环境后，接入设备，在terminal中输入 <code>adb shell monkey</code>就可以看到monkey的列出的各个参数，现对各个参数进行说明。</p>
@@ -418,7 +394,7 @@
     
       <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
-      <category term="monkey" scheme="flintli.xyz/categories/monkey/"/>
+      <category term="monkey" scheme="flintli.xyz/tags/monkey/"/>
     
   </entry>
   
@@ -427,7 +403,7 @@
     <link href="flintli.xyz/2016/03/07/Android-adb-keyevent-input-keycode/"/>
     <id>flintli.xyz/2016/03/07/Android-adb-keyevent-input-keycode/</id>
     <published>2016-03-07T12:54:03.000Z</published>
-    <updated>2016-03-30T02:31:06.000Z</updated>
+    <updated>2016-06-03T06:15:22.000Z</updated>
     <content type="html"><![CDATA[<p>Andorid adb input keyevent “keycode”整理，方便terminal输入Androidkeyevent事件。</p>
 <a id="more"></a>
 <h4 id="adb__u8F93_u5165keyevent_u4E8B_u4EF6_u4F8B_u5B50_uFF1A"><a href="#adb__u8F93_u5165keyevent_u4E8B_u4EF6_u4F8B_u5B50_uFF1A" class="headerlink" title="adb 输入keyevent事件例子："></a>adb 输入keyevent事件例子：</h4><p>adb input keyevent 66<br>adb input keyevent KEYCODE_ENTER<br>主要有以上俩种形式，当然，数字比较多记起来繁琐，整理网络上的一些汇总成为此篇page。   </p>
@@ -450,7 +426,7 @@
     <link href="flintli.xyz/2016/01/05/Android-system-services/"/>
     <id>flintli.xyz/2016/01/05/Android-system-services/</id>
     <published>2016-01-05T01:50:46.000Z</published>
-    <updated>2016-01-05T01:57:20.000Z</updated>
+    <updated>2016-06-03T06:17:03.000Z</updated>
     <content type="html"><![CDATA[<p>业务对Android系统开机时间提出了需求，为了使得开机时间剪短，需要对系统service进行一些优化，去掉某部分使用不到的功能。现将<code>SystemServer</code>初始化阶段添加到<code>ServiceManager</code>中的服务进行一个汇总以及分析，给优化提供参照。</p>
 <a id="more"></a>
 <h2 id="Android__u7CFB_u7EDFservice_u5217_u8868"><a href="#Android__u7CFB_u7EDFservice_u5217_u8868" class="headerlink" title="Android 系统service列表"></a>Android 系统service列表</h2><h4 id="1-PowerManagerService"><a href="#1-PowerManagerService" class="headerlink" title="1.PowerManagerService"></a>1.PowerManagerService</h4><blockquote>
@@ -644,15 +620,7 @@
     
     </summary>
     
-      <category term="AOSP" scheme="flintli.xyz/tags/AOSP/"/>
-    
       <category term="Android" scheme="flintli.xyz/tags/Android/"/>
-    
-      <category term="frameworks" scheme="flintli.xyz/tags/frameworks/"/>
-    
-      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
-    
-      <category term="Android" scheme="flintli.xyz/categories/AOSP/Android/"/>
     
   </entry>
   
@@ -676,8 +644,6 @@
     
       <category term="随笔" scheme="flintli.xyz/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="随笔" scheme="flintli.xyz/categories/%E9%9A%8F%E7%AC%94/"/>
-    
   </entry>
   
   <entry>
@@ -685,7 +651,7 @@
     <link href="flintli.xyz/2015/12/31/%E5%B8%A6%E4%B8%8A%E5%A5%B9%E7%9A%84%E7%9C%BC%E7%9D%9B/"/>
     <id>flintli.xyz/2015/12/31/带上她的眼睛/</id>
     <published>2015-12-31T09:11:09.000Z</published>
-    <updated>2015-12-31T09:30:16.000Z</updated>
+    <updated>2016-06-03T06:18:28.000Z</updated>
     <content type="html"><![CDATA[<p>一直对大刘怀有崇高的敬意，从三体开始。近来闲着没事，便索引其相关文章，对《带上她的眼睛》尤为喜欢,便敲下来留个念想。</p>
 <a id="more"></a>
 <h3 id="u58F0_u660E"><a href="#u58F0_u660E" class="headerlink" title="声明"></a>声明</h3><p>本文仅作为个人平时读读看看，未经同意不得转载，造成的后果一概与本人无关。</p>
@@ -705,9 +671,7 @@
     
     </summary>
     
-      <category term="book" scheme="flintli.xyz/tags/book/"/>
-    
-      <category term="杂书" scheme="flintli.xyz/categories/%E6%9D%82%E4%B9%A6/"/>
+      <category term="随笔" scheme="flintli.xyz/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -716,7 +680,7 @@
     <link href="flintli.xyz/2015/12/31/ubuntu-brightness-control/"/>
     <id>flintli.xyz/2015/12/31/ubuntu-brightness-control/</id>
     <published>2015-12-31T08:55:56.000Z</published>
-    <updated>2015-12-31T09:31:27.000Z</updated>
+    <updated>2016-06-03T06:18:11.000Z</updated>
     <content type="html"><![CDATA[<p>pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。</p>
 <a id="more"></a>
 <h3 id="Ubuntu_u4EAE_u5EA6_u8C03_u8282"><a href="#Ubuntu_u4EAE_u5EA6_u8C03_u8282" class="headerlink" title="Ubuntu亮度调节"></a>Ubuntu亮度调节</h3><h4 id="u4EAE_u5EA6_u65E0_u6CD5_u8C03_u8282_u7684_u539F_u56E0"><a href="#u4EAE_u5EA6_u65E0_u6CD5_u8C03_u8282_u7684_u539F_u56E0" class="headerlink" title="亮度无法调节的原因"></a>亮度无法调节的原因</h4><p> 每次重装ubuntu时都因为显示比较亮，很刺眼的问题纠结。去查找了一下相关资料，发现：<br><code>NVIDIA GEFORCE</code>独立显卡没有为Linux系统开发显卡驱动，导致无法使用Fn或者直接在图形界面中调节亮度。<br>Linux大神还曾经因为这个吐槽过NVIDIA公司的，想要八卦的自行去看吧。</p>
@@ -730,11 +694,7 @@
     
     </summary>
     
-      <category term="brightness" scheme="flintli.xyz/tags/brightness/"/>
-    
-      <category term="ubuntu" scheme="flintli.xyz/tags/ubuntu/"/>
-    
-      <category term="Ubuntu" scheme="flintli.xyz/categories/Ubuntu/"/>
+      <category term="Ubuntu" scheme="flintli.xyz/tags/Ubuntu/"/>
     
   </entry>
   
@@ -743,7 +703,7 @@
     <link href="flintli.xyz/2015/12/31/Android-frameworks-add-default-apps/"/>
     <id>flintli.xyz/2015/12/31/Android-frameworks-add-default-apps/</id>
     <published>2015-12-31T06:13:55.000Z</published>
-    <updated>2016-01-05T02:06:48.000Z</updated>
+    <updated>2016-06-03T06:16:49.000Z</updated>
     <content type="html"><![CDATA[<p>预制APP到Android系统，成为系统默认APPS。<br><a id="more"></a></p>
 <h3 id="u6982_u8BBA"><a href="#u6982_u8BBA" class="headerlink" title="概论"></a>概论</h3><p>将第三方厂商定制的APP编译进系统源码，随着system.img的烧录进设备。定制的APP分为以下几种形式添加到系统中：   </p>
 <ul>
@@ -797,13 +757,7 @@
     
     </summary>
     
-      <category term="AOSP" scheme="flintli.xyz/tags/AOSP/"/>
-    
       <category term="Android" scheme="flintli.xyz/tags/Android/"/>
-    
-      <category term="frameworks" scheme="flintli.xyz/tags/frameworks/"/>
-    
-      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
   </entry>
   
@@ -812,7 +766,7 @@
     <link href="flintli.xyz/2015/12/31/Android-frameworks-SoundPool/"/>
     <id>flintli.xyz/2015/12/31/Android-frameworks-SoundPool/</id>
     <published>2015-12-31T02:17:46.000Z</published>
-    <updated>2015-12-31T08:57:09.000Z</updated>
+    <updated>2016-06-03T06:17:33.000Z</updated>
     <content type="html"><![CDATA[<p>给Android物理按键添加操作声音 </p>
 <a id="more"></a>   
 <p>目标：通过修改系统源码给物理旋钮添加操作提示音<br>实现：参照View的touch声音，在最底层的InputFilter接收输入事件，播放声音</p>
@@ -834,13 +788,7 @@
     
     </summary>
     
-      <category term="AOSP" scheme="flintli.xyz/tags/AOSP/"/>
-    
       <category term="Android" scheme="flintli.xyz/tags/Android/"/>
-    
-      <category term="frameworks" scheme="flintli.xyz/tags/frameworks/"/>
-    
-      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
   </entry>
   
@@ -849,7 +797,7 @@
     <link href="flintli.xyz/2015/12/31/Android-frameworks-fonts/"/>
     <id>flintli.xyz/2015/12/31/Android-frameworks-fonts/</id>
     <published>2015-12-31T02:13:42.000Z</published>
-    <updated>2015-12-31T08:56:54.000Z</updated>
+    <updated>2016-06-03T06:17:19.000Z</updated>
     <content type="html"><![CDATA[<p>修改Android源码添加并定制字体为默认字体。</p>
 <a id="more"></a>
 <h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><p>近期在对Android系统源码进行一些个性化的修改，主要集中在<code>frameworks</code>层。本篇旨在将自添加或者已存在的字体包设置为系统默认的字体，满足产品的需求。<br>这次定制的系统版本为Android4.4，主要为4.4添加宋体验证修改效果，不喜宋体的略过。网络查找的资料提及4.X与5.X版本的系统在设置默认字体方面有一些区别，望想定制5.X及以上系统的朋友自行补充。</p>
@@ -880,13 +828,7 @@
     
     </summary>
     
-      <category term="AOSP" scheme="flintli.xyz/tags/AOSP/"/>
-    
       <category term="Android" scheme="flintli.xyz/tags/Android/"/>
-    
-      <category term="frameworks" scheme="flintli.xyz/tags/frameworks/"/>
-    
-      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
   </entry>
   
@@ -895,7 +837,7 @@
     <link href="flintli.xyz/2015/12/30/hello-world/"/>
     <id>flintli.xyz/2015/12/30/hello-world/</id>
     <published>2015-12-30T02:13:42.000Z</published>
-    <updated>2015-12-31T05:46:19.000Z</updated>
+    <updated>2016-06-03T06:17:53.000Z</updated>
     <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <a id="more"></a>d<br><br>## Quick Start<br><br>### Create a new post<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
@@ -910,6 +852,8 @@
     <![CDATA[<p>Welcome to <a href="http://hexo.io/">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>]]>
     
     </summary>
+    
+      <category term="Hexo" scheme="flintli.xyz/tags/Hexo/"/>
     
   </entry>
   

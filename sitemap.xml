@@ -3,7 +3,7 @@
 
     <sitemap>
         <loc>flintli.xyz/post-sitemap.xml</loc>
-        <lastmod>2016-05-24T07:17:13.000Z</lastmod>
+        <lastmod>2016-06-03T06:18:28.000Z</lastmod>
     </sitemap>
 
     <sitemap>
@@ -12,13 +12,8 @@
     </sitemap>
 
     <sitemap>
-        <loc>flintli.xyz/category-sitemap.xml</loc>
-        <lastmod>2015-12-31T09:30:16.000Z</lastmod>
-    </sitemap>
-
-    <sitemap>
         <loc>flintli.xyz/tag-sitemap.xml</loc>
-        <lastmod>2015-12-31T09:30:16.000Z</lastmod>
+        <lastmod>2016-06-03T06:15:15.000Z</lastmod>
     </sitemap>
 
 </sitemapindex>
