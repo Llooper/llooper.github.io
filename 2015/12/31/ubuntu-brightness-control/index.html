@@ -1,30 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="ch-CN">
 <head>
-  <meta charset="utf-8">
-  
-  <title>Ubuntu亮度设置 | FLINT LI&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="FLINT LI" />
+
+
+
+<meta name="description" content="pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu亮度设置">
-<meta property="og:url" content="llooper.space/2015/12/31/ubuntu-brightness-control/index.html">
+<meta property="og:url" content="flintli.xyz/2015/12/31/ubuntu-brightness-control/index.html">
 <meta property="og:site_name" content="FLINT LI's Blog">
 <meta property="og:description" content="pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。">
 <meta property="og:updated_time" content="2015-12-31T09:31:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu亮度设置">
 <meta name="twitter:description" content="pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。">
-  
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
     <link rel="alternative" href="/atom.xml" title="FLINT LI&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/resources/favicon.ico">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
+
+
+
+    <link rel="shortcut icon" href="/resources/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Ubuntu亮度设置 | FLINT LI&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
 </head>
 <body>
   <div id="container">
@@ -33,11 +99,8 @@
 <div class="intrude-less">
     <header id="header" class="inner">
         <a href="/" class="profilepic">
-            
-            <img lazy-src="/resources/blog_avatar.jpg" class="js-avatar">
-            
+            <img src="/resources/blog_avatar.jpg" class="animated zoomIn">
         </a>
-
         <hgroup>
           <h1 class="header-author"><a href="/">FLINT LI</a></h1>
         </hgroup>
@@ -45,9 +108,43 @@
         
         <p class="header-subtitle">Walk steps step by step</p>
         
-                
+
+        
 
 
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <li>關於我</li>
+                        
+                    </ul>
+                </div>
+            </div>
         
 
         <div id="switch-area" class="switch-area">
@@ -69,18 +166,24 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:renhongli.flint@gmail.com" title="Email"></a></li>
+                                <a class="fa Email" target="_blank" href="mailto:renhongli.flint@gmail.com" title="Email"></a>
                             
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/llooper/" title="GitHub"></a></li>
+                                <a class="fa GitHub" target="_blank" href="https://github.com/llooper/" title="GitHub"></a>
                             
-                                <li id="Google"><a class="Google" target="_blank" href="http://www.google.com.hk/" title="Google"></a></li>
+                                <a class="fa Google" target="_blank" href="http://www.google.com.hk/" title="Google"></a>
                             
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
                             
                         </ul>
                     </nav>
                 </section>
                 
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ADB/">ADB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOSP/">AOSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARGB-8888/">ARGB_8888</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ActivityManager/">ActivityManager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/brightness/">brightness</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/framework/">framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frameworks/">frameworks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/systemui/">systemui</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/user/">user</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                    </div>
+                </section>
                 
                 
                 
@@ -89,7 +192,7 @@
                 
                 <section class="switch-part switch-part3">
                 
-                    <div id="js-aboutme">Android developer. Reading the fucking source code.</div>
+                    <div id="js-aboutme">专注于Android</div>
                 </section>
                 
             </div>
@@ -106,7 +209,7 @@
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
-                <img lazy-src="/resources/blog_avatar.jpg" class="js-avatar">
+                <img src="/resources/blog_avatar.jpg" class="animated zoomIn">
             </a>
             <hgroup>
               <h1 class="header-author"><a href="/" title="回到主页">FLINT LI</a></h1>
@@ -131,18 +234,19 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:renhongli.flint@gmail.com" title="Email"></a></li>
+                                <a class="fa Email" target="_blank" href="mailto:renhongli.flint@gmail.com" title="Email"></a>
                             
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/llooper/" title="GitHub"></a></li>
+                                <a class="fa GitHub" target="_blank" href="https://github.com/llooper/" title="GitHub"></a>
                             
-                                <li id="Google"><a class="Google" target="_blank" href="http://www.google.com.hk/" title="Google"></a></li>
+                                <a class="fa Google" target="_blank" href="http://www.google.com.hk/" title="Google"></a>
                             
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
                             
                         </ul>
             </nav>
         </header>                
     </div>
+    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
       <div class="body-wrap"><article id="post-ubuntu-brightness-control" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -201,18 +305,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/12/31/ubuntu-brightness-control/">Ubuntu亮度设置</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 FLINT LI 的个人博客">FLINT LI</a></p>
-        <p><span>发布时间:</span>2015年12月31日 - 16时55分</p>
-        <p><span>最后更新:</span>2015年12月31日 - 17时31分</p>
+        <p><span>本文標題:</span><a href="/2015/12/31/ubuntu-brightness-control/">Ubuntu亮度设置</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主頁">FLINT LI</a></p>
+        <p><span>發布時間:</span>2015-12-31, 16:55:56</p>
+        <p><span>最後更新:</span>2015-12-31, 17:31:27</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/12/31/ubuntu-brightness-control/" title="Ubuntu亮度设置">llooper.space/2015/12/31/ubuntu-brightness-control/</a>
-            <span class="copy-path" data-clipboard-text="原文: llooper.space/2015/12/31/ubuntu-brightness-control/　　作者: FLINT LI" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
+            <span>原始鏈接:</span><a class="post-url" href="/2015/12/31/ubuntu-brightness-control/" title="Ubuntu亮度设置">flintli.xyz/2015/12/31/ubuntu-brightness-control/</a>
+            <span class="copy-path" data-clipboard-text="原文: flintli.xyz/2015/12/31/ubuntu-brightness-control/　　作者: FLINT LI" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
         </p>
     </div>
 
@@ -239,7 +342,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">文章目錄</strong>
     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu_u4EAE_u5EA6_u8C03_u8282"><span class="toc-number">1.</span> <span class="toc-text">Ubuntu亮度调节</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u4EAE_u5EA6_u65E0_u6CD5_u8C03_u8282_u7684_u539F_u56E0"><span class="toc-number">1.1.</span> <span class="toc-text">亮度无法调节的原因</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u8C03_u8282_u65B9_u6CD5"><span class="toc-number">1.2.</span> <span class="toc-text">调节方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u4FEE_u6539_u914D_u7F6E_u6587_u4EF6"><span class="toc-number">1.3.</span> <span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5199_u5728_u6700_u540E"><span class="toc-number">1.4.</span> <span class="toc-text">写在最后</span></a></li></ol></li></ol>
 </div>
 <style>
@@ -251,32 +354,31 @@
     }
 </style>
 
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
 <script>
-    var toc_button = document.getElementById("tocButton");
-    var toc_div = document.getElementById("toc");
-    toc_button.onclick=function() {
-        if (toc_div.style.display == "none") {
-            toc_div.style.display = "block";
-            toc_button.value = "隐藏目录";
-            document.getElementById("switch-btn").style.display = "none";
-            document.getElementById("switch-area").style.display = "none";
-        }
-        else {
-            toc_div.style.display = "none";
-            toc_button.value = "显示目录";
-            document.getElementById("switch-btn").style.display = "block";
-            document.getElementById("switch-area").style.display = "block";
-        }
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
     }
 
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
     if ($(".toc").length < 1) {
-        $("#toc").css("display","none");
-        $("#tocButton").css("display","none");
-        $(".switch-btn").css("display","block");
-        $(".switch-area").css("display","block");
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
     }
 </script>
 
@@ -284,10 +386,37 @@
 
 
 
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Ubuntu亮度设置　| FLINT LI's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
-    <div class="duoshuo" id="comments">
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/12/31/ubuntu-brightness-control/" data-title="Ubuntu亮度设置" data-url="llooper.space/2015/12/31/ubuntu-brightness-control/"></div>
+    <div class="ds-thread" data-thread-key="2015/12/31/ubuntu-brightness-control/" data-title="Ubuntu亮度设置" data-url="flintli.xyz/2015/12/31/ubuntu-brightness-control/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -304,8 +433,7 @@
     <!-- 多说公共JS代码 end -->
 </div>
 
-
-
+    
 
 
 
@@ -327,127 +455,60 @@
     </div>
 
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/Android-system-and-framework-study/">Android 系统framework学习之路</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/Android-系统崩溃日志收集上传/">Android 系统崩溃日志收集上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/happy-birthday/">happy birthday</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/Android-replace-the-key-int-the-aosp/">How to replace the android default testkey in AOSP</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/Android-user版本编译/">Android user版本编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/11/Android-ADB状态开关/">Android ADB 状态开关</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/jar-odex-has-stale-dependencies/"> *.jar odex has stale dependencies</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/">Android ActivityManager MOVE_TASK_WITH_HOME</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/recents/">SystemUI之RecentsApp篇（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/ARGB_8888等的理解/">关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/adb-shell-monkey/">adb shell monkey 基本命令整合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/Android-adb-keyevent-input-keycode/">Android adb input keyevent  "keycode"</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/05/Android-system-services/">Android系统服务汇总列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/2016/">2016</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/带上她的眼睛/">《带上她的眼睛》</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/ubuntu-brightness-control/">Ubuntu亮度设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-add-default-apps/">Android系统源码集成第三方APP并编译到system.img中</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-SoundPool/">为Android物理按键添加类似touch sound一样的声音</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-fonts/">通过修改Android frameworks层源码设置默认字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/hello-world/">Hello World</a></li></ul>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+
+
     <script>
-        $(".post-list").addClass("toc-article");
-        $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200);
-            }
-            else {
-                $(".switch-btn, .switch-area").toggle(200);
-            }
-        })
-    </script>
-
-
-
-
-    
-        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-        <script>
-            var yiliaConfig = {
-            fancybox: true,
-            mathjax: true,
-            animate: true,
-            isHome: false,
-            isPost: true,
-            isArchive: false,
-            isTag: false,
-            isCategory: false,
-            open_in_new: false
-            }
-        </script>
         
-
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2016 FLINT LI
+                <i class="fa fa-copyright"></i> 
+                2015-2016 FLINT LI
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+                <a href="http://hexo.io/" target="_blank" title="快速、簡單且強大的網誌框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄網誌主題  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
-        <div class="visit">
-            <span id="busuanzi_container_site_pv" style='display:none'>
-                <span id="site-visit" >本站到访数: 
-                    <span id="busuanzi_value_site_uv"></span>
-                </span>
-            </span>
-            <span id="busuanzi_container_page_pv" style='display:none'>
-                <span id="page-visit">, 本页阅读量: 
-                    <span id="busuanzi_value_page_pv"></span>
-                </span>
-            </span>
-        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
 </footer>
     </div>
     
-
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
 
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看評論"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
-
-<script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
-</script>
-
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
   </div>

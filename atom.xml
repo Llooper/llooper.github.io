@@ -3,9 +3,9 @@
   <title><![CDATA[FLINT LI's Blog]]></title>
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="llooper.space/"/>
+  <link href="flintli.xyz/"/>
   <updated>2016-05-24T07:17:13.000Z</updated>
-  <id>llooper.space/</id>
+  <id>flintli.xyz/</id>
   
   <author>
     <name><![CDATA[FLINT LI]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[Android 系统framework学习之路]]></title>
-    <link href="llooper.space/2016/05/24/Android-system-and-framework-study/"/>
-    <id>llooper.space/2016/05/24/Android-system-and-framework-study/</id>
+    <link href="flintli.xyz/2016/05/24/Android-system-and-framework-study/"/>
+    <id>flintli.xyz/2016/05/24/Android-system-and-framework-study/</id>
     <published>2016-05-24T07:13:57.000Z</published>
     <updated>2016-05-24T07:17:13.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">老罗的Android学习之路</a><br>多去别人的blog逛逛，老罗很牛逼，要多学习。</p>
@@ -26,14 +26,14 @@
     <![CDATA[<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">老罗的Android学习之路</a><br>多去别人的blog逛逛，老罗很牛]]>
     </summary>
     
-      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android 系统崩溃日志收集上传]]></title>
-    <link href="llooper.space/2016/05/19/Android-%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86%E4%B8%8A%E4%BC%A0/"/>
-    <id>llooper.space/2016/05/19/Android-系统崩溃日志收集上传/</id>
+    <link href="flintli.xyz/2016/05/19/Android-%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86%E4%B8%8A%E4%BC%A0/"/>
+    <id>flintli.xyz/2016/05/19/Android-系统崩溃日志收集上传/</id>
     <published>2016-05-19T03:53:29.000Z</published>
     <updated>2016-05-19T06:00:28.000Z</updated>
     <content type="html"><![CDATA[<p>Android系统日志收集与上传。</p>
@@ -63,14 +63,14 @@
     
     </summary>
     
-      <category term="AOSP" scheme="llooper.space/tags/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/tags/AOSP/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[happy birthday]]></title>
-    <link href="llooper.space/2016/05/19/happy-birthday/"/>
-    <id>llooper.space/2016/05/19/happy-birthday/</id>
+    <link href="flintli.xyz/2016/05/19/happy-birthday/"/>
+    <id>flintli.xyz/2016/05/19/happy-birthday/</id>
     <published>2016-05-18T16:00:00.000Z</published>
     <updated>2016-05-18T15:48:38.000Z</updated>
     <content type="html"><![CDATA[<p>又是一年，生日快乐！</p>
@@ -84,8 +84,8 @@
   
   <entry>
     <title><![CDATA[How to replace the android default testkey in AOSP]]></title>
-    <link href="llooper.space/2016/05/18/Android-replace-the-key-int-the-aosp/"/>
-    <id>llooper.space/2016/05/18/Android-replace-the-key-int-the-aosp/</id>
+    <link href="flintli.xyz/2016/05/18/Android-replace-the-key-int-the-aosp/"/>
+    <id>flintli.xyz/2016/05/18/Android-replace-the-key-int-the-aosp/</id>
     <published>2016-05-18T07:53:08.000Z</published>
     <updated>2016-05-18T09:00:51.000Z</updated>
     <content type="html"><![CDATA[<p>本篇主要介绍aosp的key类型，以及如何替换AOSP原有签名key，生成自定义的key并对系统签名。</p>
@@ -132,18 +132,18 @@
     
     </summary>
     
-      <category term="AOSP" scheme="llooper.space/tags/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/tags/AOSP/"/>
     
-      <category term="Android" scheme="llooper.space/tags/Android/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
-      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android user版本编译]]></title>
-    <link href="llooper.space/2016/05/16/Android-user%E7%89%88%E6%9C%AC%E7%BC%96%E8%AF%91/"/>
-    <id>llooper.space/2016/05/16/Android-user版本编译/</id>
+    <link href="flintli.xyz/2016/05/16/Android-user%E7%89%88%E6%9C%AC%E7%BC%96%E8%AF%91/"/>
+    <id>flintli.xyz/2016/05/16/Android-user版本编译/</id>
     <published>2016-05-16T12:16:02.000Z</published>
     <updated>2016-05-16T12:46:58.000Z</updated>
     <content type="html"><![CDATA[<p>怎么编译user版本的Android系统。</p>
@@ -152,7 +152,7 @@
 <blockquote>
 <p>eng：debug 版本<br>user: release 版本<br>userDebug版本：部分debug版本</p>
 </blockquote>
-<p>详细的介绍以及每个选项对应的功能权限在<a href="http://llooper.space/2016/05/11/Android-ADB%E7%8A%B6%E6%80%81%E5%BC%80%E5%85%B3/">上一篇</a> 已经介绍过。</p>
+<p>详细的介绍以及每个选项对应的功能权限在<a href="http://llooper.space/2016/05/11/Android-ADB%E7%8A%B6%E6%80%81%E5%BC%80%E5%85%B3/" target="_blank" rel="external">上一篇</a> 已经介绍过。</p>
 <p>本篇主要介绍如何编译user版本（其他版本同理），以下全部代码都以rockchip作为示例。</p>
 <ul>
 <li><strong>修改脚本：</strong>user等编译选项主要由<code>device/rockchip/rkpx2/vendorsetup.sh</code>脚本进行控制。打开脚本找到<code>add_lunch_combo rkpx2-eng</code>项，将eng改为user。也即是<code>add_lunch_combo rkpx2-user</code>。</li>
@@ -167,18 +167,18 @@
     
     </summary>
     
-      <category term="android" scheme="llooper.space/tags/android/"/>
+      <category term="android" scheme="flintli.xyz/tags/android/"/>
     
-      <category term="user" scheme="llooper.space/tags/user/"/>
+      <category term="user" scheme="flintli.xyz/tags/user/"/>
     
-      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android ADB 状态开关]]></title>
-    <link href="llooper.space/2016/05/11/Android-ADB%E7%8A%B6%E6%80%81%E5%BC%80%E5%85%B3/"/>
-    <id>llooper.space/2016/05/11/Android-ADB状态开关/</id>
+    <link href="flintli.xyz/2016/05/11/Android-ADB%E7%8A%B6%E6%80%81%E5%BC%80%E5%85%B3/"/>
+    <id>flintli.xyz/2016/05/11/Android-ADB状态开关/</id>
     <published>2016-05-11T06:52:10.000Z</published>
     <updated>2016-05-11T08:37:27.000Z</updated>
     <content type="html"><![CDATA[<p>Android设备adb root权限控制以及 adb shell的开关控制。</p>
@@ -241,18 +241,18 @@
     
     </summary>
     
-      <category term="ADB" scheme="llooper.space/tags/ADB/"/>
+      <category term="ADB" scheme="flintli.xyz/tags/ADB/"/>
     
-      <category term="Android" scheme="llooper.space/tags/Android/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
-      <category term="Android" scheme="llooper.space/categories/Android/"/>
+      <category term="Android" scheme="flintli.xyz/categories/Android/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[ *.jar odex has stale dependencies]]></title>
-    <link href="llooper.space/2016/05/10/jar-odex-has-stale-dependencies/"/>
-    <id>llooper.space/2016/05/10/jar-odex-has-stale-dependencies/</id>
+    <link href="flintli.xyz/2016/05/10/jar-odex-has-stale-dependencies/"/>
+    <id>flintli.xyz/2016/05/10/jar-odex-has-stale-dependencies/</id>
     <published>2016-05-10T12:55:02.000Z</published>
     <updated>2016-05-10T13:01:36.000Z</updated>
     <content type="html"><![CDATA[<p>修改Android系统签名过程遇到的问题以及解决方法，主要是签名修改之后，编译烧录之后的img报了 <code>*.jar odex has stale dependencies</code>的错误。</p>
@@ -266,18 +266,18 @@
     
     </summary>
     
-      <category term="Android" scheme="llooper.space/tags/Android/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
-      <category term="Android" scheme="llooper.space/categories/Android/"/>
+      <category term="Android" scheme="flintli.xyz/categories/Android/"/>
     
-      <category term="AOSP" scheme="llooper.space/categories/Android/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/categories/Android/AOSP/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android ActivityManager MOVE_TASK_WITH_HOME]]></title>
-    <link href="llooper.space/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/"/>
-    <id>llooper.space/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/</id>
+    <link href="flintli.xyz/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/"/>
+    <id>flintli.xyz/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/</id>
     <published>2016-05-10T12:43:06.000Z</published>
     <updated>2016-05-10T12:53:02.000Z</updated>
     <content type="html"><![CDATA[<p>ActivityManager的flag MOVE_TASK_WITH_HOME分析</p>
@@ -319,18 +319,18 @@
     
     </summary>
     
-      <category term="ActivityManager" scheme="llooper.space/tags/ActivityManager/"/>
+      <category term="ActivityManager" scheme="flintli.xyz/tags/ActivityManager/"/>
     
-      <category term="Android" scheme="llooper.space/categories/Android/"/>
+      <category term="Android" scheme="flintli.xyz/categories/Android/"/>
     
-      <category term="ActivityManager" scheme="llooper.space/categories/Android/ActivityManager/"/>
+      <category term="ActivityManager" scheme="flintli.xyz/categories/Android/ActivityManager/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[SystemUI之RecentsApp篇（一）]]></title>
-    <link href="llooper.space/2016/03/16/recents/"/>
-    <id>llooper.space/2016/03/16/recents/</id>
+    <link href="flintli.xyz/2016/03/16/recents/"/>
+    <id>flintli.xyz/2016/03/16/recents/</id>
     <published>2016-03-16T14:35:19.000Z</published>
     <updated>2016-03-16T14:38:42.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
@@ -356,20 +356,20 @@
     
     </summary>
     
-      <category term="android" scheme="llooper.space/tags/android/"/>
+      <category term="android" scheme="flintli.xyz/tags/android/"/>
     
-      <category term="framework" scheme="llooper.space/tags/framework/"/>
+      <category term="framework" scheme="flintli.xyz/tags/framework/"/>
     
-      <category term="systemui" scheme="llooper.space/tags/systemui/"/>
+      <category term="systemui" scheme="flintli.xyz/tags/systemui/"/>
     
-      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解]]></title>
-    <link href="llooper.space/2016/03/16/ARGB_8888%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3/"/>
-    <id>llooper.space/2016/03/16/ARGB_8888等的理解/</id>
+    <link href="flintli.xyz/2016/03/16/ARGB_8888%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <id>flintli.xyz/2016/03/16/ARGB_8888等的理解/</id>
     <published>2016-03-16T14:31:19.000Z</published>
     <updated>2016-03-16T14:33:27.000Z</updated>
     <content type="html"><![CDATA[<p>A：透明度</p>
@@ -391,18 +391,18 @@
 <p>]]>
     </summary>
     
-      <category term="ARGB_8888" scheme="llooper.space/tags/ARGB-8888/"/>
+      <category term="ARGB_8888" scheme="flintli.xyz/tags/ARGB-8888/"/>
     
-      <category term="Android" scheme="llooper.space/tags/Android/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
-      <category term="Android" scheme="llooper.space/categories/Android/"/>
+      <category term="Android" scheme="flintli.xyz/categories/Android/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[adb shell monkey 基本命令整合]]></title>
-    <link href="llooper.space/2016/03/07/adb-shell-monkey/"/>
-    <id>llooper.space/2016/03/07/adb-shell-monkey/</id>
+    <link href="flintli.xyz/2016/03/07/adb-shell-monkey/"/>
+    <id>flintli.xyz/2016/03/07/adb-shell-monkey/</id>
     <published>2016-03-07T13:02:26.000Z</published>
     <updated>2016-03-07T13:12:33.000Z</updated>
     <content type="html"><![CDATA[<p>主要整个Android测试工具monkey测试的基本命令以及用法。   </p>
@@ -416,16 +416,16 @@
     
     </summary>
     
-      <category term="Android" scheme="llooper.space/tags/Android/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
-      <category term="monkey" scheme="llooper.space/categories/monkey/"/>
+      <category term="monkey" scheme="flintli.xyz/categories/monkey/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android adb input keyevent  "keycode"]]></title>
-    <link href="llooper.space/2016/03/07/Android-adb-keyevent-input-keycode/"/>
-    <id>llooper.space/2016/03/07/Android-adb-keyevent-input-keycode/</id>
+    <link href="flintli.xyz/2016/03/07/Android-adb-keyevent-input-keycode/"/>
+    <id>flintli.xyz/2016/03/07/Android-adb-keyevent-input-keycode/</id>
     <published>2016-03-07T12:54:03.000Z</published>
     <updated>2016-03-30T02:31:06.000Z</updated>
     <content type="html"><![CDATA[<p>Andorid adb input keyevent “keycode”整理，方便terminal输入Androidkeyevent事件。</p>
@@ -441,14 +441,14 @@
     
     </summary>
     
-      <category term="Android" scheme="llooper.space/tags/Android/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android系统服务汇总列表]]></title>
-    <link href="llooper.space/2016/01/05/Android-system-services/"/>
-    <id>llooper.space/2016/01/05/Android-system-services/</id>
+    <link href="flintli.xyz/2016/01/05/Android-system-services/"/>
+    <id>flintli.xyz/2016/01/05/Android-system-services/</id>
     <published>2016-01-05T01:50:46.000Z</published>
     <updated>2016-01-05T01:57:20.000Z</updated>
     <content type="html"><![CDATA[<p>业务对Android系统开机时间提出了需求，为了使得开机时间剪短，需要对系统service进行一些优化，去掉某部分使用不到的功能。现将<code>SystemServer</code>初始化阶段添加到<code>ServiceManager</code>中的服务进行一个汇总以及分析，给优化提供参照。</p>
@@ -644,22 +644,22 @@
     
     </summary>
     
-      <category term="AOSP" scheme="llooper.space/tags/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/tags/AOSP/"/>
     
-      <category term="Android" scheme="llooper.space/tags/Android/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
-      <category term="frameworks" scheme="llooper.space/tags/frameworks/"/>
+      <category term="frameworks" scheme="flintli.xyz/tags/frameworks/"/>
     
-      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
-      <category term="Android" scheme="llooper.space/categories/AOSP/Android/"/>
+      <category term="Android" scheme="flintli.xyz/categories/AOSP/Android/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[2016]]></title>
-    <link href="llooper.space/2016/01/01/2016/"/>
-    <id>llooper.space/2016/01/01/2016/</id>
+    <link href="flintli.xyz/2016/01/01/2016/"/>
+    <id>flintli.xyz/2016/01/01/2016/</id>
     <published>2015-12-31T16:55:11.000Z</published>
     <updated>2016-01-01T12:03:00.000Z</updated>
     <content type="html"><![CDATA[<p>2016的第一篇blog。</p>
@@ -674,16 +674,16 @@
     
     </summary>
     
-      <category term="随笔" scheme="llooper.space/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="flintli.xyz/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="随笔" scheme="llooper.space/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="flintli.xyz/categories/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[《带上她的眼睛》]]></title>
-    <link href="llooper.space/2015/12/31/%E5%B8%A6%E4%B8%8A%E5%A5%B9%E7%9A%84%E7%9C%BC%E7%9D%9B/"/>
-    <id>llooper.space/2015/12/31/带上她的眼睛/</id>
+    <link href="flintli.xyz/2015/12/31/%E5%B8%A6%E4%B8%8A%E5%A5%B9%E7%9A%84%E7%9C%BC%E7%9D%9B/"/>
+    <id>flintli.xyz/2015/12/31/带上她的眼睛/</id>
     <published>2015-12-31T09:11:09.000Z</published>
     <updated>2015-12-31T09:30:16.000Z</updated>
     <content type="html"><![CDATA[<p>一直对大刘怀有崇高的敬意，从三体开始。近来闲着没事，便索引其相关文章，对《带上她的眼睛》尤为喜欢,便敲下来留个念想。</p>
@@ -705,16 +705,16 @@
     
     </summary>
     
-      <category term="book" scheme="llooper.space/tags/book/"/>
+      <category term="book" scheme="flintli.xyz/tags/book/"/>
     
-      <category term="杂书" scheme="llooper.space/categories/%E6%9D%82%E4%B9%A6/"/>
+      <category term="杂书" scheme="flintli.xyz/categories/%E6%9D%82%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Ubuntu亮度设置]]></title>
-    <link href="llooper.space/2015/12/31/ubuntu-brightness-control/"/>
-    <id>llooper.space/2015/12/31/ubuntu-brightness-control/</id>
+    <link href="flintli.xyz/2015/12/31/ubuntu-brightness-control/"/>
+    <id>flintli.xyz/2015/12/31/ubuntu-brightness-control/</id>
     <published>2015-12-31T08:55:56.000Z</published>
     <updated>2015-12-31T09:31:27.000Z</updated>
     <content type="html"><![CDATA[<p>pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。</p>
@@ -730,18 +730,18 @@
     
     </summary>
     
-      <category term="brightness" scheme="llooper.space/tags/brightness/"/>
+      <category term="brightness" scheme="flintli.xyz/tags/brightness/"/>
     
-      <category term="ubuntu" scheme="llooper.space/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="flintli.xyz/tags/ubuntu/"/>
     
-      <category term="Ubuntu" scheme="llooper.space/categories/Ubuntu/"/>
+      <category term="Ubuntu" scheme="flintli.xyz/categories/Ubuntu/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android系统源码集成第三方APP并编译到system.img中]]></title>
-    <link href="llooper.space/2015/12/31/Android-frameworks-add-default-apps/"/>
-    <id>llooper.space/2015/12/31/Android-frameworks-add-default-apps/</id>
+    <link href="flintli.xyz/2015/12/31/Android-frameworks-add-default-apps/"/>
+    <id>flintli.xyz/2015/12/31/Android-frameworks-add-default-apps/</id>
     <published>2015-12-31T06:13:55.000Z</published>
     <updated>2016-01-05T02:06:48.000Z</updated>
     <content type="html"><![CDATA[<p>预制APP到Android系统，成为系统默认APPS。<br><a id="more"></a></p>
@@ -797,20 +797,20 @@
     
     </summary>
     
-      <category term="AOSP" scheme="llooper.space/tags/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/tags/AOSP/"/>
     
-      <category term="Android" scheme="llooper.space/tags/Android/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
-      <category term="frameworks" scheme="llooper.space/tags/frameworks/"/>
+      <category term="frameworks" scheme="flintli.xyz/tags/frameworks/"/>
     
-      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[为Android物理按键添加类似touch sound一样的声音]]></title>
-    <link href="llooper.space/2015/12/31/Android-frameworks-SoundPool/"/>
-    <id>llooper.space/2015/12/31/Android-frameworks-SoundPool/</id>
+    <link href="flintli.xyz/2015/12/31/Android-frameworks-SoundPool/"/>
+    <id>flintli.xyz/2015/12/31/Android-frameworks-SoundPool/</id>
     <published>2015-12-31T02:17:46.000Z</published>
     <updated>2015-12-31T08:57:09.000Z</updated>
     <content type="html"><![CDATA[<p>给Android物理按键添加操作声音 </p>
@@ -834,20 +834,20 @@
     
     </summary>
     
-      <category term="AOSP" scheme="llooper.space/tags/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/tags/AOSP/"/>
     
-      <category term="Android" scheme="llooper.space/tags/Android/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
-      <category term="frameworks" scheme="llooper.space/tags/frameworks/"/>
+      <category term="frameworks" scheme="flintli.xyz/tags/frameworks/"/>
     
-      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[通过修改Android frameworks层源码设置默认字体]]></title>
-    <link href="llooper.space/2015/12/31/Android-frameworks-fonts/"/>
-    <id>llooper.space/2015/12/31/Android-frameworks-fonts/</id>
+    <link href="flintli.xyz/2015/12/31/Android-frameworks-fonts/"/>
+    <id>flintli.xyz/2015/12/31/Android-frameworks-fonts/</id>
     <published>2015-12-31T02:13:42.000Z</published>
     <updated>2015-12-31T08:56:54.000Z</updated>
     <content type="html"><![CDATA[<p>修改Android源码添加并定制字体为默认字体。</p>
@@ -880,20 +880,20 @@
     
     </summary>
     
-      <category term="AOSP" scheme="llooper.space/tags/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/tags/AOSP/"/>
     
-      <category term="Android" scheme="llooper.space/tags/Android/"/>
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
     
-      <category term="frameworks" scheme="llooper.space/tags/frameworks/"/>
+      <category term="frameworks" scheme="flintli.xyz/tags/frameworks/"/>
     
-      <category term="AOSP" scheme="llooper.space/categories/AOSP/"/>
+      <category term="AOSP" scheme="flintli.xyz/categories/AOSP/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Hello World]]></title>
-    <link href="llooper.space/2015/12/30/hello-world/"/>
-    <id>llooper.space/2015/12/30/hello-world/</id>
+    <link href="flintli.xyz/2015/12/30/hello-world/"/>
+    <id>flintli.xyz/2015/12/30/hello-world/</id>
     <published>2015-12-30T02:13:42.000Z</published>
     <updated>2015-12-31T05:46:19.000Z</updated>
     <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
