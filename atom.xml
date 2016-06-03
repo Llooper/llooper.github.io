@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="flintli.xyz/"/>
-  <updated>2016-06-03T06:13:33.000Z</updated>
+  <updated>2016-06-03T06:32:31.000Z</updated>
   <id>flintli.xyz/</id>
   
   <author>
@@ -13,6 +13,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[android has leaked window 分析]]></title>
+    <link href="flintli.xyz/2016/06/03/android-has-leaked-window/"/>
+    <id>flintli.xyz/2016/06/03/android-has-leaked-window/</id>
+    <published>2016-06-03T06:30:44.000Z</published>
+    <updated>2016-06-03T06:32:31.000Z</updated>
+    <content type="html"><![CDATA[<p>XXX Activity has leaked window分析。</p>
+<a id="more"></a>
+<h3 id="leaked_window__u5206_u6790"><a href="#leaked_window__u5206_u6790" class="headerlink" title="leaked window 分析"></a>leaked window 分析</h3><p>Monkey测试xos过程中，出了很多leaked window的问题，现针对其中一个进行分析，作为例子参考。部分具体log如下，其余log在附件leak_window.txt中：</p>
+<blockquote>
+<p>android.view.WindowLeaked: Activity systems.xos.car.android.traficreport.MainActivity has leaked window com.android.internal.policy.impl.PhoneWindow$DecorView{41c6ee48 V.E….. ……ID 0,0-624,480} that was originally added here</p>
+</blockquote>
+<p>分析出错log，发现问题出在于</p>
+<blockquote>
+<p>E/WindowManager(  987):     at android.app.Activity.openOptionsMenu(Activity.java:2873)<br>E/WindowManager(  987):     at systems.xos.car.android.traficreport.MainActivity$4.run(MainActivity.java:227)</p>
+</blockquote>
+<p>顺着提示查看了MainActivity.java:227行的代码，为 </p>
+<pre><code>new Handler().postDelayed(new Runnable() {
+       @Override
+       public void run() {
+           openOptionsMenu();
+       }
+   }, 200);
+</code></pre><p>看到了<code>openOptionsMenu()</code>，且在onResume中调用，猜测可能是由于<code>OptionsMenu</code>引起。继续往上分析log，查找导致出现泄漏的问题。在log日志的<code>188</code>行发现了一个输出日志<br><code>01-01 08:01:25.550 D/MainActivity(  987): onOptionsMenuClosed</code><br>此为调用了下函数的输出      </p>
+<pre><code>@Override
+public void onOptionsMenuClosed(Menu menu) {
+    Log.d(&quot;MainActivity&quot;,&quot;onOptionsMenuClosed&quot;);
+    super.onOptionsMenuClosed(menu);
+    moveTaskToBack(true);
+}
+</code></pre><p>继续往上分析log，发现MainActivity start之后基本没做什么操作，也无其他异常，基本可以确定 leaked window为OptionsMenu引起的问题。接着对照盒子上的电子狗app进行一次同样的操作，即打开app，出现了OptionsMenu，然后退出。未发现问题。<br>继续分析代码，发现 <code>openOptionsMenu()</code>有200ms的延迟，猜测可能为monkey点击速度比人为操作快好几倍。</p>
+<blockquote>
+<p>打开app，还未openOptionsMenu便退出了app，导致了leaked window。</p>
+</blockquote>
+<p>分析log日志，发现了在<code>onOptionsMenuClosed</code>之前的第76以及其他几行存在：</p>
+<pre><code>D/MainActivity(  987): KeyEvent { action=ACTION_UP, keyCode=KEYCODE_BACK, scanCode=0, metaState=0, flags=0x8, repeatCount=0, eventTime=85698, downTime=85698, deviceId=-1, source=0x101 }   
+</code></pre><p>即monkey执行了 keyCode=KEYCODE_BACK 操作退出了app，然后输出closed。但是延迟了200ms才<code>openOptionsMenu()</code>，此时MainActivity已被destroy，OptionsMenu无挂载窗口，导致了leaked window。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>XXX Activity has leaked window分析。</p>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Android 系统framework学习之路]]></title>
@@ -829,31 +876,6 @@
     </summary>
     
       <category term="Android" scheme="flintli.xyz/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <link href="flintli.xyz/2015/12/30/hello-world/"/>
-    <id>flintli.xyz/2015/12/30/hello-world/</id>
-    <published>2015-12-30T02:13:42.000Z</published>
-    <updated>2016-06-03T06:17:53.000Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<a id="more"></a>d<br><br>## Quick Start<br><br>### Create a new post<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Welcome to <a href="http://hexo.io/">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>]]>
-    
-    </summary>
-    
-      <category term="Hexo" scheme="flintli.xyz/tags/Hexo/"/>
     
   </entry>
   

@@ -23,13 +23,6 @@
     </url>
 
     <url>
-        <loc>flintli.xyz/tags/Android/</loc>
-        <lastmod>2016-06-03T06:17:33.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>flintli.xyz/tags/Hexo/</loc>
         <lastmod>2016-06-03T06:17:53.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -46,6 +39,13 @@
     <url>
         <loc>flintli.xyz/tags/%E9%9A%8F%E7%AC%94/</loc>
         <lastmod>2016-06-03T06:18:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>flintli.xyz/tags/Android/</loc>
+        <lastmod>2016-06-03T06:32:31.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
