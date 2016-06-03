@@ -209,11 +209,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-ARGB_8888等的理解" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/16/ARGB_8888等的理解/" class="article-date">
-      <time datetime="2016-03-16T14:31:19.000Z" itemprop="datePublished">2016-03-16</time>
+      <a href="/2015/12/30/hello-world/" class="article-date">
+      <time datetime="2015-12-30T02:13:42.000Z" itemprop="datePublished">2015-12-30</time>
 </a>
     </div>
   
@@ -226,7 +226,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/ARGB_8888等的理解/">关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解</a>
+      <a class="article-title" href="/2015/12/30/hello-world/">Hello World</a>
     </h1>
   
 
@@ -236,73 +236,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>A：透明度</p>
-<p>R：红色</p>
-<p>G：绿</p>
-<p>B：蓝</p>
-<p><code>Bitmap.Config ARGB_4444</code>：每个像素占四位，即A=4，R=4，G=4，B=4，那么一个像素点占4+4+4+4=16位 </p>
-<p><code>Bitmap.Config ARGB_8888</code>：每个像素占四位，即A=8，R=8，G=8，B=8，那么一个像素点占8+8+8+8=32位</p>
-<p><code>Bitmap.Config RGB_565</code>：每个像素占四位，即R=5，G=6，B=5，没有透明度，那么一个像素点占5+6+5=16位</p>
-<p><code>Bitmap.Config ALPHA_8</code>：每个像素占四位，只有透明度，没有颜色。</p>
-<p>一般情况下我们都是使用的<code>ARGB_8888</code>，由此可知它是最占内存的，因为一个像素占32位，8位=1字节，所以一个像素占4字节的内存。假设有一张480x800的图片，如果格式为<code>ARGB_8888</code>，那么将会占用1500KB的内存。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARGB-8888/">ARGB_8888</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-adb-shell-monkey" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/07/adb-shell-monkey/" class="article-date">
-      <time datetime="2016-03-07T13:02:26.000Z" itemprop="datePublished">2016-03-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/07/adb-shell-monkey/">adb shell monkey 基本命令整合</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>主要整个Android测试工具monkey测试的基本命令以及用法。   </p>
+              <p>Welcome to <a href="http://hexo.io/">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
           
       
     </div>
@@ -313,198 +247,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/monkey/">monkey</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2016/03/07/adb-shell-monkey/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-adb-keyevent-input-keycode" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/07/Android-adb-keyevent-input-keycode/" class="article-date">
-      <time datetime="2016-03-07T12:54:03.000Z" itemprop="datePublished">2016-03-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/07/Android-adb-keyevent-input-keycode/">Android adb input keyevent  &quot;keycode&quot;</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>Andorid adb input keyevent “keycode”整理，方便terminal输入Androidkeyevent事件。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/03/07/Android-adb-keyevent-input-keycode/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-system-services" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/05/Android-system-services/" class="article-date">
-      <time datetime="2016-01-05T01:50:46.000Z" itemprop="datePublished">2016-01-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/05/Android-system-services/">Android系统服务汇总列表</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>业务对Android系统开机时间提出了需求，为了使得开机时间剪短，需要对系统service进行一些优化，去掉某部分使用不到的功能。现将<code>SystemServer</code>初始化阶段添加到<code>ServiceManager</code>中的服务进行一个汇总以及分析，给优化提供参照。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/01/05/Android-system-services/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/01/2016/" class="article-date">
-      <time datetime="2015-12-31T16:55:11.000Z" itemprop="datePublished">2016-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/01/2016/">2016</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>2016的第一篇blog。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/01/01/2016/#more">阅读全文 >></a>
+          <a href="/2015/12/30/hello-world/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -525,7 +273,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
     </nav>
   
 </div>
