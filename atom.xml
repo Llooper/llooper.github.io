@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="flintli.xyz/"/>
-  <updated>2016-06-03T10:07:21.000Z</updated>
+  <updated>2016-06-03T10:09:50.000Z</updated>
   <id>flintli.xyz/</id>
   
   <author>
@@ -15,16 +15,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[好的blog应该跟大家多分享]]></title>
+    <title><![CDATA[好的Blog应该跟大家多分享]]></title>
     <link href="flintli.xyz/2100/05/24/Android-study/"/>
     <id>flintli.xyz/2100/05/24/Android-study/</id>
     <published>2100-05-24T07:13:57.000Z</published>
-    <updated>2016-06-03T10:07:21.000Z</updated>
+    <updated>2016-06-03T10:09:50.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">老罗的Android学习之路</a><br>多去别人的blog逛逛，老罗很牛逼，要多学习。</p>
 <p><a href="http://wangkuiwu.github.io/2100/01/01/index/" target="_blank" rel="external">wangkuiwu’ Homepage</a>看到最好的blog之一，很值得学习，进修ing。。。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">老罗的Android学习之路</a><br>多去别人的blog逛逛，老罗很牛]]>
+    </summary>
+    
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android 开机声音实现]]></title>
+    <link href="flintli.xyz/2016/06/08/Android-boot-sound/"/>
+    <id>flintli.xyz/2016/06/08/Android-boot-sound/</id>
+    <published>2016-06-08T07:21:06.000Z</published>
+    <updated>2016-06-08T07:31:28.000Z</updated>
+    <content type="html"><![CDATA[<p>本篇主要介绍自定义Android开机声音，系统版本 4.4。</p>
+<a id="more"></a>
+<h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><h3 id="u6587_u4EF6_u4F4D_u7F6E"><a href="#u6587_u4EF6_u4F4D_u7F6E" class="headerlink" title="文件位置"></a>文件位置</h3><h3 id="u5B9E_u73B0_u65B9_u5F0F"><a href="#u5B9E_u73B0_u65B9_u5F0F" class="headerlink" title="实现方式"></a>实现方式</h3><h4 id="u5DF2_u6709_u65B9_u5F0F"><a href="#u5DF2_u6709_u65B9_u5F0F" class="headerlink" title="已有方式"></a>已有方式</h4><h4 id="u5F53_u524D_u65B9_u5F0F"><a href="#u5F53_u524D_u65B9_u5F0F" class="headerlink" title="当前方式"></a>当前方式</h4><h3 id="u5B9E_u73B0_u539F_u7406"><a href="#u5B9E_u73B0_u539F_u7406" class="headerlink" title="实现原理"></a>实现原理</h3><h3 id="u6CE8_u610F_u4E8B_u9879"><a href="#u6CE8_u610F_u4E8B_u9879" class="headerlink" title="注意事项"></a>注意事项</h3>]]></content>
+    <summary type="html">
+    <![CDATA[<p>本篇主要介绍自定义Android开机声音，系统版本 4.4。</p>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[输出 Android kernel log]]></title>
+    <link href="flintli.xyz/2016/06/08/Android-kernel-log/"/>
+    <id>flintli.xyz/2016/06/08/Android-kernel-log/</id>
+    <published>2016-06-08T07:18:41.000Z</published>
+    <updated>2016-06-08T07:20:37.000Z</updated>
+    <content type="html"><![CDATA[<p>adb shell cat proc/kmsg &gt; kernel.txt</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>adb shell cat proc/kmsg &gt; kernel.txt</p>
+]]>
     </summary>
     
       <category term="Android" scheme="flintli.xyz/tags/Android/"/>
@@ -802,77 +837,6 @@ public void onOptionsMenuClosed(Menu menu) {
 ]]></content>
     <summary type="html">
     <![CDATA[<p>预制APP到Android系统，成为系统默认APPS。<br>]]>
-    
-    </summary>
-    
-      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[为Android物理按键添加类似touch sound一样的声音]]></title>
-    <link href="flintli.xyz/2015/12/31/Android-frameworks-SoundPool/"/>
-    <id>flintli.xyz/2015/12/31/Android-frameworks-SoundPool/</id>
-    <published>2015-12-31T02:17:46.000Z</published>
-    <updated>2016-06-03T06:17:33.000Z</updated>
-    <content type="html"><![CDATA[<p>给Android物理按键添加操作声音 </p>
-<a id="more"></a>   
-<p>目标：通过修改系统源码给物理旋钮添加操作提示音<br>实现：参照View的touch声音，在最底层的InputFilter接收输入事件，播放声音</p>
-<blockquote>
-<p>Android声音播放有俩种方式<code>MediaPlayer</code>跟<code>SoundPool</code>。</p>
-<p>SoundPool —— 适合短促且对反应速度比较高的情况（游戏音效或按键声等）。</p>
-<p>MediaPlayer —— 适合比较长且对时间要求不高的情况。   </p>
-</blockquote>
-<p>方案：针对SoundPool与MediaPlayer进行比较，由于旋钮操作较为短促，本次开发采用SoundPool进行。</p>
-<p>车载盒子AOSP中封装了输入事件，代码位置:</p>
-<p><code>/framework/base/services/java/com/android/server/CarInputHub.java</code></p>
-<p>注意：需在CarInputHub初始化时便对SoundPool进行load，不然play声音时会报 no ready错误并且没有声音。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">CarInputHub</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(context.getMainLooper());</span><br><span class="line">    mContext = context;</span><br><span class="line"></span><br><span class="line">	mSoundPool = <span class="keyword">new</span> SoundPool(NUM_SOUNDPOOL_CHANNELS, AudioManager.STREAM_MUSIC, <span class="number">0</span>);</span><br><span class="line">	String filePath = <span class="string">"/system/media/audio/ui/suibian.ogg"</span>;</span><br><span class="line">	sampleId = mSoundPool.load(filePath, <span class="number">1</span>);</span><br><span class="line">	Log.i(TAG, <span class="string">"SoundPool init"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后在点击处理点击事件的函数中进行play即可   </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInputEvent</span><span class="params">(InputEvent inputEvent, <span class="keyword">int</span> policyFlags)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(inputEvent <span class="keyword">instanceof</span> KeyEvent)&#123;</span><br><span class="line">		KeyEvent event = (KeyEvent) inputEvent;</span><br><span class="line">		<span class="keyword">if</span>(event.getAction()==KeyEvent.ACTION_UP)&#123;</span><br><span class="line">			    playClickSound();</span><br><span class="line">		&#125;</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">playClickSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	mSoundPool.play(sampleId, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1.0f</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>给Android物理按键添加操作声音 </p>]]>
-    
-    </summary>
-    
-      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[通过修改Android frameworks层源码设置默认字体]]></title>
-    <link href="flintli.xyz/2015/12/31/Android-frameworks-fonts/"/>
-    <id>flintli.xyz/2015/12/31/Android-frameworks-fonts/</id>
-    <published>2015-12-31T02:13:42.000Z</published>
-    <updated>2016-06-03T06:17:19.000Z</updated>
-    <content type="html"><![CDATA[<p>修改Android源码添加并定制字体为默认字体。</p>
-<a id="more"></a>
-<h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><p>近期在对Android系统源码进行一些个性化的修改，主要集中在<code>frameworks</code>层。本篇旨在将自添加或者已存在的字体包设置为系统默认的字体，满足产品的需求。<br>这次定制的系统版本为Android4.4，主要为4.4添加宋体验证修改效果，不喜宋体的略过。网络查找的资料提及4.X与5.X版本的系统在设置默认字体方面有一些区别，望想定制5.X及以上系统的朋友自行补充。</p>
-<h3 id="u5B9E_u73B0"><a href="#u5B9E_u73B0" class="headerlink" title="实现"></a>实现</h3><h4 id="u5206_u6790"><a href="#u5206_u6790" class="headerlink" title="分析"></a>分析</h4><p>Android4.4版本系统字体配置文件主要有三个：</p>
-<blockquote>
-<p>/system/etc/system_fonts.xml</p><br><p>/system/etc/fallback_fonts.xml</p><br><p>/vendor/etc/fallback_fonts.xml</p>   
-
-</blockquote>
-<p>第一个文件用于定义系统默认字体，文本中的第一个字体系列就是系统默认的英文字体，后面的字体是某些语言或者某些应用下是使用。<br>第二个文件是用来定义系统默认字体找不到的字符的扩展字体库，按照从上到下的顺序进行索引。<br>最后到了一个比较大的文件，DroidSansFallback.ttf，来寻找中日韩以及其他特殊字符。<br>第三个文件为第三方定制产商添加字体的配置文件，Google为我们良好定制预留了接口。</p>
-<h4 id="u5B9E_u6218"><a href="#u5B9E_u6218" class="headerlink" title="实战"></a>实战</h4><p>Android源码字体目录：<br><b><code>/frameworks/base/data/fonts/</code></b><br>针对上述分析，得出将自定义字体设置为Android系统默认的可修改方案：</p>
-<p>1)暴力方式：将添加字体名字修改为DroidSansFallback.ttf，放置到系统源码<code>fonts</code>目录，替换掉原生DroidSansFallback.ttf。这种方式比较暴力，不建议采用，因为有可能导致某些字显示不正常或者不出现。   </p>
-<p>2）修改<code>fonts</code>目录下的 <code>system_fonts.xml</code>文件。既然在4.x版本下，system_fonts.xml是系统默认字体的配置文件，且字体调用顺序从上到下，将自添加的字体包添加到该文件的第一的位置即为第一默认调用。 </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">family</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="title">fileset</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="title">file</span>&gt;</span>MyFont.ttf<span class="tag">&lt;/<span class="title">file</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="title">fileset</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="title">family</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>同时还需将添加的字体包copy到生成的系统的/system/fonts/目录：修改<code>fonts</code>目录下的fonts.mk文件</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">PRODUCT_COPY_FILES</span> := \  </span><br><span class="line">	...</span><br><span class="line">	frameworks/base/data/fonts/MyFont.ttf:system/fonts/MyFont.ttf</span><br></pre></td></tr></table></figure>
-<p>3)遵循Google预留接口进行自定制，对<code>vendor_fonts.xml</code>进行修改。对于厂商定制ROM备用字体文件，android官方指导规范的方法是，修改<code>/frameworks/base/data/fonts/vendor_fonts.xml</code>文件，并在<code>fonts.mk</code>文件中添加代码段，使此文件在构建过程中拷贝并重命名为<code>/vendor/etc/fallback_fonts.xml</code>文件。  </p>
-<p><code>vendor_fonts.xml</code>修改:</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;familyset&gt;  </span><br><span class="line">	&lt;family order=<span class="string">"0"</span>&gt;  </span><br><span class="line">		&lt;fileset&gt;  </span><br><span class="line">			&lt;file&gt;MyFont.ttf&lt;/file&gt;  </span><br><span class="line">		&lt;/fileset&gt;  </span><br><span class="line">	&lt;/family&gt;   </span><br><span class="line">&lt;/familyset&gt;</span><br></pre></td></tr></table></figure>
-<p>其中family order=”0”表示vendor字体插入<code>system_fonts.xml</code>的第一个位置。<br><code>fonts.mk</code>添加的代码段：</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">PRODUCT_COPY_FILES</span> := \  </span><br><span class="line">	...</span><br><span class="line">	frameworks/base/data/fonts/vendor_fonts.xml:<span class="variable">$(TARGET_COPY_OUT_VENDOR)</span>/etc/fallback_fonts.xml \</span><br><span class="line">	frameworks/base/data/fonts/MyFont.ttf:system/fonts/MyFont.ttf</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="u8865_u5145"><a href="#u8865_u5145" class="headerlink" title="补充"></a>补充</h4><p><code>system_fonts.xml</code>配置了系统的内置字体，第一个family节点为系统默认字体。nameset节点的各个name子节点定义可用的字体名称，fileset节点的file子节点分别对应normal、bold、italic、bold-italic四种字体样式，如果file节点个数少于四个，相应字体样式会对应已有兄弟file节点的字体文件。<br><code>fallback_fonts.xml</code>配置了系统备用字体，只有在系统内置字体中找不到相应字符时，才会到备用字体中去寻找，family节点的顺序对应搜索顺序，搜索匹配规则采用BCP47的定义。<br><code>vendor/etc/fallback_fonts.xml</code>是为了规范厂商定制默认字体，加载备用字体配置时，会将此文件中定义的各个family插入到<code>system/etc/fallback_fonts.xml</code>中，插入位置由family节点order属性指定，如果没有order属性，默认会插入到最后。<br><em>SourceHanSansCN 思源字体已经加入系统，默认是Regular，如果设计要求使用 Medium或者Light的，直接调用下面的API就可以了<br><code>Typeface.createFromFile(&quot;/system/fonts/xxx.ttf&quot;);</code></em></p>
-<h4 id="u6548_u679C_u5C55_u793A"><a href="#u6548_u679C_u5C55_u793A" class="headerlink" title="效果展示"></a>效果展示</h4><p>修改前：<br><img src="http://7xp9uy.com1.z0.glb.clouddn.com/FC2DE68F-9822-428F-84C2-658CE675F0B5.jpg" alt="P image"></p>
-<p>修改后：<br><img src="http://7xp9uy.com1.z0.glb.clouddn.com/6B9083EB-EBA9-4328-BD42-7F66E1ADDAFC.png" alt="L image"></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>修改Android源码添加并定制字体为默认字体。</p>]]>
     
     </summary>
     

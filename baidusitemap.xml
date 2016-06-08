@@ -4,11 +4,45 @@
 
     
   <url>
-    <loc>flintli.xyz/2100/05/24/Android-study/</loc>
-    <lastmod>2016-06-03T10:07:21.000Z</lastmod>
+    <loc>flintli.xyz/2016/06/08/Android-boot-sound/</loc>
+    <lastmod>2016-06-08T07:31:28.000Z</lastmod>
     <data>
         <display>
-        <title>好的blog应该跟大家多分享</title>
+        <title>Android 开机声音实现</title>
+        <pubTime>2016-06-08T07:21:06.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>flintli.xyz/2016/06/08/Android-kernel-log/</loc>
+    <lastmod>2016-06-08T07:20:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>输出 Android kernel log</title>
+        <pubTime>2016-06-08T07:18:41.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>flintli.xyz/2100/05/24/Android-study/</loc>
+    <lastmod>2016-06-03T10:09:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>好的Blog应该跟大家多分享</title>
         <pubTime>2100-05-24T07:13:57.000Z</pubTime>
         
         <tag>Android</tag>
