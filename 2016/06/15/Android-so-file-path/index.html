@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。">
+<meta name="description" content="对于Android系统开发人员而言，对源码进行修改再也正常不过。但是有时候需要改动一些so库的代码，找到对应的源码是一件比较麻烦的事，现列出一些so库对应的源码路径，以便之后查找方便。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu亮度设置">
-<meta property="og:url" content="flintli.xyz/2015/12/31/ubuntu-brightness-control/index.html">
+<meta property="og:title" content="Android so file path">
+<meta property="og:url" content="flintli.xyz/2016/06/15/Android-so-file-path/index.html">
 <meta property="og:site_name" content="FLINT LI's Blog">
-<meta property="og:description" content="pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。">
-<meta property="og:updated_time" content="2016-06-03T06:18:11.000Z">
+<meta property="og:description" content="对于Android系统开发人员而言，对源码进行修改再也正常不过。但是有时候需要改动一些so库的代码，找到对应的源码是一件比较麻烦的事，现列出一些so库对应的源码路径，以便之后查找方便。">
+<meta property="og:updated_time" content="2016-06-15T08:12:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu亮度设置">
-<meta name="twitter:description" content="pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。">
+<meta name="twitter:title" content="Android so file path">
+<meta name="twitter:description" content="对于Android系统开发人员而言，对源码进行修改再也正常不过。但是有时候需要改动一些so库的代码，找到对应的源码是一件比较麻烦的事，现列出一些so库对应的源码路径，以便之后查找方便。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Ubuntu亮度设置 | FLINT LI&#39;s Blog</title>
+<title>Android so file path | FLINT LI&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -203,11 +203,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-ubuntu-brightness-control" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android-so-file-path" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/31/ubuntu-brightness-control/" class="article-date">
-      <time datetime="2015-12-31T08:55:56.000Z" itemprop="datePublished">2015-12-31</time>
+      <a href="/2016/06/15/Android-so-file-path/" class="article-date">
+      <time datetime="2016-06-15T07:54:34.000Z" itemprop="datePublished">2016-06-15</time>
 </a>
     </div>
   
@@ -220,7 +220,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Ubuntu亮度设置
+      Android so file path
     </h1>
   
 
@@ -231,7 +231,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -241,13 +241,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>pc机子为宏碁，双系统装了Ubuntu后发现亮度无法调节，且默认为最大，亮瞎了我的铝合金眼，还是赶紧研究怎么偷懒调节吧。</p>
+        <p>对于Android系统开发人员而言，对源码进行修改再也正常不过。但是有时候需要改动一些so库的代码，找到对应的源码是一件比较麻烦的事，现列出一些so库对应的源码路径，以便之后查找方便。</p>
 <a id="more"></a>
-<h3 id="Ubuntu_u4EAE_u5EA6_u8C03_u8282"><a href="#Ubuntu_u4EAE_u5EA6_u8C03_u8282" class="headerlink" title="Ubuntu亮度调节"></a>Ubuntu亮度调节</h3><h4 id="u4EAE_u5EA6_u65E0_u6CD5_u8C03_u8282_u7684_u539F_u56E0"><a href="#u4EAE_u5EA6_u65E0_u6CD5_u8C03_u8282_u7684_u539F_u56E0" class="headerlink" title="亮度无法调节的原因"></a>亮度无法调节的原因</h4><p> 每次重装ubuntu时都因为显示比较亮，很刺眼的问题纠结。去查找了一下相关资料，发现：<br><code>NVIDIA GEFORCE</code>独立显卡没有为Linux系统开发显卡驱动，导致无法使用Fn或者直接在图形界面中调节亮度。<br>Linux大神还曾经因为这个吐槽过NVIDIA公司的，想要八卦的自行去看吧。</p>
-<h4 id="u8C03_u8282_u65B9_u6CD5"><a href="#u8C03_u8282_u65B9_u6CD5" class="headerlink" title="调节方法"></a>调节方法</h4><p> 修改亮度存储文件<code>brightness</code>的亮度参数。网上说里边的参数是百分比，亲测实际不是，一打开时显示900多的。<br>brightness文件位置如下：<code>/sys/class/backlight/intel_backlight</code> 中，cd到该目录下ls一下就可以看到brightness文件了。<br>直接<code>sudo vim brightness</code>然后将参数修改为个人比较习惯的亮度就ok，本人比较习惯100-150的。</p>
-<h4 id="u4FEE_u6539_u914D_u7F6E_u6587_u4EF6"><a href="#u4FEE_u6539_u914D_u7F6E_u6587_u4EF6" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p> 上面所说的修改只能保证当前使用时的状态，重启后又会变回很刺眼的情况，即birghtness中的数据又恢复为初始值。<br>要使得不用每次都很麻烦的去修改之中的数据，想到了修改系统启动配置文件<code>rc.local</code>。<br><code>rc.local</code>为系统启动之后会执行的文件，初始化一些脚本，我们只需往其中添加我们需要开机启动的执行脚本就可以了。<br>操作如下： <code>sudo vim /etc/rc.local</code><br>打开<code>rc.loca</code>l后，在<code>exit 0</code>之前添加一句脚本，将亮度数据写入birghtness文件即可，如下：<br><code>echo 150 &gt; /sys/class/backlight/intel_backlight/brightness</code></p>
-<p>配置自己想要的ubuntu亮度操作基本完成了。</p>
-<h4 id="u5199_u5728_u6700_u540E"><a href="#u5199_u5728_u6700_u540E" class="headerlink" title="写在最后"></a>写在最后</h4><p>以上方法在开机时候就直接写入了亮度值，值已固定，是无法通过键盘去进行调节。（并没有解决驱动方面的问题）</p>
+<blockquote>
+<p>libandroid.so——frameworks/base/native/android<br>libandroid_runtime.so——frameworks/base/core/jni<br>libhwui.so——frameworks/base/libs/hwui<br>libstagefright_foundation.so——frameworks/av/media/libstagefright/foundation<br>libmedia_native.so——frameworks/av/media/libmedia_native<br>libmedia.so——frameworks/av/media/libmedia<br>libcamera_client.so——frameworks/av/camera<br>libbinder.so——frameworks/native/libs/binder<br>libcpustats.so——frameworks/native/libs/cpustats<br>libETC1.so——frameworks/native/opengl/libs<br>libgui.so——frameworks/native/libs/gui<br>libGLESv1_CM.so——frameworks/native/opengl/libs<br>libui.so——frameworks/native/libs/ui<br>libutils.so——frameworks/native/libs/utils<br>libstagefright_foundation.so——frameworks/av/media/libstagefright/foundation<br>libemoji.so——frameworks/opt/emoji<br>libaudioutils.so——system/media/audio_utils<br>libbluedroid.so——system/bluetooth/bluedroid<br>libcorkscrew.so——system/core/libcorkscrew<br>libcutils.so——system/core/libcutils<br>libnetutils.so——system/core/libnetutils<br>libusbhost.so——system/core/libusbhost<br>libssl.so——external/openssl<br>libstlport.so——external/stlport<br>libspeexresampler——external/speex<br>libsonivox.so——external/sonivox<br>libjpeg.so——external/jpeg<br>libcrypto.so——external/openssl<br>libcutils.so——system/core/libcutils<br>libdbus.so——external/dbus/dbus<br>libharfbuzz.so——external/harfbuzz<br>libgccdemangle——external/gcc-demangle<br>libhardware_legacy.so——hardware/libhardware_legacy<br>libgabi++.so——abi/cpp<br>libdvm.so——dalvik/vm<br>libc.so——bionic/libc        </p>
+</blockquote>
 
       
     </div>
@@ -255,35 +253,20 @@
   </div>
   
     
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/12/31/ubuntu-brightness-control/">Ubuntu亮度设置</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">FLINT LI</a></p>
-        <p><span>发布时间:</span>2015-12-31, 16:55:56</p>
-        <p><span>最后更新:</span>2016-06-03, 14:18:11</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/12/31/ubuntu-brightness-control/" title="Ubuntu亮度设置">flintli.xyz/2015/12/31/ubuntu-brightness-control/</a>
-            <span class="copy-path" data-clipboard-text="原文: flintli.xyz/2015/12/31/ubuntu-brightness-control/　　作者: FLINT LI" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
 
 
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/12/31/带上她的眼睛/">
-                    《带上她的眼睛》
+                <a href="/2100/05/24/Android-study/">
+                    好的Blog应该跟大家多分享
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/12/31/Android-frameworks-add-default-apps/">
-                    Android系统源码集成第三方APP并编译到system.img中
+                <a href="/2016/06/08/Android-boot-sound/">
+                    Android 开机声音实现
                 </a>
             </div>
         
@@ -294,7 +277,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu_u4EAE_u5EA6_u8C03_u8282"><span class="toc-number">1.</span> <span class="toc-text">Ubuntu亮度调节</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u4EAE_u5EA6_u65E0_u6CD5_u8C03_u8282_u7684_u539F_u56E0"><span class="toc-number">1.1.</span> <span class="toc-text">亮度无法调节的原因</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u8C03_u8282_u65B9_u6CD5"><span class="toc-number">1.2.</span> <span class="toc-text">调节方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u4FEE_u6539_u914D_u7F6E_u6587_u4EF6"><span class="toc-number">1.3.</span> <span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5199_u5728_u6700_u540E"><span class="toc-number">1.4.</span> <span class="toc-text">写在最后</span></a></li></ol></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -351,7 +334,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Ubuntu亮度设置　| FLINT LI's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Android so file path　| FLINT LI's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -367,7 +350,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/12/31/ubuntu-brightness-control/" data-title="Ubuntu亮度设置" data-url="flintli.xyz/2015/12/31/ubuntu-brightness-control/"></div>
+    <div class="ds-thread" data-thread-key="2016/06/15/Android-so-file-path/" data-title="Android so file path" data-url="flintli.xyz/2016/06/15/Android-so-file-path/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -391,7 +374,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/12/31/带上她的眼睛/" title="上一篇: 《带上她的眼睛》">
+            <a href="/2100/05/24/Android-study/" title="上一篇: 好的Blog应该跟大家多分享">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -399,7 +382,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/12/31/Android-frameworks-add-default-apps/" title="下一篇: Android系统源码集成第三方APP并编译到system.img中">
+            <a href="/2016/06/08/Android-boot-sound/" title="下一篇: Android 开机声音实现">
                 <i class="fa fa-angle-right"></i>
             </a>
         
