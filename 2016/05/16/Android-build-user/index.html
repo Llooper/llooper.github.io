@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="修改Android系统签名过程遇到的问题以及解决方法，主要是签名修改之后，编译烧录之后的img报了 *.jar odex has stale dependencies的错误。">
+<meta name="description" content="怎么编译user版本的Android系统。">
 <meta property="og:type" content="article">
-<meta property="og:title" content=" *.jar odex has stale dependencies">
-<meta property="og:url" content="flintli.xyz/2016/05/10/jar-odex-has-stale-dependencies/index.html">
+<meta property="og:title" content="Android user版本编译">
+<meta property="og:url" content="flintli.xyz/2016/05/16/Android-build-user/index.html">
 <meta property="og:site_name" content="FLINT LI's Blog">
-<meta property="og:description" content="修改Android系统签名过程遇到的问题以及解决方法，主要是签名修改之后，编译烧录之后的img报了 *.jar odex has stale dependencies的错误。">
-<meta property="og:updated_time" content="2016-06-03T06:14:19.000Z">
+<meta property="og:description" content="怎么编译user版本的Android系统。">
+<meta property="og:updated_time" content="2016-06-03T06:13:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" *.jar odex has stale dependencies">
-<meta name="twitter:description" content="修改Android系统签名过程遇到的问题以及解决方法，主要是签名修改之后，编译烧录之后的img报了 *.jar odex has stale dependencies的错误。">
+<meta name="twitter:title" content="Android user版本编译">
+<meta name="twitter:description" content="怎么编译user版本的Android系统。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title> *.jar odex has stale dependencies | FLINT LI&#39;s Blog</title>
+<title>Android user版本编译 | FLINT LI&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -203,11 +203,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-jar-odex-has-stale-dependencies" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android-build-user" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/10/jar-odex-has-stale-dependencies/" class="article-date">
-      <time datetime="2016-05-10T12:55:02.000Z" itemprop="datePublished">2016-05-10</time>
+      <a href="/2016/05/16/Android-build-user/" class="article-date">
+      <time datetime="2016-05-16T12:16:02.000Z" itemprop="datePublished">2016-05-16</time>
 </a>
     </div>
   
@@ -220,7 +220,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-       *.jar odex has stale dependencies
+      Android user版本编译
     </h1>
   
 
@@ -241,11 +241,21 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>修改Android系统签名过程遇到的问题以及解决方法，主要是签名修改之后，编译烧录之后的img报了 <code>*.jar odex has stale dependencies</code>的错误。</p>
+        <p>怎么编译user版本的Android系统。</p>
 <a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">I/dalvikvm(  <span class="number">621</span>): DexOpt: Some deps went away</span><br><span class="line">E/dalvikvm(  <span class="number">621</span>): /system/framework/android.policy.jar odex has stale dependencies</span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): Zip is good, but no classes.dex inside, and no valid .odex file in the same directory</span><br><span class="line">D/dalvikvm(  <span class="number">621</span>): Unable to process classpath element <span class="string">'/system/framework/android.policy.jar'</span></span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): DexOpt: Some deps went away</span><br><span class="line">E/dalvikvm(  <span class="number">621</span>): /system/framework/services.jar odex has stale dependencies</span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): Zip is good, but no classes.dex inside, and no valid .odex file in the same directory</span><br><span class="line">D/dalvikvm(  <span class="number">621</span>): Unable to process classpath element <span class="string">'/system/framework/services.jar'</span></span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): DexOpt: Some deps went away</span><br><span class="line">E/dalvikvm(  <span class="number">621</span>): /system/framework/apache-xml.jar odex has stale dependencies</span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): Zip is good, but no classes.dex inside, and no valid .odex file in the same directory</span><br><span class="line">D/dalvikvm(  <span class="number">621</span>): Unable to process classpath element <span class="string">'/system/framework/apache-xml.jar'</span></span><br></pre></td></tr></table></figure>
-<p>主要错误情况如上所示，表现为 jar包 odex has stale dependencies。经过网上查找资料以及分析之后得出结论。<br>原因是<code>build/core/dex_preopt.mk</code>里面的宏<code>DEXPREOPT_BOOT_JARS</code>和<code>init.rc</code>里面的宏BOOTCLASSPATH所赋值的包的位置不一样，把它们对应起来就解决了。</p>
-<p>上面<code>DEXPREOPT_BOOT_JARS</code>不一定定义在<code>dex_preopt.mk</code>文件中，需要根据你当前的系统进行分析。主要找准了 <code>DEXPREOPT_BOOT_JARS</code>定义的位置，以及 <code>init.rc</code>中的位置，<code>init.rc</code>中的<code>DEXPREOPT_BOOT_JARS</code>也有可能在<code>init.environment.rc</code>中。将俩边的jar包的顺序以及文件名称对应上就可以。</p>
+<p>Android编译选项分别有3个，user，eng，userDebug。这3个选项分别对应的版本如下：</p>
+<blockquote>
+<p>eng：debug 版本<br>user: release 版本<br>userDebug版本：部分debug版本</p>
+</blockquote>
+<p>详细的介绍以及每个选项对应的功能权限在<a href="http://llooper.space/2016/05/11/Android-ADB%E7%8A%B6%E6%80%81%E5%BC%80%E5%85%B3/" target="_blank" rel="external">上一篇</a> 已经介绍过。</p>
+<p>本篇主要介绍如何编译user版本（其他版本同理），以下全部代码都以rockchip作为示例。</p>
+<ul>
+<li><strong>修改脚本：</strong>user等编译选项主要由<code>device/rockchip/rkpx2/vendorsetup.sh</code>脚本进行控制。打开脚本找到<code>add_lunch_combo rkpx2-eng</code>项，将eng改为user。也即是<code>add_lunch_combo rkpx2-user</code>。</li>
+<li><strong>加载脚本：</strong>脚本修改完成之后保存，要使其生效必须回到aosp根目录，执行如下<code>source build/envsetup.sh</code>使其加载进入makefile系统。</li>
+<li><strong>选择user版本：</strong>加载完毕之后，还需选择user版本进行编译。使用<code>lunch</code>命令进行选择，在aosp根没目录执行<code>lunch</code>，然后选择<code>rkpx2-user</code>。</li>
+<li><strong>make</strong></li>
+</ul>
+<p>执行make之后，可以看到输出日志，<code>TARGET_BUILD_VARIANT</code>对应的即是编译选项，<code>TARGET_BUILD_VARIANT=user</code>表明编译的是user版本。</p>
 
       
     </div>
@@ -258,15 +268,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/05/11/Android-ADB状态开关/">
-                    Android ADB 状态开关
+                <a href="/2016/05/18/Android-replace-the-key-int-the-aosp/">
+                    怎么替换AOSP默认的签名key
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/">
-                    Android ActivityManager MOVE_TASK_WITH_HOME
+                <a href="/2016/05/11/Android-ADB-control/">
+                    Android ADB 快关控制
                 </a>
             </div>
         
@@ -334,7 +344,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":" *.jar odex has stale dependencies　| FLINT LI's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Android user版本编译　| FLINT LI's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -350,7 +360,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/05/10/jar-odex-has-stale-dependencies/" data-title=" *.jar odex has stale dependencies" data-url="flintli.xyz/2016/05/10/jar-odex-has-stale-dependencies/"></div>
+    <div class="ds-thread" data-thread-key="2016/05/16/Android-build-user/" data-title="Android user版本编译" data-url="flintli.xyz/2016/05/16/Android-build-user/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -374,7 +384,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/05/11/Android-ADB状态开关/" title="上一篇: Android ADB 状态开关">
+            <a href="/2016/05/18/Android-replace-the-key-int-the-aosp/" title="上一篇: 怎么替换AOSP默认的签名key">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -382,13 +392,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/" title="下一篇: Android ActivityManager MOVE_TASK_WITH_HOME">
+            <a href="/2016/05/11/Android-ADB-control/" title="下一篇: Android ADB 快关控制">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2100/05/24/Android-study/">好的Blog应该跟大家多分享</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/Android-so-file-path/">Android so file path</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Android-boot-sound/">Android 开机声音实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Android-kernel-log/">输出 Android kernel log</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/03/android-has-leaked-window/">android has leaked window 分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/Android-系统崩溃日志收集上传/">Android 系统崩溃日志收集上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/happy-birthday/">happy birthday</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/Android-replace-the-key-int-the-aosp/">How to replace the android default testkey in AOSP</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/Android-user版本编译/">Android user版本编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/11/Android-ADB状态开关/">Android ADB 状态开关</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/jar-odex-has-stale-dependencies/"> *.jar odex has stale dependencies</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/">Android ActivityManager MOVE_TASK_WITH_HOME</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/recents/">SystemUI之RecentsApp篇（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/ARGB_8888等的理解/">关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/adb-shell-monkey/">adb shell monkey 基本命令整合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/Android-adb-keyevent-input-keycode/">Android adb input keyevent  "keycode"</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/05/Android-system-services/">Android系统服务汇总列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/2016/">2016</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/带上她的眼睛/">《带上她的眼睛》</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/ubuntu-brightness-control/">Ubuntu亮度设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-add-default-apps/">Android系统源码集成第三方APP并编译到system.img中</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-SoundPool/">为Android物理按键添加类似touch sound一样的声音</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-fonts/">通过修改Android frameworks层源码设置默认字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2100/05/24/Android-study/">好的Blog应该跟大家分享</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/Android-so-file-path/">Android so库对应的源码路径列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Android-boot-sound/">Android 开机声音实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Android-kernel-log/">输出 Android kernel log</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/03/android-has-leaked-window/">android has leaked window 分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/Android-upload-dropbox-error/">Android 系统崩溃日志收集上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/happy-birthday/">happy birthday</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/Android-replace-the-key-int-the-aosp/">怎么替换AOSP默认的签名key</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/Android-build-user/">Android user版本编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/11/Android-ADB-control/">Android ADB 快关控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Android-error-jar-odex-has-stale-dependencies/">Andorid error ' *.jar odex has stale dependencies' 解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/">Android ActivityManager MOVE_TASK_WITH_HOME属性说明</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Android-systemui-recents-1/">AOSP SystemUI之RecentsApp篇（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Android-ARGB/">关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/adb-shell-monkey/">adb shell monkey 基本命令整合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/Android-adb-keyevent-input-keycode/">Android adb input keyevent  "keycode" 数值对应列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/05/Android-system-services/">Android系统服务汇总列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/2016/">2016</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/带上她的眼睛/">《带上她的眼睛》</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/ubuntu-brightness-control/">Ubuntu亮度设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-add-default-apps/">Android系统源码集成第三方APP并编译到system.img中</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-SoundPool/">Android，外设物理按键添加类似touch sound一样的音效</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-fonts/">通过修改Android frameworks层源码设置默认字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/hello-world/">Hello World</a></li></ul>
 
 
 

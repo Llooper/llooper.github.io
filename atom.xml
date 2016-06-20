@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="flintli.xyz/"/>
-  <updated>2016-06-08T08:26:47.000Z</updated>
+  <updated>2016-06-20T09:32:14.000Z</updated>
   <id>flintli.xyz/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[好的Blog应该跟大家多分享]]></title>
+    <title><![CDATA[好的Blog应该跟大家分享]]></title>
     <link href="flintli.xyz/2100/05/24/Android-study/"/>
     <id>flintli.xyz/2100/05/24/Android-study/</id>
     <published>2100-05-24T07:13:57.000Z</published>
-    <updated>2016-06-08T08:26:47.000Z</updated>
+    <updated>2016-06-20T09:32:14.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">老罗的Android学习之路</a><br>多去别人的blog逛逛，老罗很牛逼，要多学习。</p>
 <p><a href="http://wangkuiwu.github.io/2100/01/01/index/" target="_blank" rel="external">wangkuiwu’ Homepage</a>看到最好的blog之一，很值得学习，进修ing。。。</p>
 <p><a href="http://gityuan.com/" target="_blank" rel="external">http://gityuan.com/</a></p>
@@ -33,11 +33,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Android so file path]]></title>
+    <title><![CDATA[Android so库对应的源码路径列表]]></title>
     <link href="flintli.xyz/2016/06/15/Android-so-file-path/"/>
     <id>flintli.xyz/2016/06/15/Android-so-file-path/</id>
     <published>2016-06-15T07:54:34.000Z</published>
-    <updated>2016-06-15T08:12:10.000Z</updated>
+    <updated>2016-06-15T08:19:20.000Z</updated>
     <content type="html"><![CDATA[<p>对于Android系统开发人员而言，对源码进行修改再也正常不过。但是有时候需要改动一些so库的代码，找到对应的源码是一件比较麻烦的事，现列出一些so库对应的源码路径，以便之后查找方便。</p>
 <a id="more"></a>
 <blockquote>
@@ -138,8 +138,8 @@ public void onOptionsMenuClosed(Menu menu) {
   
   <entry>
     <title><![CDATA[Android 系统崩溃日志收集上传]]></title>
-    <link href="flintli.xyz/2016/05/19/Android-%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86%E4%B8%8A%E4%BC%A0/"/>
-    <id>flintli.xyz/2016/05/19/Android-系统崩溃日志收集上传/</id>
+    <link href="flintli.xyz/2016/05/19/Android-upload-dropbox-error/"/>
+    <id>flintli.xyz/2016/05/19/Android-upload-dropbox-error/</id>
     <published>2016-05-19T03:53:29.000Z</published>
     <updated>2016-06-03T06:13:54.000Z</updated>
     <content type="html"><![CDATA[<p>Android系统日志收集与上传。</p>
@@ -191,11 +191,11 @@ public void onOptionsMenuClosed(Menu menu) {
   </entry>
   
   <entry>
-    <title><![CDATA[How to replace the android default testkey in AOSP]]></title>
+    <title><![CDATA[怎么替换AOSP默认的签名key]]></title>
     <link href="flintli.xyz/2016/05/18/Android-replace-the-key-int-the-aosp/"/>
     <id>flintli.xyz/2016/05/18/Android-replace-the-key-int-the-aosp/</id>
     <published>2016-05-18T07:53:08.000Z</published>
-    <updated>2016-06-03T06:13:16.000Z</updated>
+    <updated>2016-06-20T09:31:50.000Z</updated>
     <content type="html"><![CDATA[<p>本篇主要介绍aosp的key类型，以及如何替换AOSP原有签名key，生成自定义的key并对系统签名。</p>
 <a id="more"></a>
 <h3 id="u7B7E_u540D_u7C7B_u578B"><a href="#u7B7E_u540D_u7C7B_u578B" class="headerlink" title="签名类型"></a>签名类型</h3><p>Android的标准签名key文件位于<code>/build/target/product/security</code>目录下，主要有4个key，分别为：</p>
@@ -246,8 +246,8 @@ public void onOptionsMenuClosed(Menu menu) {
   
   <entry>
     <title><![CDATA[Android user版本编译]]></title>
-    <link href="flintli.xyz/2016/05/16/Android-user%E7%89%88%E6%9C%AC%E7%BC%96%E8%AF%91/"/>
-    <id>flintli.xyz/2016/05/16/Android-user版本编译/</id>
+    <link href="flintli.xyz/2016/05/16/Android-build-user/"/>
+    <id>flintli.xyz/2016/05/16/Android-build-user/</id>
     <published>2016-05-16T12:16:02.000Z</published>
     <updated>2016-06-03T06:13:45.000Z</updated>
     <content type="html"><![CDATA[<p>怎么编译user版本的Android系统。</p>
@@ -276,11 +276,11 @@ public void onOptionsMenuClosed(Menu menu) {
   </entry>
   
   <entry>
-    <title><![CDATA[Android ADB 状态开关]]></title>
-    <link href="flintli.xyz/2016/05/11/Android-ADB%E7%8A%B6%E6%80%81%E5%BC%80%E5%85%B3/"/>
-    <id>flintli.xyz/2016/05/11/Android-ADB状态开关/</id>
+    <title><![CDATA[Android ADB 快关控制]]></title>
+    <link href="flintli.xyz/2016/05/11/Android-ADB-control/"/>
+    <id>flintli.xyz/2016/05/11/Android-ADB-control/</id>
     <published>2016-05-11T06:52:10.000Z</published>
-    <updated>2016-06-03T06:12:58.000Z</updated>
+    <updated>2016-06-20T09:29:06.000Z</updated>
     <content type="html"><![CDATA[<p>Android设备adb root权限控制以及 adb shell的开关控制。</p>
 <a id="more"></a>
 <h3 id="adb_root_u6743_u9650"><a href="#adb_root_u6743_u9650" class="headerlink" title="adb root权限"></a>adb root权限</h3><p>adb 的root权限是在system/core/adb/adb.c中控制。主要根据<code>ro.secure</code>以及 <code>ro.debuggable</code>等<code>system property</code> 来控制。默认即档ro.secure 为0 时，即开启root 权限，为1时再根据ro.debuggable等选项来确认是否可以用开启root 权限。</p>
@@ -346,11 +346,11 @@ public void onOptionsMenuClosed(Menu menu) {
   </entry>
   
   <entry>
-    <title><![CDATA[ *.jar odex has stale dependencies]]></title>
-    <link href="flintli.xyz/2016/05/10/jar-odex-has-stale-dependencies/"/>
-    <id>flintli.xyz/2016/05/10/jar-odex-has-stale-dependencies/</id>
+    <title><![CDATA[Andorid error ' *.jar odex has stale dependencies' 解决方案]]></title>
+    <link href="flintli.xyz/2016/05/10/Android-error-jar-odex-has-stale-dependencies/"/>
+    <id>flintli.xyz/2016/05/10/Android-error-jar-odex-has-stale-dependencies/</id>
     <published>2016-05-10T12:55:02.000Z</published>
-    <updated>2016-06-03T06:14:19.000Z</updated>
+    <updated>2016-06-20T09:35:32.000Z</updated>
     <content type="html"><![CDATA[<p>修改Android系统签名过程遇到的问题以及解决方法，主要是签名修改之后，编译烧录之后的img报了 <code>*.jar odex has stale dependencies</code>的错误。</p>
 <a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">I/dalvikvm(  <span class="number">621</span>): DexOpt: Some deps went away</span><br><span class="line">E/dalvikvm(  <span class="number">621</span>): /system/framework/android.policy.jar odex has stale dependencies</span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): Zip is good, but no classes.dex inside, and no valid .odex file in the same directory</span><br><span class="line">D/dalvikvm(  <span class="number">621</span>): Unable to process classpath element <span class="string">'/system/framework/android.policy.jar'</span></span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): DexOpt: Some deps went away</span><br><span class="line">E/dalvikvm(  <span class="number">621</span>): /system/framework/services.jar odex has stale dependencies</span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): Zip is good, but no classes.dex inside, and no valid .odex file in the same directory</span><br><span class="line">D/dalvikvm(  <span class="number">621</span>): Unable to process classpath element <span class="string">'/system/framework/services.jar'</span></span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): DexOpt: Some deps went away</span><br><span class="line">E/dalvikvm(  <span class="number">621</span>): /system/framework/apache-xml.jar odex has stale dependencies</span><br><span class="line">I/dalvikvm(  <span class="number">621</span>): Zip is good, but no classes.dex inside, and no valid .odex file in the same directory</span><br><span class="line">D/dalvikvm(  <span class="number">621</span>): Unable to process classpath element <span class="string">'/system/framework/apache-xml.jar'</span></span><br></pre></td></tr></table></figure>
@@ -367,11 +367,11 @@ public void onOptionsMenuClosed(Menu menu) {
   </entry>
   
   <entry>
-    <title><![CDATA[Android ActivityManager MOVE_TASK_WITH_HOME]]></title>
+    <title><![CDATA[Android ActivityManager MOVE_TASK_WITH_HOME属性说明]]></title>
     <link href="flintli.xyz/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/"/>
     <id>flintli.xyz/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/</id>
     <published>2016-05-10T12:43:06.000Z</published>
-    <updated>2016-06-03T06:12:39.000Z</updated>
+    <updated>2016-06-20T09:28:29.000Z</updated>
     <content type="html"><![CDATA[<p>ActivityManager的flag MOVE_TASK_WITH_HOME分析</p>
 <a id="more"></a>
 <p><code>MOVE_TASK_WITH_HOME</code>作为一个flag定义于ActivityManager中。主要是做为<code>moveTaskToFront()</code>的一个参数。</p>
@@ -416,11 +416,11 @@ public void onOptionsMenuClosed(Menu menu) {
   </entry>
   
   <entry>
-    <title><![CDATA[SystemUI之RecentsApp篇（一）]]></title>
-    <link href="flintli.xyz/2016/03/16/recents/"/>
-    <id>flintli.xyz/2016/03/16/recents/</id>
+    <title><![CDATA[AOSP SystemUI之RecentsApp篇（一）]]></title>
+    <link href="flintli.xyz/2016/03/16/Android-systemui-recents-1/"/>
+    <id>flintli.xyz/2016/03/16/Android-systemui-recents-1/</id>
     <published>2016-03-16T14:35:19.000Z</published>
-    <updated>2016-06-03T06:16:15.000Z</updated>
+    <updated>2016-06-20T09:36:10.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>本篇主要介绍systemui的主要组成部分RecentsApp也就是最近任务列表的启动流程。</p>
 </blockquote>
@@ -452,8 +452,8 @@ public void onOptionsMenuClosed(Menu menu) {
   
   <entry>
     <title><![CDATA[关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解]]></title>
-    <link href="flintli.xyz/2016/03/16/ARGB_8888%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3/"/>
-    <id>flintli.xyz/2016/03/16/ARGB_8888等的理解/</id>
+    <link href="flintli.xyz/2016/03/16/Android-ARGB/"/>
+    <id>flintli.xyz/2016/03/16/Android-ARGB/</id>
     <published>2016-03-16T14:31:19.000Z</published>
     <updated>2016-06-03T06:15:34.000Z</updated>
     <content type="html"><![CDATA[<p>A：透明度</p>
@@ -505,11 +505,11 @@ public void onOptionsMenuClosed(Menu menu) {
   </entry>
   
   <entry>
-    <title><![CDATA[Android adb input keyevent  "keycode"]]></title>
+    <title><![CDATA[Android adb input keyevent  "keycode" 数值对应列表]]></title>
     <link href="flintli.xyz/2016/03/07/Android-adb-keyevent-input-keycode/"/>
     <id>flintli.xyz/2016/03/07/Android-adb-keyevent-input-keycode/</id>
     <published>2016-03-07T12:54:03.000Z</published>
-    <updated>2016-06-03T06:15:22.000Z</updated>
+    <updated>2016-06-20T09:28:50.000Z</updated>
     <content type="html"><![CDATA[<p>Andorid adb input keyevent “keycode”整理，方便terminal输入Androidkeyevent事件。</p>
 <a id="more"></a>
 <h4 id="adb__u8F93_u5165keyevent_u4E8B_u4EF6_u4F8B_u5B50_uFF1A"><a href="#adb__u8F93_u5165keyevent_u4E8B_u4EF6_u4F8B_u5B50_uFF1A" class="headerlink" title="adb 输入keyevent事件例子："></a>adb 输入keyevent事件例子：</h4><p>adb input keyevent 66<br>adb input keyevent KEYCODE_ENTER<br>主要有以上俩种形式，当然，数字比较多记起来繁琐，整理网络上的一些汇总成为此篇page。   </p>

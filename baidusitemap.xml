@@ -4,11 +4,149 @@
 
     
   <url>
-    <loc>flintli.xyz/2016/06/15/Android-so-file-path/</loc>
-    <lastmod>2016-06-15T08:12:10.000Z</lastmod>
+    <loc>flintli.xyz/2016/03/16/Android-systemui-recents-1/</loc>
+    <lastmod>2016-06-20T09:36:10.000Z</lastmod>
     <data>
         <display>
-        <title>Android so file path</title>
+        <title>AOSP SystemUI之RecentsApp篇（一）</title>
+        <pubTime>2016-03-16T14:35:19.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>systemui</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>flintli.xyz/2016/05/10/Android-error-jar-odex-has-stale-dependencies/</loc>
+    <lastmod>2016-06-20T09:35:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>Andorid error ' *.jar odex has stale dependencies' 解决方案</title>
+        <pubTime>2016-05-10T12:55:02.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>flintli.xyz/2100/05/24/Android-study/</loc>
+    <lastmod>2016-06-20T09:32:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>好的Blog应该跟大家分享</title>
+        <pubTime>2100-05-24T07:13:57.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>flintli.xyz/2016/05/18/Android-replace-the-key-int-the-aosp/</loc>
+    <lastmod>2016-06-20T09:31:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>怎么替换AOSP默认的签名key</title>
+        <pubTime>2016-05-18T07:53:08.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>flintli.xyz/2015/12/31/Android-frameworks-SoundPool/</loc>
+    <lastmod>2016-06-20T09:30:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android，外设物理按键添加类似touch sound一样的音效</title>
+        <pubTime>2015-12-31T02:17:46.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>flintli.xyz/2016/05/11/Android-ADB-control/</loc>
+    <lastmod>2016-06-20T09:29:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android ADB 快关控制</title>
+        <pubTime>2016-05-11T06:52:10.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>flintli.xyz/2016/03/07/Android-adb-keyevent-input-keycode/</loc>
+    <lastmod>2016-06-20T09:28:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android adb input keyevent  "keycode" 数值对应列表</title>
+        <pubTime>2016-03-07T12:54:03.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>flintli.xyz/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/</loc>
+    <lastmod>2016-06-20T09:28:29.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android ActivityManager MOVE_TASK_WITH_HOME属性说明</title>
+        <pubTime>2016-05-10T12:43:06.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>flintli.xyz/2016/06/15/Android-so-file-path/</loc>
+    <lastmod>2016-06-15T08:19:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android so库对应的源码路径列表</title>
         <pubTime>2016-06-15T07:54:34.000Z</pubTime>
         
         <tag>Android</tag>
@@ -27,23 +165,6 @@
         <display>
         <title>Android 开机声音实现</title>
         <pubTime>2016-06-08T07:21:06.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>flintli.xyz/2100/05/24/Android-study/</loc>
-    <lastmod>2016-06-08T08:26:47.000Z</lastmod>
-    <data>
-        <display>
-        <title>好的Blog应该跟大家多分享</title>
-        <pubTime>2100-05-24T07:13:57.000Z</pubTime>
         
         <tag>Android</tag>
          
@@ -140,23 +261,6 @@
 
     
   <url>
-    <loc>flintli.xyz/2015/12/31/Android-frameworks-SoundPool/</loc>
-    <lastmod>2016-06-03T06:17:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>为Android物理按键添加类似touch sound一样的声音</title>
-        <pubTime>2015-12-31T02:17:46.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>flintli.xyz/2015/12/31/Android-frameworks-fonts/</loc>
     <lastmod>2016-06-03T06:17:19.000Z</lastmod>
     <data>
@@ -208,26 +312,7 @@
 
     
   <url>
-    <loc>flintli.xyz/2016/03/16/recents/</loc>
-    <lastmod>2016-06-03T06:16:15.000Z</lastmod>
-    <data>
-        <display>
-        <title>SystemUI之RecentsApp篇（一）</title>
-        <pubTime>2016-03-16T14:35:19.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>systemui</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>flintli.xyz/2016/03/16/ARGB_8888%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
+    <loc>flintli.xyz/2016/03/16/Android-ARGB/</loc>
     <lastmod>2016-06-03T06:15:34.000Z</lastmod>
     <data>
         <display>
@@ -236,23 +321,6 @@
         
         <tag>ARGB_8888</tag>
          
-        <tag>Android</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>flintli.xyz/2016/03/07/Android-adb-keyevent-input-keycode/</loc>
-    <lastmod>2016-06-03T06:15:22.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android adb input keyevent  "keycode"</title>
-        <pubTime>2016-03-07T12:54:03.000Z</pubTime>
-        
         <tag>Android</tag>
          
          
@@ -282,23 +350,6 @@
 
     
   <url>
-    <loc>flintli.xyz/2016/05/10/jar-odex-has-stale-dependencies/</loc>
-    <lastmod>2016-06-03T06:14:19.000Z</lastmod>
-    <data>
-        <display>
-        <title> *.jar odex has stale dependencies</title>
-        <pubTime>2016-05-10T12:55:02.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>flintli.xyz/2016/05/19/happy-birthday/</loc>
     <lastmod>2016-06-03T06:14:09.000Z</lastmod>
     <data>
@@ -316,7 +367,7 @@
 
     
   <url>
-    <loc>flintli.xyz/2016/05/19/Android-%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86%E4%B8%8A%E4%BC%A0/</loc>
+    <loc>flintli.xyz/2016/05/19/Android-upload-dropbox-error/</loc>
     <lastmod>2016-06-03T06:13:54.000Z</lastmod>
     <data>
         <display>
@@ -333,63 +384,12 @@
 
     
   <url>
-    <loc>flintli.xyz/2016/05/16/Android-user%E7%89%88%E6%9C%AC%E7%BC%96%E8%AF%91/</loc>
+    <loc>flintli.xyz/2016/05/16/Android-build-user/</loc>
     <lastmod>2016-06-03T06:13:45.000Z</lastmod>
     <data>
         <display>
         <title>Android user版本编译</title>
         <pubTime>2016-05-16T12:16:02.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>flintli.xyz/2016/05/18/Android-replace-the-key-int-the-aosp/</loc>
-    <lastmod>2016-06-03T06:13:16.000Z</lastmod>
-    <data>
-        <display>
-        <title>How to replace the android default testkey in AOSP</title>
-        <pubTime>2016-05-18T07:53:08.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>flintli.xyz/2016/05/11/Android-ADB%E7%8A%B6%E6%80%81%E5%BC%80%E5%85%B3/</loc>
-    <lastmod>2016-06-03T06:12:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android ADB 状态开关</title>
-        <pubTime>2016-05-11T06:52:10.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>flintli.xyz/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/</loc>
-    <lastmod>2016-06-03T06:12:39.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android ActivityManager MOVE_TASK_WITH_HOME</title>
-        <pubTime>2016-05-10T12:43:06.000Z</pubTime>
         
         <tag>Android</tag>
          

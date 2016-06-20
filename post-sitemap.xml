@@ -7,8 +7,72 @@
     </url>
 
     <url>
+        <loc>flintli.xyz/2016/03/16/Android-systemui-recents-1/</loc>
+        <lastmod>2016-06-20T09:36:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>flintli.xyz/2016/05/10/Android-error-jar-odex-has-stale-dependencies/</loc>
+        <lastmod>2016-06-20T09:35:32.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>flintli.xyz/2100/05/24/Android-study/</loc>
+        <lastmod>2016-06-20T09:32:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>flintli.xyz/2016/05/18/Android-replace-the-key-int-the-aosp/</loc>
+        <lastmod>2016-06-20T09:31:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>flintli.xyz/2015/12/31/Android-frameworks-SoundPool/</loc>
+        <lastmod>2016-06-20T09:30:49.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>flintli.xyz/2016/05/11/Android-ADB-control/</loc>
+        <lastmod>2016-06-20T09:29:06.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>flintli.xyz/2016/03/07/Android-adb-keyevent-input-keycode/</loc>
+        <lastmod>2016-06-20T09:28:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>flintli.xyz/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/</loc>
+        <lastmod>2016-06-20T09:28:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>flintli.xyz/2016/06/15/Android-so-file-path/</loc>
-        <lastmod>2016-06-15T08:12:10.000Z</lastmod>
+        <lastmod>2016-06-15T08:19:20.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,14 +81,6 @@
     <url>
         <loc>flintli.xyz/2016/06/08/Android-boot-sound/</loc>
         <lastmod>2016-06-14T08:00:55.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>flintli.xyz/2100/05/24/Android-study/</loc>
-        <lastmod>2016-06-08T08:26:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -71,14 +127,6 @@
     </url>
 
     <url>
-        <loc>flintli.xyz/2015/12/31/Android-frameworks-SoundPool/</loc>
-        <lastmod>2016-06-03T06:17:33.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>flintli.xyz/2015/12/31/Android-frameworks-fonts/</loc>
         <lastmod>2016-06-03T06:17:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -103,24 +151,8 @@
     </url>
 
     <url>
-        <loc>flintli.xyz/2016/03/16/recents/</loc>
-        <lastmod>2016-06-03T06:16:15.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>flintli.xyz/2016/03/16/ARGB_8888%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
+        <loc>flintli.xyz/2016/03/16/Android-ARGB/</loc>
         <lastmod>2016-06-03T06:15:34.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>flintli.xyz/2016/03/07/Android-adb-keyevent-input-keycode/</loc>
-        <lastmod>2016-06-03T06:15:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -135,14 +167,6 @@
     </url>
 
     <url>
-        <loc>flintli.xyz/2016/05/10/jar-odex-has-stale-dependencies/</loc>
-        <lastmod>2016-06-03T06:14:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>flintli.xyz/2016/05/19/happy-birthday/</loc>
         <lastmod>2016-06-03T06:14:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -151,7 +175,7 @@
     </url>
 
     <url>
-        <loc>flintli.xyz/2016/05/19/Android-%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86%E4%B8%8A%E4%BC%A0/</loc>
+        <loc>flintli.xyz/2016/05/19/Android-upload-dropbox-error/</loc>
         <lastmod>2016-06-03T06:13:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -159,32 +183,8 @@
     </url>
 
     <url>
-        <loc>flintli.xyz/2016/05/16/Android-user%E7%89%88%E6%9C%AC%E7%BC%96%E8%AF%91/</loc>
+        <loc>flintli.xyz/2016/05/16/Android-build-user/</loc>
         <lastmod>2016-06-03T06:13:45.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>flintli.xyz/2016/05/18/Android-replace-the-key-int-the-aosp/</loc>
-        <lastmod>2016-06-03T06:13:16.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>flintli.xyz/2016/05/11/Android-ADB%E7%8A%B6%E6%80%81%E5%BC%80%E5%85%B3/</loc>
-        <lastmod>2016-06-03T06:12:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>flintli.xyz/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/</loc>
-        <lastmod>2016-06-03T06:12:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
