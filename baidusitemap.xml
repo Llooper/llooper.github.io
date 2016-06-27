@@ -4,11 +4,11 @@
 
     
   <url>
-    <loc>flintli.xyz/2016/06/27/Android-bluetooth-BLE-periphery/</loc>
-    <lastmod>2016-06-27T07:39:56.000Z</lastmod>
+    <loc>flintli.xyz/2016/06/27/Android-bluetooth-BLE-central/</loc>
+    <lastmod>2016-06-27T07:41:10.000Z</lastmod>
     <data>
         <display>
-        <title>Android 蓝牙 BLE Periphery实现</title>
+        <title>Android 蓝牙 BLE Central实现</title>
         <pubTime>2016-06-27T07:34:03.000Z</pubTime>
         
         <tag>Android</tag>
@@ -23,11 +23,11 @@
 
     
   <url>
-    <loc>flintli.xyz/2016/06/27/Android-bluetooth-BLE-central/</loc>
-    <lastmod>2016-06-27T07:38:27.000Z</lastmod>
+    <loc>flintli.xyz/2016/06/27/Android-bluetooth-BLE-periphery/</loc>
+    <lastmod>2016-06-27T07:39:56.000Z</lastmod>
     <data>
         <display>
-        <title>Android 蓝牙 BLE Central实现</title>
+        <title>Android 蓝牙 BLE Periphery实现</title>
         <pubTime>2016-06-27T07:34:03.000Z</pubTime>
         
         <tag>Android</tag>
@@ -357,9 +357,9 @@
         <title>关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解</title>
         <pubTime>2016-03-16T14:31:19.000Z</pubTime>
         
-        <tag>ARGB_8888</tag>
-         
         <tag>Android</tag>
+         
+        <tag>ARGB_8888</tag>
          
          
            
