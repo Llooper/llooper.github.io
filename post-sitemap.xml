@@ -7,8 +7,16 @@
     </url>
 
     <url>
-        <loc>flintli.xyz/2016/06/22/Android-bluetooth-BLE-periphery/</loc>
-        <lastmod>2016-06-22T16:48:19.000Z</lastmod>
+        <loc>flintli.xyz/2016/06/27/Android-bluetooth-BLE-periphery/</loc>
+        <lastmod>2016-06-27T07:38:35.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>flintli.xyz/2016/06/27/Android-bluetooth-BLE-central/</loc>
+        <lastmod>2016-06-27T07:38:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
