@@ -15,16 +15,19 @@
 
 
 
-<meta name="description" content="Android蓝牙4.0的BLE协议中，有两个角色，一个是中心（Central），一个是周边（Periphery）。本篇主要介绍BLE periphery的实现过程，BLE的介绍以及central的实现另外的篇幅再介绍。">
+<meta name="description" content="Android蓝牙4.0的BLE协议中，有两个角色，一个是中心（Central），一个是周边（Periphery）。本篇主要介绍BLE periphery的实现过程，BLE的介绍以及central的实现另外的篇幅再介绍。
+Android 蓝牙 BLE Central实现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 蓝牙 BLE Periphery实现">
 <meta property="og:url" content="flintli.xyz/2016/06/27/Android-bluetooth-BLE-periphery/index.html">
 <meta property="og:site_name" content="FLINT LI's Blog">
-<meta property="og:description" content="Android蓝牙4.0的BLE协议中，有两个角色，一个是中心（Central），一个是周边（Periphery）。本篇主要介绍BLE periphery的实现过程，BLE的介绍以及central的实现另外的篇幅再介绍。">
-<meta property="og:updated_time" content="2016-06-27T07:38:35.000Z">
+<meta property="og:description" content="Android蓝牙4.0的BLE协议中，有两个角色，一个是中心（Central），一个是周边（Periphery）。本篇主要介绍BLE periphery的实现过程，BLE的介绍以及central的实现另外的篇幅再介绍。
+Android 蓝牙 BLE Central实现">
+<meta property="og:updated_time" content="2016-06-27T07:39:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 蓝牙 BLE Periphery实现">
-<meta name="twitter:description" content="Android蓝牙4.0的BLE协议中，有两个角色，一个是中心（Central），一个是周边（Periphery）。本篇主要介绍BLE periphery的实现过程，BLE的介绍以及central的实现另外的篇幅再介绍。">
+<meta name="twitter:description" content="Android蓝牙4.0的BLE协议中，有两个角色，一个是中心（Central），一个是周边（Periphery）。本篇主要介绍BLE periphery的实现过程，BLE的介绍以及central的实现另外的篇幅再介绍。
+Android 蓝牙 BLE Central实现">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -242,6 +245,7 @@
       
           
         <p>Android蓝牙4.0的BLE协议中，有两个角色，一个是中心（<code>Central</code>），一个是周边（<code>Periphery</code>）。本篇主要介绍BLE periphery的实现过程，BLE的介绍以及central的实现另外的篇幅再介绍。</p>
+<p><a href="http://flintli.xyz/2016/06/27/Android-bluetooth-BLE-central/">Android 蓝牙 BLE Central实现</a></p>
 <a id="more"></a>
 <h2 id="u7B80_u8FF0"><a href="#u7B80_u8FF0" class="headerlink" title="简述"></a>简述</h2><p>BLE periphery与central是通过建立GATT连接，实现<code>GATT server</code>和<code>GATT client</code>去传输数据。一个central可以同时连接多个periphery，但是一个periphery某一个时间点只能连接一个central。</p>
 <blockquote>
