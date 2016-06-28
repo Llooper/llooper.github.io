@@ -33,29 +33,6 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Android 蓝牙 BLE Central实现]]></title>
-    <link href="flintli.xyz/2016/06/27/Android-bluetooth-BLE-central/"/>
-    <id>flintli.xyz/2016/06/27/Android-bluetooth-BLE-central/</id>
-    <published>2016-06-27T07:34:03.000Z</published>
-    <updated>2016-06-27T07:41:10.000Z</updated>
-    <content type="html"><![CDATA[<p>Android蓝牙4.0的BLE协议中，有两个角色，一个是中心（<code>Central</code>），一个是周边（<code>Periphery</code>），本篇主要介绍BLE Central的实现过程。</p>
-<p><a href="http://flintli.xyz/2016/06/27/Android-bluetooth-BLE-periphery/">Android 蓝牙 BLE Periphery实现</a></p>
-<a id="more"></a>
-<p>以下是全文</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Android蓝牙4.0的BLE协议中，有两个角色，一个是中心（<code>Central</code>），一个是周边（<code>Periphery</code>），本篇主要介绍BLE Central的实现过程。</p>
-<p><a href="http://flintli.xyz/2016/06/27/Android-bluetooth-BLE-periphery/">Android 蓝牙 BLE Periphery实现</a></p>]]>
-    
-    </summary>
-    
-      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
-    
-      <category term="BLE" scheme="flintli.xyz/tags/BLE/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Android 蓝牙 BLE Periphery实现]]></title>
     <link href="flintli.xyz/2016/06/27/Android-bluetooth-BLE-periphery/"/>
     <id>flintli.xyz/2016/06/27/Android-bluetooth-BLE-periphery/</id>
@@ -94,6 +71,43 @@
     <summary type="html">
     <![CDATA[<p>Android蓝牙4.0的BLE协议中，有两个角色，一个是中心（<code>Central</code>），一个是周边（<code>Periphery</code>）。本篇主要介绍BLE periphery的实现过程，BLE的介绍以及central的实现另外的篇幅再介绍。</p>
 <p><a href="http://flintli.xyz/2016/06/27/Android-bluetooth-BLE-central/">Android 蓝牙 BLE Central实现</a></p>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="flintli.xyz/tags/Android/"/>
+    
+      <category term="BLE" scheme="flintli.xyz/tags/BLE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android 蓝牙 BLE Central实现]]></title>
+    <link href="flintli.xyz/2016/06/27/Android-bluetooth-BLE-central/"/>
+    <id>flintli.xyz/2016/06/27/Android-bluetooth-BLE-central/</id>
+    <published>2016-06-27T07:34:03.000Z</published>
+    <updated>2016-06-27T09:37:06.000Z</updated>
+    <content type="html"><![CDATA[<p>Android蓝牙4.0的BLE协议中，有两个角色，一个是中心（<code>Central</code>），一个是周边（<code>Periphery</code>），本篇主要介绍BLE Central的实现过程。</p>
+<p><a href="http://flintli.xyz/2016/06/27/Android-bluetooth-BLE-periphery/">Android 蓝牙 BLE Periphery实现</a></p>
+<a id="more"></a>
+<h2 id="u5B9E_u73B0_u6B65_u9AA4"><a href="#u5B9E_u73B0_u6B65_u9AA4" class="headerlink" title="实现步骤"></a>实现步骤</h2><p>BLE Central的实现跟Periphery基本类似，下面给出从搜索设备到连接设备，到最后的通讯的具体实现代码。</p>
+<h3 id="u6743_u9650_u6DFB_u52A0"><a href="#u6743_u9650_u6DFB_u52A0" class="headerlink" title="权限添加"></a>权限添加</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.BLUETOOTH"</span>/&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.BLUETOOTH_ADMIN"</span>/&gt;</span><br><span class="line">&lt;uses-feature android:name=<span class="string">"android.hardware.bluetooth_le"</span> android:required=<span class="string">"true"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<p>如果 android.hardware.bluetooth_le设置为false,可以安装在不支持的设备上使用，只要判断是否支持蓝牙4.0用以下代码就可以了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) &#123;</span><br><span class="line">    Toast.makeText(<span class="keyword">this</span>, <span class="string">"设备不支持蓝牙4.0"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    finish();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u6253_u5F00_u84DD_u7259"><a href="#u6253_u5F00_u84DD_u7259" class="headerlink" title="打开蓝牙"></a>打开蓝牙</h3><p>1、利用系统默认开启蓝牙对话框</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (mBluetoothAdapter == <span class="keyword">null</span> || !mBluetoothAdapter.isEnabled()) &#123;</span><br><span class="line">    Intent enableBtIntent = <span class="keyword">new</span> Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);</span><br><span class="line">    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、后台打开蓝牙，不做任何提示，这个也可以用来自定义打开蓝牙对话框啦</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mBluetoothAdapter.enable();</span><br></pre></td></tr></table></figure>
+<p>3、后台关闭蓝牙</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mBluetoothAdapter.disable();</span><br></pre></td></tr></table></figure>
+<h3 id="u641C_u7D22_u8BBE_u5907"><a href="#u641C_u7D22_u8BBE_u5907" class="headerlink" title="搜索设备"></a>搜索设备</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">scanLeDevice</span><span class="params">(<span class="keyword">final</span> <span class="keyword">boolean</span> enable)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (enable) &#123;</span><br><span class="line">            <span class="comment">// Stops scanning after a pre-defined scan period.</span></span><br><span class="line">            mHandler.postDelayed(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    mScanning = <span class="keyword">false</span>;</span><br><span class="line">                    mBluetoothAdapter.stopLeScan(mLeScanCallback);</span><br><span class="line">                    invalidateOptionsMenu();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, SCAN_PERIOD);</span><br><span class="line"></span><br><span class="line">            mScanning = <span class="keyword">true</span>;</span><br><span class="line">            mBluetoothAdapter.startLeScan( mLeScanCallback);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            mScanning = <span class="keyword">false</span>;</span><br><span class="line">            mBluetoothAdapter.stopLeScan(mLeScanCallback);</span><br><span class="line">        &#125;</span><br><span class="line">        invalidateOptionsMenu();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><code>mLeScanCallback</code>为搜索回调，需自定义实现，搜索到相应的BLE设备之后，执行回调取得设备信息。</p>
+<h3 id="u83B7_u53D6_u8BBE_u5907"><a href="#u83B7_u53D6_u8BBE_u5907" class="headerlink" title="获取设备"></a>获取设备</h3><p>注册搜索回调，获取搜索到的设备信息等。Google对<code>BluetoothAdapter.LeScanCallback</code>做出如下解释。<br><code>Callback interface used to deliver LE scan results.</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Device scan callback.</span></span><br><span class="line">    <span class="keyword">private</span> BluetoothAdapter.LeScanCallback mLeScanCallback =</span><br><span class="line">            <span class="keyword">new</span> BluetoothAdapter.LeScanCallback() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLeScan</span><span class="params">(<span class="keyword">final</span> BluetoothDevice device, <span class="keyword">int</span> rssi, <span class="keyword">byte</span>[] scanRecord)</span> </span>&#123;</span><br><span class="line">            runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    mLeDeviceListAdapter.addDevice(device);</span><br><span class="line">                    mLeDeviceListAdapter.notifyDataSetChanged();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="u8FDE_u63A5_u8BBE_u5907"><a href="#u8FDE_u63A5_u8BBE_u5907" class="headerlink" title="连接设备"></a>连接设备</h3><p>### </p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Android蓝牙4.0的BLE协议中，有两个角色，一个是中心（<code>Central</code>），一个是周边（<code>Periphery</code>），本篇主要介绍BLE Central的实现过程。</p>
+<p><a href="http://flintli.xyz/2016/06/27/Android-bluetooth-BLE-periphery/">Android 蓝牙 BLE Periphery实现</a></p>]]>
     
     </summary>
     
