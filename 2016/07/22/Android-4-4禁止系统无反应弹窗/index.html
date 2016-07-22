@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="本篇主要介绍自定义Android开机声音，系统版本 4.4。">
+<meta name="description" content="Android4.4系统无反应弹窗目前就出现了两种。第一是应用程序强制退出，第二是ANR弹窗。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 开机声音实现">
-<meta property="og:url" content="flintli.xyz/2016/06/08/Android-boot-sound/index.html">
+<meta property="og:title" content="Android 4.4禁止系统无反应弹窗">
+<meta property="og:url" content="flintli.xyz/2016/07/22/Android-4-4禁止系统无反应弹窗/index.html">
 <meta property="og:site_name" content="FLINT LI's Blog">
-<meta property="og:description" content="本篇主要介绍自定义Android开机声音，系统版本 4.4。">
-<meta property="og:updated_time" content="2016-06-14T08:00:55.000Z">
+<meta property="og:description" content="Android4.4系统无反应弹窗目前就出现了两种。第一是应用程序强制退出，第二是ANR弹窗。">
+<meta property="og:updated_time" content="2016-07-22T02:39:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 开机声音实现">
-<meta name="twitter:description" content="本篇主要介绍自定义Android开机声音，系统版本 4.4。">
+<meta name="twitter:title" content="Android 4.4禁止系统无反应弹窗">
+<meta name="twitter:description" content="Android4.4系统无反应弹窗目前就出现了两种。第一是应用程序强制退出，第二是ANR弹窗。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Android 开机声音实现 | FLINT LI&#39;s Blog</title>
+<title>Android 4.4禁止系统无反应弹窗 | FLINT LI&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -203,11 +203,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Android-boot-sound" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android-4-4禁止系统无反应弹窗" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/08/Android-boot-sound/" class="article-date">
-      <time datetime="2016-06-08T07:21:06.000Z" itemprop="datePublished">2016-06-08</time>
+      <a href="/2016/07/22/Android-4-4禁止系统无反应弹窗/" class="article-date">
+      <time datetime="2016-07-22T02:26:31.000Z" itemprop="datePublished">2016-07-22</time>
 </a>
     </div>
   
@@ -220,7 +220,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android 开机声音实现
+      Android 4.4禁止系统无反应弹窗
     </h1>
   
 
@@ -241,10 +241,21 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>本篇主要介绍自定义Android开机声音，系统版本 4.4。</p>
+        <p>Android4.4系统无反应弹窗目前就出现了两种。第一是应用程序强制退出，第二是ANR弹窗。</p>
 <a id="more"></a>
-<h3 id="u9700_u6C42"><a href="#u9700_u6C42" class="headerlink" title="需求"></a>需求</h3><p>增加系统开机声音，跟随开机动画播放一起播放。</p>
-<h3 id="u6587_u4EF6_u4F4D_u7F6E"><a href="#u6587_u4EF6_u4F4D_u7F6E" class="headerlink" title="文件位置"></a>文件位置</h3><h3 id="u5B9E_u73B0_u65B9_u5F0F"><a href="#u5B9E_u73B0_u65B9_u5F0F" class="headerlink" title="实现方式"></a>实现方式</h3><h4 id="u5DF2_u6709_u65B9_u5F0F"><a href="#u5DF2_u6709_u65B9_u5F0F" class="headerlink" title="已有方式"></a>已有方式</h4><h4 id="u5F53_u524D_u65B9_u5F0F"><a href="#u5F53_u524D_u65B9_u5F0F" class="headerlink" title="当前方式"></a>当前方式</h4><h3 id="u5B9E_u73B0_u539F_u7406"><a href="#u5B9E_u73B0_u539F_u7406" class="headerlink" title="实现原理"></a>实现原理</h3><h3 id="u6CE8_u610F_u4E8B_u9879"><a href="#u6CE8_u610F_u4E8B_u9879" class="headerlink" title="注意事项"></a>注意事项</h3>
+<h3 id="u6982_u8BBA"><a href="#u6982_u8BBA" class="headerlink" title="概论"></a>概论</h3><p>现需要将弹窗去掉，采用直接强制退出应用程序的方式。</p>
+<p>系统弹窗处理代码位置：<br><code>/frameworks/base/services/java/com/android/server/am/ActivityManagerService.java</code></p>
+<h3 id="u5E94_u7528_u7A0B_u5E8F_u5F3A_u5236_u9000_u51FA"><a href="#u5E94_u7528_u7A0B_u5E8F_u5F3A_u5236_u9000_u51FA" class="headerlink" title="应用程序强制退出"></a>应用程序强制退出</h3><p>弹出对话框的处理代码：    </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!mSleeping &amp;&amp; !mShuttingDown) &#123;		</span><br><span class="line">	Dialog d = <span class="keyword">new</span> AppErrorDialog(mContext, </span><br><span class="line">			ActivityManagerService.<span class="keyword">this</span>, res, proc);</span><br><span class="line">     d.show();</span><br><span class="line">     proc.crashDialog = d;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="comment">// The device is asleep, so just pretend that the user</span></span><br><span class="line">	<span class="comment">// saw a crash dialog and hit "force quit".</span></span><br><span class="line">	<span class="keyword">if</span> (res != <span class="keyword">null</span>) &#123;</span><br><span class="line">		res.set(<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现需要针对以上代码进行过程简化处理，不再弹出对话框，直接退出程序。</p>
+<p>修改后：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (res != <span class="keyword">null</span>) &#123;</span><br><span class="line"> 	res.set(<span class="number">0</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ANR_u5F39_u7A97"><a href="#ANR_u5F39_u7A97" class="headerlink" title="ANR弹窗"></a>ANR弹窗</h3><p>弹出对话框的处理代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (mShowDialogs) &#123;</span><br><span class="line">	Dialog d = <span class="keyword">new</span> AppNotRespondingDialog(ActivityManagerService.<span class="keyword">this</span>,</span><br><span class="line">		mContext, proc, (ActivityRecord)data.get(<span class="string">"activity"</span>),</span><br><span class="line">		msg.arg1 != <span class="number">0</span>);</span><br><span class="line">	d.show();</span><br><span class="line">	proc.anrDialog = d;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="comment">// Just kill the app if there is no dialog to be shown.</span></span><br><span class="line">	killAppAtUsersRequest(proc, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>处理方案，只kill掉app，不弹窗。<br>修改后：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killAppAtUsersRequest(proc, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<p>只需在相应的位置将修改后的代码替换原有代码即可。</p>
+
       
     </div>
     
@@ -256,15 +267,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/06/15/Android-so-file-path/">
-                    Android so库对应的源码路径列表
+                <a href="/2016/07/22/SystemUI-statusbar/">
+                    System statusbar
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/06/08/Android-kernel-log/">
-                    输出 Android kernel log
+                <a href="/2016/07/22/Android-add-framework-res/">
+                    Android add framework res
                 </a>
             </div>
         
@@ -275,7 +286,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u9700_u6C42"><span class="toc-number">1.</span> <span class="toc-text">需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6587_u4EF6_u4F4D_u7F6E"><span class="toc-number">2.</span> <span class="toc-text">文件位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u73B0_u65B9_u5F0F"><span class="toc-number">3.</span> <span class="toc-text">实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u5DF2_u6709_u65B9_u5F0F"><span class="toc-number">3.1.</span> <span class="toc-text">已有方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5F53_u524D_u65B9_u5F0F"><span class="toc-number">3.2.</span> <span class="toc-text">当前方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u73B0_u539F_u7406"><span class="toc-number">4.</span> <span class="toc-text">实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6CE8_u610F_u4E8B_u9879"><span class="toc-number">5.</span> <span class="toc-text">注意事项</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6982_u8BBA"><span class="toc-number">1.</span> <span class="toc-text">概论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u7528_u7A0B_u5E8F_u5F3A_u5236_u9000_u51FA"><span class="toc-number">2.</span> <span class="toc-text">应用程序强制退出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ANR_u5F39_u7A97"><span class="toc-number">3.</span> <span class="toc-text">ANR弹窗</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -332,7 +343,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Android 开机声音实现　| FLINT LI's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Android 4.4禁止系统无反应弹窗　| FLINT LI's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -348,7 +359,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/06/08/Android-boot-sound/" data-title="Android 开机声音实现" data-url="flintli.xyz/2016/06/08/Android-boot-sound/"></div>
+    <div class="ds-thread" data-thread-key="2016/07/22/Android-4-4禁止系统无反应弹窗/" data-title="Android 4.4禁止系统无反应弹窗" data-url="flintli.xyz/2016/07/22/Android-4-4禁止系统无反应弹窗/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -372,7 +383,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/06/15/Android-so-file-path/" title="上一篇: Android so库对应的源码路径列表">
+            <a href="/2016/07/22/SystemUI-statusbar/" title="上一篇: System statusbar">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -380,13 +391,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/06/08/Android-kernel-log/" title="下一篇: 输出 Android kernel log">
+            <a href="/2016/07/22/Android-add-framework-res/" title="下一篇: Android add framework res">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2100/05/24/Android-study/">好的Blog应该跟大家分享</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/Android-bluetooth-BLE-periphery/">Android 蓝牙 BLE Periphery实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/Android-bluetooth-BLE-central/">Android 蓝牙 BLE Central实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/Android-so-file-path/">Android so库对应的源码路径列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Android-boot-sound/">Android 开机声音实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Android-kernel-log/">输出 Android kernel log</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/03/android-has-leaked-window/">android has leaked window 分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/Android-upload-dropbox-error/">Android 系统崩溃日志收集上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/happy-birthday/">happy birthday</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/Android-replace-the-key-int-the-aosp/">怎么替换AOSP默认的签名key</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/Android-build-user/">Android user版本编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/11/Android-ADB-control/">Android ADB 快关控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Android-error-jar-odex-has-stale-dependencies/">Andorid error ' *.jar odex has stale dependencies' 解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/">Android ActivityManager MOVE_TASK_WITH_HOME属性说明</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Android-systemui-recents-1/">AOSP SystemUI之RecentsApp篇（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Android-ARGB/">关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/adb-shell-monkey/">adb shell monkey 基本命令整合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/Android-adb-keyevent-input-keycode/">Android adb input keyevent  "keycode" 数值对应列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/05/Android-system-services/">Android系统服务汇总列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/2016/">2016</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/带上她的眼睛/">《带上她的眼睛》</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/ubuntu-brightness-control/">Ubuntu亮度设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-add-default-apps/">Android系统源码集成第三方APP并编译到system.img中</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-SoundPool/">Android，外设物理按键添加类似touch sound一样的音效</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-fonts/">通过修改Android frameworks层源码设置默认字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2100/05/24/Android-study/">好的Blog应该跟大家分享</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/SystemUI-recents/">SystemUI recents</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/SystemUI-statusbar/">System statusbar</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/Android-4-4禁止系统无反应弹窗/">Android 4.4禁止系统无反应弹窗</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/Android-add-framework-res/">Android add framework res</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/Andorid-boot-animation/">Andorid boot animation</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/android-build-command/">android build commond</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/Android-bluetooth-BLE-central/">Android 蓝牙 BLE Central实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/Android-bluetooth-BLE-periphery/">Android 蓝牙 BLE Periphery实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/Android-so-file-path/">Android so库对应的源码路径列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Android-kernel-log/">输出 Android kernel log</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/03/android-has-leaked-window/">android has leaked window 分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/Android-upload-dropbox-error/">Android 系统崩溃日志收集上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/happy-birthday/">happy birthday</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/Android-replace-the-key-int-the-aosp/">怎么替换AOSP默认的签名key</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/Android-build-user/">Android user版本编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/11/Android-ADB-control/">Android ADB 快关控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Android-error-jar-odex-has-stale-dependencies/">Andorid error ' *.jar odex has stale dependencies' 解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/">Android ActivityManager MOVE_TASK_WITH_HOME属性说明</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Android-systemui-recents-1/">AOSP SystemUI之RecentsApp篇（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Android-ARGB/">关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/adb-shell-monkey/">adb shell monkey 基本命令整合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/Android-adb-keyevent-input-keycode/">Android adb input keyevent  "keycode" 数值对应列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/05/Android-system-services/">Android系统服务汇总列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/2016/">2016</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/带上她的眼睛/">《带上她的眼睛》</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/ubuntu-brightness-control/">Ubuntu亮度设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-add-default-apps/">Android系统源码集成第三方APP并编译到system.img中</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-SoundPool/">Android，外设物理按键添加类似touch sound一样的音效</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-fonts/">通过修改Android frameworks层源码设置默认字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/hello-world/">Hello World</a></li></ul>
 
 
 

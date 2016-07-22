@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="FLINT LI" />
+
+
+
+<meta name="description" content="需求：双击启动进入最近任务列表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SystemUI recents">
+<meta property="og:url" content="flintli.xyz/2016/07/22/SystemUI-recents/index.html">
+<meta property="og:site_name" content="FLINT LI's Blog">
+<meta property="og:description" content="需求：双击启动进入最近任务列表">
+<meta property="og:updated_time" content="2016-07-22T02:32:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SystemUI recents">
+<meta name="twitter:description" content="需求：双击启动进入最近任务列表">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternative" href="/atom.xml" title="FLINT LI&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/resources/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>SystemUI recents | FLINT LI&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/resources/blog_avatar.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">FLINT LI</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Walk steps step by step</p>
+        
+
+        
+
+
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">HOME</a></li>
+                        
+                            <li><a href="/archives/">PAPER</a></li>
+                        
+                            <li><a href="/tags/">TAG</a></li>
+                        
+                            <li><a href="/about/">ABOUT</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:renhongli.flint@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/llooper/" title="GitHub"></a>
+                            
+                                <a class="fa Google" target="_blank" href="http://www.google.com.hk/" title="Google"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">FLINT LI</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/resources/blog_avatar.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">FLINT LI</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Walk steps step by step</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">HOME</a></li>
+                
+                    <li><a href="/archives/">PAPER</a></li>
+                
+                    <li><a href="/tags/">TAG</a></li>
+                
+                    <li><a href="/about/">ABOUT</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:renhongli.flint@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/llooper/" title="GitHub"></a>
+                            
+                                <a class="fa Google" target="_blank" href="http://www.google.com.hk/" title="Google"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-SystemUI-recents" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/22/SystemUI-recents/" class="article-date">
+      <time datetime="2016-07-22T02:28:54.000Z" itemprop="datePublished">2016-07-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SystemUI recents
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>需求：双击启动进入最近任务列表</p>
+<a id="more"></a>
+<h3 id="u6309_u952E_u542F_u52A8_u6D41_u7A0B"><a href="#u6309_u952E_u542F_u52A8_u6D41_u7A0B" class="headerlink" title="按键启动流程"></a>按键启动流程</h3><h4 id="u53CC_u51FB_u5B9E_u73B0_u6D41_u7A0B"><a href="#u53CC_u51FB_u5B9E_u73B0_u6D41_u7A0B" class="headerlink" title="双击实现流程"></a>双击实现流程</h4><p>文件路径:<br><code>frameworks/base/services/java/com/android/server/CarInputHub.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInputEvent</span><span class="params">(InputEvent inputEvent, <span class="keyword">int</span> policyFlags)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (event.getKeyCode() == KeyEvent.KEYCODE_ENTER &amp;&amp; event.getAction() == KeyEvent.ACTION_DOWN) &#123;</span><br><span class="line">                <span class="keyword">if</span> (waitDoubleClick) &#123;</span><br><span class="line">                    waitDoubleClick = <span class="keyword">false</span>;</span><br><span class="line">                    handler.removeCallbacks(mDownRunnable);</span><br><span class="line">                    <span class="comment">//do something</span></span><br><span class="line">                    preloadRecentApps();</span><br><span class="line">                    handler.postDelayed(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                        <span class="meta">@Override</span></span><br><span class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                            toggleRecentApps();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;, <span class="number">100</span>);</span><br><span class="line">                    Slog.d(TAG, <span class="string">"doubleClick="</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    waitDoubleClick = <span class="keyword">true</span>;</span><br><span class="line">                    hasDown = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (event.getKeyCode() == KeyEvent.KEYCODE_ENTER &amp;&amp; event.getAction() == KeyEvent.ACTION_UP) &#123;</span><br><span class="line">                <span class="keyword">if</span> (hasDown) &#123;</span><br><span class="line">                    hasDown = <span class="keyword">false</span>;</span><br><span class="line">                    mDownRunnable.initKeyDownEvent(event.getDeviceId());</span><br><span class="line">                    handler.postDelayed(mDownRunnable, <span class="number">300</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">CarDownRunnable mDownRunnable = <span class="keyword">new</span> CarDownRunnable();</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CarDownRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">   	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   		waitDoubleClick = <span class="keyword">false</span>;</span><br><span class="line">   		.</span><br><span class="line">   		.</span><br><span class="line">   		</span><br><span class="line">   	&#125;</span><br></pre></td></tr></table></figure>
+<p>双击启动Recents，通过AIDL跟<code>StatusBarManagerService</code>进程通讯，然后<code>StatusBarManagerService</code>再通过AIDL跟<code>systemui</code>通讯，调用systemui中的接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/******************</span><br><span class="line"> * ============Double Click for systemui Recents</span><br><span class="line"> ********************************/</span></span><br><span class="line">IStatusBarService mStatusBarService;</span><br><span class="line"><span class="keyword">final</span> Object mServiceAquireLock = <span class="keyword">new</span> Object();</span><br><span class="line"><span class="keyword">boolean</span> mPreloadedRecentApps;</span><br><span class="line"></span><br><span class="line"><span class="function">IStatusBarService <span class="title">getStatusBarService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (mServiceAquireLock) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mStatusBarService == <span class="keyword">null</span>) &#123;</span><br><span class="line">            mStatusBarService = IStatusBarService.Stub.asInterface(</span><br><span class="line">                    ServiceManager.getService(<span class="string">"statusbar"</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mStatusBarService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">preloadRecentApps</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mPreloadedRecentApps = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        IStatusBarService statusbar = getStatusBarService();</span><br><span class="line">        <span class="keyword">if</span> (statusbar != <span class="keyword">null</span>) &#123;</span><br><span class="line">            Slog.i(TAG, <span class="string">"preloadRecentApps"</span>);</span><br><span class="line">            statusbar.preloadRecentApps();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">        Slog.e(TAG, <span class="string">"RemoteException when preloading recent apps"</span>, e);</span><br><span class="line">        <span class="comment">// re-acquire status bar service next time it is needed.</span></span><br><span class="line">        mStatusBarService = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">cancelPreloadRecentApps</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mPreloadedRecentApps) &#123;</span><br><span class="line">        mPreloadedRecentApps = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            IStatusBarService statusbar = getStatusBarService();</span><br><span class="line">            <span class="keyword">if</span> (statusbar != <span class="keyword">null</span>) &#123;</span><br><span class="line">                Slog.i(TAG, <span class="string">"cancelPreloadRecentApps"</span>);</span><br><span class="line">                statusbar.cancelPreloadRecentApps();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">            Slog.e(TAG, <span class="string">"RemoteException when showing recent apps"</span>, e);</span><br><span class="line">            <span class="comment">// re-acquire status bar service next time it is needed.</span></span><br><span class="line">            mStatusBarService = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">toggleRecentApps</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mPreloadedRecentApps = <span class="keyword">false</span>; <span class="comment">// preloading no longer needs to be canceled</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        IStatusBarService statusbar = getStatusBarService();</span><br><span class="line">        <span class="keyword">if</span> (statusbar != <span class="keyword">null</span>) &#123;</span><br><span class="line">            Slog.i(TAG, <span class="string">"toggleRecentApps"</span>);</span><br><span class="line">            statusbar.toggleRecentApps();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">        Slog.e(TAG, <span class="string">"RemoteException when showing recent apps"</span>, e);</span><br><span class="line">        <span class="comment">// re-acquire status bar service next time it is needed.</span></span><br><span class="line">        mStatusBarService = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/******************</span><br><span class="line"> * ============Double Click for systemui Recents</span><br><span class="line"> ********************************/</span></span><br></pre></td></tr></table></figure>
+<h4 id="Systemui_u63A5_u53E3_u8C03_u7528_u6D41_u7A0B"><a href="#Systemui_u63A5_u53E3_u8C03_u7528_u6D41_u7A0B" class="headerlink" title="Systemui接口调用流程"></a>Systemui接口调用流程</h4><p>文件路径：<br><code>frameworks/base/packages/SystemUI/src/com/android/systemui/statusbar/CommandQueue.java</code><br><code>frameworks/base/packages/SystemUI/src/com/android/systemui/statusbar/BaseStatusBar.java</code>        </p>
+<p>CommandQueue:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">toggleRecentApps</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (mList) &#123;</span><br><span class="line">            mHandler.removeMessages(MSG_TOGGLE_RECENT_APPS);</span><br><span class="line">            mHandler.obtainMessage(MSG_TOGGLE_RECENT_APPS, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>).sendToTarget();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preloadRecentApps</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (mList) &#123;</span><br><span class="line">            mHandler.removeMessages(MSG_PRELOAD_RECENT_APPS);</span><br><span class="line">            mHandler.obtainMessage(MSG_PRELOAD_RECENT_APPS, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>).sendToTarget();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cancelPreloadRecentApps</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (mList) &#123;</span><br><span class="line">            mHandler.removeMessages(MSG_CANCEL_PRELOAD_RECENT_APPS);</span><br><span class="line">            mHandler.obtainMessage(MSG_CANCEL_PRELOAD_RECENT_APPS, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>).sendToTarget();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>BaseStatusBar:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">toggleRecentsActivity</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mRecents != <span class="keyword">null</span> &amp;&amp; isShowRecents()) &#123;</span><br><span class="line">            mRecents.toggleRecents(mDisplay, <span class="number">0</span>, getStatusBarView());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">preloadRecentTasksList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mRecents != <span class="keyword">null</span> &amp;&amp; isShowRecents()) &#123;</span><br><span class="line">            mRecents.preloadRecentTasksList();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">cancelPreloadingRecentTasksList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mRecents != <span class="keyword">null</span>) &#123;</span><br><span class="line">            mRecents.cancelPreloadingRecentTasksList();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Recents_u6D41_u7A0B"><a href="#Recents_u6D41_u7A0B" class="headerlink" title="Recents流程"></a>Recents流程</h3><p>文件路径：<br><code>frameworks/base/packages/SystemUI/src/com/android/systemui/recnt/Recents.java</code><br><code>frameworks/base/packages/SystemUI/src/com/android/systemui/recent/RecentsPreloadReceiver.java</code><br><code>frameworks/base/packages/SystemUI/src/com/android/systemui/recent/RecentsActivity.java</code><br><code>frameworks/base/packages/SystemUI/src/com/android/systemui/recent/RecentsPanelView.java</code><br><code>frameworks/base/packages/SystemUI/src/com/android/systemui/recent/RecentsHorizontalScrollView.java</code><br><code>frameworks/base/packages/SystemUI/src/com/android/systemui/recent/TaskDescription.java</code></p>
+<p>发送广播：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preloadRecentTasksList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">cancelPreloadingRecentTasksList();</span><br><span class="line">      Intent intent = <span class="keyword">new</span> Intent(RecentsActivity.PRELOAD_INTENT);</span><br><span class="line">      intent.setClassName(<span class="string">"com.android.systemui"</span>,</span><br><span class="line">              <span class="string">"com.android.systemui.recent.RecentsPreloadReceiver"</span>);</span><br><span class="line">      mContext.sendBroadcastAsUser(intent, <span class="keyword">new</span> UserHandle(UserHandle.USER_CURRENT));</span><br><span class="line"></span><br><span class="line">      RecentTasksLoader.getInstance(mContext).preloadFirstTask();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>接收广播，获取单例对象，实现加载缩略图（截图）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RecentsPreloadReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (RecentsActivity.PRELOAD_INTENT.equals(intent.getAction())) &#123;</span><br><span class="line">            RecentTasksLoader.getInstance(context).preloadRecentTasksList();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>启动start RecentsActivity，显示Recents App：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">toggleRecents</span><span class="params">(Display display, <span class="keyword">int</span> layoutDirection, View statusBarView)</span> </span>&#123;</span><br><span class="line">	Intent intent = <span class="keyword">new</span> Intent(RecentsActivity.TOGGLE_RECENTS_INTENT);</span><br><span class="line">	intent.setClassName(<span class="string">"com.android.systemui"</span>,</span><br><span class="line">		<span class="string">"com.android.systemui.recent.RecentsActivity"</span>);</span><br><span class="line">	intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK</span><br><span class="line">		| Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);</span><br><span class="line">	mContext.startActivityAsUser(intent, <span class="keyword">new</span> UserHandle(</span><br><span class="line">		UserHandle.USER_CURRENT));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="RecentsActivity_uFF1A"><a href="#RecentsActivity_uFF1A" class="headerlink" title="RecentsActivity："></a>RecentsActivity：</h4><p>添加标签，判断Recents是否已经打开显示，显示则关闭，没显示则打开。实现双击显示Recents，再次双击退出Recents。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onNewIntent</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">    handleIntent(intent, <span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">handleIntent</span><span class="params">(Intent intent, <span class="keyword">boolean</span> checkWaitingForAnimationParam)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onNewIntent(intent);</span><br><span class="line">    <span class="keyword">if</span> (TOGGLE_RECENTS_INTENT.equals(intent.getAction())) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mRecentsPanel != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mRecentsPanel.isShowing()) &#123;</span><br><span class="line">                dismissAndGoBack();</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">final</span> RecentTasksLoader recentTasksLoader = RecentTasksLoader.getInstance(<span class="keyword">this</span>);</span><br><span class="line">                mRecentsPanel.show(<span class="keyword">true</span>, recentTasksLoader.getLoadedTasks(),</span><br><span class="line">                        recentTasksLoader.isFirstScreenful(), <span class="keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关闭显示函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dismissAndGoBack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mRecentsPanel != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">final</span> ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> List&lt;ActivityManager.RecentTaskInfo&gt; recentTasks =</span><br><span class="line">                am.getRecentTasks(<span class="number">2</span>,</span><br><span class="line">                        ActivityManager.RECENT_WITH_EXCLUDED |</span><br><span class="line">                        ActivityManager.RECENT_IGNORE_UNAVAILABLE);</span><br><span class="line">        <span class="keyword">if</span> (recentTasks.size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// recents panel will take care of calling show(false) through simulateClick</span></span><br><span class="line">            am.moveTaskToFront(recentTasks.get(<span class="number">1</span>).id, ActivityManager.MOVE_TASK_WITH_HOME);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    mRecentsPanel.show(<span class="keyword">false</span>);</span><br><span class="line">    finish();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="RecentsPanelView_3A"><a href="#RecentsPanelView_3A" class="headerlink" title="RecentsPanelView:"></a>RecentsPanelView:</h4><p>自定义View继承FrameLayout，用于包含整个Recents的显示布局。</p>
+<p>View的主体为FrameLayout中嵌套一个HorizontalScrollView，实现监听旋转进行左右滑动。RecentsPanelView中实现Adapter，创建ItemView以及加载ItemView。   </p>
+<p>View中的主要函数 Show()，主要也是判断标签，用于响应Activity的打开关闭:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(<span class="keyword">boolean</span> show, ArrayList&lt;TaskDescription&gt; recentTaskDescriptions,</span><br><span class="line">        <span class="keyword">boolean</span> firstScreenful, <span class="keyword">boolean</span> animateIconOfFirstTask)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (show &amp;&amp; mCallUiHiddenBeforeNextReload) &#123;</span><br><span class="line">        onUiHidden();</span><br><span class="line">        recentTaskDescriptions = <span class="keyword">null</span>;</span><br><span class="line">        mAnimateIconOfFirstTask = <span class="keyword">false</span>;</span><br><span class="line">        mWaitingForWindowAnimation = <span class="keyword">false</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        mAnimateIconOfFirstTask = animateIconOfFirstTask;</span><br><span class="line">        mWaitingForWindowAnimation = animateIconOfFirstTask;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (show) &#123;</span><br><span class="line">        mWaitingToShow = <span class="keyword">true</span>;</span><br><span class="line">        refreshRecentTasksList(recentTaskDescriptions, firstScreenful);</span><br><span class="line">        showIfReady();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        showImpl(<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>刷新界面显示内容：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">refreshRecentTasksList</span><span class="params">(</span><br><span class="line">        ArrayList&lt;TaskDescription&gt; recentTasksList, <span class="keyword">boolean</span> firstScreenful)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mRecentTaskDescriptions == <span class="keyword">null</span> &amp;&amp; recentTasksList != <span class="keyword">null</span>) &#123;</span><br><span class="line">        onTasksLoaded(recentTasksList, firstScreenful);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        mRecentTasksLoader.loadTasksInBackground();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现每个ItemView点击函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleOnClick</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    ViewHolder holder = (ViewHolder) view.getTag();</span><br><span class="line">    TaskDescription ad = holder.taskDescription;</span><br><span class="line">    <span class="keyword">final</span> Context context = view.getContext();</span><br><span class="line">    <span class="keyword">final</span> ActivityManager am = (ActivityManager)</span><br><span class="line">            context.getSystemService(Context.ACTIVITY_SERVICE);</span><br><span class="line"></span><br><span class="line">    .</span><br><span class="line">    .</span><br><span class="line">    .</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (ad.taskId &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// This is an active task; it should just go to the foreground.</span></span><br><span class="line">        am.moveTaskToFront(ad.taskId, ActivityManager.MOVE_TASK_WITH_HOME);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Intent intent = ad.intent;</span><br><span class="line">        intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY</span><br><span class="line">                | Intent.FLAG_ACTIVITY_TASK_ON_HOME</span><br><span class="line">                | Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            context.startActivityAsUser(intent,</span><br><span class="line">                    <span class="keyword">new</span> UserHandle(UserHandle.USER_CURRENT));</span><br><span class="line"></span><br><span class="line"> .</span><br><span class="line"> .</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    .</span><br><span class="line">    .</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="TaskDescription"><a href="#TaskDescription" class="headerlink" title="TaskDescription"></a>TaskDescription</h4><p>从系统获取的Recents App的对象实体类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskDescription</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ResolveInfo resolveInfo;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> taskId; <span class="comment">// application task id for curating apps</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> persistentTaskId; <span class="comment">// persistent id</span></span><br><span class="line">    <span class="keyword">final</span> Intent intent; <span class="comment">// launch intent for application</span></span><br><span class="line">    <span class="keyword">final</span> String packageName; <span class="comment">// used to override animations (see onClick())</span></span><br><span class="line">    <span class="keyword">final</span> CharSequence description;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Drawable mThumbnail; <span class="comment">// generated by Activity.onCreateThumbnail()</span></span><br><span class="line">    <span class="keyword">private</span> Drawable mIcon; <span class="comment">// application package icon</span></span><br><span class="line">    <span class="keyword">private</span> CharSequence mLabel; <span class="comment">// application package label</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> mLoaded;</span><br><span class="line">    </span><br><span class="line">    .</span><br><span class="line">    .</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="RecentTasksLoader"><a href="#RecentTasksLoader" class="headerlink" title="RecentTasksLoader"></a>RecentTasksLoader</h4><p>RecentTasksLoader做为Recents的重要实现部分，放在最后介绍。RecentTasksLoader主要实现了从系统获取当前显示运行的App的详细信息，缩略图，process Id，icon以及获取最近打开过的应用列表的详细信息。还实现了将获取的数据写入TaskDescription ArrayList中，以供RecentsPanelView获取显示。</p>
+<p>获取当前运行App的信息：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> TaskDescription <span class="title">loadFirstTask</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">final</span> ActivityManager am = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);</span><br><span class="line"></span><br><span class="line">     <span class="keyword">final</span> List&lt;ActivityManager.RecentTaskInfo&gt; recentTasks = am.getRecentTasksForUser(</span><br><span class="line">             <span class="number">1</span>, ActivityManager.RECENT_IGNORE_UNAVAILABLE, UserHandle.CURRENT.getIdentifier());</span><br><span class="line">     TaskDescription item = <span class="keyword">null</span>;</span><br><span class="line">     <span class="keyword">if</span> (recentTasks.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">         ActivityManager.RecentTaskInfo recentInfo = recentTasks.get(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">         Intent intent = <span class="keyword">new</span> Intent(recentInfo.baseIntent);</span><br><span class="line">         <span class="keyword">if</span> (recentInfo.origActivity != <span class="keyword">null</span>) &#123;</span><br><span class="line">             intent.setComponent(recentInfo.origActivity);</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="comment">// Don't load ourselves</span></span><br><span class="line">         <span class="keyword">if</span> (intent.getComponent().getPackageName().equals(mContext.getPackageName())) &#123;</span><br><span class="line">             <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (intent.getComponent().getPackageName().equals(CARHOME)) &#123;</span><br><span class="line">	mCarhomeFirstTask = <span class="keyword">true</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	mCarhomeFirstTask = <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">         item = createTaskDescription(recentInfo.id,</span><br><span class="line">                 recentInfo.persistentId, recentInfo.baseIntent,</span><br><span class="line">                 recentInfo.origActivity, recentInfo.description);</span><br><span class="line">         <span class="keyword">if</span> (item != <span class="keyword">null</span>) &#123;</span><br><span class="line">             loadThumbnailAndIcon(item);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> item;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>获取最近任务列表：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loadTasksInBackground</span><span class="params">(<span class="keyword">final</span> <span class="keyword">boolean</span> zeroeth)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mState != State.CANCELLED) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    mState = State.LOADING;</span><br><span class="line">    mFirstScreenful = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">final</span> LinkedBlockingQueue&lt;TaskDescription&gt; tasksWaitingForThumbnails =</span><br><span class="line">            <span class="keyword">new</span> LinkedBlockingQueue&lt;TaskDescription&gt;();</span><br><span class="line">    mTaskLoader = <span class="keyword">new</span> AsyncTask&lt;Void, ArrayList&lt;TaskDescription&gt;, Void&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span><span class="params">(ArrayList&lt;TaskDescription&gt;... values)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (!isCancelled()) &#123;</span><br><span class="line">                ArrayList&lt;TaskDescription&gt; newTasks = values[<span class="number">0</span>];</span><br><span class="line">                <span class="comment">// do a callback to RecentsPanelView to let it know we have more values</span></span><br><span class="line">                <span class="comment">// how do we let it know we're all done? just always call back twice</span></span><br><span class="line">                <span class="keyword">if</span> (mRecentsPanel != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    mRecentsPanel.onTasksLoaded(newTasks, mFirstScreenful);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (mLoadedTasks == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    mLoadedTasks = <span class="keyword">new</span> ArrayList&lt;TaskDescription&gt;();</span><br><span class="line">                &#125;</span><br><span class="line">                mLoadedTasks.addAll(newTasks);</span><br><span class="line">                mFirstScreenful = <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> Void <span class="title">doInBackground</span><span class="params">(Void... params)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// We load in two stages: first, we update progress with just the first screenful</span></span><br><span class="line">            <span class="comment">// of items. Then, we update with the rest of the items</span></span><br><span class="line">            <span class="keyword">final</span> <span class="keyword">int</span> origPri = Process.getThreadPriority(Process.myTid());</span><br><span class="line">            Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);</span><br><span class="line">            <span class="keyword">final</span> PackageManager pm = mContext.getPackageManager();</span><br><span class="line">            <span class="keyword">final</span> ActivityManager am = (ActivityManager)</span><br><span class="line">            mContext.getSystemService(Context.ACTIVITY_SERVICE);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">final</span> List&lt;ActivityManager.RecentTaskInfo&gt; recentTasks =</span><br><span class="line">                    am.getRecentTasks(MAX_TASKS, ActivityManager.RECENT_IGNORE_UNAVAILABLE);</span><br><span class="line">            <span class="keyword">int</span> numTasks = recentTasks.size();</span><br><span class="line">            ActivityInfo homeInfo = <span class="keyword">new</span> Intent(Intent.ACTION_MAIN)</span><br><span class="line">                    .addCategory(Intent.CATEGORY_HOME).resolveActivityInfo(pm, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Exchange carhome to first task</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = numTasks - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (isCancelled())</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">                ActivityManager.RecentTaskInfo recentInfo = recentTasks.get(i);</span><br><span class="line">                Intent intent = <span class="keyword">new</span> Intent(recentInfo.baseIntent);</span><br><span class="line">                <span class="keyword">if</span> (recentInfo.origActivity != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    intent.setComponent(recentInfo.origActivity);</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// final int iter = i;</span></span><br><span class="line">                <span class="comment">// exchange carhome to first item</span></span><br><span class="line">                <span class="keyword">if</span> (isCurrentHomeActivity(intent.getComponent(), homeInfo)) &#123;</span><br><span class="line">                    ActivityManager.RecentTaskInfo temp = recentTasks.get(i);</span><br><span class="line">                    recentTasks.set(i, recentTasks.get(i - <span class="number">1</span>));</span><br><span class="line">                    recentTasks.set((i - <span class="number">1</span>), temp);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">boolean</span> firstScreenful = <span class="keyword">true</span>;</span><br><span class="line">            ArrayList&lt;TaskDescription&gt; tasks = <span class="keyword">new</span> ArrayList&lt;TaskDescription&gt;();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// skip the first task - assume it's either the home screen or the current activity.</span></span><br><span class="line">            <span class="keyword">final</span> <span class="keyword">int</span> first = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = first, index = <span class="number">0</span>; i &lt; numTasks &amp;&amp; (index &lt; MAX_TASKS); ++i) &#123;</span><br><span class="line">                <span class="keyword">if</span> (isCancelled()) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">final</span> ActivityManager.RecentTaskInfo recentInfo = recentTasks.get(i);</span><br><span class="line"></span><br><span class="line">                Intent intent = <span class="keyword">new</span> Intent(recentInfo.baseIntent);</span><br><span class="line">                <span class="keyword">if</span> (recentInfo.origActivity != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    intent.setComponent(recentInfo.origActivity);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// Don't load the current home activity.</span></span><br><span class="line">                <span class="comment">// if (isCurrentHomeActivity(intent.getComponent(), homeInfo)) &#123;</span></span><br><span class="line">                <span class="comment">//     continue;</span></span><br><span class="line">                <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">// Don't load ourselves</span></span><br><span class="line">                <span class="keyword">if</span> (intent.getComponent().getPackageName().equals(mContext.getPackageName())) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                TaskDescription item = createTaskDescription(recentInfo.id,</span><br><span class="line">                        recentInfo.persistentId, recentInfo.baseIntent,</span><br><span class="line">                        recentInfo.origActivity, recentInfo.description);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (item != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            tasksWaitingForThumbnails.put(item);</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    tasks.add(item);</span><br><span class="line">                    <span class="keyword">if</span> (firstScreenful &amp;&amp; tasks.size() == mNumTasksInFirstScreenful) &#123;</span><br><span class="line">                        publishProgress(tasks);</span><br><span class="line">                        tasks = <span class="keyword">new</span> ArrayList&lt;TaskDescription&gt;();</span><br><span class="line">                        firstScreenful = <span class="keyword">false</span>;</span><br><span class="line">                        <span class="comment">//break;</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    ++index;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .</span><br><span class="line">            .</span><br><span class="line">    &#125;;</span><br><span class="line">    mTaskLoader.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);</span><br><span class="line">    loadThumbnailsAndIconsInBackground(tasksWaitingForThumbnails);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>写入数据：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an TaskDescription, returning null if the title or icon is null</span></span><br><span class="line"><span class="function">TaskDescription <span class="title">createTaskDescription</span><span class="params">(<span class="keyword">int</span> taskId, <span class="keyword">int</span> persistentTaskId, Intent baseIntent,</span><br><span class="line">        ComponentName origActivity, CharSequence description)</span> </span>&#123;</span><br><span class="line">    Intent intent = <span class="keyword">new</span> Intent(baseIntent);</span><br><span class="line">    <span class="keyword">if</span> (origActivity != <span class="keyword">null</span>) &#123;</span><br><span class="line">        intent.setComponent(origActivity);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">final</span> PackageManager pm = mContext.getPackageManager();</span><br><span class="line">    intent.setFlags((intent.getFlags()&amp;~Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED)</span><br><span class="line">            | Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">    <span class="keyword">final</span> ResolveInfo resolveInfo = pm.resolveActivity(intent, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span> (resolveInfo != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">final</span> ActivityInfo info = resolveInfo.activityInfo;</span><br><span class="line">        <span class="keyword">final</span> String title = info.loadLabel(pm).toString();</span><br><span class="line"></span><br><span class="line">            TaskDescription item = <span class="keyword">new</span> TaskDescription(taskId,</span><br><span class="line">                    persistentTaskId, resolveInfo, baseIntent, info.packageName,</span><br><span class="line">                    description);</span><br><span class="line">            item.setLabel(title);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> item;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (DEBUG) Log.v(TAG, <span class="string">"SKIPPING item "</span> + persistentTaskId);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2100/05/24/Android-study/">
+                    好的Blog应该跟大家分享
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/07/22/SystemUI-statusbar/">
+                    System statusbar
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6309_u952E_u542F_u52A8_u6D41_u7A0B"><span class="toc-number">1.</span> <span class="toc-text">按键启动流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u53CC_u51FB_u5B9E_u73B0_u6D41_u7A0B"><span class="toc-number">1.1.</span> <span class="toc-text">双击实现流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Systemui_u63A5_u53E3_u8C03_u7528_u6D41_u7A0B"><span class="toc-number">1.2.</span> <span class="toc-text">Systemui接口调用流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Recents_u6D41_u7A0B"><span class="toc-number">2.</span> <span class="toc-text">Recents流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RecentsActivity_uFF1A"><span class="toc-number">2.1.</span> <span class="toc-text">RecentsActivity：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RecentsPanelView_3A"><span class="toc-number">2.2.</span> <span class="toc-text">RecentsPanelView:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TaskDescription"><span class="toc-number">2.3.</span> <span class="toc-text">TaskDescription</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RecentTasksLoader"><span class="toc-number">2.4.</span> <span class="toc-text">RecentTasksLoader</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"SystemUI recents　| FLINT LI's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/07/22/SystemUI-recents/" data-title="SystemUI recents" data-url="flintli.xyz/2016/07/22/SystemUI-recents/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"llooper"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2100/05/24/Android-study/" title="上一篇: 好的Blog应该跟大家分享">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/07/22/SystemUI-statusbar/" title="下一篇: System statusbar">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2100/05/24/Android-study/">好的Blog应该跟大家分享</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/SystemUI-recents/">SystemUI recents</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/SystemUI-statusbar/">System statusbar</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/Android-4-4禁止系统无反应弹窗/">Android 4.4禁止系统无反应弹窗</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/Android-add-framework-res/">Android add framework res</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/Andorid-boot-animation/">Andorid boot animation</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/android-build-command/">android build commond</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/Android-bluetooth-BLE-central/">Android 蓝牙 BLE Central实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/Android-bluetooth-BLE-periphery/">Android 蓝牙 BLE Periphery实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/Android-so-file-path/">Android so库对应的源码路径列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Android-kernel-log/">输出 Android kernel log</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/03/android-has-leaked-window/">android has leaked window 分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/Android-upload-dropbox-error/">Android 系统崩溃日志收集上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/happy-birthday/">happy birthday</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/Android-replace-the-key-int-the-aosp/">怎么替换AOSP默认的签名key</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/Android-build-user/">Android user版本编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/11/Android-ADB-control/">Android ADB 快关控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Android-error-jar-odex-has-stale-dependencies/">Andorid error ' *.jar odex has stale dependencies' 解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/">Android ActivityManager MOVE_TASK_WITH_HOME属性说明</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Android-systemui-recents-1/">AOSP SystemUI之RecentsApp篇（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Android-ARGB/">关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/adb-shell-monkey/">adb shell monkey 基本命令整合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/Android-adb-keyevent-input-keycode/">Android adb input keyevent  "keycode" 数值对应列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/05/Android-system-services/">Android系统服务汇总列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/2016/">2016</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/带上她的眼睛/">《带上她的眼睛》</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/ubuntu-brightness-control/">Ubuntu亮度设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-add-default-apps/">Android系统源码集成第三方APP并编译到system.img中</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-SoundPool/">Android，外设物理按键添加类似touch sound一样的音效</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-fonts/">通过修改Android frameworks层源码设置默认字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2015-2016 FLINT LI
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

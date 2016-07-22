@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="FLINT LI" />
+
+
+
+<meta name="description" content="为Android系统添加一个新的资源包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android add framework res">
+<meta property="og:url" content="flintli.xyz/2016/07/22/Android-add-framework-res/index.html">
+<meta property="og:site_name" content="FLINT LI's Blog">
+<meta property="og:description" content="为Android系统添加一个新的资源包">
+<meta property="og:updated_time" content="2016-07-22T02:38:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android add framework res">
+<meta name="twitter:description" content="为Android系统添加一个新的资源包">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternative" href="/atom.xml" title="FLINT LI&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/resources/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Android add framework res | FLINT LI&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/resources/blog_avatar.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">FLINT LI</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Walk steps step by step</p>
+        
+
+        
+
+
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">HOME</a></li>
+                        
+                            <li><a href="/archives/">PAPER</a></li>
+                        
+                            <li><a href="/tags/">TAG</a></li>
+                        
+                            <li><a href="/about/">ABOUT</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:renhongli.flint@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/llooper/" title="GitHub"></a>
+                            
+                                <a class="fa Google" target="_blank" href="http://www.google.com.hk/" title="Google"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">FLINT LI</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/resources/blog_avatar.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">FLINT LI</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Walk steps step by step</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">HOME</a></li>
+                
+                    <li><a href="/archives/">PAPER</a></li>
+                
+                    <li><a href="/tags/">TAG</a></li>
+                
+                    <li><a href="/about/">ABOUT</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:renhongli.flint@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/llooper/" title="GitHub"></a>
+                            
+                                <a class="fa Google" target="_blank" href="http://www.google.com.hk/" title="Google"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Android-add-framework-res" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/22/Android-add-framework-res/" class="article-date">
+      <time datetime="2016-07-22T02:25:41.000Z" itemprop="datePublished">2016-07-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android add framework res
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>为Android系统添加一个新的资源包</p>
+<a id="more"></a>
+<h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><p>传统的Android系统只有一个framework-res.apk资源包，第三方厂商在进行rom定制时会直接修改framework res资源，达到适配目的。但是这种方式跟原生资源的耦合度过高，在系统迁移或者framework ui移植时需要进行人工merge，工作量巨大。通过为Android添加一个新的独立的资源包，可以将厂商定制资源独立出来，可移植、可维护性非常好。</p>
+<h3 id="u5B9E_u73B0"><a href="#u5B9E_u73B0" class="headerlink" title="实现"></a>实现</h3><p>具体做法可以分为以下几个步骤：</p>
+<p>1）修改<code>build/core/clear_var.mk</code>，添加一项：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_USE_XOS_FRAMEWORK_RES:= true</span><br></pre></td></tr></table></figure>
+<p>2）修改<code>build/core/package.mk</code></p>
+<p>以下脚本可以加在<code>$(R_file_stamp): $(framework_res_package_export_deps)</code> 之前，然后修改<code>$(R_file_stamp): $(framework_res_package_export_deps)</code> 和<code>$(LOCAL_INTERMEDIATE_TARGETS): \</code><br>   <code>PRIVATE_AAPT_INCLUDES := $(framework_res_package_export)</code></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ifeq ($(LOCAL_USE_XOS_FRAMEWORK_RES),true)</span><br><span class="line">xos_framework_res_package_export := \</span><br><span class="line">        $(call intermediates-dir-for,APPS,xos-framework-res,,COMMON)/package-export.apk</span><br><span class="line">xos_framework_res_package_export_deps := \</span><br><span class="line">        $(dir $(xos_framework_res_package_export))src/R.stamp</span><br><span class="line">else</span><br><span class="line">xos_framework_res_package_export :=</span><br><span class="line">xos_framework_res_package_export_deps :=</span><br><span class="line">endif <span class="comment"># LOCAL_USE_XOS_FRAMEWORK_RES</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(R_file_stamp): $(framework_res_package_export_deps) $(xos_framework_res_package_export_deps)</span><br><span class="line">$(LOCAL_INTERMEDIATE_TARGETS): \</span><br><span class="line">    PRIVATE_AAPT_INCLUDES := $(framework_res_package_export) \</span><br><span class="line">    	$(xos_framework_res_package_export)</span><br><span class="line">endif <span class="comment"># LOCAL_NO_STANDARD_LIBRARIES</span></span><br></pre></td></tr></table></figure>
+<p>3）修改<code>build/target/product/core.mk</code></p>
+<p>在<code>PRODUCT_PACKAGES</code>增加<code>xos-framework-res</code></p>
+<p>4）添加一个新的资源包项目，这里在framework/base/core/res同级目录下建立一个新的文件夹xos_res用来存放我们的资源。把res目录下的AndroidManifest.xml和Android.mk拷贝过来，进行修改。 </p>
+<p>记得设置 <code>LOCAL_USE_MY_FRAMEWORK_RES</code>为false。</p>
+<p>Android.mk</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:= <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"></span><br><span class="line">LOCAL_MODULE_TAGS := optional</span><br><span class="line"></span><br><span class="line">LOCAL_PACKAGE_NAME := xos-framework-res</span><br><span class="line">LOCAL_CERTIFICATE := platform</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set LOCAL_USE_XOS_FRAMEWORK_RES as false</span></span><br><span class="line">LOCAL_USE_XOS_FRAMEWORK_RES := false</span><br><span class="line"></span><br><span class="line"><span class="comment"># Tell aapt to create "extending (non-application)" resource IDs,</span></span><br><span class="line"><span class="comment"># since these resources will be used by many apps.</span></span><br><span class="line">LOCAL_AAPT_FLAGS := -x</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install this alongside the libraries.</span></span><br><span class="line">LOCAL_MODULE_PATH := <span class="variable">$(TARGET_OUT_JAVA_LIBRARIES)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create package-export.apk, which other packages can use to get</span></span><br><span class="line"><span class="comment"># PRODUCT-agnostic resource data like IDs and type definitions.</span></span><br><span class="line">LOCAL_EXPORT_PACKAGE_RESOURCES := true</span><br><span class="line"></span><br><span class="line"><span class="comment"># Include resources generated by system RenderScript files.</span></span><br><span class="line">framework_GENERATED_SOURCE_DIR := <span class="variable">$(call intermediates-dir-for,JAVA_LIBRARIES,framework,,COMMON)</span>/src</span><br><span class="line">framework_RenderScript_STAMP_FILE := <span class="variable">$(framework_GENERATED_SOURCE_DIR)</span>/RenderScript.stamp</span><br><span class="line"><span class="comment">#LOCAL_RESOURCE_DIR := $(framework_GENERATED_SOURCE_DIR)/renderscript/res $(LOCAL_PATH)/res</span></span><br><span class="line"></span><br><span class="line">include $(BUILD_PACKAGE)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Make sure the system .rs files get compiled before building the package-export.apk.</span></span><br><span class="line"><span class="comment">#$(resource_export_package): $(framework_RenderScript_STAMP_FILE)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># define a global intermediate target that other module may depend on.</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">.PHONY</span>: xos-framework-res-package-target</span></span><br><span class="line">xos-framework-res-package-target: $(LOCAL_BUILT_MODULE)</span><br></pre></td></tr></table></figure>
+<p>AndroidManifest.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    package="systems.xos.car.xsdk" </span><br><span class="line">    coreApp="true" </span><br><span class="line">    android:sharedUserId="android.uid.system"</span><br><span class="line">    android:sharedUserLabel="@null"&gt;</span><br><span class="line"></span><br><span class="line">    &lt;application android:process="system"</span><br><span class="line">                 android:persistent="true"</span><br><span class="line">                 android:hasCode="false"</span><br><span class="line">                 android:label="@null"</span><br><span class="line">                 android:allowClearUserData="false"</span><br><span class="line">                 android:killAfterRestore="false"</span><br><span class="line">                 android:icon="@null"&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/application&gt;</span><br><span class="line"></span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>
+<p>资源的放置跟res下的类似，记得values目录下创建public.xml，public.xml对id的类型区分比较严格，attr必须是0x0x010000开头，drawable必须是0x0x020000开头，其他类型好像就没有限制，直接依次0x0x030000、0x0x040000开始即可。否则，编译过程中会出现segmentation fault错误。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;resources&gt;</span><br><span class="line"> &lt;public type="attr" name="cForeground" id="0x03010000" /&gt;</span><br><span class="line"> &lt;public type="drawable" name="ic_filemanager" id="0x03020000" /&gt;</span><br><span class="line"> &lt;public type="style" name="xosTheme" id="0x03030000" /&gt;</span><br><span class="line"> &lt;public type="string" name="xos" id="0x03040000" /&gt;</span><br><span class="line"> &lt;public type="dimen" name="xos_width" id="0x03050000" /&gt;</span><br><span class="line"> &lt;public type="layout" name="xos_text" id="0x03060000" /&gt;</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+<p>5）以上只是解决了资源的编译环境问题，资源的查找过程也需要进行修改，修改 <code>AssetManager.java</code>，在<code>init()</code>后添加代码<br><code>addAssetPath(&quot;/system/framework/xos-framework-res.apk&quot;);</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">AssetManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (DEBUG_REFS) &#123;</span><br><span class="line">                mNumRefs = <span class="number">0</span>;</span><br><span class="line">                incRefsLocked(<span class="keyword">this</span>.hashCode());</span><br><span class="line">            &#125;</span><br><span class="line">            init();</span><br><span class="line">            addAssetPath(<span class="string">"/system/framework/xos-framework-res.apk"</span>);</span><br><span class="line">            <span class="keyword">if</span> (localLOGV) Log.v(TAG, <span class="string">"New asset manager: "</span> + <span class="keyword">this</span>);</span><br><span class="line">            ensureSystemAssets();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>6）最后就是资源应用问题。应用程序在xml文件中引用<code>xos-framework-res.apk</code>中的资源时可以使用与原生资源类似的访问方式，首先声明xos xmlns :</p>
+<p><code>xmlns:xos=&quot;http://schemas.android.com/apk/res/systems.xos.car.xsdk&quot;</code><br>然后像@android:drawable @android:dimen这种引用方式改成@xos:drawable @xos:dimen即可。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;LinearLayout</span><br><span class="line">    xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    xmlns:xos="http://schemas.android.com/apk/res/systems.xos.car.xsdk"</span><br><span class="line">    android:layout_width="fill_parent"</span><br><span class="line">    android:layout_height="wrap_content"</span><br><span class="line">    android:gravity="center"</span><br><span class="line">    android:paddingTop="@xos:dimen/xos_width"</span><br><span class="line">    android:orientation="horizontal" &gt;</span><br><span class="line"></span><br><span class="line">   &lt;ImageView android:id="@+id/file_icon"</span><br><span class="line">            android:layout_width="wrap_content"</span><br><span class="line">            android:layout_height="wrap_content"</span><br><span class="line">            android:layout_gravity="center"</span><br><span class="line">            android:layout_marginBottom="40dp"</span><br><span class="line">            android:src="@xos:drawable/ic_filemanager" /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="XSDK__u4F7F_u7528xos-res_u8D44_u6E90_u65B9_u5F0F"><a href="#XSDK__u4F7F_u7528xos-res_u8D44_u6E90_u65B9_u5F0F" class="headerlink" title="XSDK 使用xos-res资源方式"></a>XSDK 使用xos-res资源方式</h3><p>Android.mk中引用资源路径：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">framework_res_source_path := APPS/xos-framework-res_intermediates/src</span><br><span class="line">LOCAL_INTERMEDIATE_SOURCES := \</span><br><span class="line">	<span class="variable">$(framework_res_source_path)</span>/systems/xos/car/xsdk/R.java</span><br></pre></td></tr></table></figure>
+<p>实际代码中使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> systems.xos.car.xsdk.R;</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">inflater.inflate(R.layout.menu_view, <span class="keyword">this</span>, <span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+<p>跟在普通的Android项目中使用资源一样调用。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/07/22/Android-4-4禁止系统无反应弹窗/">
+                    Android 4.4禁止系统无反应弹窗
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/07/22/Andorid-boot-animation/">
+                    Andorid boot animation
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6982_u8FF0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u73B0"><span class="toc-number">2.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XSDK__u4F7F_u7528xos-res_u8D44_u6E90_u65B9_u5F0F"><span class="toc-number">3.</span> <span class="toc-text">XSDK 使用xos-res资源方式</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Android add framework res　| FLINT LI's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/07/22/Android-add-framework-res/" data-title="Android add framework res" data-url="flintli.xyz/2016/07/22/Android-add-framework-res/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"llooper"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/07/22/Android-4-4禁止系统无反应弹窗/" title="上一篇: Android 4.4禁止系统无反应弹窗">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/07/22/Andorid-boot-animation/" title="下一篇: Andorid boot animation">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2100/05/24/Android-study/">好的Blog应该跟大家分享</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/SystemUI-recents/">SystemUI recents</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/SystemUI-statusbar/">System statusbar</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/Android-4-4禁止系统无反应弹窗/">Android 4.4禁止系统无反应弹窗</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/Android-add-framework-res/">Android add framework res</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/Andorid-boot-animation/">Andorid boot animation</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/android-build-command/">android build commond</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/Android-bluetooth-BLE-central/">Android 蓝牙 BLE Central实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/Android-bluetooth-BLE-periphery/">Android 蓝牙 BLE Periphery实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/Android-so-file-path/">Android so库对应的源码路径列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Android-kernel-log/">输出 Android kernel log</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/03/android-has-leaked-window/">android has leaked window 分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/Android-upload-dropbox-error/">Android 系统崩溃日志收集上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/happy-birthday/">happy birthday</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/Android-replace-the-key-int-the-aosp/">怎么替换AOSP默认的签名key</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/Android-build-user/">Android user版本编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/11/Android-ADB-control/">Android ADB 快关控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Android-error-jar-odex-has-stale-dependencies/">Andorid error ' *.jar odex has stale dependencies' 解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Android-ActivityManager-MOVE-TASK-WITH-HOME/">Android ActivityManager MOVE_TASK_WITH_HOME属性说明</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Android-systemui-recents-1/">AOSP SystemUI之RecentsApp篇（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Android-ARGB/">关于ARGB_8888、ALPHA_8、ARGB_4444、RGB_565的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/adb-shell-monkey/">adb shell monkey 基本命令整合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/Android-adb-keyevent-input-keycode/">Android adb input keyevent  "keycode" 数值对应列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/05/Android-system-services/">Android系统服务汇总列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/2016/">2016</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/带上她的眼睛/">《带上她的眼睛》</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/ubuntu-brightness-control/">Ubuntu亮度设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-add-default-apps/">Android系统源码集成第三方APP并编译到system.img中</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-SoundPool/">Android，外设物理按键添加类似touch sound一样的音效</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/31/Android-frameworks-fonts/">通过修改Android frameworks层源码设置默认字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2015-2016 FLINT LI
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

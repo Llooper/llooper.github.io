@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="预制APP到Android系统，成为系统默认APPS。">
+<meta name="description" content="开机动画与声音">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android系统源码集成第三方APP并编译到system.img中">
-<meta property="og:url" content="flintli.xyz/2015/12/31/Android-frameworks-add-default-apps/index.html">
+<meta property="og:title" content="Andorid boot animation">
+<meta property="og:url" content="flintli.xyz/2016/07/22/Andorid-boot-animation/index.html">
 <meta property="og:site_name" content="FLINT LI's Blog">
-<meta property="og:description" content="预制APP到Android系统，成为系统默认APPS。">
-<meta property="og:updated_time" content="2016-06-03T06:16:49.000Z">
+<meta property="og:description" content="开机动画与声音">
+<meta property="og:updated_time" content="2016-07-22T02:39:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android系统源码集成第三方APP并编译到system.img中">
-<meta name="twitter:description" content="预制APP到Android系统，成为系统默认APPS。">
+<meta name="twitter:title" content="Andorid boot animation">
+<meta name="twitter:description" content="开机动画与声音">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Android系统源码集成第三方APP并编译到system.img中 | FLINT LI&#39;s Blog</title>
+<title>Andorid boot animation | FLINT LI&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -203,11 +203,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Android-frameworks-add-default-apps" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Andorid-boot-animation" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/31/Android-frameworks-add-default-apps/" class="article-date">
-      <time datetime="2015-12-31T06:13:55.000Z" itemprop="datePublished">2015-12-31</time>
+      <a href="/2016/07/22/Andorid-boot-animation/" class="article-date">
+      <time datetime="2016-07-22T02:25:01.000Z" itemprop="datePublished">2016-07-22</time>
 </a>
     </div>
   
@@ -220,7 +220,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android系统源码集成第三方APP并编译到system.img中
+      Andorid boot animation
     </h1>
   
 
@@ -241,53 +241,36 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>预制APP到Android系统，成为系统默认APPS。<br><a id="more"></a></p>
-<h3 id="u6982_u8BBA"><a href="#u6982_u8BBA" class="headerlink" title="概论"></a>概论</h3><p>将第三方厂商定制的APP编译进系统源码，随着system.img的烧录进设备。定制的APP分为以下几种形式添加到系统中：   </p>
-<ul>
-<li>带源码</li>
-<li>apk文件</li>
-<li>apk文件依赖so库</li>
-</ul>
-<h3 id="u5E26_u6E90_u7801_u7684APP_u7F16_u8BD1_u5230_u7CFB_u7EDF"><a href="#u5E26_u6E90_u7801_u7684APP_u7F16_u8BD1_u5230_u7CFB_u7EDF" class="headerlink" title="带源码的APP编译到系统"></a>带源码的APP编译到系统</h3><p>1) 在packages/apps/ 下创建一个新的项目，以HelloWorld为例；<br>2）参照apps下的其他项目目录结构，创建src、res以及编写Android.mk文件；<br>3）将你的资源文件以及源码copy到对应位置；<br>4）编写Android.mk文件；   </p>
+        <p>开机动画与声音</p>
+<a id="more"></a>
+<h3 id="u6587_u4EF6_u8DEF_u5F84_uFF1A"><a href="#u6587_u4EF6_u8DEF_u5F84_uFF1A" class="headerlink" title="文件路径："></a>文件路径：</h3><p><code>/frameworks/base/cmds/bootanimation/</code><br>此目录下实现了开机动画以及开机声音的播放。移植并升级了rockchip(Android 4.4)的开机动画部分源码到5.1，对声音播放进行了改进。</p>
+<p><code>/system/vendor/xgene/bootanimation/bootanimation.zip</code><br>开机动画包源码存放位置。</p>
+<p><code>build/target/product/generic_no_telephony.mk</code><br>将源码bootanimation.zip 复制到系统的makefile路径。</p>
+<h3 id="u590D_u5236zip_u5305"><a href="#u590D_u5236zip_u5305" class="headerlink" title="复制zip包"></a>复制zip包</h3><p>需要将zip复制到编译生成的系统目录下，编写好makefile，系统编译的时候自动复制。<br>在<code>generic_no_telephony.mk</code>添加一条：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PRODUCT_COPY_FILES := \</span><br><span class="line">	vendor/xgene/bootanimation/bootanimation.zip:system/media/bootanimation.zip</span><br></pre></td></tr></table></figure>
+<h3 id="u5F00_u673A_u52A8_u753B_u5236_u4F5C"><a href="#u5F00_u673A_u52A8_u753B_u5236_u4F5C" class="headerlink" title="开机动画制作"></a>开机动画制作</h3><p>在任何一个ANDROID的手机或其他设备中，都有这个文件：<code>/system/media/bootanimation.zip</code>这个就是ANDROID系统开机动画文件。    </p>
+<font color="red"><code>bootanimation.zip</code>的名字不可变动。 </font> 
+
+<p>zip包的文件结构介绍：</p>
+<p>|- <strong>ani-intro</strong><br>||- <code>audio.wav</code><br>||- <code>introandloop_00000.png --&gt; introandloop_00060.png</code></p>
+<p>|- <strong>ani-loop</strong><br>||- <code>ani_loop_00000.png --&gt; ani_loop_00060.png</code></p>
+<p>|- <strong>audio_conf.txt</strong><br>|- <strong>desc.txt</strong></p>
+<p><strong>ani-intro</strong>目录下包含了进场动画（逐帧播放）以及声音文件。<br><strong>ani-loop</strong>目录下包含了循环播放的动画。<br><strong>audio_conf.txt</strong>为声音播放mixer配置文件。<br><strong>desc.txt</strong>为动画播放配置文件。</p>
+<p><strong>desc.txt</strong>内容如下：</p>
+<p><code>864 480 30</code><br><code>p 1 0 ani_intro</code><br><code>p 0 0 ani_loop</code>        </p>
 <blockquote>
-<p>Android.mk是Android提供的一种makefile文件，用来指定诸如编译生成so库名、引用的头文件目录、需要编译的.c/.cpp文件和.a静态库文件等。之后会有另外篇章对Android.mk进行详解，在此就不多做解释。</p>
+<p>其中 <strong>864 480</strong> 是指是指前面文件夹里png的分辨率。</p>
+<p><strong>30</strong>是指每秒播放帧数（这个收到机器的影响，一般开机CPU满负荷运行，开始的一段时间播放帧数会低于设定帧数，所以前一段的动画的设计需要考虑到这一点）。   </p>
+<p><strong>p</strong>是标识符，<strong>1 0</strong>两个数字分别指循环次数和阶段间隔时间，<strong>ani_intro</strong>就是文件夹的名字。</p>
 </blockquote>
-<p>给出一个简单的Android.mk示例，参照自行修改成适合项目的。</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:= <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_MODULE_TAGS := optional</span><br><span class="line">LOCAL_SRC_FILES := <span class="variable">$(call all-java-files-under, src)</span> \</span><br><span class="line">LOCAL_PACKAGE_NAME := HelloWorld</span><br><span class="line">LOCAL_JAVA_LIBRARIES := telephony-common</span><br><span class="line">include $(BUILD_PACKAGE)</span><br></pre></td></tr></table></figure>
-<h3 id="u65E0_u6E90_u7801_u7684APK_u6587_u4EF6_u7F16_u8BD1_u5230_u7CFB_u7EDF"><a href="#u65E0_u6E90_u7801_u7684APK_u6587_u4EF6_u7F16_u8BD1_u5230_u7CFB_u7EDF" class="headerlink" title="无源码的APK文件编译到系统"></a>无源码的APK文件编译到系统</h3><p>1) 在packages/apps/ 下创建一个新的项目，以HelloWorld为例；<br>2） 将apk文件copy到新建目录下，并创建android.mk文件；<br>3） 编写Android.mk文件。<br>示例如下：</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"><span class="comment"># Module name should match apk name to be installed</span></span><br><span class="line">LOCAL_MODULE := HelloWorld</span><br><span class="line">LOCAL_MODULE_TAGS := optional</span><br><span class="line">LOCAL_SRC_FILES := <span class="variable">$(LOCAL_MODULE)</span>.apk</span><br><span class="line">LOCAL_MODULE_CLASS := APPS</span><br><span class="line">LOCAL_MODULE_SUFFIX := <span class="variable">$(COMMON_ANDROID_PACKAGE_SUFFIX)</span></span><br><span class="line">LOCAL_CERTIFICATE := PRESIGNED</span><br><span class="line">include $(BUILD_PREBUILT)</span><br></pre></td></tr></table></figure>
-<p><strong>这里有一点需要注意的，<code>LOCAL_MODULE</code>的值必须与apk的名字一致。</strong></p>
-<h3 id="app_u9700_u8981_u4F9D_u8D56_u7B2C_u4E09_u65B9so_u5E93"><a href="#app_u9700_u8981_u4F9D_u8D56_u7B2C_u4E09_u65B9so_u5E93" class="headerlink" title="app需要依赖第三方so库"></a>app需要依赖第三方so库</h3><p>有一种情况是定制的app需要依赖于第三方jar包文件或者so库进行开发，这次主要介绍so库的使用，jar包另行查找。</p>
-<ul>
-<li>app有源码编译   </li>
-</ul>
+<h3 id="u5F00_u673A_u58F0_u97F3_u5236_u4F5C"><a href="#u5F00_u673A_u58F0_u97F3_u5236_u4F5C" class="headerlink" title="开机声音制作"></a>开机声音制作</h3><p>升级源码到 5.1 增加的文件：</p>
 <blockquote>
-<p>新建libs目录，将so库copy到该目录，下面主要工作是更新android.mk文件，将so库包含进去,以libBMapApiEngine_v1_3_1.so为例。</p>
+<p>AudioPlayer.cpp<br>AudioPlayer.h</p>
 </blockquote>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:= <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_MODULE_TAGS := optional</span><br><span class="line">LOCAL_SRC_FILES := <span class="variable">$(call all-java-files-under, src)</span> \</span><br><span class="line">LOCAL_PACKAGE_NAME := HelloWorld</span><br><span class="line">LOCAL_JAVA_LIBRARIES := telephony-common</span><br><span class="line">include $(BUILD_PACKAGE)  </span><br><span class="line"><span class="comment">##################################################  </span></span><br><span class="line">include $(CLEAR_VARS)    </span><br><span class="line">LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES :=libbaidumapapi:libs/baidumapapi.jar  </span><br><span class="line">LOCAL_PREBUILT_LIBS :=libBMapApiEngine_v1_3_1:libs/armeabi/libBMapApiEngine_v1_3_1.so  </span><br><span class="line">LOCAL_MODULE_TAGS := optional  </span><br><span class="line">include $(BUILD_MULTI_PREBUILT)  </span><br><span class="line">   </span><br><span class="line"><span class="comment"># Use the following include to make our testapk.  </span></span><br><span class="line">include $(callall-makefiles-under,$(LOCAL_PATH))</span><br></pre></td></tr></table></figure>
-<p>以上方案为网上<a href="http://zwz94.blog.163.com/blog/static/3206039520131111101412959/" target="_blank" rel="external">http://zwz94.blog.163.com/blog/static/3206039520131111101412959/</a>查找资料总结的，还没经过实际测试，可行性不能100%保证。</p>
-<ul>
-<li>纯apk文件</li>
-</ul>
-<p>因apk依赖于so库运行，编译过程没问题，但运行app会由于系统本身缺少对应so库而奔溃。</p>
-<blockquote>
-<p>主要步骤同上，关键需要将so库文件复制到系统的/system/lib目录下，使之能被app索引到。示例如下：</p>
-</blockquote>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := <span class="variable">$(call my-dir)</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"><span class="comment"># Module name should match apk name to be installed</span></span><br><span class="line">LOCAL_MODULE := HelloWorld</span><br><span class="line">LOCAL_MODULE_TAGS := optional</span><br><span class="line">LOCAL_SRC_FILES := <span class="variable">$(LOCAL_MODULE)</span>.apk</span><br><span class="line">LOCAL_MODULE_CLASS := APPS</span><br><span class="line">LOCAL_MODULE_SUFFIX := <span class="variable">$(COMMON_ANDROID_PACKAGE_SUFFIX)</span></span><br><span class="line">LOCAL_CERTIFICATE := PRESIGNED</span><br><span class="line">include $(BUILD_PREBUILT)</span><br><span class="line"><span class="comment">##########</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_MODULE := libgdamapv4sdk751.so</span><br><span class="line">LOCAL_MODULE_CLASS := SHARED_LIBRARIES</span><br><span class="line">LOCAL_MODULE_PATH := <span class="variable">$(TARGET_OUT_SHARED_LIBRARIES)</span></span><br><span class="line">LOCAL_SRC_FILES := lib/armeabi/<span class="variable">$(LOCAL_MODULE)</span></span><br><span class="line">OVERRIDE_BUILD_MODULE_PATH := <span class="variable">$(TARGET_OUT_INTERMEDIATE_LIBRARIES)</span></span><br><span class="line">include $(BUILD_PREBUILT)</span><br></pre></td></tr></table></figure>
-<p><strong>纯apk文件编译进系统，且依赖so库。复制so库到/system/lib目录的方案经过本人实际编译测试可行。</strong></p>
-<h3 id="u53E6_u5916_u518D_u8BF4_u51E0_u53E5"><a href="#u53E6_u5916_u518D_u8BF4_u51E0_u53E5" class="headerlink" title="另外再说几句"></a>另外再说几句</h3><ul>
-<li>有些客户对定制app在系统中的位置有要求，比如需要放置到/system/priv-app/中，此时你只需在android.mk中添加一句：<code>LOCAL_PRIVILEGED_MODULE := true</code>即可将app编译进priv-app目录。</li>
-<li>还有要求预制app替代Android系统默认的app，也很简单，同样是编辑Android.mk文件，以SystemUI为例,添加一句：<code>LOCAL_OVERRIDES_PACKAGES:= SystemUI</code>。</li>
-</ul>
-<h3 id="u5199_u5728_u6700_u540E"><a href="#u5199_u5728_u6700_u540E" class="headerlink" title="写在最后"></a>写在最后</h3><p>将定制APP加入Android源码的build系统中，使之能跟随着其他app一起编译。</p>
-<blockquote>
-<p>修改build/target/product/generic_no_telephony.mk<br>新建项<br><em><code>PRODUCT_PACKAGES := HelloWorld</code></em></p>
-</blockquote>
-<p><strong>注意：<code>PRODUCT_PACKAGES</code>中填写的必须跟项目中Android.mk文件中定义的<code>LOCAL_PACKAGE_NAME</code>或者<code>LOCAL_MODULE</code>一致。</strong></p>
-<p>以上全部完成后就可以对系统进行编译了。</p>
-<blockquote>
-<p>make clean<br>make -j$(nproc)</p>
-</blockquote>
+<p>在Android5.1中，mediaplayer中增加了电源的监控，在mediaplayer服务起来的时候需要加载batterystats服务，但是batterystats服务是在ActivityManagerService中起来的，比较晚，所以如果在开机的时候调用mediaplayer播放声音的话，声音会滞后出现，会出现音视频不同步的问题。因此，在Android5.1中谷歌提供了一个直接调用底层播放声音的方法，不走hal层，不走整个audio流程，直接调用底层pcm播放声音，pcm只能解析wav格式音乐，在播放wav格式音乐时需要做混音配置，即配置mixer参数。</p>
+<p>由于开机声音需要在进场动画时就播放，所以将<strong>audio.wav</strong>放置在了<strong>ani-intro</strong>目录下，即开机进场动画播放时一起播放开机声音。</p>
+<p><strong>audio_conf.txt</strong>文件为mixer参数配置，具体如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">card=0</span><br><span class="line">device=0</span><br><span class="line">period_size=1024</span><br><span class="line">period_count=4</span><br><span class="line">mixer &quot;Right Output Mixer PCM Playback Switch&quot;=0</span><br><span class="line">mixer &quot;Left Output Mixer PCM Playback Switch&quot;=0</span><br><span class="line">mixer &quot;Right Output Mixer Boost Bypass Switch&quot;=0</span><br><span class="line">mixer &quot;Left Output Mixer Boost Bypass Switch&quot;=0</span><br><span class="line">mixer &quot;Right Output Mixer RINPUT3 Switch&quot;=0</span><br><span class="line">mixer &quot;Left Output Mixer LINPUT3 Switch&quot;=0</span><br><span class="line">mixer &quot;Playback Volume&quot;=255 255</span><br><span class="line">mixer &quot;Speaker Playback Volume&quot;=127 127</span><br><span class="line">mixer &quot;DMono Mix&quot;=1</span><br><span class="line">mixer &quot;Headphone Playback Volume&quot;=110 110</span><br><span class="line">mixer &quot;Right Output Mixer PCM Playback Switch&quot;=1</span><br><span class="line">mixer &quot;Left Output Mixer PCM Playback Switch&quot;=1</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -295,35 +278,20 @@
   </div>
   
     
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/12/31/Android-frameworks-add-default-apps/">Android系统源码集成第三方APP并编译到system.img中</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">FLINT LI</a></p>
-        <p><span>发布时间:</span>2015-12-31, 14:13:55</p>
-        <p><span>最后更新:</span>2016-06-03, 14:16:49</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/12/31/Android-frameworks-add-default-apps/" title="Android系统源码集成第三方APP并编译到system.img中">flintli.xyz/2015/12/31/Android-frameworks-add-default-apps/</a>
-            <span class="copy-path" data-clipboard-text="原文: flintli.xyz/2015/12/31/Android-frameworks-add-default-apps/　　作者: FLINT LI" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
 
 
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/12/31/ubuntu-brightness-control/">
-                    Ubuntu亮度设置
+                <a href="/2016/07/22/Android-add-framework-res/">
+                    Android add framework res
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/12/31/Android-frameworks-SoundPool/">
-                    Android，外设物理按键添加类似touch sound一样的音效
+                <a href="/2016/07/22/android-build-command/">
+                    android build commond
                 </a>
             </div>
         
@@ -334,7 +302,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6982_u8BBA"><span class="toc-number">1.</span> <span class="toc-text">概论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E26_u6E90_u7801_u7684APP_u7F16_u8BD1_u5230_u7CFB_u7EDF"><span class="toc-number">2.</span> <span class="toc-text">带源码的APP编译到系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u65E0_u6E90_u7801_u7684APK_u6587_u4EF6_u7F16_u8BD1_u5230_u7CFB_u7EDF"><span class="toc-number">3.</span> <span class="toc-text">无源码的APK文件编译到系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app_u9700_u8981_u4F9D_u8D56_u7B2C_u4E09_u65B9so_u5E93"><span class="toc-number">4.</span> <span class="toc-text">app需要依赖第三方so库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53E6_u5916_u518D_u8BF4_u51E0_u53E5"><span class="toc-number">5.</span> <span class="toc-text">另外再说几句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5199_u5728_u6700_u540E"><span class="toc-number">6.</span> <span class="toc-text">写在最后</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6587_u4EF6_u8DEF_u5F84_uFF1A"><span class="toc-number">1.</span> <span class="toc-text">文件路径：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u590D_u5236zip_u5305"><span class="toc-number">2.</span> <span class="toc-text">复制zip包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5F00_u673A_u52A8_u753B_u5236_u4F5C"><span class="toc-number">3.</span> <span class="toc-text">开机动画制作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5F00_u673A_u58F0_u97F3_u5236_u4F5C"><span class="toc-number">4.</span> <span class="toc-text">开机声音制作</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -391,7 +359,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Android系统源码集成第三方APP并编译到system.img中　| FLINT LI's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Andorid boot animation　| FLINT LI's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -407,7 +375,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/12/31/Android-frameworks-add-default-apps/" data-title="Android系统源码集成第三方APP并编译到system.img中" data-url="flintli.xyz/2015/12/31/Android-frameworks-add-default-apps/"></div>
+    <div class="ds-thread" data-thread-key="2016/07/22/Andorid-boot-animation/" data-title="Andorid boot animation" data-url="flintli.xyz/2016/07/22/Andorid-boot-animation/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -431,7 +399,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/12/31/ubuntu-brightness-control/" title="上一篇: Ubuntu亮度设置">
+            <a href="/2016/07/22/Android-add-framework-res/" title="上一篇: Android add framework res">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -439,7 +407,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/12/31/Android-frameworks-SoundPool/" title="下一篇: Android，外设物理按键添加类似touch sound一样的音效">
+            <a href="/2016/07/22/android-build-command/" title="下一篇: android build commond">
                 <i class="fa fa-angle-right"></i>
             </a>
         
