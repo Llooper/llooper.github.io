@@ -4,11 +4,28 @@
 
     
   <url>
-    <loc>flintli.xyz/2016/07/22/Andorid-boot-animation/</loc>
-    <lastmod>2016-07-22T02:39:39.000Z</lastmod>
+    <loc>flintli.xyz/2016/07/22/Android-add-framework-res/</loc>
+    <lastmod>2016-07-22T02:44:42.000Z</lastmod>
     <data>
         <display>
-        <title>Andorid boot animation</title>
+        <title>Android 添加framework资源包</title>
+        <pubTime>2016-07-22T02:25:41.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>flintli.xyz/2016/07/22/Andorid-boot-animation/</loc>
+    <lastmod>2016-07-22T02:44:26.000Z</lastmod>
+    <data>
+        <display>
+        <title>Andorid 开机动画与开机声音</title>
         <pubTime>2016-07-22T02:25:01.000Z</pubTime>
         
         <tag>Android</tag>
@@ -27,23 +44,6 @@
         <display>
         <title>Android 4.4禁止系统无反应弹窗</title>
         <pubTime>2016-07-22T02:26:31.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>flintli.xyz/2016/07/22/Android-add-framework-res/</loc>
-    <lastmod>2016-07-22T02:38:15.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android add framework res</title>
-        <pubTime>2016-07-22T02:25:41.000Z</pubTime>
         
         <tag>Android</tag>
          

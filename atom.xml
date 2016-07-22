@@ -152,11 +152,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Android add framework res]]></title>
+    <title><![CDATA[Android 添加framework资源包]]></title>
     <link href="flintli.xyz/2016/07/22/Android-add-framework-res/"/>
     <id>flintli.xyz/2016/07/22/Android-add-framework-res/</id>
     <published>2016-07-22T02:25:41.000Z</published>
-    <updated>2016-07-22T02:38:15.000Z</updated>
+    <updated>2016-07-22T02:44:42.000Z</updated>
     <content type="html"><![CDATA[<p>为Android系统添加一个新的资源包</p>
 <a id="more"></a>
 <h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><p>传统的Android系统只有一个framework-res.apk资源包，第三方厂商在进行rom定制时会直接修改framework res资源，达到适配目的。但是这种方式跟原生资源的耦合度过高，在系统迁移或者framework ui移植时需要进行人工merge，工作量巨大。通过为Android添加一个新的独立的资源包，可以将厂商定制资源独立出来，可移植、可维护性非常好。</p>
@@ -198,11 +198,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Andorid boot animation]]></title>
+    <title><![CDATA[Andorid 开机动画与开机声音]]></title>
     <link href="flintli.xyz/2016/07/22/Andorid-boot-animation/"/>
     <id>flintli.xyz/2016/07/22/Andorid-boot-animation/</id>
     <published>2016-07-22T02:25:01.000Z</published>
-    <updated>2016-07-22T02:39:39.000Z</updated>
+    <updated>2016-07-22T02:44:26.000Z</updated>
     <content type="html"><![CDATA[<p>开机动画与声音</p>
 <a id="more"></a>
 <h3 id="u6587_u4EF6_u8DEF_u5F84_uFF1A"><a href="#u6587_u4EF6_u8DEF_u5F84_uFF1A" class="headerlink" title="文件路径："></a>文件路径：</h3><p><code>/frameworks/base/cmds/bootanimation/</code><br>此目录下实现了开机动画以及开机声音的播放。移植并升级了rockchip(Android 4.4)的开机动画部分源码到5.1，对声音播放进行了改进。</p>
